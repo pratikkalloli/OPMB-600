@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opmb-600"
+version = "0.1.0"
+description = "Original PQC Migration Benchmark"
+requires-python = ">=3.11"
+dependencies = ["cryptography==50.0.2", "jsonschema==4.25.1"]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,9 @@
+{
+  "condition": "C3",
+  "name": "Structured strategy memory",
+  "memory_source": "verified_structured_strategies",
+  "split_manifest": "benchmark/splits/train.json",
+  "status": "template_only",
+  "provider": "provider_agnostic",
+  "seed": 600
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "strategy_id",
+    "title",
+    "trigger",
+    "preconditions",
+    "repair_steps",
+    "verification_checks",
+    "known_limitations",
+    "source_task",
+    "outcome"
+  ],
+  "properties": {
+    "strategy_id": {
+      "type": "string",
+      "pattern": "^STRATEGY-[0-9]{3,}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trigger": {
+      "type": "string",
+      "minLength": 1
+    },
+    "preconditions": {
+      "type": "array"
+    },
+    "repair_steps": {
+      "type": "array",
+      "minItems": 1
+    },
+    "verification_checks": {
+      "type": "array",
+      "minItems": 1
+    },
+    "known_limitations": {
+      "type": "array"
+    },
+    "source_task": {
+      "type": "string",
+      "pattern": "^OPMB-[0-9]{4}$"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "verified"
+      ]
+    }
+  }
+}

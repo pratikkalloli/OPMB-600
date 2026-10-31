@@ -1,0 +1,9 @@
+{
+  "condition": "C2",
+  "name": "Reflection memory",
+  "memory_source": "reflections_from_verified_outcomes",
+  "split_manifest": "benchmark/splits/train.json",
+  "status": "template_only",
+  "provider": "provider_agnostic",
+  "seed": 600
+}

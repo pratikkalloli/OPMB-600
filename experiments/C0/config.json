@@ -1,0 +1,9 @@
+{
+  "condition": "C0",
+  "name": "No memory",
+  "memory_source": "none",
+  "split_manifest": "benchmark/splits/train.json",
+  "status": "template_only",
+  "provider": "provider_agnostic",
+  "seed": 600
+}

@@ -1,0 +1,19 @@
+{
+  "repository_count": 0,
+  "task_count": 0,
+  "accepted_task_count": 0,
+  "pending_task_count": 0,
+  "domains": {},
+  "migration_families": {},
+  "difficulty": {},
+  "original_test_status": {},
+  "reference_status": {},
+  "accepted_status": "incomplete",
+  "blockers": [
+    "No application projects or task specifications are present yet.",
+    "Full 60-project/600-task corpus has not been authored.",
+    "Reference migrations and cryptographic verification have not yet been executed.",
+    "Repository-level splits are empty and pending.",
+    "Isolated execution and post-migration cryptographic scanning are not implemented."
+  ]
+}
