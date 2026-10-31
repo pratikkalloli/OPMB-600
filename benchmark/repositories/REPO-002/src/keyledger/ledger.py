@@ -33,7 +33,7 @@ class KeyLedger:
     def revoke(self,key_id:str)->bool:
         with sqlite3.connect(self.path) as db:
             cur=db.execute("UPDATE keys SET status='revoked' WHERE key_id=? AND status='active'",(key_id,))
-            if cur.rowcount: 
+            if cur.rowcount:
                 now=int(time.time()); payload=json.dumps({"id":key_id,"at":now,"status":"revoked"},sort_keys=True,separators=(",",":")).encode(); db.execute("INSERT INTO events(key_id,kind,at,payload,signature) VALUES(?,?,?,?,?)",(key_id,"revoked",now,payload,sign_audit_event(payload,self.audit_private)))
             return cur.rowcount==1
     def audit_valid(self,key_id:str)->bool:
