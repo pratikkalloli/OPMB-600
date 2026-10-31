@@ -1,14 +1,15 @@
 # OPMB-600 progress
 
-## Checkpoint: repository foundation
+## Checkpoint: first application pilot
 
-- Repository was empty at start; no existing user changes were present.
-- Working branch: `feature/opmb-600-benchmark`.
-- Added project metadata, dependency pins, schemas, docs, experiment condition templates, split placeholders, strategy schema, and metadata validation commands.
-- Validation command completed with metadata checks clean; this is a zero-record check, not proof of a dataset.
-- `pytest -q`: 2 passed (foundation smoke tests).
-- Current inventory: 0 applications, 0 tasks, 0 accepted tasks.
+- Repository was initially empty; branch: `feature/opmb-600-benchmark`.
+- Foundation includes schemas, docs, experiment templates, and validation commands.
+- Added REPO-001 SecureVault: SQLite document store with per-object AES-GCM, RSA-OAEP data-key wrapping, and RSA-PSS manifest integrity.
+- Added ten task directories/specifications linked to executable cryptographic functions.
+- Added a separate reference implementation using ML-KEM-768 plus HKDF and AES-GCM for key wrapping, and ML-DSA-65 for manifest signatures.
+- Pinned environment tests: original 8 passed; reference 8 passed. Test output and dependency versions are recorded in `reports/evidence/REPO-001/test-results.json`.
+- Task statuses: 10 candidates, 0 accepted; execution evidence exists, independent review and full corpus acceptance do not.
 
 ## Remaining work
 
-All application implementation and tests, 600 task records and task directories, reference migrations, cryptographic verification, repository-level split assignment, secret audit, held-out input checks, and full acceptance validation remain undone. No benchmark completion claim is made.
+Batch 1 has five of six pilot applications and fifty tasks remaining. The other 54 applications/540 tasks, balanced global family distribution, final splits, scanner/leakage checks, broad migration verification, and full acceptance remain incomplete. Run `python -m validation.run_all --allow-incomplete` for batch checks; the default command fails until the 60/600/600 acceptance target is met.

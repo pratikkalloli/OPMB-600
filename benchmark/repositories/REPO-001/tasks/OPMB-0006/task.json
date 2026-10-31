@@ -1,0 +1,56 @@
+{
+  "task_id": "OPMB-0006",
+  "repository_id": "REPO-001",
+  "repository_name": "securevault",
+  "application_domain": "secure_file_storage",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA",
+  "cryptographic_operation": "RSA-PSS manifest verification",
+  "source_files": [
+    "src/securevault/crypto.py"
+  ],
+  "function_names": [
+    "verify_manifest"
+  ],
+  "migration_family": "RSA digital signatures",
+  "migration_target": "ML-DSA",
+  "migration_objective": "Migrate signature verification to the corresponding PQC public-key representation and preserve invalid-signature semantics.",
+  "preconditions": [
+    "The original SecureVault tests pass.",
+    "No production data or credentials are present."
+  ],
+  "expected_behavior": [
+    "Preserve the document import and retrieval contract.",
+    "Reject invalid cryptographic inputs without exposing secret material."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through a maintained cryptographic provider.",
+    "Update key serialization and every dependent application call.",
+    "Do not treat ML-KEM as direct arbitrary RSA encryption."
+  ],
+  "original_tests": [
+    "tests/test_securevault.py"
+  ],
+  "migration_tests": [
+    "tests/test_securevault.py"
+  ],
+  "verification_procedure": [
+    "Generate new keys using the declared PQC provider.",
+    "Run positive and tamper-rejection cases relevant to this operation.",
+    "Record provider/version and machine-readable test output."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "No PQC reference migration has been implemented or verified.",
+    "The available runtime provider version lacks the required ML-DSA/ML-KEM API."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-001/tasks/OPMB-0006",
+  "reference_path": "benchmark/repositories/REPO-001/migrated_reference/OPMB-0006"
+}

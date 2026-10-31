@@ -1,0 +1,20 @@
+{
+  "dataset_status": "incomplete",
+  "accepted": 0,
+  "candidate": 10,
+  "pending": 0,
+  "original_test_status": {
+    "passed": 10
+  },
+  "reference_test_status": {
+    "tested": 10
+  },
+  "cryptographic_verification_status": {
+    "passed": 10
+  },
+  "blockers": [
+    "59 application projects remain to be authored.",
+    "590 migration tasks remain to be authored.",
+    "600 tasks are not accepted; independent review and complete evidence are still required."
+  ]
+}

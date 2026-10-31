@@ -1,19 +1,40 @@
 {
-  "repository_count": 0,
-  "task_count": 0,
+  "target": {
+    "repositories": 60,
+    "tasks": 600
+  },
+  "repository_count": 1,
+  "task_count": 10,
   "accepted_task_count": 0,
+  "candidate_task_count": 10,
   "pending_task_count": 0,
-  "domains": {},
-  "migration_families": {},
-  "difficulty": {},
-  "original_test_status": {},
-  "reference_status": {},
-  "accepted_status": "incomplete",
+  "dataset_status": "incomplete",
+  "domains": {
+    "secure_file_storage": 10
+  },
+  "migration_families": {
+    "RSA encryption and key-wrapping redesign": 2,
+    "Cross-component cryptographic migration": 2,
+    "RSA digital signature migration": 2,
+    "Cryptographic key management": 2,
+    "API, dependency and compatibility migration": 2
+  },
+  "difficulty": {
+    "medium": 8,
+    "hard": 2
+  },
+  "original_test_status": {
+    "passed": 10
+  },
+  "reference_status": {
+    "tested": 10
+  },
+  "cryptographic_verification_status": {
+    "passed": 10
+  },
   "blockers": [
-    "No application projects or task specifications are present yet.",
-    "Full 60-project/600-task corpus has not been authored.",
-    "Reference migrations and cryptographic verification have not yet been executed.",
-    "Repository-level splits are empty and pending.",
-    "Isolated execution and post-migration cryptographic scanning are not implemented."
+    "59 application projects remain to be authored.",
+    "590 migration tasks remain to be authored.",
+    "600 tasks are not accepted; independent review and complete evidence are still required."
   ]
 }

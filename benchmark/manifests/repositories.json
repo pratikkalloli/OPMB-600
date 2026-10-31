@@ -1,3 +1,26 @@
 {
-  "repositories": []
+  "repositories": [
+    {
+      "repository_id": "REPO-001",
+      "name": "securevault",
+      "application_domain": "secure_file_storage",
+      "path": "benchmark/repositories/REPO-001",
+      "purpose": "Local SQLite document vault with per-object authenticated encryption and signed integrity metadata.",
+      "status": "candidate",
+      "main_modules": [
+        "src/securevault/crypto.py",
+        "src/securevault/store.py",
+        "src/securevault/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP",
+        "RSA-3072 PSS",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "verification_evidence": "reports/evidence/REPO-001/test-results.json"
+    }
+  ]
 }

@@ -1,15 +1,18 @@
-"""Validate repository inventory and required project structure."""
+"""Check application directory inventory and project files."""
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 def main()->int:
- data=json.loads((ROOT/"benchmark/manifests/repositories.json").read_text()); repos=data.get("repositories",[]); errors=[]; ids=[r.get("repository_id") for r in repos]
- if len(ids)!=len(set(ids)): errors.append("duplicate repository IDs")
- for r in repos:
-  path=ROOT/r.get("path", "")
-  if not path.is_dir(): errors.append(f"{r.get('repository_id')}: directory missing")
-  elif not (path/"README.md").is_file(): errors.append(f"{r.get('repository_id')}: README missing")
- print(f"repositories: {len(repos)}; errors: {len(errors)}")
- for e in errors: print(e)
- return bool(errors)
+    data=json.loads((ROOT/"benchmark/manifests/repositories.json").read_text(encoding="utf-8")); repos=data.get("repositories",[]); errors=[]; ids=[r.get("repository_id") for r in repos]
+    if len(ids)!=len(set(ids)): errors.append("duplicate repository IDs")
+    for repo in repos:
+        path=ROOT/repo.get("path","")
+        for rel in ("README.md","pyproject.toml","tests"):
+            target=path/rel
+            if not target.exists(): errors.append(f"{repo.get('repository_id')}: required project path missing: {rel}")
+        if repo.get("task_count")!=10: errors.append(f"{repo.get('repository_id')}: declared task_count must be ten")
+    if len(repos)>60: errors.append("repository inventory exceeds 60")
+    print(f"repositories: {len(repos)}/60; errors: {len(errors)}")
+    for error in errors: print(error)
+    return int(bool(errors))
 if __name__=="__main__": raise SystemExit(main())

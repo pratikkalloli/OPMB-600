@@ -1,1 +1,11 @@
-task_id,repository_id,application_domain,migration_family,difficulty,validation_status
+task_id,repository_id,repository_name,application_domain,migration_family,migration_target,difficulty,validation_status
+OPMB-0001,REPO-001,securevault,secure_file_storage,RSA encryption and key-wrapping redesign,ML-KEM + HKDF + AES-GCM,medium,candidate
+OPMB-0002,REPO-001,securevault,secure_file_storage,RSA encryption and key-wrapping redesign,ML-KEM + HKDF + AES-GCM,medium,candidate
+OPMB-0003,REPO-001,securevault,secure_file_storage,Cross-component cryptographic migration,ML-KEM + HKDF + AES-GCM,hard,candidate
+OPMB-0004,REPO-001,securevault,secure_file_storage,Cross-component cryptographic migration,ML-KEM + HKDF + AES-GCM,hard,candidate
+OPMB-0005,REPO-001,securevault,secure_file_storage,RSA digital signature migration,ML-DSA,medium,candidate
+OPMB-0006,REPO-001,securevault,secure_file_storage,RSA digital signature migration,ML-DSA,medium,candidate
+OPMB-0007,REPO-001,securevault,secure_file_storage,Cryptographic key management,ML-KEM,medium,candidate
+OPMB-0008,REPO-001,securevault,secure_file_storage,Cryptographic key management,ML-DSA,medium,candidate
+OPMB-0009,REPO-001,securevault,secure_file_storage,"API, dependency and compatibility migration",ML-DSA,medium,candidate
+OPMB-0010,REPO-001,securevault,secure_file_storage,"API, dependency and compatibility migration",ML-DSA,medium,candidate

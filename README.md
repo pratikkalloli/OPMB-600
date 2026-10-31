@@ -8,7 +8,7 @@ How do migration agents perform when replacing classical public-key cryptography
 
 ## Intended design
 
-The full benchmark targets 60 distinct applications and 600 tasks across nine application domains. Task families cover RSA signatures, RSA encryption/key wrapping redesign, ECDSA, ECDH, key management, API/dependency compatibility, and cross-component changes. Reference targets follow NIST FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), or FIPS 205 (SLH-DSA) where supported. The current checkout is an initial foundation; see `reports/progress.md` for implemented and pending scope.
+The full benchmark targets 60 distinct applications and 600 tasks across nine application domains. Task families cover RSA signatures, RSA encryption/key wrapping redesign, ECDSA, ECDH, key management, API/dependency compatibility, and cross-component changes. Reference targets follow NIST FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), or FIPS 205 (SLH-DSA) where supported. The first implemented pilot is REPO-001 SecureVault (10 candidate tasks); see `docs/application_catalogue.md` and `reports/progress.md` for implemented and pending scope. No task is accepted yet.
 
 ## Setup
 
@@ -28,6 +28,8 @@ On Windows activate with `.venv\Scripts\Activate.ps1`.
 python -m validation.run_all
 pytest
 ```
+
+For in-progress batch checks, use `python -m validation.run_all --allow-incomplete`. The default command returns failure until the full 60-repository, 600-task, 600-accepted target is met.
 
 ## Research conditions
 
