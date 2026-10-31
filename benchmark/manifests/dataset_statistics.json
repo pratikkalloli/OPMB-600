@@ -1,18 +1,19 @@
 {
-  "repository_count": 1,
-  "task_count": 10,
+  "repository_count": 2,
+  "task_count": 20,
   "domains": {
-    "secure_file_storage": 10
+    "secure_file_storage": 10,
+    "key_management": 10
   },
   "migration_families": {
-    "RSA encryption and key-wrapping redesign": 2,
-    "Cross-component cryptographic migration": 2,
-    "RSA digital signature migration": 2,
-    "Cryptographic key management": 2,
-    "API, dependency and compatibility migration": 2
+    "RSA encryption and key-wrapping redesign": 4,
+    "Cross-component cryptographic migration": 3,
+    "RSA digital signature migration": 4,
+    "Cryptographic key management": 5,
+    "API, dependency and compatibility migration": 4
   },
   "difficulty": {
-    "medium": 8,
-    "hard": 2
+    "medium": 15,
+    "hard": 5
   }
 }

@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0018",
+  "repository_id": "REPO-002",
+  "repository_name": "KeyLedger",
+  "application_domain": "key_management",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA",
+  "cryptographic_operation": "Encrypted private-key persistence format",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/keyledger/crypto.py"
+  ],
+  "function_names": [
+    "serialize_private_key"
+  ],
+  "migration_family": "Cryptographic key management",
+  "migration_target": "ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8",
+  "migration_objective": "Migrate protected private-key export to provider-supported encrypted PKCS#8 for PQC key material.",
+  "preconditions": [
+    "Baseline lifecycle tests pass.",
+    "All owners and recovery values are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve ownership, purpose, expiration, rotation, revocation, and audit semantics.",
+    "Reject malformed keys, invalid signatures, or wrong recovery context safely."
+  ],
+  "migration_requirements": [
+    "Use supported standardized cryptography 50.0.2 PQC APIs.",
+    "Keep signing and key-establishment keys separate.",
+    "Update every affected serialization and caller contract."
+  ],
+  "original_tests": [
+    "tests/test_keyledger.py"
+  ],
+  "migration_tests": [
+    "tests/test_keyledger_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original KeyLedger tests.",
+    "Run matching PQC positive and negative tests.",
+    "Record provider/test output and scanner report."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Test evidence is not independent review or security certification.",
+    "The inventory is a local SQLite simulation without HSM-backed custody."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-002/tasks/OPMB-0018",
+  "reference_path": "benchmark/repositories/REPO-002/migrated_reference/keyledger_pqc",
+  "original_test_evidence": "reports/evidence/REPO-002/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-002/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-002/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-002/post-migration-scan.json"
+}

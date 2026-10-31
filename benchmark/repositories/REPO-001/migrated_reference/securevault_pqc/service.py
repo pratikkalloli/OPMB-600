@@ -13,11 +13,11 @@ class VaultConfig:
         if self.max_document_bytes<=0: raise ValueError("max_document_bytes must be positive")
 class SecureVaultPQC:
     """Reference service with ML-KEM key establishment and ML-DSA signatures."""
-    def __init__(self,database:str|Path,recipient_public,recipient_private,signing_private=None,config:VaultConfig=VaultConfig())->None:
-        self.store=VaultStore(database); self.recipient_public=recipient_public; self.recipient_private=recipient_private; self.config=config; self.signing_private=signing_private or generate_signing_keypair()[0]
+    def __init__(self,database:str|Path,recipient_public,recipient_private,signing_private,config:VaultConfig=VaultConfig())->None:
+        self.store=VaultStore(database); self.recipient_public=recipient_public; self.recipient_private=recipient_private; self.config=config; self.signing_private=signing_private
     @staticmethod
     def _manifest(item:SealedObject)->bytes:
-        return json.dumps({"id":item.object_id,"filename":item.filename,"sha256":hashlib.sha256(item.ciphertext).hexdigest()},sort_keys=True,separators=(",",":")).encode()
+        return json.dumps({"id":item.object_id,"filename":item.filename,"sha256":hashlib.sha256(item.ciphertext).hexdigest(),"nonce_sha256":hashlib.sha256(item.nonce).hexdigest(),"wrapped_key_sha256":hashlib.sha256(item.wrapped_key).hexdigest()},sort_keys=True,separators=(",",":")).encode()
     def import_document(self,filename:str,content:bytes)->str:
         if not filename or Path(filename).name!=filename or filename in {".",".."}: raise ValueError("filename must be a plain basename")
         if not isinstance(content,bytes) or not content: raise ValueError("document must contain bytes")

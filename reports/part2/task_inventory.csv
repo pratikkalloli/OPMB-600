@@ -1,0 +1,21 @@
+task_id,repository_id,repository_name,application_domain,cryptographic_operation,migration_family,migration_target,difficulty,validation_status
+OPMB-0001,REPO-001,securevault,secure_file_storage,RSA-OAEP key wrapping,RSA encryption and key-wrapping redesign,ML-KEM + HKDF + AES-GCM,medium,candidate
+OPMB-0002,REPO-001,securevault,secure_file_storage,RSA-OAEP key unwrapping,RSA encryption and key-wrapping redesign,ML-KEM + HKDF + AES-GCM,medium,candidate
+OPMB-0003,REPO-001,securevault,secure_file_storage,AES-GCM document encryption key establishment,Cross-component cryptographic migration,ML-KEM + HKDF + AES-GCM,hard,candidate
+OPMB-0004,REPO-001,securevault,secure_file_storage,AES-GCM document decryption key establishment,Cross-component cryptographic migration,ML-KEM + HKDF + AES-GCM,hard,candidate
+OPMB-0005,REPO-001,securevault,secure_file_storage,RSA-PSS manifest signing,RSA digital signature migration,ML-DSA,medium,candidate
+OPMB-0006,REPO-001,securevault,secure_file_storage,RSA-PSS manifest verification,RSA digital signature migration,ML-DSA,medium,candidate
+OPMB-0007,REPO-001,securevault,secure_file_storage,RSA recipient key generation,Cryptographic key management,ML-KEM,medium,candidate
+OPMB-0008,REPO-001,securevault,secure_file_storage,RSA signing key generation,Cryptographic key management,ML-DSA,medium,candidate
+OPMB-0009,REPO-001,securevault,secure_file_storage,SPKI public-key persistence API,"API, dependency and compatibility migration",ML-DSA,medium,candidate
+OPMB-0010,REPO-001,securevault,secure_file_storage,PEM public-key loading API,"API, dependency and compatibility migration",ML-DSA,medium,candidate
+OPMB-0011,REPO-002,KeyLedger,key_management,RSA-PSS audit event signing,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0012,REPO-002,KeyLedger,key_management,RSA-PSS audit event verification,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0013,REPO-002,KeyLedger,key_management,RSA-OAEP recovery-secret wrapping,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF-SHA-256 + AES-GCM,hard,candidate
+OPMB-0014,REPO-002,KeyLedger,key_management,RSA-OAEP recovery-secret opening,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF-SHA-256 + AES-GCM,hard,candidate
+OPMB-0015,REPO-002,KeyLedger,key_management,RSA signing-key generation,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0016,REPO-002,KeyLedger,key_management,RSA transport-key generation,Cryptographic key management,ML-KEM-768,medium,candidate
+OPMB-0017,REPO-002,KeyLedger,key_management,PEM public-key import/export contract,"API, dependency and compatibility migration",ML-KEM-768,medium,candidate
+OPMB-0018,REPO-002,KeyLedger,key_management,Encrypted private-key persistence format,Cryptographic key management,ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
+OPMB-0019,REPO-002,KeyLedger,key_management,Private-key restoration interface,"API, dependency and compatibility migration",ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
+OPMB-0020,REPO-002,KeyLedger,key_management,"Lifecycle audit, fingerprint and rotation compatibility",Cross-component cryptographic migration,ML-KEM-768 and ML-DSA-65,hard,candidate

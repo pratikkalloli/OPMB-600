@@ -1,0 +1,10 @@
+{
+  "command": "python -m validation.run_all --allow-incomplete",
+  "metadata_schema": "passed",
+  "task_links_source_function_and_test_paths": "passed",
+  "duplicate_exact_objectives": "none",
+  "reference_paths_and_evidence": "passed",
+  "repositories_present": 2,
+  "tasks_present": 20,
+  "full_acceptance": "incomplete inventory; no acceptance claim"
+}

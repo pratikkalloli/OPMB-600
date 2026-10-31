@@ -1,5 +1,6 @@
 """Validate task fields, links, tests, evidence, and status consistency."""
 from __future__ import annotations
+import ast
 import json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -17,10 +18,21 @@ def main()->int:
         base=ROOT/repo.get("path",""); task_dir=ROOT/t.get("task_path","")
         if not task_dir.is_dir(): errors.append(f"{tid}: task directory missing")
         elif not (task_dir/"task.json").is_file(): errors.append(f"{tid}: task.json missing")
+        source_defs=set()
         for source in t.get("source_files",[]):
-            if not (base/source).is_file(): errors.append(f"{tid}: source missing: {source}")
+            source_path=base/source
+            if not source_path.is_file(): errors.append(f"{tid}: source missing: {source}"); continue
+            try:
+                tree=ast.parse(source_path.read_text(encoding="utf-8"))
+                source_defs.update(node.name for node in ast.walk(tree) if isinstance(node,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef)))
+            except (SyntaxError,UnicodeError) as exc: errors.append(f"{tid}: source parse failed: {source}: {exc}")
+        for name in t.get("function_names",[]):
+            if name not in source_defs: errors.append(f"{tid}: function/class not found in source_files: {name}")
         for test in t.get("original_tests",[]):
             if not (base/test).is_file(): errors.append(f"{tid}: original test missing: {test}")
+        for test in t.get("migration_tests",[]):
+            if not (base/test).is_file(): errors.append(f"{tid}: migration test missing: {test}")
+        if not (ROOT/t.get("reference_path","")).is_dir(): errors.append(f"{tid}: reference implementation path missing")
         for field in ("migration_objective","expected_behavior","migration_requirements","original_tests","verification_procedure"):
             if not t.get(field): errors.append(f"{tid}: empty {field}")
         for status_field,evidence_field in EVIDENCE_FIELDS.items():

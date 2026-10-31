@@ -1,0 +1,35 @@
+{
+  "repository_id": "REPO-002",
+  "application": "KeyLedger",
+  "executed_with": {
+    "python": "3.13",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2"
+  },
+  "original_suite": {
+    "command": "python -m pytest tests/test_keyledger.py -q",
+    "result": "passed",
+    "passed": 7,
+    "failed": 0
+  },
+  "reference_suite": {
+    "command": "python -m pytest tests/test_keyledger_pqc.py -q",
+    "result": "passed",
+    "passed": 5,
+    "failed": 0
+  },
+  "cryptographic_checks": [
+    "RSA-PSS signed lifecycle audit",
+    "RSA-OAEP recovery envelope including maximum plaintext boundary",
+    "ML-DSA-65 signed lifecycle audit and invalid-signature rejection",
+    "ML-KEM-768 encapsulation, HKDF-SHA-256 and AES-GCM recovery envelope",
+    "wrong recovery context rejection",
+    "encrypted ML-KEM private-key PKCS#8 export/import",
+    "ML-KEM public-key serialization/fingerprint round trip",
+    "lifecycle rotation/revocation audit persistence"
+  ],
+  "limitations": [
+    "Tests are evidence, not a formal security proof or independent review.",
+    "SQLite lifecycle store is a controlled simulation and does not provide HSM-backed key custody."
+  ]
+}

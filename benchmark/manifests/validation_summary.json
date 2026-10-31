@@ -1,7 +1,7 @@
 {
   "inventory_check": "partial",
-  "repositories_present": 1,
-  "tasks_present": 10,
+  "repositories_present": 2,
+  "tasks_present": 20,
   "accepted_tasks": 0,
   "note": "Detailed consistency command results are emitted by validation.run_all; this summary does not infer acceptance."
 }

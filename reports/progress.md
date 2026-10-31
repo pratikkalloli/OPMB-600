@@ -1,15 +1,11 @@
 # OPMB-600 progress
 
-## Checkpoint: first application pilot
+## 2026-11-01 checkpoint
 
-- Repository was initially empty; branch: `feature/opmb-600-benchmark`.
-- Foundation includes schemas, docs, experiment templates, and validation commands.
-- Added REPO-001 SecureVault: SQLite document store with per-object AES-GCM, RSA-OAEP data-key wrapping, and RSA-PSS manifest integrity.
-- Added ten task directories/specifications linked to executable cryptographic functions.
-- Added a separate reference implementation using ML-KEM-768 plus HKDF and AES-GCM for key wrapping, and ML-DSA-65 for manifest signatures.
-- Pinned environment tests: original 8 passed; reference 8 passed. Test output and dependency versions are recorded in `reports/evidence/REPO-001/test-results.json`.
-- Task statuses: 10 candidates, 0 accepted; execution evidence exists, independent review and full corpus acceptance do not.
-
-## Remaining work
-
-Batch 1 has five of six pilot applications and fifty tasks remaining. The other 54 applications/540 tasks, balanced global family distribution, final splits, scanner/leakage checks, broad migration verification, and full acceptance remain incomplete. Run `python -m validation.run_all --allow-incomplete` for batch checks; the default command fails until the 60/600/600 acceptance target is met.
+- Branch: feature/opmb-600-benchmark.
+- REPO-001 SecureVault audited and two issues fixed; see reports/pilot_audit/REPO-001-audit.md.
+- REPO-002 KeyLedger implemented with SQLite lifecycle state, RSA original code, and ML-KEM/ML-DSA reference.
+- Current inventory: 2 applications, 20 candidate tasks, 0 accepted.
+- Tests: 18 original and 14 PQC reference passed on Python 3.13 / cryptography 50.0.2 / pytest 8.4.2.
+- Full benchmark remains incomplete: 58 applications and 580 tasks remain. Part 2 still has 14 applications and 140 tasks to implement.
+- Batch checks: python -m validation.run_all --allow-incomplete; full acceptance correctly fails while target counts and reviews are incomplete.

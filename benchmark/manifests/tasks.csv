@@ -9,3 +9,13 @@ OPMB-0007,REPO-001,securevault,secure_file_storage,Cryptographic key management,
 OPMB-0008,REPO-001,securevault,secure_file_storage,Cryptographic key management,ML-DSA,medium,candidate
 OPMB-0009,REPO-001,securevault,secure_file_storage,"API, dependency and compatibility migration",ML-DSA,medium,candidate
 OPMB-0010,REPO-001,securevault,secure_file_storage,"API, dependency and compatibility migration",ML-DSA,medium,candidate
+OPMB-0011,REPO-002,KeyLedger,key_management,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0012,REPO-002,KeyLedger,key_management,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0013,REPO-002,KeyLedger,key_management,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF-SHA-256 + AES-GCM,hard,candidate
+OPMB-0014,REPO-002,KeyLedger,key_management,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF-SHA-256 + AES-GCM,hard,candidate
+OPMB-0015,REPO-002,KeyLedger,key_management,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0016,REPO-002,KeyLedger,key_management,Cryptographic key management,ML-KEM-768,medium,candidate
+OPMB-0017,REPO-002,KeyLedger,key_management,"API, dependency and compatibility migration",ML-KEM-768,medium,candidate
+OPMB-0018,REPO-002,KeyLedger,key_management,Cryptographic key management,ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
+OPMB-0019,REPO-002,KeyLedger,key_management,"API, dependency and compatibility migration",ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
+OPMB-0020,REPO-002,KeyLedger,key_management,Cross-component cryptographic migration,ML-KEM-768 and ML-DSA-65,hard,candidate

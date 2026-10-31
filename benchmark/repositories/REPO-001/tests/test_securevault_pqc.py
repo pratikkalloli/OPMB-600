@@ -42,3 +42,12 @@ def test_fips204_rejects_wrong_public_key():
 
 def test_malformed_mlkem_public_key_is_rejected():
     with pytest.raises(VaultCryptoError): load_public_key(b"not a public key")
+
+
+def test_stored_nonce_is_covered_by_signed_manifest(tmp_path):
+    import sqlite3
+    private,public=generate_recipient_keypair(); signer,_=generate_signing_keypair(); database=tmp_path/"vault.db"
+    vault=SecureVaultPQC(database,public,private,signer); object_id=vault.import_document("proof.txt",b"content")
+    with sqlite3.connect(database) as db: db.execute("UPDATE objects SET nonce=? WHERE object_id=?",(b"n"*12,object_id))
+    with pytest.raises(VaultCryptoError,match="manifest signature"):
+        vault.retrieve_document(object_id)

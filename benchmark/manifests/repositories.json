@@ -21,6 +21,27 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "verification_evidence": "reports/evidence/REPO-001/test-results.json"
+    },
+    {
+      "repository_id": "REPO-002",
+      "name": "KeyLedger",
+      "application_domain": "key_management",
+      "path": "benchmark/repositories/REPO-002",
+      "purpose": "SQLite inventory for synthetic cryptographic key ownership, expiry, rotation, revocation, and signed lifecycle events.",
+      "status": "candidate",
+      "main_modules": [
+        "src/keyledger/crypto.py",
+        "src/keyledger/ledger.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "RSA-3072 OAEP",
+        "SHA-256 fingerprints"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "verification_evidence": "reports/evidence/REPO-002/test-results.json"
     }
   ]
 }

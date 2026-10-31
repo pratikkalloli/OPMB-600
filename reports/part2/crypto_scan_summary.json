@@ -1,0 +1,24 @@
+{
+  "repositories": {
+    "REPO-001": {
+      "findings": 0,
+      "scan_scope": [
+        "RSA",
+        "ECDSA/ECDH",
+        "X25519/X448"
+      ],
+      "limitations": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+    },
+    "REPO-002": {
+      "findings": 0,
+      "scan_scope": [
+        "RSA",
+        "ECDSA/ECDH",
+        "X25519/X448"
+      ],
+      "limitations": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+    }
+  },
+  "total_findings": 0,
+  "caveat": "Lexical source scan only; not a proof of absence or a dependency/runtime scan."
+}

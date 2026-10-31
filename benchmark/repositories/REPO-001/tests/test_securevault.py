@@ -33,12 +33,12 @@ def test_public_key_serialization_round_trip():
     assert loaded.public_numbers()==public.public_numbers()
 
 def test_filename_and_size_validation(tmp_path):
-    private,public=generate_recipient_keypair(); vault=SecureVault(tmp_path/"vault.db",public,private,config=VaultConfig(3))
+    private,public=generate_recipient_keypair(); signer,_=generate_signing_keypair(); vault=SecureVault(tmp_path/"vault.db",public,private,signer,config=VaultConfig(3))
     with pytest.raises(ValueError): vault.import_document("../secret",b"x")
     with pytest.raises(ValueError): vault.import_document("large",b"four")
 
 def test_delete_is_idempotent(tmp_path):
-    private,public=generate_recipient_keypair(); vault=SecureVault(tmp_path/"vault.db",public,private)
+    private,public=generate_recipient_keypair(); signer,_=generate_signing_keypair(); vault=SecureVault(tmp_path/"vault.db",public,private,signer)
     key=vault.import_document("a.txt",b"a")
     assert vault.remove_document(key)
     assert not vault.remove_document(key)
@@ -53,3 +53,12 @@ def test_manifest_rejects_wrong_public_key():
     private,_=generate_signing_keypair(); _,wrong=generate_signing_keypair()
     signature=sign_manifest(b"manifest",private)
     assert not verify_manifest(b"manifest",signature,wrong)
+
+
+def test_stored_wrapped_key_is_covered_by_signed_manifest(tmp_path):
+    import sqlite3
+    private,public=generate_recipient_keypair(); signer,_=generate_signing_keypair(); database=tmp_path/"vault.db"
+    vault=SecureVault(database,public,private,signer); object_id=vault.import_document("proof.txt",b"content")
+    with sqlite3.connect(database) as db: db.execute("UPDATE objects SET wrapped_key=? WHERE object_id=?",(b"x"*384,object_id))
+    with pytest.raises(VaultCryptoError,match="manifest signature"):
+        vault.retrieve_document(object_id)

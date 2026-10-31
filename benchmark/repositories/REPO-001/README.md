@@ -17,4 +17,4 @@ The service validates basenames and size limits, binds object IDs as AEAD associ
 
 ## Run
 
-From this directory, install `requirements.txt`, then run `pytest`. Import `SecureVault` from `securevault.service`; provide the database path and recipient keys.
+From this directory, install `requirements.txt`, then run `pytest`. Import `SecureVault` from `securevault.service`; provide the database path, recipient key pair, and an explicit signing private key; key custody and persistence belong to the caller.

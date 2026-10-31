@@ -3,38 +3,39 @@
     "repositories": 60,
     "tasks": 600
   },
-  "repository_count": 1,
-  "task_count": 10,
+  "repository_count": 2,
+  "task_count": 20,
   "accepted_task_count": 0,
-  "candidate_task_count": 10,
+  "candidate_task_count": 20,
   "pending_task_count": 0,
   "dataset_status": "incomplete",
   "domains": {
-    "secure_file_storage": 10
+    "secure_file_storage": 10,
+    "key_management": 10
   },
   "migration_families": {
-    "RSA encryption and key-wrapping redesign": 2,
-    "Cross-component cryptographic migration": 2,
-    "RSA digital signature migration": 2,
-    "Cryptographic key management": 2,
-    "API, dependency and compatibility migration": 2
+    "RSA encryption and key-wrapping redesign": 4,
+    "Cross-component cryptographic migration": 3,
+    "RSA digital signature migration": 4,
+    "Cryptographic key management": 5,
+    "API, dependency and compatibility migration": 4
   },
   "difficulty": {
-    "medium": 8,
-    "hard": 2
+    "medium": 15,
+    "hard": 5
   },
   "original_test_status": {
-    "passed": 10
+    "passed": 20
   },
   "reference_status": {
-    "tested": 10
+    "tested": 20
   },
   "cryptographic_verification_status": {
-    "passed": 10
+    "passed": 20
   },
   "blockers": [
-    "59 application projects remain to be authored.",
-    "590 migration tasks remain to be authored.",
+    "58 application projects remain to be authored.",
+    "580 migration tasks remain to be authored.",
     "600 tasks are not accepted; independent review and complete evidence are still required."
   ]
 }

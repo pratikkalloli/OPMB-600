@@ -21,9 +21,13 @@ class VaultConfig:
 
 class SecureVault:
     """Local document vault; plaintext exists only in caller memory."""
-    def __init__(self, database: str | Path, recipient_public, recipient_private, signing_private=None, config: VaultConfig=VaultConfig()) -> None:
+    def __init__(self, database: str | Path, recipient_public, recipient_private, signing_private, config: VaultConfig=VaultConfig()) -> None:
         self.store=VaultStore(database); self.recipient_public=recipient_public; self.recipient_private=recipient_private; self.config=config
-        self.signing_private=signing_private or generate_signing_keypair()[0]
+        self.signing_private=signing_private
+
+    @staticmethod
+    def _manifest(item: SealedObject) -> bytes:
+        return json.dumps({"id":item.object_id,"filename":item.filename,"sha256":hashlib.sha256(item.ciphertext).hexdigest(),"nonce_sha256":hashlib.sha256(item.nonce).hexdigest(),"wrapped_key_sha256":hashlib.sha256(item.wrapped_key).hexdigest()},sort_keys=True,separators=(",", ":")).encode()
 
     def import_document(self, filename: str, content: bytes) -> str:
         if not filename or Path(filename).name != filename or filename in {".", ".."}:
@@ -34,8 +38,8 @@ class SecureVault:
             raise ValueError("document exceeds configured size limit")
         object_id=uuid.uuid4().hex; key=os.urandom(32)
         nonce,ciphertext=encrypt_blob(content,key,object_id=object_id); wrapped=wrap_data_key(key,self.recipient_public)
-        manifest=json.dumps({"id":object_id,"filename":filename,"sha256":hashlib.sha256(ciphertext).hexdigest()},sort_keys=True,separators=(",", ":")).encode()
-        signature=sign_manifest(manifest,self.signing_private)
+        unsigned=SealedObject(object_id,filename,nonce,ciphertext,wrapped,b"")
+        signature=sign_manifest(self._manifest(unsigned),self.signing_private)
         self.store.put(SealedObject(object_id,filename,nonce,ciphertext,wrapped,signature))
         logger.info("document_imported", extra={"object_id":object_id,"size":len(content)})
         return object_id
@@ -44,8 +48,7 @@ class SecureVault:
         item=self.store.get(object_id)
         if item is None:
             raise KeyError("document not found")
-        manifest=json.dumps({"id":item.object_id,"filename":item.filename,"sha256":hashlib.sha256(item.ciphertext).hexdigest()},sort_keys=True,separators=(",", ":")).encode()
-        if not verify_manifest(manifest,item.signature,self.signing_private.public_key()):
+        if not verify_manifest(self._manifest(item),item.signature,self.signing_private.public_key()):
             raise VaultCryptoError("document manifest signature invalid")
         key=unwrap_data_key(item.wrapped_key,self.recipient_private)
         return item.filename,decrypt_blob(item.nonce,item.ciphertext,key,object_id=item.object_id)

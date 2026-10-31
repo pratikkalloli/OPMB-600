@@ -1,0 +1,42 @@
+{
+  "python": "3.13",
+  "cryptography": "50.0.2",
+  "pytest": "8.4.2",
+  "repositories": {
+    "REPO-001": {
+      "original": {
+        "command": "python -m pytest tests/test_securevault.py -q",
+        "result": "passed",
+        "passed": 11,
+        "failed": 0
+      },
+      "reference": {
+        "command": "python -m pytest tests/test_securevault_pqc.py -q",
+        "result": "passed",
+        "passed": 9,
+        "failed": 0
+      }
+    },
+    "REPO-002": {
+      "original": {
+        "command": "python -m pytest tests/test_keyledger.py -q",
+        "result": "passed",
+        "passed": 7,
+        "failed": 0
+      },
+      "reference": {
+        "command": "python -m pytest tests/test_keyledger_pqc.py -q",
+        "result": "passed",
+        "passed": 5,
+        "failed": 0
+      }
+    }
+  },
+  "aggregate": {
+    "original_passed": 18,
+    "original_failed": 0,
+    "reference_passed": 14,
+    "reference_failed": 0
+  },
+  "accepted_tasks": 0
+}

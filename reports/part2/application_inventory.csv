@@ -1,0 +1,3 @@
+repository_id,name,application_domain,purpose,task_count,test_status,reference_test_status
+REPO-001,securevault,secure_file_storage,Local SQLite document vault with per-object authenticated encryption and signed integrity metadata.,10,passed,passed
+REPO-002,KeyLedger,key_management,"SQLite inventory for synthetic cryptographic key ownership, expiry, rotation, revocation, and signed lifecycle events.",10,passed,passed
