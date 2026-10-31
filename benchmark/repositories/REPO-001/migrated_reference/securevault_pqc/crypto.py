@@ -73,4 +73,3 @@ def rotate_object_key(wrapped_key: bytes,old_private: mlkem.MLKEM768PrivateKey,n
     """Rewrap the existing per-object key under a newly rotated recipient key."""
     clear=unwrap_data_key(wrapped_key,old_private,object_id=object_id)
     return wrap_data_key(clear,new_public,object_id=object_id)
-
