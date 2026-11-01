@@ -1,0 +1,60 @@
+{
+  "repository_id": "REPO-039",
+  "application": "SecureQueue",
+  "status": "PASS",
+  "timestamp_utc": "2026-11-01T10:52:23.211706+00:00",
+  "interpreter": "Codex-managed Python 3.12.14",
+  "cryptography_version": "50.0.2",
+  "pytest": "NOT INSTALLED in branch-local .venv; pytest runner not used",
+  "method_note": "Supplemental direct invocation of existing test functions using a minimal pytest.raises compatibility context. Results are not pytest suite results and do not satisfy the pinned .venv test requirement.",
+  "suites": [
+    {
+      "suite_file": "benchmark/repositories/REPO-039/tests/test_secure_queue.py",
+      "runner": "direct invocation of existing zero-argument test functions; not pytest",
+      "test_functions": [
+        {
+          "name": "test_secure_queue_attachment_context_and_authentication",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_business_validation_and_transition",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_recipient_encoding_and_rotation",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_signature_tamper_rejection",
+          "result": "PASS"
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "suite_file": "benchmark/repositories/REPO-039/tests/test_secure_queue_pqc.py",
+      "runner": "direct invocation of existing zero-argument test functions; not pytest",
+      "test_functions": [
+        {
+          "name": "test_secure_queue_attachment_context_and_authentication",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_business_validation_and_transition",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_recipient_encoding_and_rotation",
+          "result": "PASS"
+        },
+        {
+          "name": "test_secure_queue_signature_tamper_rejection",
+          "result": "PASS"
+        }
+      ],
+      "passed": 4,
+      "failed": 0
+    }
+  ]
+}
