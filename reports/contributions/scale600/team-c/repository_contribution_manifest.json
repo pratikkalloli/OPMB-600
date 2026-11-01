@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 140,
+  "implemented_application_count": 150,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -1682,6 +1682,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-560/test-results.json"
+    },
+    {
+      "repository_id": "REPO-561",
+      "name": "SharedFolderAccessGrant",
+      "application_domain": "collaboration_shared_folder_access_grants",
+      "path": "benchmark/repositories/REPO-561",
+      "purpose": "Manage coauthor attribution log evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-561/test-results.json"
+    },
+    {
+      "repository_id": "REPO-562",
+      "name": "ScheduleChangeApproval",
+      "application_domain": "collaboration_schedule_change_approvals",
+      "path": "benchmark/repositories/REPO-562",
+      "purpose": "Manage availability block seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-562/test-results.json"
+    },
+    {
+      "repository_id": "REPO-563",
+      "name": "ReviewRoundCompletion",
+      "application_domain": "collaboration_review_round_completions",
+      "path": "benchmark/repositories/REPO-563",
+      "purpose": "Manage poll result attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-563/test-results.json"
+    },
+    {
+      "repository_id": "REPO-564",
+      "name": "DiscussionThreadArchive",
+      "application_domain": "collaboration_discussion_thread_archives",
+      "path": "benchmark/repositories/REPO-564",
+      "purpose": "Manage remote workshop credential evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-564/test-results.json"
+    },
+    {
+      "repository_id": "REPO-565",
+      "name": "OrganizationJoinReceipt",
+      "application_domain": "collaboration_organization_join_receipts",
+      "path": "benchmark/repositories/REPO-565",
+      "purpose": "Manage shared template release evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-565/test-results.json"
+    },
+    {
+      "repository_id": "REPO-566",
+      "name": "TeamChannelMigration",
+      "application_domain": "collaboration_team_channel_migrations",
+      "path": "benchmark/repositories/REPO-566",
+      "purpose": "Manage project milestone approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-566/test-results.json"
+    },
+    {
+      "repository_id": "REPO-567",
+      "name": "AvailabilityStatusSeal",
+      "application_domain": "collaboration_availability_status_seals",
+      "path": "benchmark/repositories/REPO-567",
+      "purpose": "Manage workspace export permit evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-567/test-results.json"
+    },
+    {
+      "repository_id": "REPO-568",
+      "name": "SharedWorkspaceKeyRotation",
+      "application_domain": "collaboration_workspace_key_rotations",
+      "path": "benchmark/repositories/REPO-568",
+      "purpose": "Manage chat retention receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-568/test-results.json"
+    },
+    {
+      "repository_id": "REPO-569",
+      "name": "CollaborativeMergeReceipt",
+      "application_domain": "collaboration_merge_receipts",
+      "path": "benchmark/repositories/REPO-569",
+      "purpose": "Manage pairing session identity evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-569/test-results.json"
+    },
+    {
+      "repository_id": "REPO-570",
+      "name": "MeetingFollowupAssignment",
+      "application_domain": "collaboration_meeting_followup_assignments",
+      "path": "benchmark/repositories/REPO-570",
+      "purpose": "Manage collaboration recovery code evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-570/test-results.json"
     }
   ]
 }
