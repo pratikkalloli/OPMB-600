@@ -119,3 +119,13 @@ OPMB-0587,REPO-059,src/licensedesk/service.py,issue,tests/test_licensedesk.py,te
 OPMB-0588,REPO-059,src/licensedesk/service.py,revoke,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
 OPMB-0589,REPO-059,src/licensedesk/service.py,verify_offline,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
 OPMB-0590,REPO-059,src/licensedesk/service.py,revocation_snapshot,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0591,REPO-060,src/zoneseal/crypto.py,canonical_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0592,REPO-060,src/zoneseal/crypto.py,generate_zsk,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0593,REPO-060,src/zoneseal/crypto.py,sign_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0594,REPO-060,src/zoneseal/crypto.py,verify_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0595,REPO-060,src/zoneseal/crypto.py,export_zsk,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0596,REPO-060,src/zoneseal/crypto.py,load_zsk,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0597,REPO-060,src/zoneseal/service.py,register_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0598,REPO-060,src/zoneseal/service.py,revoke_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0599,REPO-060,src/zoneseal/service.py,publish_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate
+OPMB-0600,REPO-060,src/zoneseal/service.py,transfer_zone,tests/test_zoneseal.py,tests/test_zoneseal_pqc.py,reports/evidence/REPO-060/test-results.json,candidate

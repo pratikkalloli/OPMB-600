@@ -287,6 +287,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-059/test-results.json"
+    },
+    {
+      "repository_id": "REPO-060",
+      "name": "ZoneSeal",
+      "application_domain": "synthetic_signed_dns_zone_registry",
+      "path": "benchmark/repositories/REPO-060",
+      "purpose": "Synthetic signed DNS-style zone publication and transfer with serial anti-rollback and revocation.",
+      "task_ids": [
+        "OPMB-0591",
+        "OPMB-0592",
+        "OPMB-0593",
+        "OPMB-0594",
+        "OPMB-0595",
+        "OPMB-0596",
+        "OPMB-0597",
+        "OPMB-0598",
+        "OPMB-0599",
+        "OPMB-0600"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-060/test-results.json"
     }
   ]
 }

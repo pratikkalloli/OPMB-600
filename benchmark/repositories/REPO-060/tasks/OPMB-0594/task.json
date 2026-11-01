@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0594",
+  "repository_id": "REPO-060",
+  "repository_name": "ZoneSeal",
+  "application_domain": "synthetic_signed_dns_zone_registry",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "Verify signed zone snapshots",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/zoneseal/crypto.py"
+  ],
+  "function_names": [
+    "verify_zone"
+  ],
+  "migration_family": "ECDSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Replace ECDSA verification with ML-DSA-65 and reject bad keys or altered zone data.",
+  "preconditions": [
+    "ZoneSeal baseline test suite passes.",
+    "Zone contents and hostnames are synthetic."
+  ],
+  "expected_behavior": [
+    "Published records have deterministic canonical bytes and valid signatures.",
+    "Zone serials increase monotonically; revoked zones cannot be published or transferred.",
+    "Resolvers reject snapshots with mismatched signature keys or altered contents."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 with a ZoneSeal-specific context.",
+    "Replace DER EC keys with standardized ML-DSA public-key encodings across API consumers.",
+    "Preserve serial anti-rollback and fail-closed zone status checks."
+  ],
+  "original_tests": [
+    "tests/test_zoneseal.py"
+  ],
+  "migration_tests": [
+    "tests/test_zoneseal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run baseline and PQC suites independently.",
+    "Verify canonical record ordering, valid zone transfer, serial rollback, wrong key, zone revocation, and key serialization."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic DNS-style model; not production DNSSEC or authoritative DNS software."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-060/tasks/OPMB-0594",
+  "reference_path": "benchmark/repositories/REPO-060/migrated_reference/zoneseal_pqc",
+  "original_test_evidence": "reports/evidence/REPO-060/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-060/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-060/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-060/post-migration-scan.json"
+}

@@ -11,3 +11,4 @@ REPO-056,SensorAttest,synthetic_iot_sensor_telemetry_attestation,Signed sensor r
 REPO-057,CapabilityGate,synthetic_api_capability_authorization,Scoped short-lived API capabilities with online revocation,10,candidate
 REPO-058,BackupVault,synthetic_encrypted_backup_and_restore,Encrypted owner-bound backups with signed manifests and monotonic generations,10,candidate
 REPO-059,LicenseDesk,synthetic_software_license_issuance,Installation-bound feature licenses with offline revocation checks,10,candidate
+REPO-060,ZoneSeal,synthetic_signed_dns_zone_registry,Signed zone snapshots with serial anti-rollback and revocation,10,candidate

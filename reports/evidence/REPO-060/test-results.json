@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-060",
+  "application": "ZoneSeal",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_zoneseal.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_zoneseal_pqc.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "ECDSA baseline and ML-DSA-65 zone signatures",
+    "canonical record ordering and name normalization",
+    "zone serial anti-rollback",
+    "wrong verification key rejection",
+    "zone revocation behavior",
+    "key serialization roundtrip"
+  ],
+  "limitations": [
+    "Synthetic DNS-style zone records only.",
+    "Not production DNSSEC or formal cryptographic evidence."
+  ]
+}
