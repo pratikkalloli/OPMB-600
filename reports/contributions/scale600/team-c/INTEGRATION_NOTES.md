@@ -1,3 +1,3 @@
 # Integration notes
 
-Batch 01 adds only REPO-421–REPO-430 and OPMB-4201–OPMB-4300 under assigned paths. No shared manifests, schemas, root documentation, or existing application directories were edited. Integration should merge contribution manifests only after all Team C batches and coordinator duplicate review.
+Team C contributes REPO-421?REPO-600, OPMB-4201?OPMB-6000, per-application evidence and contribution records under `reports/contributions/scale600/team-c/`. No shared manifests, schemas, root documentation or REPO-001?REPO-420 application directories were edited. The 180 applications and 1,800 tasks are candidates pending independent review. Integrate contribution manifests after coordinator review of the full duplicate inventory.
