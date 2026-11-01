@@ -1,0 +1,12 @@
+{
+  "status": "blocked",
+  "task_link_check": "passed: 30 tasks / 3 repositories / 0 errors",
+  "repository_check": "passed: 3 repositories / 0 errors",
+  "jsonschema_check": "not_run: jsonschema unavailable; no schema result claimed",
+  "part3_repositories": 1,
+  "part3_tasks": 10,
+  "unique_task_ids": true,
+  "task_statuses": [
+    "candidate"
+  ]
+}

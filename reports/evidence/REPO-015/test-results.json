@@ -1,0 +1,101 @@
+{
+  "repository_id": "REPO-015",
+  "application": "IdentityCache",
+  "task_ids": [
+    "OPMB-0141",
+    "OPMB-0142",
+    "OPMB-0143",
+    "OPMB-0144",
+    "OPMB-0145",
+    "OPMB-0146",
+    "OPMB-0147",
+    "OPMB-0148",
+    "OPMB-0149",
+    "OPMB-0150"
+  ],
+  "reference_paths": [
+    "benchmark/repositories/REPO-015/migrated_reference/identitycache_pqc"
+  ],
+  "task_requirements": {
+    "OPMB-0141": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0142": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0143": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0144": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0145": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0146": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0147": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0148": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0149": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0150": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ]
+  },
+  "migration_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_identitycache_pqc.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "pending",
+    "passed": 0,
+    "skipped": 1,
+    "failed": 0,
+    "output": "s                                                                        [100%]\n1 skipped in 0.02s\n"
+  },
+  "original_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_identitycache.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 3,
+    "skipped": 0,
+    "failed": 0,
+    "output": "...                                                                      [100%]\n3 passed in 0.23s\n"
+  }
+}

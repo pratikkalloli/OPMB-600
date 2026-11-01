@@ -1,0 +1,11 @@
+{
+  "scope": "benchmark\\repositories\\REPO-003\\migrated_reference\\secureprint_pqc",
+  "classical_public_key_families_scanned": [
+    "RSA",
+    "ECDSA/ECDH",
+    "X25519/X448"
+  ],
+  "findings": [],
+  "symmetric_aead_expected": "AES-GCM is retained as payload encryption and is outside the public-key migration scan.",
+  "scope_limit": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+}

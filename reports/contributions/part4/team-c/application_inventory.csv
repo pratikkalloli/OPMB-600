@@ -1,0 +1,14 @@
+repository_id,name,domain,purpose,task_count,status
+REPO-048,InvoiceSeal,synthetic_invoice_signing,"Synthetic invoice issue, revision, signature history, and signature verification.",10,candidate
+REPO-049,EventPass,offline_event_credentials,"Synthetic event pass issuance, offline verification, expiry, revocation snapshots, and duplicate serial prevention.",10,candidate
+REPO-050,ShipmentProof,shipment_custody_evidence,"Append-only synthetic shipment handoff ledger with sequence links, signer checks, and history verification.",10,candidate
+REPO-051,DistributedCache,distributed_cache_snapshot_transfer,"Synthetic distributed cache node registry, recipient-bound snapshots, revocation, and authenticated retrieval.",10,candidate
+REPO-052,EncryptedNotebook,encrypted_notebook_versioned_storage,"Encrypted owner notebooks with signed versions, restore, and recipient-key rotation.",10,candidate
+REPO-053,DataMarketplace,synthetic_data_asset_marketplace,"Provider registration, signed versioned dataset manifests, protected exchange, verification, and access audit.",10,candidate
+REPO-054,EnergyMeter,synthetic_energy_meter_readings,"Meter registration, signed sequenced energy readings, key rotation, tamper verification, and audit history.",10,candidate
+REPO-055,DisasterRecovery,synthetic_disaster_recovery_snapshots,"Encrypted recovery snapshots, time-based restore planning, signed manifests, restore validation/history, and key rotation.",10,candidate
+REPO-056,CredentialRevocation,synthetic_credential_revocation_feeds,"Credential revocation records, signed feeds, verifier feed updates, freshness checks, and key rotation.",10,candidate
+REPO-057,SecureCalendar,synthetic_secure_calendar_invitations,"Calendar and participant registration, signed invitations, encrypted event sharing, updates, and cancellations.",10,candidate
+REPO-058,RemoteAttestation,simulated_workload_attestation_evidence,"Fictional workload registration, simulated measurement evidence, policy evaluation, expiry, and verification history.",10,candidate
+REPO-059,InventoryHandoff,synthetic_inventory_custody_transfers,"Inventory and batch registration, signed item transfers, custody-chain verification, and transfer audit.",10,candidate
+REPO-060,TenderProof,synthetic_confidential_procurement_bids,"Fictional tenders, bidder registration, signed deadline-bound bids, confidential evaluator packages, and audit history.",10,candidate

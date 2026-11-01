@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-0510",
+  "repository_id": "REPO-051",
+  "repository_name": "DistributedCache",
+  "application_domain": "distributed_cache_snapshot_transfer",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+  "cryptographic_operation": "Retrieve snapshots using recipient private keys",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/distributedcache/service.py"
+  ],
+  "function_names": [
+    "read_snapshot"
+  ],
+  "migration_family": "Cross-component protocol/API compatibility",
+  "migration_target": "ML-KEM-768 and ML-DSA-65",
+  "migration_objective": "Decapsulate ML-KEM session keys, verify ML-DSA signer identity, and reject revoked nodes or altered snapshots.",
+  "preconditions": [
+    "DistributedCache original tests pass.",
+    "Node identities and cache payloads are synthetic."
+  ],
+  "expected_behavior": [
+    "Only registered active source and target nodes may transfer snapshots.",
+    "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+  ],
+  "migration_requirements": [
+    "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+    "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+    "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+  ],
+  "original_tests": [
+    "tests/test_distributedcache.py"
+  ],
+  "migration_tests": [
+    "tests/test_distributedcache_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and PQC test modules independently.",
+    "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0510",
+  "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+  "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+}

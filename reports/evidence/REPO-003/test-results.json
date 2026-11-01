@@ -1,0 +1,95 @@
+{
+  "repository_id": "REPO-003",
+  "application": "SecurePrint",
+  "task_ids": [
+    "OPMB-0021",
+    "OPMB-0022",
+    "OPMB-0023",
+    "OPMB-0024",
+    "OPMB-0025",
+    "OPMB-0026",
+    "OPMB-0027",
+    "OPMB-0028",
+    "OPMB-0029",
+    "OPMB-0030"
+  ],
+  "reference_paths": [
+    "benchmark/repositories/REPO-003/migrated_reference/secureprint_pqc"
+  ],
+  "task_requirements": {
+    "OPMB-0021": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0022": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0023": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0024": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0025": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0026": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0027": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0028": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0029": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ],
+    "OPMB-0030": [
+      "Use the pinned standardized PQC APIs; do not implement primitives.",
+      "Keep signing and key-establishment keys separate.",
+      "Maintain explicit serialization and compatibility behavior."
+    ]
+  },
+  "migration_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_secureprint_pqc.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "passed",
+    "output": ".....                                                                    [100%]\n5 passed in 0.71s\n"
+  },
+  "original_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_secureprint.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "passed",
+    "output": "......                                                                   [100%]\n6 passed in 1.90s\n"
+  }
+}

@@ -1,19 +1,34 @@
 {
-  "repository_count": 2,
-  "task_count": 20,
+  "repository_count": 17,
+  "task_count": 170,
   "domains": {
     "secure_file_storage": 10,
-    "key_management": 10
+    "key_management": 10,
+    "secure_print_release": 10,
+    "service_identity": 10,
+    "secure_firmware_updates": 10,
+    "healthcare_messaging": 10,
+    "payment_routing": 10,
+    "software_supply_chain": 10,
+    "secure_networking": 10,
+    "records_archiving": 10,
+    "iot_device_enrollment": 10,
+    "ci_cd_security": 10,
+    "legal_document_exchange": 10,
+    "industrial_telemetry": 10,
+    "identity_federation": 10,
+    "backup_replication": 10,
+    "access_control": 10
   },
   "migration_families": {
-    "RSA encryption and key-wrapping redesign": 4,
-    "Cross-component cryptographic migration": 3,
-    "RSA digital signature migration": 4,
-    "Cryptographic key management": 5,
-    "API, dependency and compatibility migration": 4
+    "RSA encryption and key-wrapping redesign": 19,
+    "Cross-component cryptographic migration": 34,
+    "RSA digital signature migration": 34,
+    "Cryptographic key management": 34,
+    "API, dependency and compatibility migration": 49
   },
   "difficulty": {
-    "medium": 15,
-    "hard": 5
+    "medium": 134,
+    "hard": 36
   }
 }

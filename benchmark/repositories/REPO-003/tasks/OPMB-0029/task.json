@@ -1,0 +1,56 @@
+{
+  "task_id": "OPMB-0029",
+  "repository_id": "REPO-003",
+  "repository_name": "SecurePrint",
+  "application_domain": "secure_print_release",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS-SHA-256",
+  "cryptographic_operation": "Print-job manifest signature verification",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/secureprint/crypto.py"
+  ],
+  "function_names": [
+    "verify_job_metadata"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Verify migrated ML-DSA signatures and reject altered metadata, malformed signatures, and wrong-key signatures.",
+  "preconditions": [
+    "Use synthetic print-job bytes and fictional identities.",
+    "The current cryptographic baseline is preserved in src/secureprint/crypto.py."
+  ],
+  "expected_behavior": [
+    "Preserve printer authorization and job lifecycle behavior.",
+    "Reject malformed inputs and cryptographic tampering."
+  ],
+  "migration_requirements": [
+    "Use the pinned standardized PQC APIs; do not implement primitives.",
+    "Keep signing and key-establishment keys separate.",
+    "Maintain explicit serialization and compatibility behavior."
+  ],
+  "original_tests": [
+    "tests/test_secureprint.py"
+  ],
+  "migration_tests": [
+    "tests/test_secureprint_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the SecurePrint original and PQC test suites.",
+    "Verify positive round trips and negative tamper, malformed-key, and signature cases where applicable."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Not independently reviewed or production security certified.",
+    "The local simulation uses in-memory state and process-ephemeral keys."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-003/tasks/OPMB-0029",
+  "reference_path": "benchmark/repositories/REPO-003/migrated_reference/secureprint_pqc"
+}

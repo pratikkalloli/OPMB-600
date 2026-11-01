@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-0531",
+  "repository_id": "REPO-054",
+  "repository_name": "EnergyMeter",
+  "application_domain": "synthetic_energy_meter_readings",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "Canonicalize a meter reading",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/energymeter/crypto.py"
+  ],
+  "function_names": [
+    "canonical_reading"
+  ],
+  "migration_family": "Telemetry serialization migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Bind meter identity, sequence, timestamp, value, and unit.",
+  "preconditions": [
+    "EnergyMeter baseline tests pass.",
+    "Application records and identities are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
+  ],
+  "migration_requirements": [
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
+  ],
+  "original_tests": [
+    "tests/test_energymeter.py"
+  ],
+  "migration_tests": [
+    "tests/test_energymeter_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-054/tasks/OPMB-0531",
+  "reference_path": "benchmark/repositories/REPO-054/migrated_reference/energymeter_pqc",
+  "original_test_evidence": "reports/evidence/REPO-054/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-054/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-054/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-054/post-migration-scan.json"
+}

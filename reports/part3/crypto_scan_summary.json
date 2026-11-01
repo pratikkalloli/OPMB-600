@@ -1,0 +1,12 @@
+{
+  "repository_id": "REPO-003",
+  "scanner": "pqc_agent.scanner.scan_python",
+  "scan_path": "migrated_reference/secureprint_pqc",
+  "findings": 0,
+  "scope": [
+    "RSA",
+    "ECDSA/ECDH",
+    "X25519/X448"
+  ],
+  "limitations": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+}

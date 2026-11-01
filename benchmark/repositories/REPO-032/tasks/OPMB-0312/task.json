@@ -1,0 +1,62 @@
+{
+  "task_id": "OPMB-0312",
+  "repository_id": "REPO-032",
+  "repository_name": "fleetpermit",
+  "application_domain": "offline_vehicle_permits",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS; RSA-OAEP with AES-256-GCM",
+  "cryptographic_operation": "public-key serialization",
+  "source_files": [
+    "src/fleetpermit/workflow.py",
+    "src/fleetpermit/crypto.py"
+  ],
+  "function_names": [
+    "export_vehicle_permit_public_key"
+  ],
+  "migration_family": "key encoding compatibility",
+  "migration_target": "Versioned DER SubjectPublicKeyInfo encoding with purpose separation",
+  "migration_objective": "Within FleetPermit's vehicle permit issuance and offline verification simulation workflow, migrate public-key serialization from the RSA baseline to Versioned DER SubjectPublicKeyInfo encoding with purpose separation, preserving the application contract and rejecting invalid or downgraded inputs.",
+  "preconditions": [
+    "The original FleetPermit application tests pass.",
+    "The application record satisfies the documented domain policy.",
+    "No real personal, financial, or production data is used."
+  ],
+  "expected_behavior": [
+    "Preserve FleetPermit's domain workflow and validation rules.",
+    "Reject malformed, wrong-purpose, stale, tampered, or context-mismatched cryptographic inputs.",
+    "Keep signing and transport keys distinct."
+  ],
+  "migration_requirements": [
+    "Use the pinned cryptography provider and standardized FIPS 203 ML-KEM-768 / FIPS 204 ML-DSA-65 APIs.",
+    "Use ML-KEM only for key establishment; derive AES-256-GCM content keys with HKDF-SHA-256.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_fleetpermit.py::test_task_0312_public_key_serialization_round_trips_by_purpose"
+  ],
+  "migration_tests": [
+    "tests/test_fleetpermit_pqc.py::test_task_0312_public_key_serialization_round_trips_by_purpose"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_fleetpermit.py -q` from `REPO-032` using the pinned root environment.",
+    "Run `python -m pytest tests/test_fleetpermit_pqc.py -q` from `REPO-032` using the pinned root environment.",
+    "Review the linked application evidence for actual exit codes and per-suite counts."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; persistent private-key custody is outside this benchmark application.",
+    "Candidate task only; independent review and acceptance are pending."
+  ],
+  "created_by": "OPMB-600-team-a",
+  "task_path": "benchmark/repositories/REPO-032/tasks/OPMB-0312",
+  "reference_path": "benchmark/repositories/REPO-032/migrated_reference/fleetpermit_pqc",
+  "original_test_evidence": "reports/evidence/REPO-032/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-032/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-032/test-results.json"
+}

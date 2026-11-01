@@ -42,6 +42,279 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "verification_evidence": "reports/evidence/REPO-002/test-results.json"
+    },
+    {
+      "repository_id": "REPO-003",
+      "name": "SecurePrint",
+      "application_domain": "secure_print_release",
+      "path": "benchmark/repositories/REPO-003",
+      "purpose": "Simulation of protected print-job submission, printer-bound encryption, authenticated metadata, controlled release, and cancellation.",
+      "status": "candidate",
+      "main_modules": [
+        "src/secureprint/crypto.py",
+        "src/secureprint/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP",
+        "RSA-3072 PSS",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending",
+      "verification_evidence": "reports/evidence/REPO-003/test-results.json"
+    },
+    {
+      "repository_id": "REPO-004",
+      "name": "TrustBridge",
+      "application_domain": "service_identity",
+      "path": "benchmark/repositories/REPO-004",
+      "purpose": "Service identity enrollment, certificate issuance simulation, and signed trust updates.",
+      "status": "candidate",
+      "main_modules": [
+        "src/trustbridge/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-005",
+      "name": "FleetUpdate",
+      "application_domain": "secure_firmware_updates",
+      "path": "benchmark/repositories/REPO-005",
+      "purpose": "Signed firmware release manifests, staged rollout approvals, and device acknowledgements.",
+      "status": "candidate",
+      "main_modules": [
+        "src/fleetupdate/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-006",
+      "name": "CareLink",
+      "application_domain": "healthcare_messaging",
+      "path": "benchmark/repositories/REPO-006",
+      "purpose": "Confidential clinical message exchange with recipient key establishment and audit signatures.",
+      "status": "candidate",
+      "main_modules": [
+        "src/carelink/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-007",
+      "name": "PayRoute",
+      "application_domain": "payment_routing",
+      "path": "benchmark/repositories/REPO-007",
+      "purpose": "Synthetic payment instruction signing, recipient key delivery, and idempotent settlement records.",
+      "status": "candidate",
+      "main_modules": [
+        "src/payroute/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-008",
+      "name": "CodeSignHub",
+      "application_domain": "software_supply_chain",
+      "path": "benchmark/repositories/REPO-008",
+      "purpose": "Artifact provenance attestations, release signing, and verification policy.",
+      "status": "candidate",
+      "main_modules": [
+        "src/codesignhub/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-009",
+      "name": "EdgeTunnel",
+      "application_domain": "secure_networking",
+      "path": "benchmark/repositories/REPO-009",
+      "purpose": "Gateway session establishment, peer authentication, and protected telemetry envelopes.",
+      "status": "candidate",
+      "main_modules": [
+        "src/edgetunnel/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-010",
+      "name": "ArchiveSeal",
+      "application_domain": "records_archiving",
+      "path": "benchmark/repositories/REPO-010",
+      "purpose": "Long-retention record sealing, signed indexes, and key rotation metadata.",
+      "status": "candidate",
+      "main_modules": [
+        "src/archiveseal/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-011",
+      "name": "DevicePair",
+      "application_domain": "iot_device_enrollment",
+      "path": "benchmark/repositories/REPO-011",
+      "purpose": "Manufacturing-time device enrollment, ownership transfer, and signed configuration delivery.",
+      "status": "candidate",
+      "main_modules": [
+        "src/devicepair/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-012",
+      "name": "BuildRelay",
+      "application_domain": "ci_cd_security",
+      "path": "benchmark/repositories/REPO-012",
+      "purpose": "CI worker identity, encrypted secret handoff, and signed build attestations.",
+      "status": "candidate",
+      "main_modules": [
+        "src/buildrelay/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-013",
+      "name": "CaseExchange",
+      "application_domain": "legal_document_exchange",
+      "path": "benchmark/repositories/REPO-013",
+      "purpose": "Matter-scoped document exchange, recipient access, and signed custody events.",
+      "status": "candidate",
+      "main_modules": [
+        "src/caseexchange/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-014",
+      "name": "SensorMesh",
+      "application_domain": "industrial_telemetry",
+      "path": "benchmark/repositories/REPO-014",
+      "purpose": "Authenticated sensor batches, gateway verification, and fleet key lifecycle.",
+      "status": "candidate",
+      "main_modules": [
+        "src/sensormesh/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-015",
+      "name": "IdentityCache",
+      "application_domain": "identity_federation",
+      "path": "benchmark/repositories/REPO-015",
+      "purpose": "Federated assertion signing, verifier key distribution, and rollover behavior.",
+      "status": "candidate",
+      "main_modules": [
+        "src/identitycache/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-016",
+      "name": "BackupRelay",
+      "application_domain": "backup_replication",
+      "path": "benchmark/repositories/REPO-016",
+      "purpose": "Encrypted backup chunk transfer, replica authentication, and restore integrity.",
+      "status": "candidate",
+      "main_modules": [
+        "src/backuprelay/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 OAEP/PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-017",
+      "name": "PolicyGate",
+      "application_domain": "access_control",
+      "path": "benchmark/repositories/REPO-017",
+      "purpose": "Signed policy bundles, delegated approval, and auditable authorization decisions.",
+      "status": "candidate",
+      "main_modules": [
+        "src/policygate/crypto.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS",
+        "AES-256-GCM where payload confidentiality is required"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
     }
   ]
 }

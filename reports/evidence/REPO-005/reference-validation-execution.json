@@ -1,0 +1,102 @@
+{
+  "repository_id": "REPO-005",
+  "application": "FleetUpdate",
+  "task_ids": [
+    "OPMB-0041",
+    "OPMB-0042",
+    "OPMB-0043",
+    "OPMB-0044",
+    "OPMB-0045",
+    "OPMB-0046",
+    "OPMB-0047",
+    "OPMB-0048",
+    "OPMB-0049",
+    "OPMB-0050"
+  ],
+  "reference_paths": [
+    "benchmark/repositories/REPO-005/migrated_reference/fleetupdate_pqc"
+  ],
+  "task_requirements": {
+    "OPMB-0041": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0042": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0043": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0044": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0045": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0046": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0047": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0048": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0049": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0050": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ]
+  },
+  "migration_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_fleetupdate_pqc.py",
+      "-q",
+      "-rs"
+    ],
+    "exit_code": 0,
+    "result": "pending",
+    "passed": 0,
+    "skipped": 1,
+    "failed": 0,
+    "output": "s                                                                        [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_fleetupdate_pqc.py:4: PQC reference implementation is pending; candidate task only\n1 skipped in 0.01s\n"
+  },
+  "original_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_fleetupdate.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 3,
+    "skipped": 0,
+    "failed": 0,
+    "output": "...                                                                      [100%]\n3 passed in 0.18s\n"
+  }
+}

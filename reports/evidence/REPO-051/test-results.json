@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-051",
+  "application": "DistributedCache",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_distributedcache.py -q --basetemp=../../.pytest-tmp",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "python -m pytest tests/test_distributedcache_pqc.py -q --basetemp=../../.pytest-tmp",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "ML-KEM-768 encapsulation and decapsulation agree for matching node context",
+    "wrong HKDF context derives a different key and authenticated snapshot handling rejects mismatch",
+    "ML-DSA-65 metadata signature verification",
+    "tampered snapshot signature rejection",
+    "revoked target node rejection",
+    "AES-GCM snapshot roundtrip"
+  ],
+  "limitations": [
+    "Synthetic cache data only.",
+    "Tests are not formal cryptographic proofs."
+  ]
+}

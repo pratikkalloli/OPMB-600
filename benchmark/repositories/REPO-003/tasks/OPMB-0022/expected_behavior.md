@@ -1,0 +1,2 @@
+- Preserve printer authorization and job lifecycle behavior.
+- Reject malformed inputs and cryptographic tampering.

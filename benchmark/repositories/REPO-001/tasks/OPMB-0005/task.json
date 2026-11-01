@@ -13,7 +13,7 @@
   "function_names": [
     "sign_manifest"
   ],
-  "migration_family": "RSA digital signatures",
+  "migration_family": "RSA digital signature migration",
   "migration_target": "ML-DSA",
   "migration_objective": "Replace manifest signing with ML-DSA and update context, signature, and key handling across callers.",
   "preconditions": [
@@ -33,7 +33,7 @@
     "tests/test_securevault.py"
   ],
   "migration_tests": [
-    "tests/test_securevault.py"
+    "tests/test_securevault_pqc.py"
   ],
   "verification_procedure": [
     "Generate new keys using the declared PQC provider.",
@@ -42,15 +42,20 @@
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
-  "original_test_status": "pending",
-  "reference_patch_status": "pending",
-  "cryptographic_verification_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
   "validation_status": "candidate",
   "known_limitations": [
-    "No PQC reference migration has been implemented or verified.",
-    "The available runtime provider version lacks the required ML-DSA/ML-KEM API."
+    "Reference tested but not independently reviewed; task remains a candidate.",
+    "Key lifecycle and durable private-key storage are delegated to the caller.",
+    "Scanner is lexical and does not establish absence of runtime or dependency use."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-001/tasks/OPMB-0005",
-  "reference_path": "benchmark/repositories/REPO-001/migrated_reference/OPMB-0005"
+  "reference_path": "benchmark/repositories/REPO-001/migrated_reference/securevault_pqc",
+  "original_test_evidence": "reports/evidence/REPO-001/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-001/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-001/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-001/post-migration-scan.json"
 }

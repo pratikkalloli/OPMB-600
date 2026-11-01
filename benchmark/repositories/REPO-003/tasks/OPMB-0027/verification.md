@@ -1,0 +1,2 @@
+- Run the SecurePrint original and PQC test suites.
+- Verify positive round trips and negative tamper, malformed-key, and signature cases where applicable.

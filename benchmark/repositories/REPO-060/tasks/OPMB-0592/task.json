@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-0592",
+  "repository_id": "REPO-060",
+  "repository_name": "TenderProof",
+  "application_domain": "synthetic_confidential_procurement_bids",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Provision bidder RSA signing keys",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/tenderproof/crypto.py"
+  ],
+  "function_names": [
+    "generate_bidder_signer"
+  ],
+  "migration_family": "RSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Replace RSA bidder signing keys with ML-DSA-65.",
+  "preconditions": [
+    "TenderProof baseline tests pass.",
+    "Application records and identities are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
+  ],
+  "migration_requirements": [
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
+  ],
+  "original_tests": [
+    "tests/test_tenderproof.py"
+  ],
+  "migration_tests": [
+    "tests/test_tenderproof_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-060/tasks/OPMB-0592",
+  "reference_path": "benchmark/repositories/REPO-060/migrated_reference/tenderproof_pqc",
+  "original_test_evidence": "reports/evidence/REPO-060/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-060/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-060/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-060/post-migration-scan.json"
+}

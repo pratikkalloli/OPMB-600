@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0477",
+  "repository_id": "REPO-048",
+  "repository_name": "InvoiceSeal",
+  "application_domain": "synthetic_invoice_signing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Version-specific signature-history identity",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/invoiceseal/crypto.py",
+    "src/invoiceseal/service.py"
+  ],
+  "function_names": [
+    "signature_id"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Maintain distinct signature-history identifiers across invoice revisions after signature migration.",
+  "preconditions": [
+    "InvoiceSeal tests pass.",
+    "Invoice records and identities are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the signed invoice fields and version semantics.",
+    "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+  ],
+  "migration_requirements": [
+    "Use the pinned standardized ML-DSA API with invoice-specific context.",
+    "Update public-key format consumers and signature persistence.",
+    "Do not silently fall back to RSA."
+  ],
+  "original_tests": [
+    "tests/test_invoiceseal.py"
+  ],
+  "migration_tests": [
+    "tests/test_invoiceseal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and migrated test modules separately.",
+    "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate only until integration review.",
+    "Historical signatures attest to their recorded revision, not the current invoice."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0477",
+  "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+  "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+}
