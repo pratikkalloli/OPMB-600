@@ -19,16 +19,16 @@ REPO-257,ShiftHandoverDocket,B1 Industrial automation and manufacturing,benchmar
 REPO-258,ProductionScrapVoucher,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-258,10,candidate,tested
 REPO-259,SurfaceTreatmentBatch,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-259,10,candidate,tested
 REPO-260,AssemblySequencePermit,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-260,10,candidate,tested
-REPO-261,MachineGuardInspection,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-261,10,candidate,planned
-REPO-262,ConsumableShelfLifeCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-262,10,candidate,planned
-REPO-263,GaugeRAndRStudy,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-263,10,candidate,planned
-REPO-264,WorkOrderTraveler,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-264,10,candidate,planned
-REPO-265,QualityHoldRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-265,10,candidate,planned
-REPO-266,SparePartCompatibility,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-266,10,candidate,planned
-REPO-267,CleanInPlaceRecord,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-267,10,candidate,planned
-REPO-268,ReworkRoutingCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-268,10,candidate,planned
-REPO-269,OperatorQualificationGrant,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-269,10,candidate,planned
-REPO-270,ProductionSampleCustody,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-270,10,candidate,planned
+REPO-261,MachineGuardInspection,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-261,10,candidate,tested
+REPO-262,ConsumableShelfLifeCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-262,10,candidate,tested
+REPO-263,GaugeRAndRStudy,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-263,10,candidate,tested
+REPO-264,WorkOrderTraveler,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-264,10,candidate,tested
+REPO-265,QualityHoldRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-265,10,candidate,tested
+REPO-266,SparePartCompatibility,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-266,10,candidate,tested
+REPO-267,CleanInPlaceRecord,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-267,10,candidate,tested
+REPO-268,ReworkRoutingCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-268,10,candidate,tested
+REPO-269,OperatorQualificationGrant,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-269,10,candidate,tested
+REPO-270,ProductionSampleCustody,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-270,10,candidate,tested
 REPO-271,RobotCellEnrollment,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-271,10,candidate,planned
 REPO-272,SensorCalibrationChain,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-272,10,candidate,planned
 REPO-273,FirmwareRolloutRing,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-273,10,candidate,planned

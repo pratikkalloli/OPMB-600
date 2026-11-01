@@ -1,0 +1,3 @@
+# Verification
+
+From `benchmark/repositories/REPO-269`, run `python -m pytest tests/test_operator_qualification_grant.py` and `python -m pytest tests/test_operator_qualification_grant_pqc.py`. Exercise `sign_record`, successful behavior, tampering, wrong-key or malformed input rejection, and the named lifecycle constraints. Record exact output under `reports/evidence/REPO-269/`.

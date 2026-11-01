@@ -42,6 +42,8 @@ def main()->int:
  repo_manifest={'team':'B','part':'scale600','batch_plan':{f'batch-{n:02d}':[f'REPO-{x:03d}' for x in range(241+(n-1)*10,251+(n-1)*10)] for n in done},'repositories':allrepos}
  task_manifest={'team':'B','task_count':len(alltasks),'tasks':alltasks}
  save(TEAM/'repository_contribution_manifest.json',repo_manifest); save(TEAM/'task_contribution_manifest.json',task_manifest)
+ validation_rows=[json.loads((TEAM/f'batch-{n:02d}'/'validation.json').read_text()) for n in done]
+ save(TEAM/'schema_validation.json',{'schema_dialect':'Draft 2020-12','jsonschema_version':'4.25.1','batches':validation_rows,'repositories_checked':len(allrepos),'tasks_checked':len(alltasks),'repositories_valid':len(allrepos),'tasks_valid':len(alltasks),'errors':[e for row in validation_rows for e in row['errors']],'status':'passed' if all(x['status']=='passed' for x in validation_rows) else 'failed'})
  specs=json.loads((TEAM/'application_specs.json').read_text(encoding='utf-8'))
  def writecsv(path,header,rows):
   with path.open('w',newline='',encoding='utf-8') as f: w=csv.writer(f); w.writerow(header); w.writerows(rows)

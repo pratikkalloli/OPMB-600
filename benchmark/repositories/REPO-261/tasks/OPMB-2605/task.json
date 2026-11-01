@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2605",
+  "repository_id": "REPO-261",
+  "repository_name": "MachineGuardInspection",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "verify_record for machine guard inspection workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/machine_guard_inspection/domain.py",
+    "src/machine_guard_inspection/crypto.py",
+    "src/machine_guard_inspection/service.py"
+  ],
+  "function_names": [
+    "verify_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate MachineGuardInspection verify a record signature and reject changed records from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Records machine-guard inspection findings and prevents restart until safety-critical findings are closed; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "MachineGuardInspection original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve workcell_id and review_class semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind machine_guard_inspection version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_machine_guard_inspection.py"
+  ],
+  "migration_tests": [
+    "tests/test_machine_guard_inspection_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-261/tasks/OPMB-2605",
+  "reference_path": "benchmark/repositories/REPO-261/migrated_reference/machine_guard_inspection_pqc",
+  "original_test_evidence": "reports/evidence/REPO-261/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-261/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-261/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-261/post-migration-scan.json"
+}

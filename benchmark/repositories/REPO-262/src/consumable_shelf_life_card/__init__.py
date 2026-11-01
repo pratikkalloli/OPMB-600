@@ -1,0 +1,1 @@
+"""ConsumableShelfLifeCard original application."""

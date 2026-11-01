@@ -1,6 +1,6 @@
 # Known issues and remaining work
 
-- Implemented and tested 20/180 applications and 200/1,800 tasks; 160 applications and 1600 tasks remain.
+- Implemented and tested 30/180 applications and 300/1,800 tasks; 150 applications and 1500 tasks remain.
 - No independent acceptance review has occurred; tasks remain candidate.
 - Dedicated cryptographic/static security scanners were not executed; the recorded secret-pattern scan is limited and is not a security review.
 - GitHub push and pull-request delivery are deferred until all batches and the full audit pass.

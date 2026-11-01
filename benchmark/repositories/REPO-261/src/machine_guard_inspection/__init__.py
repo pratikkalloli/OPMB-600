@@ -1,0 +1,1 @@
+"""MachineGuardInspection original application."""

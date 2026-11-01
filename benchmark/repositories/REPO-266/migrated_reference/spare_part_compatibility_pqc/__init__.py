@@ -1,0 +1,1 @@
+"""SparePartCompatibility separate PQC reference."""

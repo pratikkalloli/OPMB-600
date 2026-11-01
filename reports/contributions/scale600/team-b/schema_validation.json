@@ -1,10 +1,39 @@
 {
   "schema_dialect": "Draft 2020-12",
   "jsonschema_version": "4.25.1",
-  "batch": 1,
-  "repositories_checked": 10,
-  "repositories_valid": 10,
-  "tasks_checked": 100,
-  "tasks_valid": 100,
-  "errors": []
+  "batches": [
+    {
+      "batch": 1,
+      "repositories": 10,
+      "tasks": 100,
+      "schema_dialect": "Draft 2020-12",
+      "secret_pattern_scan": "passed",
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "batch": 2,
+      "repositories": 10,
+      "tasks": 100,
+      "schema_dialect": "Draft 2020-12",
+      "secret_pattern_scan": "passed",
+      "errors": [],
+      "status": "passed"
+    },
+    {
+      "batch": 3,
+      "repositories": 10,
+      "tasks": 100,
+      "schema_dialect": "Draft 2020-12",
+      "secret_pattern_scan": "passed",
+      "errors": [],
+      "status": "passed"
+    }
+  ],
+  "repositories_checked": 30,
+  "tasks_checked": 300,
+  "repositories_valid": 30,
+  "tasks_valid": 300,
+  "errors": [],
+  "status": "passed"
 }

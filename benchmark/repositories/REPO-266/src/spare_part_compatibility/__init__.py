@@ -1,0 +1,1 @@
+"""SparePartCompatibility original application."""

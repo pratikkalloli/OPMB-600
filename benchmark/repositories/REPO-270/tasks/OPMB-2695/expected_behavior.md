@@ -1,0 +1,5 @@
+# Expected behavior
+
+Migrate ProductionSampleCustody verify a record signature and reject changed records from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Maintains custody and disposition of retained production samples used for later quality investigation; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.
+
+Valid production sample custody operations remain interoperable with the documented PQC format. Invalid state, bad authorization_code, altered content, wrong keys, and unsupported versions are rejected.

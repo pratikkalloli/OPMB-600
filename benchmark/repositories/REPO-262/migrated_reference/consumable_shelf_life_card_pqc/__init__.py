@@ -1,0 +1,1 @@
+"""ConsumableShelfLifeCard separate PQC reference."""
