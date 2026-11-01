@@ -1,0 +1,51 @@
+{
+  "repository_id": "REPO-207",
+  "application": "legislative_vote_record",
+  "captured_at_utc": "2026-11-01T11:25:27.476436+00:00",
+  "environment": {
+    "python": "Python 3.11.9",
+    "pytest": "pytest 8.4.2"
+  },
+  "original_suite": {
+    "kind": "original",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_legislative_vote_record.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-207",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 4.43s\n"
+  },
+  "pqc_reference_suite": {
+    "kind": "pqc_reference",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_legislative_vote_record_pqc.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-207",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 0.40s\n"
+  }
+}
