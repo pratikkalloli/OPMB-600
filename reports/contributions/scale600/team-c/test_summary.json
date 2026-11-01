@@ -1,0 +1,112 @@
+{
+  "repository_count": 10,
+  "planned_repository_count": 180,
+  "task_count": 100,
+  "planned_task_count": 1800,
+  "original_tests": {
+    "passed": 50,
+    "failed": 0,
+    "skipped": 0
+  },
+  "reference_tests": {
+    "passed": 60,
+    "failed": 0,
+    "skipped": 0
+  },
+  "compile_checks": {
+    "passed": 10,
+    "failed": 0
+  },
+  "per_application": {
+    "REPO-421": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-422": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-423": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-424": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-425": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-426": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-427": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-428": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-429": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-430": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    }
+  }
+}

@@ -1,0 +1,11 @@
+repository_id,name,application_domain,path,purpose,status,task_count,test_status,reference_test_status,evidence
+REPO-421,CloudQuotaGrant,cloud_platforms_saas,benchmark/repositories/REPO-421,Issue signed tenant resource grants with ceilings and expiry.,candidate,10,passed,passed,reports/evidence/REPO-421/test-results.json
+REPO-422,WorkloadPassport,cloud_platforms_saas,benchmark/repositories/REPO-422,Issue short-lived service passports bound to an intended audience.,candidate,10,passed,passed,reports/evidence/REPO-422/test-results.json
+REPO-423,BucketManifest,cloud_platforms_saas,benchmark/repositories/REPO-423,Seal object-name and digest inventories for a bucket generation.,candidate,10,passed,passed,reports/evidence/REPO-423/test-results.json
+REPO-424,MeshServiceLease,cloud_platforms_saas,benchmark/repositories/REPO-424,"Authorize service endpoints through sequenced, expiring mesh leases.",candidate,10,passed,passed,reports/evidence/REPO-424/test-results.json
+REPO-425,TenantKeyRotation,cloud_platforms_saas,benchmark/repositories/REPO-425,Publish signed tenant key-version transitions and retirement notices.,candidate,10,passed,passed,reports/evidence/REPO-425/test-results.json
+REPO-426,CloudAuditLedger,cloud_platforms_saas,benchmark/repositories/REPO-426,Append signed events to a per-tenant hash-chained audit stream.,candidate,10,passed,passed,reports/evidence/REPO-426/test-results.json
+REPO-427,ConfigRollout,cloud_platforms_saas,benchmark/repositories/REPO-427,Stage and advance signed deployment configuration revisions.,candidate,10,passed,passed,reports/evidence/REPO-427/test-results.json
+REPO-428,BackupReceipt,cloud_platforms_saas,benchmark/repositories/REPO-428,Verify that a cloud backup snapshot contains its declared object root.,candidate,10,passed,passed,reports/evidence/REPO-428/test-results.json
+REPO-429,SaaSExportPermit,cloud_platforms_saas,benchmark/repositories/REPO-429,"Issue bounded export permits that bind tenant, fields and expiry.",candidate,10,passed,passed,reports/evidence/REPO-429/test-results.json
+REPO-430,CloudChangeApproval,cloud_platforms_saas,benchmark/repositories/REPO-430,Record a signed approval statement for an infrastructure change request.,candidate,10,passed,passed,reports/evidence/REPO-430/test-results.json

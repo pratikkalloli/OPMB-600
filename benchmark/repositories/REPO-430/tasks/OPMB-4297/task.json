@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-4297",
+  "repository_id": "REPO-430",
+  "repository_name": "CloudChangeApproval",
+  "application_domain": "cloud_infrastructure_change_approvals",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "Authenticate approval claims and enforce cloud workflow policy",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/cloudchangeapproval/crypto.py",
+    "src/cloudchangeapproval/service.py"
+  ],
+  "function_names": [
+    "canonical_claims",
+    "sign_claims",
+    "verify_claims",
+    "validate_claims",
+    "issue",
+    "verify",
+    "deactivate"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "CloudChangeApproval: reject decisions cannot authorize execution.",
+  "preconditions": [
+    "CloudChangeApproval baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Use provider ML-DSA-65 without fallback.",
+    "Retain canonical claim encoding and application-specific validation."
+  ],
+  "original_tests": [
+    "tests/test_cloudchangeapproval.py"
+  ],
+  "migration_tests": [
+    "tests/test_cloudchangeapproval_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-430/tasks/OPMB-4297",
+  "reference_path": "benchmark/repositories/REPO-430/migrated_reference/cloudchangeapproval_pqc",
+  "original_test_evidence": "reports/evidence/REPO-430/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-430/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-430/post-migration-scan.json"
+}

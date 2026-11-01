@@ -1,0 +1,101 @@
+task_id,repository_id,repository_name,application_domain,migration_objective,migration_target,validation_status
+OPMB-4201,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: canonical grant claims with tenant and resource binding.,ML-DSA-65,candidate
+OPMB-4202,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: issuer key generation and public key serialization.,ML-DSA-65,candidate
+OPMB-4203,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: ML-DSA signature over quota ceiling and expiry.,ML-DSA-65,candidate
+OPMB-4204,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: verification rejects grant mutation and wrong issuer.,ML-DSA-65,candidate
+OPMB-4205,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: grant issuance stores immutable signed claims.,ML-DSA-65,candidate
+OPMB-4206,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: authorization rejects requests exceeding the signed ceiling.,ML-DSA-65,candidate
+OPMB-4207,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: expired grant rejection using caller-supplied clock.,ML-DSA-65,candidate
+OPMB-4208,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: revocation state prevents later authorization.,ML-DSA-65,candidate
+OPMB-4209,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: duplicate grant identifiers are rejected by persistence.,ML-DSA-65,candidate
+OPMB-4210,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: audit record preserves the exact signed quota context.,ML-DSA-65,candidate
+OPMB-4211,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: canonical passport includes workload identity and audience.,ML-DSA-65,candidate
+OPMB-4212,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: issuer key serialization supports offline validators.,ML-DSA-65,candidate
+OPMB-4213,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: signing preserves not-before and expiry boundaries.,ML-DSA-65,candidate
+OPMB-4214,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: wrong audience is rejected by workload authorization.,ML-DSA-65,candidate
+OPMB-4215,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: passport issuance persists the signed identity claim.,ML-DSA-65,candidate
+OPMB-4216,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: not-before and expiry checks use explicit verification time.,ML-DSA-65,candidate
+OPMB-4217,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: revoked passport cannot authenticate a workload.,ML-DSA-65,candidate
+OPMB-4218,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: tampered workload identifier fails signature verification.,ML-DSA-65,candidate
+OPMB-4219,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: malformed passport payload is rejected during decode.,ML-DSA-65,candidate
+OPMB-4220,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: rotation to a new issuer key preserves old-key verification policy.,ML-DSA-65,candidate
+OPMB-4221,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: canonical object inventory binds bucket and generation.,ML-DSA-65,candidate
+OPMB-4222,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: public key encoding is stable for remote storage auditors.,ML-DSA-65,candidate
+OPMB-4223,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest signature covers each object name and digest.,ML-DSA-65,candidate
+OPMB-4224,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: changed object digest is rejected during inventory verification.,ML-DSA-65,candidate
+OPMB-4225,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest creation persists one immutable generation record.,ML-DSA-65,candidate
+OPMB-4226,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: duplicate object names are rejected before signing.,ML-DSA-65,candidate
+OPMB-4227,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: empty inventory is rejected for this snapshot workflow.,ML-DSA-65,candidate
+OPMB-4228,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: out-of-order generation is rejected by bucket policy.,ML-DSA-65,candidate
+OPMB-4229,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest serialization round trip retains object ordering rules.,ML-DSA-65,candidate
+OPMB-4230,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: audit verification detects replaced persisted manifest bytes.,ML-DSA-65,candidate
+OPMB-4231,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,"MeshServiceLease: canonical lease binds endpoint, service and sequence.",ML-DSA-65,candidate
+OPMB-4232,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: issuer public-key encoding is accepted by mesh validators.,ML-DSA-65,candidate
+OPMB-4233,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease signature protects the endpoint routing claim.,ML-DSA-65,candidate
+OPMB-4234,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: endpoint substitution is rejected by signature verification.,ML-DSA-65,candidate
+OPMB-4235,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease renewal increments service sequence monotonically.,ML-DSA-65,candidate
+OPMB-4236,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: expired lease is refused by route authorization.,ML-DSA-65,candidate
+OPMB-4237,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: revoked lease cannot be used to establish a route.,ML-DSA-65,candidate
+OPMB-4238,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: HTTP endpoint input is rejected before signing.,ML-DSA-65,candidate
+OPMB-4239,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease persistence prevents duplicate lease identifiers.,ML-DSA-65,candidate
+OPMB-4240,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: verification binds the expected service identity to lease.,ML-DSA-65,candidate
+OPMB-4241,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,"TenantKeyRotation: canonical rotation links tenant, key identifier and version.",ML-DSA-65,candidate
+OPMB-4242,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: rotation publisher keys can be serialized for auditors.,ML-DSA-65,candidate
+OPMB-4243,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: signed transition binds the new public-key digest.,ML-DSA-65,candidate
+OPMB-4244,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: modified key digest invalidates the transition signature.,ML-DSA-65,candidate
+OPMB-4245,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: first key version starts at one for a tenant key lineage.,ML-DSA-65,candidate
+OPMB-4246,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: later versions must advance the stored tenant version.,ML-DSA-65,candidate
+OPMB-4247,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: retirement notice is bound to the version being retired.,ML-DSA-65,candidate
+OPMB-4248,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: malformed key digest is rejected before persistence.,ML-DSA-65,candidate
+OPMB-4249,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: rotation record retrieval preserves signed issuance time.,ML-DSA-65,candidate
+OPMB-4250,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: verification rejects records for a different tenant.,ML-DSA-65,candidate
+OPMB-4251,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: canonical audit event binds stream sequence and event digest.,ML-DSA-65,candidate
+OPMB-4252,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: audit signer public-key export supports independent readers.,ML-DSA-65,candidate
+OPMB-4253,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: event signature authenticates the chain link.,ML-DSA-65,candidate
+OPMB-4254,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: tampered previous hash breaks signature validation.,ML-DSA-65,candidate
+OPMB-4255,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: append operation checks expected previous stream head.,ML-DSA-65,candidate
+OPMB-4256,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: sequence continuity is verified when reading the ledger.,ML-DSA-65,candidate
+OPMB-4257,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: duplicate event identifiers are rejected by the database.,ML-DSA-65,candidate
+OPMB-4258,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: genesis event has a fixed all-zero predecessor.,ML-DSA-65,candidate
+OPMB-4259,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: event timestamps are included in signed audit evidence.,ML-DSA-65,candidate
+OPMB-4260,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: verification identifies a replaced persisted event.,ML-DSA-65,candidate
+OPMB-4261,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: canonical rollout binds environment and configuration digest.,ML-DSA-65,candidate
+OPMB-4262,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: public key serialization supports deployment agents.,ML-DSA-65,candidate
+OPMB-4263,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: signature protects revision and canary policy.,ML-DSA-65,candidate
+OPMB-4264,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: configuration digest mutation fails rollout verification.,ML-DSA-65,candidate
+OPMB-4265,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: staged revisions must increase monotonically per environment.,ML-DSA-65,candidate
+OPMB-4266,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: canary percentage must stay in the allowed range.,ML-DSA-65,candidate
+OPMB-4267,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: promotion requires a signed rollout record for the same environment.,ML-DSA-65,candidate
+OPMB-4268,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: duplicate rollout identifier is rejected at persistence.,ML-DSA-65,candidate
+OPMB-4269,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: rollout verification checks the requested environment.,ML-DSA-65,candidate
+OPMB-4270,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: stored rollout bytes are revalidated before promotion.,ML-DSA-65,candidate
+OPMB-4271,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,"BackupReceipt: canonical receipt binds tenant, snapshot and object-root digest.",ML-DSA-65,candidate
+OPMB-4272,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt signer serialization supports offline restore checks.,ML-DSA-65,candidate
+OPMB-4273,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: signature protects snapshot creation time and object count.,ML-DSA-65,candidate
+OPMB-4274,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: changed root digest is rejected before restore authorization.,ML-DSA-65,candidate
+OPMB-4275,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt creation stores immutable snapshot evidence.,ML-DSA-65,candidate
+OPMB-4276,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: restore check requires the expected snapshot identifier.,ML-DSA-65,candidate
+OPMB-4277,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: empty snapshot receipt is rejected by backup policy.,ML-DSA-65,candidate
+OPMB-4278,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: duplicate receipt identifiers cannot overwrite prior evidence.,ML-DSA-65,candidate
+OPMB-4279,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt verification checks tenant ownership.,ML-DSA-65,candidate
+OPMB-4280,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: persistence tampering is detected during receipt inspection.,ML-DSA-65,candidate
+OPMB-4281,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,"SaaSExportPermit: canonical permit binds tenant, requester and exact export field set.",ML-DSA-65,candidate
+OPMB-4282,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: signing key encoding is consumable by export workers.,ML-DSA-65,candidate
+OPMB-4283,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: signature protects allowed fields and permit expiry.,ML-DSA-65,candidate
+OPMB-4284,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: adding a restricted field invalidates the permit.,ML-DSA-65,candidate
+OPMB-4285,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: permit issuance persists the exact authorization scope.,ML-DSA-65,candidate
+OPMB-4286,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: export check rejects a requester mismatch.,ML-DSA-65,candidate
+OPMB-4287,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: expired permit cannot authorize data extraction.,ML-DSA-65,candidate
+OPMB-4288,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: duplicate fields are rejected before signing.,ML-DSA-65,candidate
+OPMB-4289,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: duplicate permit identifiers do not replace active grants.,ML-DSA-65,candidate
+OPMB-4290,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: verification checks tenant isolation across exports.,ML-DSA-65,candidate
+OPMB-4291,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,"CloudChangeApproval: canonical approval binds approver, tenant and action digest.",ML-DSA-65,candidate
+OPMB-4292,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: approval public key is serialized for change-control auditors.,ML-DSA-65,candidate
+OPMB-4293,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: signature covers decision and request identifier.,ML-DSA-65,candidate
+OPMB-4294,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: changed infrastructure digest invalidates approval.,ML-DSA-65,candidate
+OPMB-4295,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: approval creation preserves the signed decision record.,ML-DSA-65,candidate
+OPMB-4296,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: only the matching request can consume an approval.,ML-DSA-65,candidate
+OPMB-4297,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: reject decisions cannot authorize execution.,ML-DSA-65,candidate
+OPMB-4298,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: malformed digest and unknown decision are rejected.,ML-DSA-65,candidate
+OPMB-4299,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: duplicate approval identifiers cannot overwrite history.,ML-DSA-65,candidate
+OPMB-4300,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: verification checks the expected tenant and approver.,ML-DSA-65,candidate

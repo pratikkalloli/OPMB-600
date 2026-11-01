@@ -1,0 +1,127 @@
+{
+  "assignment": "Team C REPO-421\u2013REPO-600",
+  "planned_application_count": 180,
+  "implemented_application_count": 10,
+  "applications": [
+    {
+      "repository_id": "REPO-421",
+      "name": "CloudQuotaGrant",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-421",
+      "purpose": "Issue signed tenant resource grants with ceilings and expiry.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-421/test-results.json"
+    },
+    {
+      "repository_id": "REPO-422",
+      "name": "WorkloadPassport",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-422",
+      "purpose": "Issue short-lived service passports bound to an intended audience.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-422/test-results.json"
+    },
+    {
+      "repository_id": "REPO-423",
+      "name": "BucketManifest",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-423",
+      "purpose": "Seal object-name and digest inventories for a bucket generation.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-423/test-results.json"
+    },
+    {
+      "repository_id": "REPO-424",
+      "name": "MeshServiceLease",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-424",
+      "purpose": "Authorize service endpoints through sequenced, expiring mesh leases.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-424/test-results.json"
+    },
+    {
+      "repository_id": "REPO-425",
+      "name": "TenantKeyRotation",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-425",
+      "purpose": "Publish signed tenant key-version transitions and retirement notices.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-425/test-results.json"
+    },
+    {
+      "repository_id": "REPO-426",
+      "name": "CloudAuditLedger",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-426",
+      "purpose": "Append signed events to a per-tenant hash-chained audit stream.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-426/test-results.json"
+    },
+    {
+      "repository_id": "REPO-427",
+      "name": "ConfigRollout",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-427",
+      "purpose": "Stage and advance signed deployment configuration revisions.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-427/test-results.json"
+    },
+    {
+      "repository_id": "REPO-428",
+      "name": "BackupReceipt",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-428",
+      "purpose": "Verify that a cloud backup snapshot contains its declared object root.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-428/test-results.json"
+    },
+    {
+      "repository_id": "REPO-429",
+      "name": "SaaSExportPermit",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-429",
+      "purpose": "Issue bounded export permits that bind tenant, fields and expiry.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-429/test-results.json"
+    },
+    {
+      "repository_id": "REPO-430",
+      "name": "CloudChangeApproval",
+      "application_domain": "cloud_platforms_saas",
+      "path": "benchmark/repositories/REPO-430",
+      "purpose": "Record a signed approval statement for an infrastructure change request.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-430/test-results.json"
+    }
+  ]
+}
