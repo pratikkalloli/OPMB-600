@@ -2,17 +2,17 @@
   "repository_id": "REPO-241",
   "application_name": "WorkcellRecipeVault",
   "status": "passed",
-  "basis": "Runtime behavior covered by the recorded original and PQC pytest suites; not independent security certification.",
+  "basis": "Functional checks from the recorded original and PQC pytest runs; not an independent security review.",
   "checks": [
-    "RSA-PSS or ML-DSA-65 signing and verification",
-    "modified record rejection",
-    "wrong verification key rejection",
-    "versioned public key serialization round-trip",
-    "RSA-OAEP/AES-GCM or ML-KEM-768/HKDF/AES-GCM seal/open round-trip",
-    "tampered ciphertext rejection",
-    "wrong recipient key rejection",
-    "unknown envelope version rejection",
-    "SQLite approval persistence and changed-record signature invalidation"
+    "Signature generation and verification",
+    "Modified-record rejection",
+    "Wrong verification-key rejection",
+    "Versioned public-key round trip",
+    "Classical envelope or ML-KEM/HKDF/AES-GCM seal/open round trip",
+    "Tampered ciphertext rejection",
+    "Wrong recipient-key rejection",
+    "Unsupported envelope version rejection",
+    "Persistent approval and stale-record rejection"
   ],
   "suite_results": [
     {
@@ -43,6 +43,6 @@
     }
   ],
   "limitations": [
-    "Synthetic benchmark implementation; no formal verification, security certification, third-party review, or production readiness claim."
+    "No formal verification, certification, independent audit, or production readiness claim."
   ]
 }
