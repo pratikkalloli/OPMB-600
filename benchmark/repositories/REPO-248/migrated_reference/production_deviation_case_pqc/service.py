@@ -27,3 +27,22 @@ class ProductionDeviationCasePQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def dispose_production_deviation(self, record_id, disposition, quality_manager_id, quality_public, containment_reference=None):
+        """Require an independent quality manager and containment evidence for severe deviations."""
+        record=self.retrieve(record_id)
+        allowed={'repair','rework','scrap','use_as_is'}
+        if record['state']!='contained': raise ValueError('deviation must be contained before disposition')
+        if disposition not in allowed: raise ValueError('unsupported deviation disposition')
+        if quality_manager_id==record['reporter_id']: raise PermissionError('reporter cannot approve their own deviation')
+        if record['severity']=='critical' and not containment_reference: raise ValueError('critical deviation needs containment evidence')
+        if not self.verify_approval(record_id,quality_public): raise PermissionError('quality-manager signature is absent or invalid')
+        return self._commit_domain_decision(record,'dispositioned','deviation_dispositioned',{'production_order':record['production_order'],'severity':record['severity'],'disposition':disposition,'quality_manager_id':quality_manager_id,'containment_reference':containment_reference})

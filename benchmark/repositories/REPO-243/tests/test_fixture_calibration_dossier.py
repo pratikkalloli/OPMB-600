@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'measured')
     assert moved["state"]!='scheduled'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_fixture_acceptance_enforces_tolerance_and_expiry(tmp_path):
+    from fixture_calibration_dossier.service import FixtureCalibrationDossier
+    record=dict(RECORD,state='measured'); app=FixtureCalibrationDossier(tmp_path/'fixture.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.accept_fixture_calibration(record['record_id'],40,100,200,signer.public_key())
+    assert result['state']=='accepted'
+    with __import__('sqlite3').connect(app.path) as db: evidence=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert 'tolerance_microns' in evidence and 'fixture_id' in evidence
+def test_fixture_acceptance_rejects_out_of_tolerance_and_expired_certificate(tmp_path):
+    from fixture_calibration_dossier.service import FixtureCalibrationDossier
+    record=dict(RECORD,state='measured'); app=FixtureCalibrationDossier(tmp_path/'fixture.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(ValueError): app.accept_fixture_calibration(record['record_id'],10,100,200,signer.public_key())
+    with pytest.raises(ValueError): app.accept_fixture_calibration(record['record_id'],40,200,200,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='measured'

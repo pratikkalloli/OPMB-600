@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'verified')
     assert moved["state"]!='received'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_component_lot_consumption_checks_provenance_and_sequence(tmp_path):
+    from component_trace_lot.service import ComponentTraceLot
+    record=dict(RECORD,state='verified'); app=ComponentTraceLot(tmp_path/'trace.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.consume_component_lot(record['record_id'],record['receipt_sequence'],{record['material_digest']},signer.public_key())
+    assert result['state']=='consumed'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert record['source_lot'] in ev and record['material_digest'] in ev
+def test_component_lot_rejects_unapproved_digest_and_sequence(tmp_path):
+    from component_trace_lot.service import ComponentTraceLot
+    record=dict(RECORD,state='verified'); app=ComponentTraceLot(tmp_path/'trace.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.consume_component_lot(record['record_id'],record['receipt_sequence'],set(),signer.public_key())
+    with pytest.raises(ValueError): app.consume_component_lot(record['record_id'],record['receipt_sequence']+1,{record['material_digest']},signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='verified'

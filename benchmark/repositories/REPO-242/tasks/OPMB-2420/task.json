@@ -6,27 +6,28 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-3072 PSS/SHA-256",
-  "cryptographic_operation": "transition_record for line clearance workflow",
+  "cryptographic_operation": "Signed LineClearanceToken domain transition and append-only decision evidence",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/line_clearance_token/domain.py",
     "src/line_clearance_token/crypto.py",
-    "src/line_clearance_token/service.py"
+    "src/line_clearance_token/service.py",
+    "migrated_reference/line_clearance_token_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "clear_production_line"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Migrate LineClearanceToken apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Changeover checklist, supervisor approval, release token issuance, and later revocation for a production line. semantics.",
+  "migration_objective": "Migrate LineClearanceToken clear production line authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
   "preconditions": [
     "LineClearanceToken original tests pass.",
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve line_id and clearance_code semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Permit the LineClearanceToken workflow only when its domain preconditions and signed approval are valid.",
+    "Persist the state transition and decision evidence atomically.",
+    "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
   ],
   "migration_requirements": [
     "Bind line_clearance version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_line_clearance_token_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run the original and PQC test modules separately.",
+    "Exercise clear_production_line success, policy rejection, signature rejection, and persisted decision evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

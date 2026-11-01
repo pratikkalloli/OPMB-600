@@ -53,3 +53,18 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'monitored')
     assert moved["state"]!='prepared'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_cleanroom_release_requires_in_limit_signed_sample(tmp_path):
+    from cleanroom_process_ticket.service import CleanroomProcessTicket
+    record=dict(RECORD,state='monitored'); app=CleanroomProcessTicket(tmp_path/'cleanroom.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.release_cleanroom_window(record['record_id'],record['particle_count'],signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: assert db.execute('SELECT event_type FROM workflow_events').fetchone()[0]=='cleanroom_window_released'
+def test_cleanroom_excursion_is_quarantined_and_audited(tmp_path):
+    from cleanroom_process_ticket.service import CleanroomProcessTicket
+    record=dict(RECORD,state='monitored'); app=CleanroomProcessTicket(tmp_path/'cleanroom.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(RuntimeError): app.release_cleanroom_window(record['record_id'],record['particle_count']-1,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='quarantined'
+    with __import__('sqlite3').connect(app.path) as db: assert db.execute('SELECT event_type FROM workflow_events').fetchone()[0]=='cleanroom_excursion_quarantined'

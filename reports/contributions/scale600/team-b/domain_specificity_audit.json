@@ -1,0 +1,1908 @@
+{
+  "applications_reviewed": 180,
+  "applications_passing_internal_evidence_check": 10,
+  "applications_requiring_remediation": 170,
+  "criteria": "One non-generic service operation exists in original and PQC code; both separate test suites call it; method verifies signed approval, enforces business guards, and persists a domain decision; each suite includes at least eight tests. This is not independent acceptance review.",
+  "applications": [
+    {
+      "repository_id": "REPO-241",
+      "name": "WorkcellRecipeVault",
+      "domain_methods": [
+        "release_recipe"
+      ],
+      "method_evidence": {
+        "release_recipe": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-242",
+      "name": "LineClearanceToken",
+      "domain_methods": [
+        "clear_production_line"
+      ],
+      "method_evidence": {
+        "clear_production_line": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-243",
+      "name": "FixtureCalibrationDossier",
+      "domain_methods": [
+        "accept_fixture_calibration"
+      ],
+      "method_evidence": {
+        "accept_fixture_calibration": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-244",
+      "name": "WeldProcedureRelease",
+      "domain_methods": [
+        "issue_weld_procedure"
+      ],
+      "method_evidence": {
+        "issue_weld_procedure": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-245",
+      "name": "BatchYieldCertificate",
+      "domain_methods": [
+        "certify_batch_yield"
+      ],
+      "method_evidence": {
+        "certify_batch_yield": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-246",
+      "name": "ToolChangeAuthorization",
+      "domain_methods": [
+        "return_tool_to_service"
+      ],
+      "method_evidence": {
+        "return_tool_to_service": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-247",
+      "name": "CleanroomProcessTicket",
+      "domain_methods": [
+        "release_cleanroom_window"
+      ],
+      "method_evidence": {
+        "release_cleanroom_window": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-248",
+      "name": "ProductionDeviationCase",
+      "domain_methods": [
+        "dispose_production_deviation"
+      ],
+      "method_evidence": {
+        "dispose_production_deviation": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-249",
+      "name": "MachineInterlockPermit",
+      "domain_methods": [
+        "arm_machine_interlock"
+      ],
+      "method_evidence": {
+        "arm_machine_interlock": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-250",
+      "name": "ComponentTraceLot",
+      "domain_methods": [
+        "consume_component_lot"
+      ],
+      "method_evidence": {
+        "consume_component_lot": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-251",
+      "name": "SerializedMachinePassport",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-252",
+      "name": "TorqueAuditLedger",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-253",
+      "name": "ToolWearForecastCase",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-254",
+      "name": "FurnaceCycleWitness",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-255",
+      "name": "PackagingArtworkRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-256",
+      "name": "FixtureInspectionSchedule",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-257",
+      "name": "ShiftHandoverDocket",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-258",
+      "name": "ProductionScrapVoucher",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-259",
+      "name": "SurfaceTreatmentBatch",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-260",
+      "name": "AssemblySequencePermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-261",
+      "name": "MachineGuardInspection",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-262",
+      "name": "ConsumableShelfLifeCard",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-263",
+      "name": "GaugeRAndRStudy",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-264",
+      "name": "WorkOrderTraveler",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-265",
+      "name": "QualityHoldRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-266",
+      "name": "SparePartCompatibility",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-267",
+      "name": "CleanInPlaceRecord",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-268",
+      "name": "ReworkRoutingCard",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-269",
+      "name": "OperatorQualificationGrant",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-270",
+      "name": "ProductionSampleCustody",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-271",
+      "name": "RobotCellEnrollment",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-272",
+      "name": "SensorCalibrationChain",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-273",
+      "name": "FirmwareRolloutRing",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-274",
+      "name": "DroneFleetCommand",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-275",
+      "name": "GatewayJoinApproval",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-276",
+      "name": "DeviceOwnershipTransfer",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-277",
+      "name": "EdgeNodeAttestation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-278",
+      "name": "BatteryHealthLog",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-279",
+      "name": "TelemetryFrameSeal",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-280",
+      "name": "EmbeddedConfigBundle",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-281",
+      "name": "SmartLockLease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-282",
+      "name": "AutonomousCartRoute",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-283",
+      "name": "RemoteProbeRegistry",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-284",
+      "name": "DeviceRecoveryTicket",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-285",
+      "name": "RoboticsSafetyEnvelope",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-286",
+      "name": "WearableAssetPairing",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-287",
+      "name": "FieldGatewayBridge",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-288",
+      "name": "FirmwareRollbackPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-289",
+      "name": "SensorBatchProvenance",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-290",
+      "name": "RobotToolingIdentity",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-291",
+      "name": "DeviceTrustRenewal",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-292",
+      "name": "MicrocontrollerBuildProof",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-293",
+      "name": "CameraPrivacyZone",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-294",
+      "name": "HomeEnergyDeviceCommission",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-295",
+      "name": "SecureBLEPairingBook",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-296",
+      "name": "FleetCertificateRotation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-297",
+      "name": "RobotMissionReceipt",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-298",
+      "name": "IoTDataRetentionPolicy",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-299",
+      "name": "LowPowerNetworkJoin",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-300",
+      "name": "SensorAnomalyWitness",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-301",
+      "name": "MeterReadCycle",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-302",
+      "name": "RenewableOutputCertificate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-303",
+      "name": "FeederSwitchingOrder",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-304",
+      "name": "TransformerOilSample",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-305",
+      "name": "DemandResponseEnrollment",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-306",
+      "name": "MicrogridIslandEvent",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-307",
+      "name": "GridTopologySnapshot",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-308",
+      "name": "TurbineMaintenanceDossier",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-309",
+      "name": "SolarStringInspection",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-310",
+      "name": "BatteryDispatchReceipt",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-311",
+      "name": "UtilityCrewPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-312",
+      "name": "HydroReservoirRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-313",
+      "name": "SubstationRelaySetting",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-314",
+      "name": "CarbonIntensityAttestation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-315",
+      "name": "EVChargeSession",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-316",
+      "name": "UtilityInterconnectApplication",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-317",
+      "name": "FuelBlendCertificate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-318",
+      "name": "PowerPurchaseAllocation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-319",
+      "name": "OutageRestorationLog",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-320",
+      "name": "WaterPumpEnergyLedger",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-321",
+      "name": "HeatNetworkMetering",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-322",
+      "name": "RenewableRECRegistry",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-323",
+      "name": "GridFirmwareRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-324",
+      "name": "CustomerMeterExchange",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-325",
+      "name": "EnergyMarketBidEnvelope",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-326",
+      "name": "HydrogenBatchPassport",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-327",
+      "name": "DistributionLossStudy",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-328",
+      "name": "LoadForecastPublication",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-329",
+      "name": "InverterProtectionProfile",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-330",
+      "name": "CommunityEnergySettlement",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-331",
+      "name": "RailSignalAspectArchive",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-332",
+      "name": "ColdChainTransfer",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-333",
+      "name": "AircraftComponentLifeCard",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-334",
+      "name": "PortContainerSeal",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-335",
+      "name": "TransitOperatorCredential",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-336",
+      "name": "FleetRouteException",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-337",
+      "name": "BusDepotChargeDispatch",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-338",
+      "name": "MaritimeBillOfLading",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-339",
+      "name": "RailTrackWindowPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-340",
+      "name": "ParcelSortationManifest",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-341",
+      "name": "VehicleTitleTransfer",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-342",
+      "name": "TaxiShiftSettlement",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-343",
+      "name": "AircraftGroundPowerLog",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-344",
+      "name": "WarehouseDockAppointment",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-345",
+      "name": "CustomsInspectionPacket",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-346",
+      "name": "BicycleShareBatterySwap",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-347",
+      "name": "RailCrewDutyRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-348",
+      "name": "FerryPassengerManifest",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-349",
+      "name": "CargoTemperatureExcursion",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-350",
+      "name": "RoadsideAssistanceDispatch",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-351",
+      "name": "VehicleRecallNotice",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-352",
+      "name": "AutonomousConvoyJoin",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-353",
+      "name": "ShippingHazardDeclaration",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-354",
+      "name": "AirportBaggageCustody",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-355",
+      "name": "FreightRateOffer",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-356",
+      "name": "TunnelVentilationCommand",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-357",
+      "name": "ContainerWeightTicket",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-358",
+      "name": "DeliveryProofOfHandoff",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-359",
+      "name": "TrainConsistRevision",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-360",
+      "name": "TrafficSignalPriorityPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-361",
+      "name": "RANCellProvisioning",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-362",
+      "name": "RoutingPolicyBundle",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-363",
+      "name": "PeeringKeyAgreement",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-364",
+      "name": "FiberSpliceEvidence",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-365",
+      "name": "NetworkSliceLease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-366",
+      "name": "SubscriberSIMReplacement",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-367",
+      "name": "EdgeCacheInvalidate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-368",
+      "name": "TelecomEquipmentRMA",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-369",
+      "name": "TowerAccessPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-370",
+      "name": "SpectrumGrantLedger",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-371",
+      "name": "DNSSECKeyCeremony",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-372",
+      "name": "ServiceChainActivation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-373",
+      "name": "NetworkChangeWindow",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-374",
+      "name": "CarrierInterconnectReceipt",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-375",
+      "name": "BGPCommunityApproval",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-376",
+      "name": "OLTProfileRelease",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-377",
+      "name": "BaseStationClockAttestation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-378",
+      "name": "QoSContractRevision",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-379",
+      "name": "RoamingPartnerProfile",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-380",
+      "name": "SyntheticInterceptAudit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-381",
+      "name": "CircuitMigrationPlan",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-382",
+      "name": "EmergencyBroadcastAuthorization",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-383",
+      "name": "NetworkTelemetryCheckpoint",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-384",
+      "name": "PacketBrokerFilterUpdate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-385",
+      "name": "CarrierNumberPorting",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-386",
+      "name": "WiFiControllerEnrollment",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-387",
+      "name": "CPEFirmwareCampaign",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-388",
+      "name": "InternetExchangeMembership",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-389",
+      "name": "MicrowaveLinkAlignment",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-390",
+      "name": "TelecomDataRetentionFreeze",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-391",
+      "name": "IrrigationZoneSchedule",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-392",
+      "name": "SoilProbeCalibration",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-393",
+      "name": "CropSprayPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-394",
+      "name": "SeedLotProvenance",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-395",
+      "name": "GreenhouseClimatePolicy",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-396",
+      "name": "LivestockMovementCertificate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-397",
+      "name": "WaterSampleCustody",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-398",
+      "name": "WatershedReleaseNotice",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-399",
+      "name": "WeatherStationCalibration",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-400",
+      "name": "BeehiveHealthObservation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-401",
+      "name": "FarmEquipmentOperatorGrant",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-402",
+      "name": "PesticideApplicationLog",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-403",
+      "name": "HarvestBinHandoff",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-404",
+      "name": "GrainMoistureCertificate",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-405",
+      "name": "ColdRoomTemperatureRecord",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-406",
+      "name": "ForestPlotMeasurement",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-407",
+      "name": "RiverGaugeObservation",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-408",
+      "name": "AirQualitySensorEvidence",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-409",
+      "name": "FertilizerBlendTicket",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-410",
+      "name": "AquacultureFeedTrace",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-411",
+      "name": "CompostBatchMaturity",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-412",
+      "name": "DroneSurveyMission",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-413",
+      "name": "PollinatorCorridorInspection",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-414",
+      "name": "CropInsuranceEvidence",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-415",
+      "name": "FisheryCatchTrace",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-416",
+      "name": "CarbonSoilSample",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-417",
+      "name": "DroughtAllocationPermit",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-418",
+      "name": "WetlandRestorationMilestone",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-419",
+      "name": "ReservoirWaterQuality",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    },
+    {
+      "repository_id": "REPO-420",
+      "name": "FarmProducePackingLot",
+      "domain_methods": [],
+      "method_evidence": {},
+      "original_test_functions": 6,
+      "pqc_test_functions": 6,
+      "domain_specificity_status": "requires_remediation",
+      "review_note": "Automated evidence check only; not independent acceptance review."
+    }
+  ]
+}

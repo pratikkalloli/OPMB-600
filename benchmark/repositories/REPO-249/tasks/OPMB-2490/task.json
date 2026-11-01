@@ -6,27 +6,28 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-PSS with SHA-256",
-  "cryptographic_operation": "transition_record for interlock permit workflow",
+  "cryptographic_operation": "Signed MachineInterlockPermit domain transition and append-only decision evidence",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/machine_interlock_permit/domain.py",
     "src/machine_interlock_permit/crypto.py",
-    "src/machine_interlock_permit/service.py"
+    "src/machine_interlock_permit/service.py",
+    "migrated_reference/machine_interlock_permit_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "arm_machine_interlock"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Migrate MachineInterlockPermit apply only an allowed domain lifecycle transition from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Safety-case review, interlock epoch issuance, operator acknowledgment, and restart authorization. semantics.",
+  "migration_objective": "Migrate MachineInterlockPermit arm machine interlock authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
   "preconditions": [
     "MachineInterlockPermit original tests pass.",
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve machine_id and interlock_epoch semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Permit the MachineInterlockPermit workflow only when its domain preconditions and signed approval are valid.",
+    "Persist the state transition and decision evidence atomically.",
+    "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
   ],
   "migration_requirements": [
     "Bind interlock_permit version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_machine_interlock_permit_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run the original and PQC test modules separately.",
+    "Exercise arm_machine_interlock success, policy rejection, signature rejection, and persisted decision evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

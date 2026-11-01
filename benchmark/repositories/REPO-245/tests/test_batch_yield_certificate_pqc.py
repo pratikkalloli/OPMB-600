@@ -53,3 +53,18 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reconciled')
     assert moved["state"]!='open'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_batch_yield_certificate_reconciles_counts_and_audits(tmp_path):
+    from batch_yield_certificate_pqc.service import BatchYieldCertificatePQC
+    record=dict(RECORD,state='reconciled'); app=BatchYieldCertificatePQC(tmp_path/'yield.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.certify_batch_yield(record['record_id'],record['good_units']+record['rejected_units'],signer.public_key())
+    assert result['state']=='certified'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert 'good_units' in ev and 'rejected_units' in ev
+def test_batch_yield_rejects_unreconciled_quantity(tmp_path):
+    from batch_yield_certificate_pqc.service import BatchYieldCertificatePQC
+    record=dict(RECORD,state='reconciled'); app=BatchYieldCertificatePQC(tmp_path/'yield.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(ValueError): app.certify_batch_yield(record['record_id'],record['good_units']+record['rejected_units']+1,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reconciled'

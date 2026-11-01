@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='proposed'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_interlock_arm_requires_current_epoch_and_signed_case(tmp_path):
+    from machine_interlock_permit.service import MachineInterlockPermit
+    record=dict(RECORD,state='reviewed'); app=MachineInterlockPermit(tmp_path/'interlock.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.arm_machine_interlock(record['record_id'],record['interlock_epoch'],record['safety_case_digest'],signer.public_key())
+    assert result['state']=='armed'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert 'interlock_epoch' in ev and 'safety_case_digest' in ev
+def test_interlock_arm_rejects_stale_epoch_and_superseded_case(tmp_path):
+    from machine_interlock_permit.service import MachineInterlockPermit
+    record=dict(RECORD,state='reviewed'); app=MachineInterlockPermit(tmp_path/'interlock.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.arm_machine_interlock(record['record_id'],record['interlock_epoch']+1,record['safety_case_digest'],signer.public_key())
+    with pytest.raises(PermissionError): app.arm_machine_interlock(record['record_id'],record['interlock_epoch'],'f'*64,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

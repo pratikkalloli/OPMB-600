@@ -574,27 +574,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for workcell recipe workflow",
+    "cryptographic_operation": "Signed WorkcellRecipeVault domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/workcell_recipe_vault/domain.py",
       "src/workcell_recipe_vault/crypto.py",
-      "src/workcell_recipe_vault/service.py"
+      "src/workcell_recipe_vault/service.py",
+      "migrated_reference/workcell_recipe_vault_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "release_recipe"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate WorkcellRecipeVault apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Recipe authoring, quality review, controlled release, and retirement for one manufacturing workcell. semantics.",
+    "migration_objective": "Migrate WorkcellRecipeVault release recipe authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "WorkcellRecipeVault original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve line_id and recipe_digest semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the WorkcellRecipeVault workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind workcell_recipe version and application context into cryptographic operations.",
@@ -608,8 +609,8 @@
       "tests/test_workcell_recipe_vault_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise release_recipe success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -1204,27 +1205,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for line clearance workflow",
+    "cryptographic_operation": "Signed LineClearanceToken domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/line_clearance_token/domain.py",
       "src/line_clearance_token/crypto.py",
-      "src/line_clearance_token/service.py"
+      "src/line_clearance_token/service.py",
+      "migrated_reference/line_clearance_token_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "clear_production_line"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate LineClearanceToken apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Changeover checklist, supervisor approval, release token issuance, and later revocation for a production line. semantics.",
+    "migration_objective": "Migrate LineClearanceToken clear production line authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "LineClearanceToken original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve line_id and clearance_code semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the LineClearanceToken workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind line_clearance version and application context into cryptographic operations.",
@@ -1238,8 +1240,8 @@
       "tests/test_line_clearance_token_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise clear_production_line success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -1834,27 +1836,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-PSS with SHA-256",
-    "cryptographic_operation": "transition_record for fixture calibration workflow",
+    "cryptographic_operation": "Signed FixtureCalibrationDossier domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/fixture_calibration_dossier/domain.py",
       "src/fixture_calibration_dossier/crypto.py",
-      "src/fixture_calibration_dossier/service.py"
+      "src/fixture_calibration_dossier/service.py",
+      "migrated_reference/fixture_calibration_dossier_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "accept_fixture_calibration"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate FixtureCalibrationDossier apply only an allowed domain lifecycle transition from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Fixture identification, technician measurement, tolerance review, calibration certificate signing, and expiration. semantics.",
+    "migration_objective": "Migrate FixtureCalibrationDossier accept fixture calibration authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "FixtureCalibrationDossier original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve fixture_id and measured_error_microns semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the FixtureCalibrationDossier workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind fixture_calibration version and application context into cryptographic operations.",
@@ -1868,8 +1871,8 @@
       "tests/test_fixture_calibration_dossier_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise accept_fixture_calibration success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -2464,27 +2467,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for weld procedure workflow",
+    "cryptographic_operation": "Signed WeldProcedureRelease domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/weld_procedure_release/domain.py",
       "src/weld_procedure_release/crypto.py",
-      "src/weld_procedure_release/service.py"
+      "src/weld_procedure_release/service.py",
+      "migrated_reference/weld_procedure_release_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "issue_weld_procedure"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate WeldProcedureRelease apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Procedure drafting, welding-engineer qualification, controlled issue, and supersession of a weld specification. semantics.",
+    "migration_objective": "Migrate WeldProcedureRelease issue weld procedure authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "WeldProcedureRelease original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve joint_class and procedure_digest semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the WeldProcedureRelease workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind weld_procedure version and application context into cryptographic operations.",
@@ -2498,8 +2502,8 @@
       "tests/test_weld_procedure_release_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise issue_weld_procedure success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -3094,27 +3098,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for batch yield workflow",
+    "cryptographic_operation": "Signed BatchYieldCertificate domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/batch_yield_certificate/domain.py",
       "src/batch_yield_certificate/crypto.py",
-      "src/batch_yield_certificate/service.py"
+      "src/batch_yield_certificate/service.py",
+      "migrated_reference/batch_yield_certificate_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "certify_batch_yield"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate BatchYieldCertificate apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Lot closeout, yield reconciliation, quality signoff, certificate publication, and correction through a new revision. semantics.",
+    "migration_objective": "Migrate BatchYieldCertificate certify batch yield authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "BatchYieldCertificate original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve batch_id and good_units semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the BatchYieldCertificate workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind batch_yield version and application context into cryptographic operations.",
@@ -3128,8 +3133,8 @@
       "tests/test_batch_yield_certificate_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise certify_batch_yield success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -3724,27 +3729,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-PSS with SHA-256",
-    "cryptographic_operation": "transition_record for tool change workflow",
+    "cryptographic_operation": "Signed ToolChangeAuthorization domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/tool_change_authorization/domain.py",
       "src/tool_change_authorization/crypto.py",
-      "src/tool_change_authorization/service.py"
+      "src/tool_change_authorization/service.py",
+      "migrated_reference/tool_change_authorization_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "return_tool_to_service"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate ToolChangeAuthorization apply only an allowed domain lifecycle transition from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Tool wear report, technician assignment, supervisor authorization, change confirmation, and return-to-service. semantics.",
+    "migration_objective": "Migrate ToolChangeAuthorization return tool to service authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "ToolChangeAuthorization original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve cell_id and tool_serial semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the ToolChangeAuthorization workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind tool_change version and application context into cryptographic operations.",
@@ -3758,8 +3764,8 @@
       "tests/test_tool_change_authorization_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise return_tool_to_service success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -4354,27 +4360,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for cleanroom ticket workflow",
+    "cryptographic_operation": "Signed CleanroomProcessTicket domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/cleanroom_process_ticket/domain.py",
       "src/cleanroom_process_ticket/crypto.py",
-      "src/cleanroom_process_ticket/service.py"
+      "src/cleanroom_process_ticket/service.py",
+      "migrated_reference/cleanroom_process_ticket_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "release_cleanroom_window"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate CleanroomProcessTicket apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Room readiness, exposure-window capture, contamination review, process release, and incident quarantine. semantics.",
+    "migration_objective": "Migrate CleanroomProcessTicket release cleanroom window authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "CleanroomProcessTicket original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve room_id and particle_count semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the CleanroomProcessTicket workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind cleanroom_ticket version and application context into cryptographic operations.",
@@ -4388,8 +4395,8 @@
       "tests/test_cleanroom_process_ticket_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise release_cleanroom_window success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -4984,27 +4991,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for production deviation workflow",
+    "cryptographic_operation": "Signed ProductionDeviationCase domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/production_deviation_case/domain.py",
       "src/production_deviation_case/crypto.py",
-      "src/production_deviation_case/service.py"
+      "src/production_deviation_case/service.py",
+      "migrated_reference/production_deviation_case_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "dispose_production_deviation"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate ProductionDeviationCase apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Deviation intake, severity assignment, containment, disposition approval, and closure evidence. semantics.",
+    "migration_objective": "Migrate ProductionDeviationCase dispose production deviation authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "ProductionDeviationCase original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve production_order and severity semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the ProductionDeviationCase workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind production_deviation version and application context into cryptographic operations.",
@@ -5018,8 +5026,8 @@
       "tests/test_production_deviation_case_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise dispose_production_deviation success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -5614,27 +5622,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-PSS with SHA-256",
-    "cryptographic_operation": "transition_record for interlock permit workflow",
+    "cryptographic_operation": "Signed MachineInterlockPermit domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/machine_interlock_permit/domain.py",
       "src/machine_interlock_permit/crypto.py",
-      "src/machine_interlock_permit/service.py"
+      "src/machine_interlock_permit/service.py",
+      "migrated_reference/machine_interlock_permit_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "arm_machine_interlock"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate MachineInterlockPermit apply only an allowed domain lifecycle transition from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Safety-case review, interlock epoch issuance, operator acknowledgment, and restart authorization. semantics.",
+    "migration_objective": "Migrate MachineInterlockPermit arm machine interlock authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "MachineInterlockPermit original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve machine_id and interlock_epoch semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the MachineInterlockPermit workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind interlock_permit version and application context into cryptographic operations.",
@@ -5648,8 +5657,8 @@
       "tests/test_machine_interlock_permit_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise arm_machine_interlock success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",
@@ -6244,27 +6253,28 @@
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072 PSS/SHA-256",
-    "cryptographic_operation": "transition_record for component trace workflow",
+    "cryptographic_operation": "Signed ComponentTraceLot domain transition and append-only decision evidence",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
       "src/component_trace_lot/domain.py",
       "src/component_trace_lot/crypto.py",
-      "src/component_trace_lot/service.py"
+      "src/component_trace_lot/service.py",
+      "migrated_reference/component_trace_lot_pqc/service.py"
     ],
     "function_names": [
-      "transition_record"
+      "consume_component_lot"
     ],
     "migration_family": "digital signature migration",
     "migration_target": "ML-DSA-65",
-    "migration_objective": "Migrate ComponentTraceLot apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Receiving inspection, source-lot binding, production consumption, and traceability export. semantics.",
+    "migration_objective": "Migrate ComponentTraceLot consume component lot authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
     "preconditions": [
       "ComponentTraceLot original tests pass.",
       "All workflow data is synthetic."
     ],
     "expected_behavior": [
-      "Preserve component_id and material_digest semantics.",
-      "Reject malformed inputs, altered payloads and wrong keys.",
-      "Reject unsupported algorithm and envelope versions."
+      "Permit the ComponentTraceLot workflow only when its domain preconditions and signed approval are valid.",
+      "Persist the state transition and decision evidence atomically.",
+      "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
     ],
     "migration_requirements": [
       "Bind component_trace version and application context into cryptographic operations.",
@@ -6278,8 +6288,8 @@
       "tests/test_component_trace_lot_pqc.py"
     ],
     "verification_procedure": [
-      "Run the original and PQC test files separately.",
-      "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+      "Run the original and PQC test modules separately.",
+      "Exercise consume_component_lot success, policy rejection, signature rejection, and persisted decision evidence."
     ],
     "difficulty": "medium",
     "original_build_status": "passed",

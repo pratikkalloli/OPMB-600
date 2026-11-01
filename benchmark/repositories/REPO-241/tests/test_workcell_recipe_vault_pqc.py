@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_recipe_release_requires_signed_reviewed_revision(tmp_path):
+    from workcell_recipe_vault_pqc.service import WorkcellRecipeVaultPQC
+    record=dict(RECORD,state='reviewed'); app=WorkcellRecipeVaultPQC(tmp_path/'recipe.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    released=app.release_recipe(record['record_id'],record['revision'],signer.public_key())
+    assert released['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state,evidence FROM workflow_events').fetchone()
+    assert event[0:3]==('recipe_released','reviewed','released') and 'line_id' in event[3]
+def test_recipe_release_rejects_revision_mismatch_without_transition(tmp_path):
+    from workcell_recipe_vault_pqc.service import WorkcellRecipeVaultPQC
+    record=dict(RECORD,state='reviewed'); app=WorkcellRecipeVaultPQC(tmp_path/'recipe.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(ValueError): app.release_recipe(record['record_id'],record['revision']+1,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

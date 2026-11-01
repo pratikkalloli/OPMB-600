@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'inspected')
     assert moved["state"]!='requested'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_line_clearance_requires_shift_and_all_checks(tmp_path):
+    from line_clearance_token_pqc.service import LineClearanceTokenPQC
+    record=dict(RECORD,state='inspected'); app=LineClearanceTokenPQC(tmp_path/'line.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    checks={'guards_secured':True,'previous_product_removed':True,'tools_accounted':True}
+    result=app.clear_production_line(record['record_id'],record['shift_id'],checks,signer.public_key())
+    assert result['state']=='cleared'
+    with __import__('sqlite3').connect(app.path) as db: assert db.execute('SELECT event_type FROM workflow_events').fetchone()[0]=='line_cleared'
+def test_line_clearance_rejects_wrong_shift_or_incomplete_checklist(tmp_path):
+    from line_clearance_token_pqc.service import LineClearanceTokenPQC
+    record=dict(RECORD,state='inspected'); app=LineClearanceTokenPQC(tmp_path/'line.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.clear_production_line(record['record_id'],'another-shift',{'guards_secured':True,'previous_product_removed':True,'tools_accounted':True},signer.public_key())
+    with pytest.raises(ValueError): app.clear_production_line(record['record_id'],record['shift_id'],{'guards_secured':True},signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='inspected'

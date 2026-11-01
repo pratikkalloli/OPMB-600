@@ -6,27 +6,28 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-3072 PSS/SHA-256",
-  "cryptographic_operation": "transition_record for component trace workflow",
+  "cryptographic_operation": "Signed ComponentTraceLot domain transition and append-only decision evidence",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/component_trace_lot/domain.py",
     "src/component_trace_lot/crypto.py",
-    "src/component_trace_lot/service.py"
+    "src/component_trace_lot/service.py",
+    "migrated_reference/component_trace_lot_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "consume_component_lot"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Migrate ComponentTraceLot apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Receiving inspection, source-lot binding, production consumption, and traceability export. semantics.",
+  "migration_objective": "Migrate ComponentTraceLot consume component lot authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
   "preconditions": [
     "ComponentTraceLot original tests pass.",
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve component_id and material_digest semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Permit the ComponentTraceLot workflow only when its domain preconditions and signed approval are valid.",
+    "Persist the state transition and decision evidence atomically.",
+    "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
   ],
   "migration_requirements": [
     "Bind component_trace version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_component_trace_lot_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run the original and PQC test modules separately.",
+    "Exercise consume_component_lot success, policy rejection, signature rejection, and persisted decision evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

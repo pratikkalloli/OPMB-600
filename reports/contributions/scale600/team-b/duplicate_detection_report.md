@@ -1,5 +1,5 @@
-# Duplicate detection register
+# Duplicate detection and workflow review
 
-Reviewed 180 Team B planned application names against 60 pre-existing application README titles. Exact title collisions: 0. Duplicate Team B names: 0. Duplicate purpose strings: 0. The applications with completed source at this checkpoint are REPO-241–260; the remaining names are concept proposals only and require workflow-level review before implementation. This comparison is not independent review and cannot rule out semantic overlap based only on titles/descriptions.
+The 180 Team B application names were compared against 60 pre-existing application README titles: exact title collisions 0. Duplicate Team B names 0; duplicate purpose strings 0. These lexical checks do not rule out semantic overlap.
 
-No exact title overlaps found.
+The current workflow inventory distinguishes 10 apps with specialized service operations from 170 using only the generic record API. REPO-241–250 have purpose-driven changes under review; the remaining 170 require workflow remediation. Domain-level differentiation and quality review remain outstanding, so this is not a duplicate or acceptance clearance.

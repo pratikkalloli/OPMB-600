@@ -27,3 +27,20 @@ class ToolChangeAuthorizationPQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def return_tool_to_service(self, record_id, approved_serials, supervisor_public):
+        """Return a tool to production only after the authorized serial is changed."""
+        record=self.retrieve(record_id)
+        if record['state']!='changed': raise ValueError('tool change must be confirmed before return to service')
+        if record['tool_serial'] not in set(approved_serials): raise PermissionError('tool serial is not approved for this cell')
+        if not record['reason_code'].strip(): raise ValueError('tool change reason is required')
+        if not self.verify_approval(record_id,supervisor_public): raise PermissionError('supervisor authorization is absent or invalid')
+        return self._commit_domain_decision(record,'returned_to_service','tool_returned_to_service',{'cell_id':record['cell_id'],'tool_serial':record['tool_serial'],'technician_id':record['technician_id'],'reason_code':record['reason_code']})

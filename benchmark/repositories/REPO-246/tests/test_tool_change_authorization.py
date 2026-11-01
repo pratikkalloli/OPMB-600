@@ -53,3 +53,18 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'authorized')
     assert moved["state"]!='reported'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_tool_return_requires_authorized_serial_and_signed_change(tmp_path):
+    from tool_change_authorization.service import ToolChangeAuthorization
+    record=dict(RECORD,state='changed'); app=ToolChangeAuthorization(tmp_path/'tool.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.return_tool_to_service(record['record_id'],{record['tool_serial']},signer.public_key())
+    assert result['state']=='returned_to_service'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert record['tool_serial'] in ev and record['cell_id'] in ev
+def test_tool_return_rejects_unapproved_serial_without_mutation(tmp_path):
+    from tool_change_authorization.service import ToolChangeAuthorization
+    record=dict(RECORD,state='changed'); app=ToolChangeAuthorization(tmp_path/'tool.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.return_tool_to_service(record['record_id'],set(),signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='changed'

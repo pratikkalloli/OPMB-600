@@ -33,7 +33,8 @@ def main()->int:
     if len(tasks)!=1800 or len(set(task_ids))!=1800: errors.append(f'task record count/uniqueness issue: {len(tasks)}')
     byrepo={}
     for t in tasks: byrepo.setdefault(t['repository_id'],[]).append(t)
-    shape_hashes=[]; task_count_errors=[]; mismatches=[]
+    shape_hashes=[]; task_count_errors=[]; mismatches=[]; domain_rows=[]
+    generic_methods={'__init__','register','retrieve','approve','verify_approval','advance','_commit_domain_decision'}
     for r in repos:
         errs=list(repo_schema.iter_errors(r)); errors.extend(f"{r['repository_id']} schema: {e.message}" for e in errs)
         rid=r['repository_id']; app=ROOT/r['path']; own=byrepo.get(rid,[]); n=int(rid[-3:])
@@ -42,21 +43,48 @@ def main()->int:
         for rel in ('README.md','pyproject.toml','requirements.txt','src','migrated_reference','tests','tasks'):
             if not (app/rel).exists(): errors.append(f'{rid} missing {rel}')
         service=next(app.glob('src/*/service.py'),None)
+        original_service_defs=set(); specialized=set()
         if service:
+            raw=ast.parse(service.read_text(encoding='utf-8'))
             tree=Shape().visit(ast.parse(service.read_text(encoding='utf-8'))); shape_hashes.append(hashlib.sha256(ast.dump(tree,include_attributes=False).encode()).hexdigest())
+            original_service_defs={x.name for x in ast.walk(raw) if isinstance(x,(ast.FunctionDef,ast.AsyncFunctionDef))}
+            specialized=original_service_defs-generic_methods
         app_defs={}
         for p in app.glob('src/**/*.py'):
             try: app_defs[p.relative_to(app).as_posix()]={x.name for x in ast.walk(ast.parse(p.read_text(encoding='utf-8'))) if isinstance(x,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef))}
             except (SyntaxError,UnicodeError) as e: errors.append(f"{rid} source parse: {e}")
         ref=ROOT/'benchmark'/'repositories'/rid/'migrated_reference'
         ref_defs={x.name for p in ref.rglob('*.py') for x in ast.walk(ast.parse(p.read_text(encoding='utf-8'))) if isinstance(x,(ast.FunctionDef,ast.AsyncFunctionDef,ast.ClassDef))} if ref.exists() else set()
+        suite_calls={'original':set(),'pqc':set()}; suite_test_functions={'original':0,'pqc':0}
+        for kind, key in (('original','original_tests'),('pqc','migration_tests')):
+            paths={rel for t in own for rel in t.get(key,[])}
+            for rel in paths:
+                p=app/rel
+                if not p.is_file(): continue
+                try: tree=ast.parse(p.read_text(encoding='utf-8'))
+                except (SyntaxError,UnicodeError): continue
+                suite_calls[kind]|={n.func.attr for n in ast.walk(tree) if isinstance(n,ast.Call) and isinstance(n.func,ast.Attribute)}
+                suite_test_functions[kind]+=sum(1 for n in ast.walk(tree) if isinstance(n,(ast.FunctionDef,ast.AsyncFunctionDef)) and n.name.startswith('test_'))
         if len(list((app/'tasks').glob('OPMB-*')))!=10: task_count_errors.append(rid+' task-directory-count')
+        domain_methods=sorted(m for m in specialized if m not in {'main','cli','run','build_app'})
+        method_evidence={m:{'original_source':m in original_service_defs,'pqc_reference':m in ref_defs,'original_tests_call':m in suite_calls['original'],'pqc_tests_call':m in suite_calls['pqc'],'business_guard_present':False} for m in domain_methods}
+        for m in domain_methods:
+            fn=next((n for n in ast.walk(ast.parse(service.read_text(encoding='utf-8'))) if isinstance(n,ast.FunctionDef) and n.name==m),None) if service else None
+            if fn:
+                body=ast.dump(fn,include_attributes=False)
+                method_evidence[m]['business_guard_present']=('verify_approval' in body and '_commit_domain_decision' in body and 'Raise(' in body)
+        workflow_ready=(len(domain_methods)==1 and all(x['original_source'] and x['pqc_reference'] and x['original_tests_call'] and x['pqc_tests_call'] and x['business_guard_present'] for x in method_evidence.values()) and suite_test_functions['original']>=8 and suite_test_functions['pqc']>=8)
+        domain_rows.append({'repository_id':rid,'name':r['name'],'domain_methods':domain_methods,'method_evidence':method_evidence,'original_test_functions':suite_test_functions['original'],'pqc_test_functions':suite_test_functions['pqc'],'domain_specificity_status':'passes_internal_evidence_check' if workflow_ready else 'requires_remediation','review_note':'Automated evidence check only; not independent acceptance review.'})
         for t in own:
             errors.extend(f"{t['task_id']} schema: {e.message}" for e in task_schema.iter_errors(t))
             td=ROOT/t['task_path']/'task.json'
             if not td.is_file() or json.loads(td.read_text())!=t: errors.append(f"{t['task_id']} task.json missing or differs from manifest")
             defs=set()
             for rel in t['source_files']:
+                if rel.startswith('migrated_reference/'):
+                    if not (app/rel).is_file(): errors.append(f"{t['task_id']} source absent/invalid: {rel}")
+                    else: defs|=ref_defs
+                    continue
                 if rel not in app_defs: errors.append(f"{t['task_id']} source absent/invalid: {rel}"); continue
                 defs|=app_defs[rel]
             for fn in t['function_names']:
@@ -82,10 +110,15 @@ def main()->int:
         q=TEAM/f'batch-{b:02d}'; v=json.loads((q/'validation.json').read_text()); tr=json.loads((q/'test-results.json').read_text())
         batch_results.append(tr)
         if v['status']!='passed' or v['repositories']!=10 or v['tasks']!=100: errors.append(f'batch {b} structural validation not passed')
-        if tr['total_suites']!=20 or tr['total_tests']!=120 or tr['total_passed']!=120 or tr['total_failed'] or tr['total_skipped']: errors.append(f'batch {b} test summary inconsistent')
+        expected_tests=sum(y['tests'] or 0 for x in tr['applications'] for y in x['suites'])
+        expected_passed=sum(y['passed'] or 0 for x in tr['applications'] for y in x['suites'])
+        expected_failed=sum(y['failed'] or 0 for x in tr['applications'] for y in x['suites'])
+        expected_skipped=sum(y['skipped'] or 0 for x in tr['applications'] for y in x['suites'])
+        if tr['total_suites']!=20 or tr['total_tests']!=expected_tests or tr['total_passed']!=expected_passed or tr['total_failed']!=expected_failed or tr['total_skipped']!=expected_skipped or expected_failed or expected_skipped: errors.append(f'batch {b} test summary inconsistent')
         for a in tr['applications']:
             test_ev=json.loads((ROOT/'reports'/'evidence'/a['repository_id']/'test-results.json').read_text())
-            if test_ev['total_tests']!=12 or test_ev['passed']!=12 or test_ev['failed'] or test_ev['skipped']: errors.append(f"{a['repository_id']} evidence test totals mismatch")
+            actual=sum(y['tests'] or 0 for y in a['suites']); passed=sum(y['passed'] or 0 for y in a['suites']); failed=sum(y['failed'] or 0 for y in a['suites']); skipped=sum(y['skipped'] or 0 for y in a['suites'])
+            if test_ev['total_tests']!=actual or test_ev['passed']!=passed or test_ev['failed']!=failed or test_ev['skipped']!=skipped or failed or skipped: errors.append(f"{a['repository_id']} evidence test totals mismatch")
     names=[r['name'].casefold() for r in repos]
     if len(set(names))!=180: errors.append('duplicate application names')
     if len({t['migration_objective'] for t in tasks})!=1800: errors.append('duplicate task objectives')
@@ -111,7 +144,9 @@ def main()->int:
                     if p.suffix.lower() in {'.py','.json','.md','.log','.toml','.txt','.xml'} and secret.search(p.read_text(encoding='utf-8',errors='ignore')): secret_hits.append(str(p.relative_to(ROOT)))
     if secret_hits: errors.append(f'secret patterns: {len(secret_hits)}')
     if artifact_hits: errors.append(f'local-only artifacts: {len(artifact_hits)}')
-    summary={'repositories':len(repos),'tasks':len(tasks),'repository_ids_continuous':not any('repository IDs' in e for e in errors),'task_ids_continuous':not any('task IDs' in e for e in errors),'schema_dialect':'Draft 2020-12','pytest_suites':sum(x['total_suites'] for x in batch_results),'tests':sum(x['total_tests'] for x in batch_results),'passed':sum(x['total_passed'] for x in batch_results),'failed':sum(x['total_failed'] for x in batch_results),'skipped':sum(x['total_skipped'] for x in batch_results),'exact_title_overlaps_with_existing':len(title_overlap),'unique_normalized_service_shapes':unique_service_shapes,'domain_specificity_review':'requires substantive manual review','secret_pattern_hits':len(secret_hits),'local_artifact_hits':len(artifact_hits),'errors':errors,'warnings':warnings,'status':'passed' if not errors else 'failed'}
+    remediated=sum(x['domain_specificity_status']=='passes_internal_evidence_check' for x in domain_rows)
+    (TEAM/'domain_specificity_audit.json').write_text(json.dumps({'applications_reviewed':len(domain_rows),'applications_passing_internal_evidence_check':remediated,'applications_requiring_remediation':len(domain_rows)-remediated,'criteria':'One non-generic service operation exists in original and PQC code; both separate test suites call it; method verifies signed approval, enforces business guards, and persists a domain decision; each suite includes at least eight tests. This is not independent acceptance review.','applications':domain_rows},indent=2)+'\n',encoding='utf-8')
+    summary={'repositories':len(repos),'tasks':len(tasks),'repository_ids_continuous':not any('repository IDs' in e for e in errors),'task_ids_continuous':not any('task IDs' in e for e in errors),'schema_dialect':'Draft 2020-12','pytest_suites':sum(x['total_suites'] for x in batch_results),'tests':sum(x['total_tests'] for x in batch_results),'passed':sum(x['total_passed'] for x in batch_results),'failed':sum(x['total_failed'] for x in batch_results),'skipped':sum(x['total_skipped'] for x in batch_results),'exact_title_overlaps_with_existing':len(title_overlap),'unique_normalized_service_shapes':unique_service_shapes,'domain_specificity_review':'partial' if remediated<len(repos) else 'passes internal evidence check; requires independent review','domain_specificity_apps_passed':remediated,'domain_specificity_apps_remaining':len(repos)-remediated,'secret_pattern_hits':len(secret_hits),'local_artifact_hits':len(artifact_hits),'errors':errors,'warnings':warnings,'structural_status':'passed' if not errors else 'failed','status':'incomplete' if not errors and remediated<len(repos) else ('passed' if not errors else 'failed')}
     (TEAM/'full_allocation_audit.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(summary,indent=2)); return int(bool(errors))
 if __name__=='__main__': raise SystemExit(main())

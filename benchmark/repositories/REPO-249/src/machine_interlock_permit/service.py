@@ -29,3 +29,20 @@ class MachineInterlockPermit:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def arm_machine_interlock(self, record_id, active_epoch, active_safety_case_digest, safety_public):
+        """Arm a restart permit only for the currently active interlock and safety case."""
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('safety case must be reviewed before arming')
+        if type(active_epoch) is not int or record['interlock_epoch']!=active_epoch: raise PermissionError('interlock permit is stale')
+        if record['safety_case_digest']!=active_safety_case_digest: raise PermissionError('permit does not match the active safety case')
+        if not self.verify_approval(record_id,safety_public): raise PermissionError('safety officer signature is absent or invalid')
+        return self._commit_domain_decision(record,'armed','machine_interlock_armed',{'machine_id':record['machine_id'],'interlock_epoch':active_epoch,'safety_case_digest':active_safety_case_digest,'safety_officer_id':record['safety_officer_id']})

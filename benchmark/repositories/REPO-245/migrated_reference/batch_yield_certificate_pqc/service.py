@@ -27,3 +27,20 @@ class BatchYieldCertificatePQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def certify_batch_yield(self, record_id, planned_units, quality_public):
+        """Certify a lot only when inspected good and rejected counts reconcile."""
+        record=self.retrieve(record_id)
+        if record['state']!='reconciled': raise ValueError('batch must be reconciled before certification')
+        good=record['good_units']; rejected=record['rejected_units']
+        if type(planned_units) is not int or planned_units<0 or good<0 or rejected<0 or good+rejected!=planned_units: raise ValueError('batch yield does not reconcile to planned quantity')
+        if not self.verify_approval(record_id,quality_public): raise PermissionError('quality signoff is absent or invalid')
+        return self._commit_domain_decision(record,'certified','batch_yield_certified',{'batch_id':record['batch_id'],'good_units':good,'rejected_units':rejected,'inspection_station':record['inspection_station']})

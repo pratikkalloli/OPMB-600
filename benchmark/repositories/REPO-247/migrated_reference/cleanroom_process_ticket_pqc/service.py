@@ -27,3 +27,22 @@ class CleanroomProcessTicketPQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def release_cleanroom_window(self, record_id, qualified_limit, cleanroom_public):
+        """Release a cleanroom window within its qualified particle limit; quarantine excursions."""
+        record=self.retrieve(record_id)
+        if record['state']!='monitored': raise ValueError('cleanroom window must be monitored before release')
+        if type(qualified_limit) is not int or qualified_limit<0: raise ValueError('qualified particle limit must be nonnegative')
+        if not self.verify_approval(record_id,cleanroom_public): raise PermissionError('cleanroom review signature is absent or invalid')
+        if record['particle_count']>qualified_limit:
+            updated=self._commit_domain_decision(record,'quarantined','cleanroom_excursion_quarantined',{'room_id':record['room_id'],'particle_count':record['particle_count'],'qualified_limit':qualified_limit})
+            raise RuntimeError(f"particle excursion quarantined in {updated['room_id']}")
+        return self._commit_domain_decision(record,'released','cleanroom_window_released',{'room_id':record['room_id'],'particle_count':record['particle_count'],'qualified_limit':qualified_limit,'sampling_interval':record['sampling_interval']})

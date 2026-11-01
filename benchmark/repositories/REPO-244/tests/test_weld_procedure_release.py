@@ -53,3 +53,18 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'qualified')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_weld_procedure_issue_checks_pair_engineer_and_signature(tmp_path):
+    from weld_procedure_release.service import WeldProcedureRelease
+    record=dict(RECORD,state='qualified'); app=WeldProcedureRelease(tmp_path/'weld.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.issue_weld_procedure(record['record_id'],{record['material_pair']},{record['engineer_id']},signer.public_key())
+    assert result['state']=='issued'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert record['procedure_digest'] in ev
+def test_weld_procedure_rejects_unqualified_material_pair(tmp_path):
+    from weld_procedure_release.service import WeldProcedureRelease
+    record=dict(RECORD,state='qualified'); app=WeldProcedureRelease(tmp_path/'weld.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.issue_weld_procedure(record['record_id'],set(),{record['engineer_id']},signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='qualified'

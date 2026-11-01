@@ -5,18 +5,21 @@
   "task_ids_continuous": true,
   "schema_dialect": "Draft 2020-12",
   "pytest_suites": 360,
-  "tests": 2160,
-  "passed": 2160,
+  "tests": 2200,
+  "passed": 2200,
   "failed": 0,
   "skipped": 0,
   "exact_title_overlaps_with_existing": 0,
-  "unique_normalized_service_shapes": 1,
-  "domain_specificity_review": "requires substantive manual review",
+  "unique_normalized_service_shapes": 11,
+  "domain_specificity_review": "partial",
+  "domain_specificity_apps_passed": 10,
+  "domain_specificity_apps_remaining": 170,
   "secret_pattern_hits": 0,
   "local_artifact_hits": 0,
   "errors": [],
   "warnings": [
-    "Only 1 normalized service-code shape(s) across 180 applications; domain-specific workflow behavior requires substantive independent review."
+    "Only 11 normalized service-code shape(s) across 180 applications; domain-specific workflow behavior requires substantive independent review."
   ],
-  "status": "passed"
+  "structural_status": "passed",
+  "status": "incomplete"
 }

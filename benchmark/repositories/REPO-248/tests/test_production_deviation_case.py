@@ -53,3 +53,19 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'contained')
     assert moved["state"]!='opened'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_deviation_disposition_requires_independent_approval(tmp_path):
+    from production_deviation_case.service import ProductionDeviationCase
+    record=dict(RECORD,state='contained'); app=ProductionDeviationCase(tmp_path/'deviation.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.dispose_production_deviation(record['record_id'],'rework','quality-lead-2',signer.public_key())
+    assert result['state']=='dispositioned'
+    with __import__('sqlite3').connect(app.path) as db: ev=db.execute('SELECT evidence FROM workflow_events').fetchone()[0]
+    assert 'quality_manager_id' in ev and 'disposition' in ev
+def test_deviation_rejects_reporter_self_approval_and_bad_disposition(tmp_path):
+    from production_deviation_case.service import ProductionDeviationCase
+    record=dict(RECORD,state='contained'); app=ProductionDeviationCase(tmp_path/'deviation.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(PermissionError): app.dispose_production_deviation(record['record_id'],'scrap',record['reporter_id'],signer.public_key())
+    with pytest.raises(ValueError): app.dispose_production_deviation(record['record_id'],'unknown','quality-lead-2',signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='contained'

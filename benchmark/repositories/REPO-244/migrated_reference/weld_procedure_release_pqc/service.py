@@ -27,3 +27,20 @@ class WeldProcedureReleasePQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        """Atomically persist a domain transition and its append-only decision evidence."""
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def issue_weld_procedure(self, record_id, qualified_material_pairs, qualified_engineers, welding_public):
+        """Issue a weld procedure only for a qualified material pair and engineer."""
+        record=self.retrieve(record_id)
+        if record['state']!='qualified': raise ValueError('weld procedure is not qualified')
+        if record['material_pair'] not in set(qualified_material_pairs): raise PermissionError('material pairing is not qualified')
+        if record['engineer_id'] not in set(qualified_engineers): raise PermissionError('welding engineer is not qualified')
+        if not self.verify_approval(record_id,welding_public): raise PermissionError('welding engineer signature is absent or invalid')
+        return self._commit_domain_decision(record,'issued','weld_procedure_issued',{'joint_class':record['joint_class'],'material_pair':record['material_pair'],'procedure_digest':record['procedure_digest'],'engineer_id':record['engineer_id']})
