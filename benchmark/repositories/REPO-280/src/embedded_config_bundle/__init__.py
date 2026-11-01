@@ -1,0 +1,1 @@
+"""EmbeddedConfigBundle original application."""

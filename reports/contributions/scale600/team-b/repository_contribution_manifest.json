@@ -37,6 +37,18 @@
       "REPO-268",
       "REPO-269",
       "REPO-270"
+    ],
+    "batch-04": [
+      "REPO-271",
+      "REPO-272",
+      "REPO-273",
+      "REPO-274",
+      "REPO-275",
+      "REPO-276",
+      "REPO-277",
+      "REPO-278",
+      "REPO-279",
+      "REPO-280"
     ]
   },
   "repositories": [
@@ -1224,6 +1236,406 @@
         "src/production_sample_custody/domain.py",
         "src/production_sample_custody/crypto.py",
         "src/production_sample_custody/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-271",
+      "name": "RobotCellEnrollment",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-271",
+      "purpose": "Enrolls a robot controller into one cell after an owner-authorized identity and safety profile are recorded.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2701",
+        "OPMB-2702",
+        "OPMB-2703",
+        "OPMB-2704",
+        "OPMB-2705",
+        "OPMB-2706",
+        "OPMB-2707",
+        "OPMB-2708",
+        "OPMB-2709",
+        "OPMB-2710"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/robot_cell_enrollment/domain.py",
+        "src/robot_cell_enrollment/crypto.py",
+        "src/robot_cell_enrollment/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-272",
+      "name": "SensorCalibrationChain",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-272",
+      "purpose": "Links sensor calibration certificates and correction factors to the device measurement stream.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2711",
+        "OPMB-2712",
+        "OPMB-2713",
+        "OPMB-2714",
+        "OPMB-2715",
+        "OPMB-2716",
+        "OPMB-2717",
+        "OPMB-2718",
+        "OPMB-2719",
+        "OPMB-2720"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/sensor_calibration_chain/domain.py",
+        "src/sensor_calibration_chain/crypto.py",
+        "src/sensor_calibration_chain/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-273",
+      "name": "FirmwareRolloutRing",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-273",
+      "purpose": "Stages signed firmware releases by device cohort and records promotion or halt decisions.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2721",
+        "OPMB-2722",
+        "OPMB-2723",
+        "OPMB-2724",
+        "OPMB-2725",
+        "OPMB-2726",
+        "OPMB-2727",
+        "OPMB-2728",
+        "OPMB-2729",
+        "OPMB-2730"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/firmware_rollout_ring/domain.py",
+        "src/firmware_rollout_ring/crypto.py",
+        "src/firmware_rollout_ring/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-274",
+      "name": "DroneFleetCommand",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-274",
+      "purpose": "Authorizes a bounded mission command for a registered drone and records its operator and geofence.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2731",
+        "OPMB-2732",
+        "OPMB-2733",
+        "OPMB-2734",
+        "OPMB-2735",
+        "OPMB-2736",
+        "OPMB-2737",
+        "OPMB-2738",
+        "OPMB-2739",
+        "OPMB-2740"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/drone_fleet_command/domain.py",
+        "src/drone_fleet_command/crypto.py",
+        "src/drone_fleet_command/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-275",
+      "name": "GatewayJoinApproval",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-275",
+      "purpose": "Approves a sensor gateway's join request only when its hardware identity and site assignment match.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2741",
+        "OPMB-2742",
+        "OPMB-2743",
+        "OPMB-2744",
+        "OPMB-2745",
+        "OPMB-2746",
+        "OPMB-2747",
+        "OPMB-2748",
+        "OPMB-2749",
+        "OPMB-2750"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/gateway_join_approval/domain.py",
+        "src/gateway_join_approval/crypto.py",
+        "src/gateway_join_approval/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-276",
+      "name": "DeviceOwnershipTransfer",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-276",
+      "purpose": "Transfers a device between fictional owners while revoking the prior owner's access grant.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2751",
+        "OPMB-2752",
+        "OPMB-2753",
+        "OPMB-2754",
+        "OPMB-2755",
+        "OPMB-2756",
+        "OPMB-2757",
+        "OPMB-2758",
+        "OPMB-2759",
+        "OPMB-2760"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/device_ownership_transfer/domain.py",
+        "src/device_ownership_transfer/crypto.py",
+        "src/device_ownership_transfer/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-277",
+      "name": "EdgeNodeAttestation",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-277",
+      "purpose": "Records measured boot claims and policy evaluation for an edge node before workload placement.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2761",
+        "OPMB-2762",
+        "OPMB-2763",
+        "OPMB-2764",
+        "OPMB-2765",
+        "OPMB-2766",
+        "OPMB-2767",
+        "OPMB-2768",
+        "OPMB-2769",
+        "OPMB-2770"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/edge_node_attestation/domain.py",
+        "src/edge_node_attestation/crypto.py",
+        "src/edge_node_attestation/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-278",
+      "name": "BatteryHealthLog",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-278",
+      "purpose": "Captures battery cycle measurements and maintenance decisions for a battery-backed field device.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2771",
+        "OPMB-2772",
+        "OPMB-2773",
+        "OPMB-2774",
+        "OPMB-2775",
+        "OPMB-2776",
+        "OPMB-2777",
+        "OPMB-2778",
+        "OPMB-2779",
+        "OPMB-2780"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/battery_health_log/domain.py",
+        "src/battery_health_log/crypto.py",
+        "src/battery_health_log/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-279",
+      "name": "TelemetryFrameSeal",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-279",
+      "purpose": "Signs ordered telemetry frames with device and sampling-window identity to expose replay or alteration.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2781",
+        "OPMB-2782",
+        "OPMB-2783",
+        "OPMB-2784",
+        "OPMB-2785",
+        "OPMB-2786",
+        "OPMB-2787",
+        "OPMB-2788",
+        "OPMB-2789",
+        "OPMB-2790"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/telemetry_frame_seal/domain.py",
+        "src/telemetry_frame_seal/crypto.py",
+        "src/telemetry_frame_seal/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-280",
+      "name": "EmbeddedConfigBundle",
+      "application_domain": "B2 IoT, embedded devices and robotics",
+      "path": "benchmark/repositories/REPO-280",
+      "purpose": "Approves a device-specific configuration bundle with a monotonic revision and rollback policy.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2791",
+        "OPMB-2792",
+        "OPMB-2793",
+        "OPMB-2794",
+        "OPMB-2795",
+        "OPMB-2796",
+        "OPMB-2797",
+        "OPMB-2798",
+        "OPMB-2799",
+        "OPMB-2800"
+      ],
+      "batch": 4,
+      "main_modules": [
+        "src/embedded_config_bundle/domain.py",
+        "src/embedded_config_bundle/crypto.py",
+        "src/embedded_config_bundle/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",

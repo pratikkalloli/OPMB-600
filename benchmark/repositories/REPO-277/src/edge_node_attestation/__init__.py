@@ -1,0 +1,1 @@
+"""EdgeNodeAttestation original application."""

@@ -29,16 +29,16 @@ REPO-267,CleanInPlaceRecord,B1 Industrial automation and manufacturing,benchmark
 REPO-268,ReworkRoutingCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-268,10,candidate,tested
 REPO-269,OperatorQualificationGrant,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-269,10,candidate,tested
 REPO-270,ProductionSampleCustody,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-270,10,candidate,tested
-REPO-271,RobotCellEnrollment,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-271,10,candidate,planned
-REPO-272,SensorCalibrationChain,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-272,10,candidate,planned
-REPO-273,FirmwareRolloutRing,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-273,10,candidate,planned
-REPO-274,DroneFleetCommand,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-274,10,candidate,planned
-REPO-275,GatewayJoinApproval,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-275,10,candidate,planned
-REPO-276,DeviceOwnershipTransfer,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-276,10,candidate,planned
-REPO-277,EdgeNodeAttestation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-277,10,candidate,planned
-REPO-278,BatteryHealthLog,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-278,10,candidate,planned
-REPO-279,TelemetryFrameSeal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-279,10,candidate,planned
-REPO-280,EmbeddedConfigBundle,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-280,10,candidate,planned
+REPO-271,RobotCellEnrollment,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-271,10,candidate,tested
+REPO-272,SensorCalibrationChain,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-272,10,candidate,tested
+REPO-273,FirmwareRolloutRing,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-273,10,candidate,tested
+REPO-274,DroneFleetCommand,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-274,10,candidate,tested
+REPO-275,GatewayJoinApproval,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-275,10,candidate,tested
+REPO-276,DeviceOwnershipTransfer,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-276,10,candidate,tested
+REPO-277,EdgeNodeAttestation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-277,10,candidate,tested
+REPO-278,BatteryHealthLog,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-278,10,candidate,tested
+REPO-279,TelemetryFrameSeal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-279,10,candidate,tested
+REPO-280,EmbeddedConfigBundle,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-280,10,candidate,tested
 REPO-281,SmartLockLease,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-281,10,candidate,planned
 REPO-282,AutonomousCartRoute,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-282,10,candidate,planned
 REPO-283,RemoteProbeRegistry,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-283,10,candidate,planned

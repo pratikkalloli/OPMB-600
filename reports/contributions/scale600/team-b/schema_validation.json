@@ -28,12 +28,21 @@
       "secret_pattern_scan": "passed",
       "errors": [],
       "status": "passed"
+    },
+    {
+      "batch": 4,
+      "repositories": 10,
+      "tasks": 100,
+      "schema_dialect": "Draft 2020-12",
+      "secret_pattern_scan": "passed",
+      "errors": [],
+      "status": "passed"
     }
   ],
-  "repositories_checked": 30,
-  "tasks_checked": 300,
-  "repositories_valid": 30,
-  "tasks_valid": 300,
+  "repositories_checked": 40,
+  "tasks_checked": 400,
+  "repositories_valid": 40,
+  "tasks_valid": 400,
   "errors": [],
   "status": "passed"
 }

@@ -1,0 +1,1 @@
+"""EmbeddedConfigBundle separate PQC reference."""
