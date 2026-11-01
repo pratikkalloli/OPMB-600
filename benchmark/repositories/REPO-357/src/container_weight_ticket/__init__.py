@@ -1,0 +1,1 @@
+"""ContainerWeightTicket original application."""

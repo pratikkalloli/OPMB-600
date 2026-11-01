@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3600",
+  "repository_id": "REPO-360",
+  "repository_name": "TrafficSignalPriorityPermit",
+  "application_domain": "B4 Transport, mobility and logistics",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "transition_record for traffic signal priority permit workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/traffic_signal_priority_permit/domain.py",
+    "src/traffic_signal_priority_permit/crypto.py",
+    "src/traffic_signal_priority_permit/service.py"
+  ],
+  "function_names": [
+    "transition_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate TrafficSignalPriorityPermit apply only an allowed domain lifecycle transition from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Grants a bounded transit signal priority request and records intersection response; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "TrafficSignalPriorityPermit original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve shipment_id and authorization_code semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind traffic_signal_priority_permit version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_traffic_signal_priority_permit.py"
+  ],
+  "migration_tests": [
+    "tests/test_traffic_signal_priority_permit_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-360/tasks/OPMB-3600",
+  "reference_path": "benchmark/repositories/REPO-360/migrated_reference/traffic_signal_priority_permit_pqc",
+  "original_test_evidence": "reports/evidence/REPO-360/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-360/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-360/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-360/post-migration-scan.json"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3588",
+  "repository_id": "REPO-359",
+  "repository_name": "TrainConsistRevision",
+  "application_domain": "B4 Transport, mobility and logistics",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "seal_artifact for train consist revision workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/train_consist_revision/domain.py",
+    "src/train_consist_revision/crypto.py",
+    "src/train_consist_revision/service.py"
+  ],
+  "function_names": [
+    "seal_artifact"
+  ],
+  "migration_family": "KEM confidentiality migration",
+  "migration_target": "ML-KEM-768 and AES-256-GCM",
+  "migration_objective": "Migrate TrainConsistRevision protect a workflow artifact for an authorized recipient from RSA-3072 OAEP/SHA-256 with AES-256-GCM to ML-KEM-768 and AES-256-GCM, retaining Versions train consist order and checks vehicle compatibility before departure; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "TrainConsistRevision original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve shipment_id and evidence_digest semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind train_consist_revision version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_train_consist_revision.py"
+  ],
+  "migration_tests": [
+    "tests/test_train_consist_revision_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-359/tasks/OPMB-3588",
+  "reference_path": "benchmark/repositories/REPO-359/migrated_reference/train_consist_revision_pqc",
+  "original_test_evidence": "reports/evidence/REPO-359/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-359/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-359/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-359/post-migration-scan.json"
+}
