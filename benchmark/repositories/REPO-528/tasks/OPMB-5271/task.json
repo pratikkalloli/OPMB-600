@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-5271",
+  "repository_id": "REPO-528",
+  "repository_name": "EditorialSourceReceipt",
+  "application_domain": "editorial_source_material_receipts",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "canonical message encoding for editorialsourcereceipt",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/editorialsourcereceipt/crypto.py",
+    "src/editorialsourcereceipt/service.py"
+  ],
+  "function_names": [
+    "canonical_claims",
+    "validate_claims"
+  ],
+  "migration_family": "canonical message encoding",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "EditorialSourceReceipt: Canonicalize editorialsourcereceipt claims and bind the signed record to its receipt_id identifier.",
+  "preconditions": [
+    "EditorialSourceReceipt baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate canonical message encoding to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve EditorialSourceReceipt canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_editorialsourcereceipt.py"
+  ],
+  "migration_tests": [
+    "tests/test_editorialsourcereceipt_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-528/tasks/OPMB-5271",
+  "reference_path": "benchmark/repositories/REPO-528/migrated_reference/editorialsourcereceipt_pqc",
+  "original_test_evidence": "reports/evidence/REPO-528/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-528/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-528/post-migration-scan.json"
+}
