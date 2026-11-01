@@ -1,20 +1,20 @@
 {
-  "repository_count": 20,
+  "repository_count": 30,
   "planned_repository_count": 180,
-  "task_count": 200,
+  "task_count": 300,
   "planned_task_count": 1800,
   "original_tests": {
-    "passed": 100,
+    "passed": 150,
     "failed": 0,
     "skipped": 0
   },
   "reference_tests": {
-    "passed": 120,
+    "passed": 180,
     "failed": 0,
     "skipped": 0
   },
   "compile_checks": {
-    "passed": 20,
+    "passed": 30,
     "failed": 0
   },
   "per_application": {
@@ -197,6 +197,96 @@
       "reference_failed": 0,
       "reference_skipped": 0,
       "scanner_findings": 0
+    },
+    "REPO-441": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-442": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-443": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-444": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-445": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-446": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-447": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-448": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-449": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
+    },
+    "REPO-450": {
+      "original_passed": 5,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 6,
+      "reference_failed": 0,
+      "reference_skipped": 0,
+      "scanner_findings": 0
     }
   }
-}
+}\n
