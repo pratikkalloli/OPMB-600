@@ -89,3 +89,13 @@ OPMB-0557,REPO-056,src/sensorattest/service.py,enroll,tests/test_sensorattest.py
 OPMB-0558,REPO-056,src/sensorattest/service.py,deactivate,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
 OPMB-0559,REPO-056,src/sensorattest/service.py,submit,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
 OPMB-0560,REPO-056,src/sensorattest/service.py,last_sequence,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0561,REPO-057,src/capabilitygate/crypto.py,canonical_capability,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0562,REPO-057,src/capabilitygate/crypto.py,generate_issuer,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0563,REPO-057,src/capabilitygate/crypto.py,sign_capability,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0564,REPO-057,src/capabilitygate/crypto.py,verify_capability,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0565,REPO-057,src/capabilitygate/crypto.py,export_issuer,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0566,REPO-057,src/capabilitygate/crypto.py,load_issuer,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0567,REPO-057,src/capabilitygate/service.py,issue,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0568,REPO-057,src/capabilitygate/service.py,revoke,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0569,REPO-057,src/capabilitygate/service.py,authorize,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0570,REPO-057,src/capabilitygate/service.py,status,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate

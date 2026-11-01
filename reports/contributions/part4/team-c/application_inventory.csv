@@ -8,3 +8,4 @@ REPO-053,FirmwareFleet,synthetic_iot_firmware_rollout,Device enrollment and sign
 REPO-054,CareConsent,synthetic_research_consent_registry,Purpose-limited study consent with expiry and withdrawal audit,10,candidate
 REPO-055,SecureMailbox,synthetic_secure_message_delivery,Authenticated encrypted inbox and recipient delivery,10,candidate
 REPO-056,SensorAttest,synthetic_iot_sensor_telemetry_attestation,Signed sensor readings with monotonic replay protection,10,candidate
+REPO-057,CapabilityGate,synthetic_api_capability_authorization,Scoped short-lived API capabilities with online revocation,10,candidate

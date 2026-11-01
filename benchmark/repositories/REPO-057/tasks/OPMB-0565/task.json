@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0565",
+  "repository_id": "REPO-057",
+  "repository_name": "CapabilityGate",
+  "application_domain": "synthetic_api_capability_authorization",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Export an RSA issuer public key",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/capabilitygate/crypto.py"
+  ],
+  "function_names": [
+    "export_issuer"
+  ],
+  "migration_family": "Key format and API compatibility migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Replace PEM with standardized ML-DSA public-key bytes for verifier distribution.",
+  "preconditions": [
+    "CapabilityGate baseline tests pass.",
+    "Principals and API resources are synthetic."
+  ],
+  "expected_behavior": [
+    "Only a valid unexpired non-revoked capability with exact principal, resource, and action scope authorizes.",
+    "Token identifiers are unique and signed fields are integrity bound.",
+    "Unknown issuers and altered signatures fail closed."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 under a CapabilityGate-specific context.",
+    "Migrate public-key storage and verifier interfaces; do not silently fall back to RSA.",
+    "Preserve online revocation and expiry behavior."
+  ],
+  "original_tests": [
+    "tests/test_capabilitygate.py"
+  ],
+  "migration_tests": [
+    "tests/test_capabilitygate_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and reference suites independently.",
+    "Check valid authorization, expiry, revocation, scope mismatch, wrong issuer, duplicate token ID, and key encoding."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic authorization model only; no production identity federation or policy engine."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-057/tasks/OPMB-0565",
+  "reference_path": "benchmark/repositories/REPO-057/migrated_reference/capabilitygate_pqc",
+  "original_test_evidence": "reports/evidence/REPO-057/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-057/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-057/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-057/post-migration-scan.json"
+}
