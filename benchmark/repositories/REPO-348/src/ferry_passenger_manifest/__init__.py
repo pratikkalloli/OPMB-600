@@ -1,0 +1,1 @@
+"""FerryPassengerManifest original application."""

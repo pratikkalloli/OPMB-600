@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3404",
+  "repository_id": "REPO-341",
+  "repository_name": "VehicleTitleTransfer",
+  "application_domain": "B4 Transport, mobility and logistics",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "sign_record for vehicle title transfer workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/vehicle_title_transfer/domain.py",
+    "src/vehicle_title_transfer/crypto.py",
+    "src/vehicle_title_transfer/service.py"
+  ],
+  "function_names": [
+    "sign_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate VehicleTitleTransfer sign a scoped domain record with versioned context from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Records synthetic vehicle ownership transfer and invalidates prior fleet operator assignment; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "VehicleTitleTransfer original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve shipment_id and evidence_digest semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind vehicle_title_transfer version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_vehicle_title_transfer.py"
+  ],
+  "migration_tests": [
+    "tests/test_vehicle_title_transfer_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-341/tasks/OPMB-3404",
+  "reference_path": "benchmark/repositories/REPO-341/migrated_reference/vehicle_title_transfer_pqc",
+  "original_test_evidence": "reports/evidence/REPO-341/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-341/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-341/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-341/post-migration-scan.json"
+}

@@ -1,0 +1,6 @@
+{
+  "repository_id": "REPO-344",
+  "status": "not_run",
+  "reason": "No dedicated cryptographic scanner was available or executed.",
+  "secret_scan": "See the batch validation report for the limited secret-pattern scan."
+}
