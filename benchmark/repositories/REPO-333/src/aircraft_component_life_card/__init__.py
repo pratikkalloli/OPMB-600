@@ -1,0 +1,1 @@
+"""AircraftComponentLifeCard original application."""

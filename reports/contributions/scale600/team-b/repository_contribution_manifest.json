@@ -109,6 +109,18 @@
       "REPO-328",
       "REPO-329",
       "REPO-330"
+    ],
+    "batch-10": [
+      "REPO-331",
+      "REPO-332",
+      "REPO-333",
+      "REPO-334",
+      "REPO-335",
+      "REPO-336",
+      "REPO-337",
+      "REPO-338",
+      "REPO-339",
+      "REPO-340"
     ]
   },
   "repositories": [
@@ -3696,6 +3708,406 @@
         "src/community_energy_settlement/domain.py",
         "src/community_energy_settlement/crypto.py",
         "src/community_energy_settlement/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-331",
+      "name": "RailSignalAspectArchive",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-331",
+      "purpose": "Preserves signal aspect transitions with route, interlocking revision, and event sequence.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3301",
+        "OPMB-3302",
+        "OPMB-3303",
+        "OPMB-3304",
+        "OPMB-3305",
+        "OPMB-3306",
+        "OPMB-3307",
+        "OPMB-3308",
+        "OPMB-3309",
+        "OPMB-3310"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/rail_signal_aspect_archive/domain.py",
+        "src/rail_signal_aspect_archive/crypto.py",
+        "src/rail_signal_aspect_archive/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-332",
+      "name": "ColdChainTransfer",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-332",
+      "purpose": "Records refrigerated shipment custody transfer with temperature range and seal condition.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3311",
+        "OPMB-3312",
+        "OPMB-3313",
+        "OPMB-3314",
+        "OPMB-3315",
+        "OPMB-3316",
+        "OPMB-3317",
+        "OPMB-3318",
+        "OPMB-3319",
+        "OPMB-3320"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/cold_chain_transfer/domain.py",
+        "src/cold_chain_transfer/crypto.py",
+        "src/cold_chain_transfer/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-333",
+      "name": "AircraftComponentLifeCard",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-333",
+      "purpose": "Tracks simulated aircraft component cycles, inspections, and remaining-life authorization.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3321",
+        "OPMB-3322",
+        "OPMB-3323",
+        "OPMB-3324",
+        "OPMB-3325",
+        "OPMB-3326",
+        "OPMB-3327",
+        "OPMB-3328",
+        "OPMB-3329",
+        "OPMB-3330"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/aircraft_component_life_card/domain.py",
+        "src/aircraft_component_life_card/crypto.py",
+        "src/aircraft_component_life_card/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-334",
+      "name": "PortContainerSeal",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-334",
+      "purpose": "Binds container identity, seal changes, and authorized port custody events.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3331",
+        "OPMB-3332",
+        "OPMB-3333",
+        "OPMB-3334",
+        "OPMB-3335",
+        "OPMB-3336",
+        "OPMB-3337",
+        "OPMB-3338",
+        "OPMB-3339",
+        "OPMB-3340"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/port_container_seal/domain.py",
+        "src/port_container_seal/crypto.py",
+        "src/port_container_seal/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-335",
+      "name": "TransitOperatorCredential",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-335",
+      "purpose": "Assigns route and vehicle qualifications to a transit operator for a bounded duty period.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3341",
+        "OPMB-3342",
+        "OPMB-3343",
+        "OPMB-3344",
+        "OPMB-3345",
+        "OPMB-3346",
+        "OPMB-3347",
+        "OPMB-3348",
+        "OPMB-3349",
+        "OPMB-3350"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/transit_operator_credential/domain.py",
+        "src/transit_operator_credential/crypto.py",
+        "src/transit_operator_credential/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-336",
+      "name": "FleetRouteException",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-336",
+      "purpose": "Authorizes a fleet route deviation with reason, dispatch approval, and revised arrival window.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3351",
+        "OPMB-3352",
+        "OPMB-3353",
+        "OPMB-3354",
+        "OPMB-3355",
+        "OPMB-3356",
+        "OPMB-3357",
+        "OPMB-3358",
+        "OPMB-3359",
+        "OPMB-3360"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/fleet_route_exception/domain.py",
+        "src/fleet_route_exception/crypto.py",
+        "src/fleet_route_exception/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-337",
+      "name": "BusDepotChargeDispatch",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-337",
+      "purpose": "Schedules bus charging against departure readiness, charger availability, and energy limits.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3361",
+        "OPMB-3362",
+        "OPMB-3363",
+        "OPMB-3364",
+        "OPMB-3365",
+        "OPMB-3366",
+        "OPMB-3367",
+        "OPMB-3368",
+        "OPMB-3369",
+        "OPMB-3370"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/bus_depot_charge_dispatch/domain.py",
+        "src/bus_depot_charge_dispatch/crypto.py",
+        "src/bus_depot_charge_dispatch/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-338",
+      "name": "MaritimeBillOfLading",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-338",
+      "purpose": "Issues a synthetic cargo receipt and controls amendments before vessel departure.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3371",
+        "OPMB-3372",
+        "OPMB-3373",
+        "OPMB-3374",
+        "OPMB-3375",
+        "OPMB-3376",
+        "OPMB-3377",
+        "OPMB-3378",
+        "OPMB-3379",
+        "OPMB-3380"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/maritime_bill_of_lading/domain.py",
+        "src/maritime_bill_of_lading/crypto.py",
+        "src/maritime_bill_of_lading/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-339",
+      "name": "RailTrackWindowPermit",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-339",
+      "purpose": "Reserves a track work window and records protection placement and removal acknowledgements.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3381",
+        "OPMB-3382",
+        "OPMB-3383",
+        "OPMB-3384",
+        "OPMB-3385",
+        "OPMB-3386",
+        "OPMB-3387",
+        "OPMB-3388",
+        "OPMB-3389",
+        "OPMB-3390"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/rail_track_window_permit/domain.py",
+        "src/rail_track_window_permit/crypto.py",
+        "src/rail_track_window_permit/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-340",
+      "name": "ParcelSortationManifest",
+      "application_domain": "B4 Transport, mobility and logistics",
+      "path": "benchmark/repositories/REPO-340",
+      "purpose": "Reconciles parcel scans through sortation lanes and flags missing or duplicate handoffs.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3391",
+        "OPMB-3392",
+        "OPMB-3393",
+        "OPMB-3394",
+        "OPMB-3395",
+        "OPMB-3396",
+        "OPMB-3397",
+        "OPMB-3398",
+        "OPMB-3399",
+        "OPMB-3400"
+      ],
+      "batch": 10,
+      "main_modules": [
+        "src/parcel_sortation_manifest/domain.py",
+        "src/parcel_sortation_manifest/crypto.py",
+        "src/parcel_sortation_manifest/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",

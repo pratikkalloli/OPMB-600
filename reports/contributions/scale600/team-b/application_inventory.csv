@@ -89,16 +89,16 @@ REPO-327,DistributionLossStudy,B3 Energy and utilities,benchmark/repositories/RE
 REPO-328,LoadForecastPublication,B3 Energy and utilities,benchmark/repositories/REPO-328,10,candidate,tested
 REPO-329,InverterProtectionProfile,B3 Energy and utilities,benchmark/repositories/REPO-329,10,candidate,tested
 REPO-330,CommunityEnergySettlement,B3 Energy and utilities,benchmark/repositories/REPO-330,10,candidate,tested
-REPO-331,RailSignalAspectArchive,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-331,10,candidate,planned
-REPO-332,ColdChainTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-332,10,candidate,planned
-REPO-333,AircraftComponentLifeCard,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-333,10,candidate,planned
-REPO-334,PortContainerSeal,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-334,10,candidate,planned
-REPO-335,TransitOperatorCredential,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-335,10,candidate,planned
-REPO-336,FleetRouteException,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-336,10,candidate,planned
-REPO-337,BusDepotChargeDispatch,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-337,10,candidate,planned
-REPO-338,MaritimeBillOfLading,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-338,10,candidate,planned
-REPO-339,RailTrackWindowPermit,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-339,10,candidate,planned
-REPO-340,ParcelSortationManifest,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-340,10,candidate,planned
+REPO-331,RailSignalAspectArchive,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-331,10,candidate,tested
+REPO-332,ColdChainTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-332,10,candidate,tested
+REPO-333,AircraftComponentLifeCard,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-333,10,candidate,tested
+REPO-334,PortContainerSeal,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-334,10,candidate,tested
+REPO-335,TransitOperatorCredential,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-335,10,candidate,tested
+REPO-336,FleetRouteException,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-336,10,candidate,tested
+REPO-337,BusDepotChargeDispatch,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-337,10,candidate,tested
+REPO-338,MaritimeBillOfLading,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-338,10,candidate,tested
+REPO-339,RailTrackWindowPermit,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-339,10,candidate,tested
+REPO-340,ParcelSortationManifest,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-340,10,candidate,tested
 REPO-341,VehicleTitleTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-341,10,candidate,planned
 REPO-342,TaxiShiftSettlement,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-342,10,candidate,planned
 REPO-343,AircraftGroundPowerLog,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-343,10,candidate,planned

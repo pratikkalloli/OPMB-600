@@ -1,0 +1,1 @@
+"""AircraftComponentLifeCard separate PQC reference."""
