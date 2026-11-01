@@ -1,0 +1,3 @@
+# Team B cryptographic verification
+
+Runtime status: **NOT RUN**. Python is unavailable, so cryptographic unit tests and the project scanner could not run. A contribution-local static scan found no RSA/OAEP/PSS/ECDSA/ECDH/X25519/X448 references in the 15 PQC reference source modules. That lexical result is not runtime verification or cryptographic certification. The references target the pinned cryptography 50.0.2 ML-KEM-768, ML-DSA-65, HKDF-SHA-256, and AES-GCM APIs. Fixtures use synthetic data, separate signing and key-establishment keys, and no intended classical fallback. No runtime evidence files were created.

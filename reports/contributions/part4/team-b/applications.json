@@ -1,0 +1,820 @@
+[
+  {
+    "id": "REPO-033",
+    "name": "TenantPortal",
+    "slug": "tenant_portal",
+    "entity": "tenant_invitation",
+    "description": "Tenant invitations and role grants with expiry, revocation, and tenant-bound encrypted evidence.",
+    "fields": [
+      "invitation_id",
+      "tenant_id",
+      "invitee_email",
+      "role",
+      "expires_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "pending",
+      "accepted",
+      "revoked"
+    ],
+    "transitions": {
+      "pending": [
+        "accepted",
+        "revoked"
+      ],
+      "accepted": [
+        "revoked"
+      ],
+      "revoked": []
+    },
+    "sample": {
+      "invitation_id": "inv-033",
+      "tenant_id": "tenant-7",
+      "invitee_email": "person@example.invalid",
+      "role": "viewer",
+      "expires_at": 1900000000,
+      "status": "pending"
+    },
+    "rule": "data[\"role\"] in [\"viewer\",\"editor\",\"admin\"] and data[\"expires_at\"]>0",
+    "business_rule": "Invitation role must be one of viewer, editor, or admin, with a positive expiration.",
+    "rule_error": "invalid tenant_invitation domain invariant",
+    "invalid": {
+      "invitation_id": "inv-033",
+      "tenant_id": "tenant-7",
+      "invitee_email": "person@example.invalid",
+      "role": "unknown",
+      "expires_at": 1900000000,
+      "status": "pending"
+    }
+  },
+  {
+    "id": "REPO-034",
+    "name": "SecureClipboard",
+    "slug": "secure_clipboard",
+    "entity": "clipboard_share",
+    "description": "Short-lived clipboard shares bound to owner, recipient, sensitivity label, and expiration.",
+    "fields": [
+      "clip_id",
+      "owner_id",
+      "recipient_id",
+      "sensitivity",
+      "created_at",
+      "expires_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "active",
+      "revoked",
+      "expired"
+    ],
+    "transitions": {
+      "active": [
+        "revoked",
+        "expired"
+      ],
+      "revoked": [],
+      "expired": []
+    },
+    "sample": {
+      "clip_id": "clip-034",
+      "owner_id": "user-a",
+      "recipient_id": "user-b",
+      "sensitivity": "confidential",
+      "created_at": 1800000000,
+      "expires_at": 1800003600,
+      "status": "active"
+    },
+    "rule": "data[\"sensitivity\"] in [\"internal\",\"confidential\",\"restricted\"] and data[\"expires_at\"]>data[\"created_at\"]",
+    "business_rule": "Clipboard sensitivity must use the policy vocabulary and expiry must follow creation.",
+    "rule_error": "invalid clipboard_share domain invariant",
+    "invalid": {
+      "clip_id": "clip-034",
+      "owner_id": "user-a",
+      "recipient_id": "user-b",
+      "sensitivity": "confidential",
+      "created_at": 1800000000,
+      "expires_at": 1800000000,
+      "status": "active"
+    }
+  },
+  {
+    "id": "REPO-035",
+    "name": "RedactionProof",
+    "slug": "redaction_proof",
+    "entity": "redaction_case",
+    "description": "Redaction review cases linking document digests, redaction maps, reviewers, and disclosure approvals.",
+    "fields": [
+      "case_id",
+      "document_digest",
+      "redaction_map_digest",
+      "reviewer_id",
+      "disclosure_policy",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "draft",
+      "approved",
+      "disclosed",
+      "rejected"
+    ],
+    "transitions": {
+      "draft": [
+        "approved",
+        "rejected"
+      ],
+      "approved": [
+        "disclosed",
+        "rejected"
+      ],
+      "disclosed": [],
+      "rejected": []
+    },
+    "sample": {
+      "case_id": "case-035",
+      "document_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "redaction_map_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "reviewer_id": "reviewer-2",
+      "disclosure_policy": "minimum-necessary",
+      "status": "draft"
+    },
+    "rule": "all(len(data[k])==64 and all(ch in \"0123456789abcdef\" for ch in data[k]) for k in (\"document_digest\",\"redaction_map_digest\"))",
+    "business_rule": "Document and redaction-map commitments must be lowercase SHA-256 digests.",
+    "rule_error": "invalid redaction_case domain invariant",
+    "invalid": {
+      "case_id": "case-035",
+      "document_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "redaction_map_digest": "short",
+      "reviewer_id": "reviewer-2",
+      "disclosure_policy": "minimum-necessary",
+      "status": "draft"
+    }
+  },
+  {
+    "id": "REPO-036",
+    "name": "LicenseLedger",
+    "slug": "license_ledger",
+    "entity": "license_record",
+    "description": "Product license records covering organization, seats, validity windows, suspension, and revocation.",
+    "fields": [
+      "license_id",
+      "product_id",
+      "organization_id",
+      "seat_count",
+      "expires_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "trial",
+      "active",
+      "suspended",
+      "revoked"
+    ],
+    "transitions": {
+      "trial": [
+        "active",
+        "revoked"
+      ],
+      "active": [
+        "suspended",
+        "revoked"
+      ],
+      "suspended": [
+        "active",
+        "revoked"
+      ],
+      "revoked": []
+    },
+    "sample": {
+      "license_id": "lic-036",
+      "product_id": "editor",
+      "organization_id": "org-12",
+      "seat_count": 25,
+      "expires_at": 1900000000,
+      "status": "trial"
+    },
+    "rule": "isinstance(data[\"seat_count\"],int) and data[\"seat_count\"]>0 and data[\"expires_at\"]>0",
+    "business_rule": "A license must grant a positive integer seat count and positive expiry.",
+    "rule_error": "invalid license_record domain invariant",
+    "invalid": {
+      "license_id": "lic-036",
+      "product_id": "editor",
+      "organization_id": "org-12",
+      "seat_count": 0,
+      "expires_at": 1900000000,
+      "status": "trial"
+    }
+  },
+  {
+    "id": "REPO-037",
+    "name": "EdgeCacheTrust",
+    "slug": "edge_cache_trust",
+    "entity": "cache_lease",
+    "description": "Edge cache leases binding object digests to origin validators, freshness deadlines, and trust states.",
+    "fields": [
+      "lease_id",
+      "object_key",
+      "origin_digest",
+      "etag",
+      "fresh_until",
+      "trust_tier",
+      "state"
+    ],
+    "state": "state",
+    "states": [
+      "fresh",
+      "stale",
+      "evicted"
+    ],
+    "transitions": {
+      "fresh": [
+        "stale",
+        "evicted"
+      ],
+      "stale": [
+        "fresh",
+        "evicted"
+      ],
+      "evicted": []
+    },
+    "sample": {
+      "lease_id": "lease-037",
+      "object_key": "catalog/item-8",
+      "origin_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "etag": "etag-8",
+      "fresh_until": 1800000300,
+      "trust_tier": "origin-verified",
+      "state": "fresh"
+    },
+    "rule": "data[\"trust_tier\"] in [\"origin-verified\",\"stale-allowed\",\"untrusted\"] and data[\"fresh_until\"]>0",
+    "business_rule": "Cache trust tier must use the explicit policy vocabulary and a positive freshness deadline.",
+    "rule_error": "invalid cache_lease domain invariant",
+    "invalid": {
+      "lease_id": "lease-037",
+      "object_key": "catalog/item-8",
+      "origin_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "etag": "etag-8",
+      "fresh_until": 1800000300,
+      "trust_tier": "unknown",
+      "state": "fresh"
+    }
+  },
+  {
+    "id": "REPO-038",
+    "name": "ResearchRelease",
+    "slug": "research_release",
+    "entity": "dataset_release",
+    "description": "Research dataset release approvals covering dataset digest, curator, license, and embargo lifecycle.",
+    "fields": [
+      "release_id",
+      "dataset_digest",
+      "curator_id",
+      "license_id",
+      "embargo_until",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "draft",
+      "approved",
+      "published",
+      "withdrawn"
+    ],
+    "transitions": {
+      "draft": [
+        "approved",
+        "withdrawn"
+      ],
+      "approved": [
+        "published",
+        "withdrawn"
+      ],
+      "published": [
+        "withdrawn"
+      ],
+      "withdrawn": []
+    },
+    "sample": {
+      "release_id": "release-038",
+      "dataset_digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "curator_id": "curator-3",
+      "license_id": "CC-BY-4.0",
+      "embargo_until": 1800000000,
+      "status": "draft"
+    },
+    "rule": "len(data[\"dataset_digest\"])==64 and all(ch in \"0123456789abcdef\" for ch in data[\"dataset_digest\"]) and data[\"embargo_until\"]>=0",
+    "business_rule": "Release digest must be lowercase SHA-256 and embargo time cannot be negative.",
+    "rule_error": "invalid dataset_release domain invariant",
+    "invalid": {
+      "release_id": "release-038",
+      "dataset_digest": "bad",
+      "curator_id": "curator-3",
+      "license_id": "CC-BY-4.0",
+      "embargo_until": 1800000000,
+      "status": "draft"
+    }
+  },
+  {
+    "id": "REPO-039",
+    "name": "SecureQueue",
+    "slug": "secure_queue",
+    "entity": "queue_message",
+    "description": "Queue message delivery receipts with producer identity, lease expiry, acknowledgement, and dead-letter state.",
+    "fields": [
+      "message_id",
+      "queue_name",
+      "producer_id",
+      "created_at",
+      "expires_at",
+      "delivery_state"
+    ],
+    "state": "delivery_state",
+    "states": [
+      "pending",
+      "leased",
+      "acked",
+      "dead_letter"
+    ],
+    "transitions": {
+      "pending": [
+        "leased",
+        "dead_letter"
+      ],
+      "leased": [
+        "acked",
+        "dead_letter"
+      ],
+      "acked": [],
+      "dead_letter": []
+    },
+    "sample": {
+      "message_id": "msg-039",
+      "queue_name": "billing-events",
+      "producer_id": "svc-billing",
+      "created_at": 1800000000,
+      "expires_at": 1800003600,
+      "delivery_state": "pending"
+    },
+    "rule": "data[\"expires_at\"]>data[\"created_at\"]",
+    "business_rule": "A queue message must expire after creation to avoid immediately invalid leases.",
+    "rule_error": "invalid queue_message domain invariant",
+    "invalid": {
+      "message_id": "msg-039",
+      "queue_name": "billing-events",
+      "producer_id": "svc-billing",
+      "created_at": 1800000000,
+      "expires_at": 1800000000,
+      "delivery_state": "pending"
+    }
+  },
+  {
+    "id": "REPO-040",
+    "name": "VendorOrder",
+    "slug": "vendor_order",
+    "entity": "purchase_order",
+    "description": "Buyer and supplier purchase orders with currency, integer totals, and fulfillment transitions.",
+    "fields": [
+      "order_id",
+      "buyer_id",
+      "supplier_id",
+      "currency",
+      "total_cents",
+      "created_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "draft",
+      "submitted",
+      "accepted",
+      "fulfilled",
+      "cancelled"
+    ],
+    "transitions": {
+      "draft": [
+        "submitted",
+        "cancelled"
+      ],
+      "submitted": [
+        "accepted",
+        "cancelled"
+      ],
+      "accepted": [
+        "fulfilled",
+        "cancelled"
+      ],
+      "fulfilled": [],
+      "cancelled": []
+    },
+    "sample": {
+      "order_id": "order-040",
+      "buyer_id": "buyer-1",
+      "supplier_id": "supplier-9",
+      "currency": "USD",
+      "total_cents": 24500,
+      "created_at": 1800000000,
+      "status": "draft"
+    },
+    "rule": "isinstance(data[\"total_cents\"],int) and data[\"total_cents\"]>0 and len(data[\"currency\"])==3 and data[\"currency\"].isalpha() and data[\"currency\"].isupper()",
+    "business_rule": "Order total must be positive integer cents and currency must be a three-letter uppercase code.",
+    "rule_error": "invalid purchase_order domain invariant",
+    "invalid": {
+      "order_id": "order-040",
+      "buyer_id": "buyer-1",
+      "supplier_id": "supplier-9",
+      "currency": "USD",
+      "total_cents": 0,
+      "created_at": 1800000000,
+      "status": "draft"
+    }
+  },
+  {
+    "id": "REPO-041",
+    "name": "VehicleRecorder",
+    "slug": "vehicle_recorder",
+    "entity": "vehicle_event",
+    "description": "Vehicle telemetry event records with monotonic trip sequence and capture, seal, and upload lifecycle.",
+    "fields": [
+      "event_id",
+      "vehicle_id",
+      "trip_id",
+      "sequence",
+      "event_time",
+      "sensor_digest",
+      "integrity_state"
+    ],
+    "state": "integrity_state",
+    "states": [
+      "captured",
+      "sealed",
+      "uploaded",
+      "quarantined"
+    ],
+    "transitions": {
+      "captured": [
+        "sealed",
+        "quarantined"
+      ],
+      "sealed": [
+        "uploaded",
+        "quarantined"
+      ],
+      "uploaded": [],
+      "quarantined": []
+    },
+    "sample": {
+      "event_id": "event-041",
+      "vehicle_id": "vehicle-5",
+      "trip_id": "trip-22",
+      "sequence": 1,
+      "event_time": 1800000000,
+      "sensor_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "integrity_state": "captured"
+    },
+    "rule": "isinstance(data[\"sequence\"],int) and data[\"sequence\"]>=0 and len(data[\"sensor_digest\"])==64",
+    "business_rule": "Vehicle events require a nonnegative sequence and a SHA-256 sensor digest.",
+    "rule_error": "invalid vehicle_event domain invariant",
+    "invalid": {
+      "event_id": "event-041",
+      "vehicle_id": "vehicle-5",
+      "trip_id": "trip-22",
+      "sequence": -1,
+      "event_time": 1800000000,
+      "sensor_digest": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "integrity_state": "captured"
+    }
+  },
+  {
+    "id": "REPO-042",
+    "name": "DigitalWarranty",
+    "slug": "digital_warranty",
+    "entity": "warranty_claim",
+    "description": "Warranty claims linking product serial, claimant, evidence digest, review decision, and payment state.",
+    "fields": [
+      "claim_id",
+      "product_serial",
+      "claimant_id",
+      "evidence_digest",
+      "submitted_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "submitted",
+      "reviewing",
+      "approved",
+      "rejected",
+      "paid"
+    ],
+    "transitions": {
+      "submitted": [
+        "reviewing",
+        "rejected"
+      ],
+      "reviewing": [
+        "approved",
+        "rejected"
+      ],
+      "approved": [
+        "paid"
+      ],
+      "rejected": [],
+      "paid": []
+    },
+    "sample": {
+      "claim_id": "claim-042",
+      "product_serial": "SN-42-A",
+      "claimant_id": "customer-6",
+      "evidence_digest": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "submitted_at": 1800000000,
+      "status": "submitted"
+    },
+    "rule": "len(data[\"evidence_digest\"])==64 and all(ch in \"0123456789abcdef\" for ch in data[\"evidence_digest\"])",
+    "business_rule": "Warranty evidence must be identified by a lowercase SHA-256 digest.",
+    "rule_error": "invalid warranty_claim domain invariant",
+    "invalid": {
+      "claim_id": "claim-042",
+      "product_serial": "SN-42-A",
+      "claimant_id": "customer-6",
+      "evidence_digest": "bad",
+      "submitted_at": 1800000000,
+      "status": "submitted"
+    }
+  },
+  {
+    "id": "REPO-043",
+    "name": "PhotoVault",
+    "slug": "photo_vault",
+    "entity": "photo_object",
+    "description": "Photo object lifecycle with owner, content digest, classification, retention, and explicit sharing state.",
+    "fields": [
+      "photo_id",
+      "owner_id",
+      "content_digest",
+      "classification",
+      "retention_days",
+      "lifecycle"
+    ],
+    "state": "lifecycle",
+    "states": [
+      "private",
+      "shared",
+      "revoked",
+      "expired"
+    ],
+    "transitions": {
+      "private": [
+        "shared",
+        "expired"
+      ],
+      "shared": [
+        "revoked",
+        "expired"
+      ],
+      "revoked": [
+        "private",
+        "expired"
+      ],
+      "expired": []
+    },
+    "sample": {
+      "photo_id": "photo-043",
+      "owner_id": "owner-43",
+      "content_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "classification": "personal",
+      "retention_days": 365,
+      "lifecycle": "private"
+    },
+    "rule": "isinstance(data[\"retention_days\"],int) and data[\"retention_days\"]>0 and data[\"classification\"] in [\"personal\",\"sensitive\",\"public\"]",
+    "business_rule": "Photo retention must be positive and classification must use the vault policy vocabulary.",
+    "rule_error": "invalid photo_object domain invariant",
+    "invalid": {
+      "photo_id": "photo-043",
+      "owner_id": "owner-43",
+      "content_digest": "1111111111111111111111111111111111111111111111111111111111111111",
+      "classification": "personal",
+      "retention_days": 0,
+      "lifecycle": "private"
+    }
+  },
+  {
+    "id": "REPO-044",
+    "name": "KeyRecovery",
+    "slug": "key_recovery",
+    "entity": "recovery_case",
+    "description": "Threshold recovery cases tracking principal, key fingerprint, required approvals, and fulfillment decisions.",
+    "fields": [
+      "recovery_id",
+      "principal_id",
+      "key_fingerprint",
+      "approvals_required",
+      "opened_at",
+      "recovery_state"
+    ],
+    "state": "recovery_state",
+    "states": [
+      "opened",
+      "approved",
+      "fulfilled",
+      "denied"
+    ],
+    "transitions": {
+      "opened": [
+        "approved",
+        "denied"
+      ],
+      "approved": [
+        "fulfilled",
+        "denied"
+      ],
+      "fulfilled": [],
+      "denied": []
+    },
+    "sample": {
+      "recovery_id": "recovery-044",
+      "principal_id": "principal-4",
+      "key_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222",
+      "approvals_required": 2,
+      "opened_at": 1800000000,
+      "recovery_state": "opened"
+    },
+    "rule": "isinstance(data[\"approvals_required\"],int) and 2<=data[\"approvals_required\"]<=5",
+    "business_rule": "Recovery requires a threshold between two and five distinct approvals.",
+    "rule_error": "invalid recovery_case domain invariant",
+    "invalid": {
+      "recovery_id": "recovery-044",
+      "principal_id": "principal-4",
+      "key_fingerprint": "2222222222222222222222222222222222222222222222222222222222222222",
+      "approvals_required": 1,
+      "opened_at": 1800000000,
+      "recovery_state": "opened"
+    }
+  },
+  {
+    "id": "REPO-045",
+    "name": "APIKeyBroker",
+    "slug": "api_key_broker",
+    "entity": "api_credential",
+    "description": "API credential lifecycle with client binding, scopes, expiry, activation, and revocation.",
+    "fields": [
+      "credential_id",
+      "client_id",
+      "scopes",
+      "created_at",
+      "expires_at",
+      "status"
+    ],
+    "state": "status",
+    "states": [
+      "pending",
+      "active",
+      "revoked",
+      "expired"
+    ],
+    "transitions": {
+      "pending": [
+        "active",
+        "revoked",
+        "expired"
+      ],
+      "active": [
+        "revoked",
+        "expired"
+      ],
+      "revoked": [],
+      "expired": []
+    },
+    "sample": {
+      "credential_id": "credential-045",
+      "client_id": "reporting-worker",
+      "scopes": [
+        "reports:read",
+        "jobs:submit"
+      ],
+      "created_at": 1800000000,
+      "expires_at": 1800086400,
+      "status": "pending"
+    },
+    "rule": "isinstance(data[\"scopes\"],list) and len(data[\"scopes\"])>0 and len(set(data[\"scopes\"]))==len(data[\"scopes\"]) and data[\"expires_at\"]>data[\"created_at\"]",
+    "business_rule": "API credentials require unique nonempty scopes and expiry after creation.",
+    "rule_error": "invalid api_credential domain invariant",
+    "invalid": {
+      "credential_id": "credential-045",
+      "client_id": "reporting-worker",
+      "scopes": [],
+      "created_at": 1800000000,
+      "expires_at": 1800086400,
+      "status": "pending"
+    }
+  },
+  {
+    "id": "REPO-046",
+    "name": "SBOMSign",
+    "slug": "sbom_sign",
+    "entity": "sbom_release",
+    "description": "Software bill-of-material release records with artifact digest, supplier identity, serial format, and signing state.",
+    "fields": [
+      "bom_id",
+      "artifact_digest",
+      "supplier_id",
+      "serial_format",
+      "created_at",
+      "verification_state"
+    ],
+    "state": "verification_state",
+    "states": [
+      "draft",
+      "signed",
+      "revoked"
+    ],
+    "transitions": {
+      "draft": [
+        "signed",
+        "revoked"
+      ],
+      "signed": [
+        "revoked"
+      ],
+      "revoked": []
+    },
+    "sample": {
+      "bom_id": "bom-046",
+      "artifact_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "supplier_id": "supplier-46",
+      "serial_format": "SPDX-2.3",
+      "created_at": 1800000000,
+      "verification_state": "draft"
+    },
+    "rule": "len(data[\"artifact_digest\"])==64 and all(ch in \"0123456789abcdef\" for ch in data[\"artifact_digest\"]) and data[\"serial_format\"] in [\"SPDX-2.3\",\"CycloneDX-1.6\"]",
+    "business_rule": "SBOM release requires a lowercase SHA-256 artifact digest and supported serial format.",
+    "rule_error": "invalid sbom_release domain invariant",
+    "invalid": {
+      "bom_id": "bom-046",
+      "artifact_digest": "3333333333333333333333333333333333333333333333333333333333333333",
+      "supplier_id": "supplier-46",
+      "serial_format": "unknown",
+      "created_at": 1800000000,
+      "verification_state": "draft"
+    }
+  },
+  {
+    "id": "REPO-047",
+    "name": "SecureForms",
+    "slug": "secure_forms",
+    "entity": "form_submission",
+    "description": "Form submissions binding schema version, submitter reference, consent version, and processing lifecycle.",
+    "fields": [
+      "form_id",
+      "submission_id",
+      "submitter_ref",
+      "schema_version",
+      "received_at",
+      "consent_version",
+      "processing_state"
+    ],
+    "state": "processing_state",
+    "states": [
+      "received",
+      "validated",
+      "sealed",
+      "rejected"
+    ],
+    "transitions": {
+      "received": [
+        "validated",
+        "rejected"
+      ],
+      "validated": [
+        "sealed",
+        "rejected"
+      ],
+      "sealed": [],
+      "rejected": []
+    },
+    "sample": {
+      "form_id": "form-047",
+      "submission_id": "submission-47",
+      "submitter_ref": "subject-47",
+      "schema_version": 3,
+      "received_at": 1800000000,
+      "consent_version": "consent-2026-1",
+      "processing_state": "received"
+    },
+    "rule": "isinstance(data[\"schema_version\"],int) and data[\"schema_version\"]>0 and bool(data[\"consent_version\"])",
+    "business_rule": "Submission schema version must be positive and consent version must be present.",
+    "rule_error": "invalid form_submission domain invariant",
+    "invalid": {
+      "form_id": "form-047",
+      "submission_id": "submission-47",
+      "submitter_ref": "subject-47",
+      "schema_version": 0,
+      "received_at": 1800000000,
+      "consent_version": "consent-2026-1",
+      "processing_state": "received"
+    }
+  }
+]
