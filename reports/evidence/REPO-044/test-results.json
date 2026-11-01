@@ -1,0 +1,43 @@
+{
+  "repository_id": "REPO-044",
+  "application": "KeyRecovery",
+  "status": "PASS",
+  "timestamp_utc": "2026-11-01T11:00:17.772522+00:00",
+  "environment": {
+    "python": "3.12.14",
+    "cryptography": "50.0.2",
+    "jsonschema": "4.25.1",
+    "pytest": "8.4.2"
+  },
+  "suites": [
+    {
+      "suite": "classical",
+      "test_path": "tests/test_key_recovery.py",
+      "working_directory": "C:/somegitrepos/OPMB-600-team-b/benchmark/repositories/REPO-044",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b\\.venv\\Scripts\\python.exe -m pytest tests/test_key_recovery.py -q -p no:cacheprovider",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "result": "PASS"
+    },
+    {
+      "suite": "pqc",
+      "test_path": "tests/test_key_recovery_pqc.py",
+      "working_directory": "C:/somegitrepos/OPMB-600-team-b/benchmark/repositories/REPO-044",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b\\.venv\\Scripts\\python.exe -m pytest tests/test_key_recovery_pqc.py -q -p no:cacheprovider",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "result": "PASS"
+    }
+  ],
+  "note": "Results are from separate official pytest invocations. The earlier direct-invocation evidence is supplemental and is not substituted for these runs."
+}

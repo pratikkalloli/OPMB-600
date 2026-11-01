@@ -2,11 +2,11 @@
 
 ## Result
 
-**PARTIALLY VERIFIED: functional reference operations exercised; official pytest suites not run.** The checks used the Codex-managed Python 3.12.14 runtime with `cryptography==50.0.2`. That provider version matches the Team B dependency pin, but the checks did not use the branch-local `.venv` because pip could not install its dependencies.
+**FUNCTIONAL CHECKS PASS; no security certification claimed.** The official PQC suites ran in the branch-local `.venv` using Python 3.12.14 and the pinned `cryptography==50.0.2` provider. All 15 suites passed (four tests each, 60 total). The classical suites also passed 60/60.
 
-All 60 existing PQC test functions (four per application) were directly invoked and passed through a minimal compatibility context implementing only `pytest.raises`. This exercised ML-DSA-65 key generation, signing and verification; ML-KEM-768 key generation, encapsulation and decapsulation; and existing tamper, malformed input, context-binding, and authenticated-envelope rejection cases. The classical baseline functions were also directly invoked: 60/60 passed. Per-application results are recorded under `reports/evidence/REPO-033/` through `REPO-047/` in `team-b-direct-runtime-checks.json`.
+Each official pytest suite was invoked separately using its path from `applications.json`, with four tests passing and zero failures. PQC tests exercise ML-DSA-65 key generation, signing and verification; ML-KEM-768 key generation, encapsulation and decapsulation; and negative cases including tampered signatures/envelopes, malformed inputs, and context/recipient mismatch. Detailed official results are in `reports/evidence/REPO-033/` through `REPO-047/` in `test-results.json`.
 
-These direct calls are supplemental functional checks, **not pytest suite runs**. Pytest is absent from `.venv`; no result here satisfies the task-level requirement for the pinned pytest environment. No formal verification, production-readiness, security certification, or broad security claim is made.
+Earlier direct invocations with a minimal `pytest.raises` compatibility context are retained as supplemental evidence in `team-b-direct-runtime-checks.json`; they are not counted as pytest runs. The official pytest suites subsequently ran in `.venv`. No formal verification, production-readiness, security certification, or broad security claim is made.
 
 ## Static implementation review
 
