@@ -1,0 +1,28 @@
+{
+  "repositories": [
+    {
+      "repository_id": "REPO-048",
+      "name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "path": "benchmark/repositories/REPO-048",
+      "purpose": "Synthetic invoice issue, revision, signature history, and signature verification.",
+      "task_ids": [
+        "OPMB-0471",
+        "OPMB-0472",
+        "OPMB-0473",
+        "OPMB-0474",
+        "OPMB-0475",
+        "OPMB-0476",
+        "OPMB-0477",
+        "OPMB-0478",
+        "OPMB-0479",
+        "OPMB-0480"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-048/test-results.json"
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "tasks": [
+    {
+      "task_id": "OPMB-0471",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA-PSS invoice signature generation",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "sign_invoice"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Move canonical invoice signatures from RSA-PSS to ML-DSA-65.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0471",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0472",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA-PSS invoice signature verification",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "verify_invoice"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate signature verification and retain fail-closed modified-payload and wrong-key behavior.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0472",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0473",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA invoice signer key provisioning",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "generate_signer"
+      ],
+      "migration_family": "Cryptographic key management",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA invoice signer key generation with ML-DSA-65 and update signer key distribution.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0473",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0474",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA PEM invoice signer public-key import",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "load_public_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace PEM/RSA public-key loading with strict ML-DSA public-key decoding.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0474",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0475",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Invoice signer public-key export format",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "export_public_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate the public-key distribution contract from SPKI PEM to ML-DSA raw encoding.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0475",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0476",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Canonical invoice amount and revision binding",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "canonical_invoice"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve issuer, invoice ID, currency normalization, minor-unit amount, and revision in signed bytes.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0476",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0477",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Version-specific signature-history identity",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "signature_id"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Maintain distinct signature-history identifiers across invoice revisions after signature migration.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0477",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0478",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Invoice digest compatibility",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "invoice_digest"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Update digest consumers and indexes to use the canonicalized invoice payload consistently.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0478",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0479",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Persisted invoice revision transition",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "revise_amount"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve revision history and signature meaning when invoice amounts change.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0479",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0480",
+      "repository_id": "REPO-048",
+      "repository_name": "InvoiceSeal",
+      "application_domain": "synthetic_invoice_signing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Stored invoice verification API",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/invoiceseal/crypto.py",
+        "src/invoiceseal/service.py"
+      ],
+      "function_names": [
+        "verify_record"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate the persisted verification boundary and retain historical record lookup behavior.",
+      "preconditions": [
+        "InvoiceSeal tests pass.",
+        "Invoice records and identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Preserve the signed invoice fields and version semantics.",
+        "Reject modified messages, wrong verification keys, and malformed public-key encodings."
+      ],
+      "migration_requirements": [
+        "Use the pinned standardized ML-DSA API with invoice-specific context.",
+        "Update public-key format consumers and signature persistence.",
+        "Do not silently fall back to RSA."
+      ],
+      "original_tests": [
+        "tests/test_invoiceseal.py"
+      ],
+      "migration_tests": [
+        "tests/test_invoiceseal_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules separately.",
+        "Exercise positive verification, tamper/wrong-key rejection, serialization, revision identity, and database history."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate only until integration review.",
+        "Historical signatures attest to their recorded revision, not the current invoice."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-048/tasks/OPMB-0480",
+      "reference_path": "benchmark/repositories/REPO-048/migrated_reference/invoiceseal_pqc",
+      "original_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-048/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-048/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-048/post-migration-scan.json"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "repository_id": "REPO-048",
+  "application": "InvoiceSeal",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_invoiceseal.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T15:31:55.368202+05:30",
+      "exit_code": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "......                                                                   [100%]\n6 passed in 0.77s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "python -m pytest tests/test_invoiceseal_pqc.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T15:31:56.489026+05:30",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ".....                                                                    [100%]\n5 passed in 0.14s"
+    },
+    {
+      "suite": "compile",
+      "command": "python -m compileall -q benchmark/repositories/REPO-048",
+      "started_at": "2026-11-01T15:31:56.982766+05:30",
+      "exit_code": 0,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ""
+    }
+  ],
+  "crypto_cases": [
+    "RSA-PSS valid invoice signature accepted",
+    "modified invoice payload and wrong signer key rejected",
+    "ML-DSA-65 valid signature accepted",
+    "modified payload and wrong ML-DSA public key rejected",
+    "ML-DSA raw public-key export/import round trip",
+    "malformed ML-DSA public key rejected",
+    "currency and amount validation",
+    "algorithm-tagged revision-specific signature identifiers",
+    "tampered stored payload digest rejected by both verifiers",
+    "SQLite issue, revision, history, and signature verification"
+  ],
+  "limitations": [
+    "Test evidence does not constitute cryptographic certification or independent review.",
+    "No encryption or key-establishment operation applies to this signature-focused workflow."
+  ]
+}
