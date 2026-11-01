@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 40,
+  "implemented_application_count": 50,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -482,6 +482,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-460/test-results.json"
+    },
+    {
+      "repository_id": "REPO-461",
+      "name": "CompilerToolchainReceipt",
+      "application_domain": "compiler_toolchain_attestations",
+      "path": "benchmark/repositories/REPO-461",
+      "purpose": "Manage compiler toolchain receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-461/test-results.json"
+    },
+    {
+      "repository_id": "REPO-462",
+      "name": "SBOMPublicationGate",
+      "application_domain": "software_bill_of_materials_publication_gates",
+      "path": "benchmark/repositories/REPO-462",
+      "purpose": "Manage s b o m publication gate evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-462/test-results.json"
+    },
+    {
+      "repository_id": "REPO-463",
+      "name": "PackageNamespaceTransfer",
+      "application_domain": "software_package_namespace_transfers",
+      "path": "benchmark/repositories/REPO-463",
+      "purpose": "Manage package namespace transfer evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-463/test-results.json"
+    },
+    {
+      "repository_id": "REPO-464",
+      "name": "RepoBranchProtectionProof",
+      "application_domain": "repository_branch_protection_proofs",
+      "path": "benchmark/repositories/REPO-464",
+      "purpose": "Manage repo branch protection proof evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-464/test-results.json"
+    },
+    {
+      "repository_id": "REPO-465",
+      "name": "RunnerImageApproval",
+      "application_domain": "ci_runner_image_approvals",
+      "path": "benchmark/repositories/REPO-465",
+      "purpose": "Manage runner image approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-465/test-results.json"
+    },
+    {
+      "repository_id": "REPO-466",
+      "name": "TestResultAttestation",
+      "application_domain": "ci_test_result_attestations",
+      "path": "benchmark/repositories/REPO-466",
+      "purpose": "Manage test result attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-466/test-results.json"
+    },
+    {
+      "repository_id": "REPO-467",
+      "name": "ContainerPromotionTicket",
+      "application_domain": "container_image_promotion_tickets",
+      "path": "benchmark/repositories/REPO-467",
+      "purpose": "Manage container promotion ticket evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-467/test-results.json"
+    },
+    {
+      "repository_id": "REPO-468",
+      "name": "CodeOwnerDecisionLog",
+      "application_domain": "repository_code_owner_decision_logs",
+      "path": "benchmark/repositories/REPO-468",
+      "purpose": "Manage code owner decision log evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-468/test-results.json"
+    },
+    {
+      "repository_id": "REPO-469",
+      "name": "SecretScanAttestation",
+      "application_domain": "artifact_secret_scan_attestations",
+      "path": "benchmark/repositories/REPO-469",
+      "purpose": "Manage secret scan attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-469/test-results.json"
+    },
+    {
+      "repository_id": "REPO-470",
+      "name": "LicensePolicyReceipt",
+      "application_domain": "dependency_license_policy_receipts",
+      "path": "benchmark/repositories/REPO-470",
+      "purpose": "Manage license policy receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-470/test-results.json"
     }
   ]
 }
