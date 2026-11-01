@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_release_contained_quality_hold_enforces_quality_hold_release_workflow(tmp_path):
+    from quality_hold_release.service import QualityHoldRelease
+    record=dict(RECORD,state='reviewed'); app=QualityHoldRelease(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.release_contained_quality_hold(record['record_id'], affected_lots=['LOT-265-A'], recheck_measurements=[5, 6], lower_limit=0, upper_limit=10, quality_manager_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_release_contained_quality_hold_rejects_quality_hold_release_workflow_violation(tmp_path):
+    from quality_hold_release.service import QualityHoldRelease
+    record=dict(RECORD,state='reviewed'); app=QualityHoldRelease(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.release_contained_quality_hold(record['record_id'], affected_lots=['LOT-265-A'], recheck_measurements=[5, 11], lower_limit=0, upper_limit=10, quality_manager_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

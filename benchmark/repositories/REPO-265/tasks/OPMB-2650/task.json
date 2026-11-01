@@ -11,10 +11,11 @@
   "source_files": [
     "src/quality_hold_release/domain.py",
     "src/quality_hold_release/crypto.py",
-    "src/quality_hold_release/service.py"
+    "src/quality_hold_release/service.py",
+    "migrated_reference/quality_hold_release_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_contained_quality_hold"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and measured_value semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Records containment scope and the authorized release decision for material on quality hold.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind quality_hold_release version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_quality_hold_release_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for release_contained_quality_hold, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

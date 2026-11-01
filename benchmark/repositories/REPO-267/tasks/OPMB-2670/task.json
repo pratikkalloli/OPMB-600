@@ -11,10 +11,11 @@
   "source_files": [
     "src/clean_in_place_record/domain.py",
     "src/clean_in_place_record/crypto.py",
-    "src/clean_in_place_record/service.py"
+    "src/clean_in_place_record/service.py",
+    "migrated_reference/clean_in_place_record_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_vessel_after_cip"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and review_class semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Binds a validated clean-in-place cycle to a processing vessel and the next production lot.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind clean_in_place_record version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_clean_in_place_record_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for release_vessel_after_cip, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

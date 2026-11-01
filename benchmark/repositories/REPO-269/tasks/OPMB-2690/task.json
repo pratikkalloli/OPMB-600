@@ -11,10 +11,11 @@
   "source_files": [
     "src/operator_qualification_grant/domain.py",
     "src/operator_qualification_grant/crypto.py",
-    "src/operator_qualification_grant/service.py"
+    "src/operator_qualification_grant/service.py",
+    "migrated_reference/operator_qualification_grant_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "grant_operator_qualification"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and evidence_digest semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Tracks operator qualification scope and expiration for safety-sensitive production tasks.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind operator_qualification_grant version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_operator_qualification_grant_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for grant_operator_qualification, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

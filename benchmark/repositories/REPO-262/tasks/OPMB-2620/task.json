@@ -11,10 +11,11 @@
   "source_files": [
     "src/consumable_shelf_life_card/domain.py",
     "src/consumable_shelf_life_card/crypto.py",
-    "src/consumable_shelf_life_card/service.py"
+    "src/consumable_shelf_life_card/service.py",
+    "migrated_reference/consumable_shelf_life_card_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_process_consumable"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and revision_epoch semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Tracks lot expiry and opened-container life for process consumables used by a production cell.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind consumable_shelf_life_card version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_consumable_shelf_life_card_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for release_process_consumable, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

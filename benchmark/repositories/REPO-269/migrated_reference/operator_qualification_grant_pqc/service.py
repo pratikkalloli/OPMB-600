@@ -27,3 +27,27 @@ class OperatorQualificationGrantPQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def grant_operator_qualification(self, record_id, **decision):
+        # Apply the OperatorQualificationGrant decision and preserve its signed evidence.
+        now_epoch=decision['now_epoch']
+        expiry_epoch=decision['expiry_epoch']
+        requested_scope=decision['requested_scope']
+        qualified_scope=decision['qualified_scope']
+        training_digest=decision['training_digest']
+        qualification_public=decision['qualification_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('operator qualification evidence must be reviewed before grant')
+        if type(now_epoch) is not int or type(expiry_epoch) is not int or expiry_epoch<=now_epoch: raise ValueError('qualification is expired or has an invalid validity interval')
+        if not isinstance(requested_scope,set) or not requested_scope or not requested_scope.issubset(set(qualified_scope)): raise PermissionError('requested task scope exceeds demonstrated operator qualification')
+        if training_digest!=record['evidence_digest']: raise ValueError('training evidence digest does not match the qualification record')
+        if not self.verify_approval(record_id,qualification_public): raise PermissionError('qualification grant is missing authorized signoff')
+        return self._commit_domain_decision(record,'released','operator_qualification_granted',{'workcell_id':record['workcell_id'],'scope':sorted(requested_scope),'expiry_epoch':expiry_epoch,'training_digest':training_digest})

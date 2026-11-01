@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_approve_rework_route_completion_enforces_rework_routing_card_workflow(tmp_path):
+    from rework_routing_card.service import ReworkRoutingCard
+    record=dict(RECORD,state='reviewed'); app=ReworkRoutingCard(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.approve_rework_route_completion(record['record_id'], permitted_steps=['remove_defect', 'replace_component', 'inspect'], completed_steps=['remove_defect', 'replace_component', 'inspect'], reinspection_passed=True, route_revision=RECORD['revision_epoch'], quality_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_approve_rework_route_completion_rejects_rework_routing_card_workflow_violation(tmp_path):
+    from rework_routing_card.service import ReworkRoutingCard
+    record=dict(RECORD,state='reviewed'); app=ReworkRoutingCard(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.approve_rework_route_completion(record['record_id'], permitted_steps=['remove_defect', 'replace_component', 'inspect'], completed_steps=['remove_defect', 'inspect'], reinspection_passed=True, route_revision=RECORD['revision_epoch'], quality_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

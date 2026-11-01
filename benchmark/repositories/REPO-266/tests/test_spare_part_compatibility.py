@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_approve_spare_part_fit_enforces_spare_part_compatibility_workflow(tmp_path):
+    from spare_part_compatibility.service import SparePartCompatibility
+    record=dict(RECORD,state='reviewed'); app=SparePartCompatibility(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.approve_spare_part_fit(record['record_id'], machine_model='MX-266', approved_models={'MX-266'}, machine_revision='C', compatible_revisions={'B', 'C'}, safety_class='S2', approved_safety_classes={'S2'}, engineering_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_approve_spare_part_fit_rejects_spare_part_compatibility_workflow_violation(tmp_path):
+    from spare_part_compatibility.service import SparePartCompatibility
+    record=dict(RECORD,state='reviewed'); app=SparePartCompatibility(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.approve_spare_part_fit(record['record_id'], machine_model='MX-266', approved_models={'MX-266'}, machine_revision='D', compatible_revisions={'B', 'C'}, safety_class='S2', approved_safety_classes={'S2'}, engineering_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

@@ -11,10 +11,11 @@
   "source_files": [
     "src/work_order_traveler/domain.py",
     "src/work_order_traveler/crypto.py",
-    "src/work_order_traveler/service.py"
+    "src/work_order_traveler/service.py",
+    "migrated_reference/work_order_traveler_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "complete_work_order_traveler"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and authorization_code semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Carries a serialized work order through required operations and captures station-level signoff.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind work_order_traveler version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_work_order_traveler_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for complete_work_order_traveler, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

@@ -27,3 +27,27 @@ class QualityHoldReleasePQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def release_contained_quality_hold(self, record_id, **decision):
+        # Apply the QualityHoldRelease decision and preserve its signed evidence.
+        affected_lots=decision['affected_lots']
+        recheck_measurements=decision['recheck_measurements']
+        lower_limit=decision['lower_limit']
+        upper_limit=decision['upper_limit']
+        quality_manager_public=decision['quality_manager_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('quality hold must be reviewed after containment')
+        if not isinstance(affected_lots,list) or not affected_lots or len(set(affected_lots))!=len(affected_lots): raise ValueError('containment scope must list unique affected lots')
+        if not isinstance(recheck_measurements,list) or not recheck_measurements: raise ValueError('hold release requires documented reinspection measurements')
+        if type(lower_limit) not in (int,float) or type(upper_limit) not in (int,float) or lower_limit>upper_limit: raise ValueError('reinspection acceptance range is invalid')
+        if any(type(x) not in (int,float) or not lower_limit<=x<=upper_limit for x in recheck_measurements): raise ValueError('one or more reinspection results remain outside release limits')
+        if not self.verify_approval(record_id,quality_manager_public): raise PermissionError('quality manager release authorization is invalid')
+        return self._commit_domain_decision(record,'released','quality_hold_released',{'affected_lots':affected_lots,'measurements':recheck_measurements,'acceptance_range':[lower_limit,upper_limit]})

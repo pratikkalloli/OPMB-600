@@ -11,10 +11,11 @@
   "source_files": [
     "src/gauge_r_and_r_study/domain.py",
     "src/gauge_r_and_r_study/crypto.py",
-    "src/gauge_r_and_r_study/service.py"
+    "src/gauge_r_and_r_study/service.py",
+    "migrated_reference/gauge_r_and_r_study_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "approve_gauge_repeatability_study"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +25,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and evidence_digest semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Stores measurement-system study samples and approval for a specific gauge and characteristic.",
+    "Persist the signed domain decision and state update atomically.",
+    "Reject failed policy conditions without mutating workflow state."
   ],
   "migration_requirements": [
     "Bind gauge_r_and_r_study version and application context into cryptographic operations.",
@@ -40,8 +41,8 @@
     "tests/test_gauge_r_and_r_study_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC tests for approve_gauge_repeatability_study, including success and policy rejection.",
+    "Run batch schema/path validation and inspect recorded suite evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

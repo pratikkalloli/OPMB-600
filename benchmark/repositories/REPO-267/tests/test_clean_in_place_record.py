@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_release_vessel_after_cip_enforces_clean_in_place_record_workflow(tmp_path):
+    from clean_in_place_record.service import CleanInPlaceRecord
+    record=dict(RECORD,state='reviewed'); app=CleanInPlaceRecord(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.release_vessel_after_cip(record['record_id'], phases=[{'name': n, 'duration_seconds': 60, 'result': 'pass'} for n in ['pre_rinse', 'wash', 'post_rinse', 'sanitize']], minimum_duration=30, next_lot='LOT-267-NEXT', sanitation_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_release_vessel_after_cip_rejects_clean_in_place_record_workflow_violation(tmp_path):
+    from clean_in_place_record.service import CleanInPlaceRecord
+    record=dict(RECORD,state='reviewed'); app=CleanInPlaceRecord(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.release_vessel_after_cip(record['record_id'], phases=[{'name': n, 'duration_seconds': 60, 'result': 'pass'} for n in ['wash', 'pre_rinse', 'post_rinse', 'sanitize']], minimum_duration=30, next_lot='LOT-267-NEXT', sanitation_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

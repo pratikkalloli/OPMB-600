@@ -27,3 +27,23 @@ class MachineGuardInspectionPQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def close_machine_guard_findings(self, record_id, **decision):
+        # Apply the MachineGuardInspection decision and preserve its signed evidence.
+        findings=decision['findings']
+        safety_public=decision['safety_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('guard inspection must be reviewed before restart clearance')
+        if not isinstance(findings,list) or not findings: raise ValueError('inspection must enumerate guard findings')
+        critical=[f for f in findings if not isinstance(f,dict) or f.get('class')=='safety_critical']
+        if any(not isinstance(f,dict) or f.get('closed') is not True or not f.get('closure_evidence') for f in critical): raise ValueError('every safety-critical guard finding needs closure evidence')
+        if not self.verify_approval(record_id,safety_public): raise PermissionError('restart inspection is missing a valid safety signature')
+        return self._commit_domain_decision(record,'released','machine_guard_restart_cleared',{'workcell_id':record['workcell_id'],'finding_count':len(findings),'critical_closed':len(critical)})

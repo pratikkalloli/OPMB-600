@@ -1,7 +1,7 @@
 {
   "applications_reviewed": 180,
-  "applications_passing_internal_evidence_check": 20,
-  "applications_requiring_remediation": 160,
+  "applications_passing_internal_evidence_check": 30,
+  "applications_requiring_remediation": 150,
   "criteria": "One non-generic service operation exists in original and PQC code; both separate test suites call it; method verifies signed approval, enforces business guards, and persists a domain decision; each suite includes at least eight tests. This is not independent acceptance review.",
   "applications": [
     {
@@ -407,101 +407,201 @@
     {
       "repository_id": "REPO-261",
       "name": "MachineGuardInspection",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "close_machine_guard_findings"
+      ],
+      "method_evidence": {
+        "close_machine_guard_findings": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-262",
       "name": "ConsumableShelfLifeCard",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_process_consumable"
+      ],
+      "method_evidence": {
+        "release_process_consumable": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-263",
       "name": "GaugeRAndRStudy",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "approve_gauge_repeatability_study"
+      ],
+      "method_evidence": {
+        "approve_gauge_repeatability_study": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-264",
       "name": "WorkOrderTraveler",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "complete_work_order_traveler"
+      ],
+      "method_evidence": {
+        "complete_work_order_traveler": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-265",
       "name": "QualityHoldRelease",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_contained_quality_hold"
+      ],
+      "method_evidence": {
+        "release_contained_quality_hold": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-266",
       "name": "SparePartCompatibility",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "approve_spare_part_fit"
+      ],
+      "method_evidence": {
+        "approve_spare_part_fit": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-267",
       "name": "CleanInPlaceRecord",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_vessel_after_cip"
+      ],
+      "method_evidence": {
+        "release_vessel_after_cip": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-268",
       "name": "ReworkRoutingCard",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "approve_rework_route_completion"
+      ],
+      "method_evidence": {
+        "approve_rework_route_completion": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-269",
       "name": "OperatorQualificationGrant",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "grant_operator_qualification"
+      ],
+      "method_evidence": {
+        "grant_operator_qualification": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-270",
       "name": "ProductionSampleCustody",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "accept_retained_sample_custody"
+      ],
+      "method_evidence": {
+        "accept_retained_sample_custody": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {

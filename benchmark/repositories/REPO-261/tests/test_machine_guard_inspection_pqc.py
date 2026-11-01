@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_close_machine_guard_findings_enforces_machine_guard_inspection_workflow(tmp_path):
+    from migrated_reference.machine_guard_inspection_pqc.service import MachineGuardInspectionPQC
+    record=dict(RECORD,state='reviewed'); app=MachineGuardInspectionPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.close_machine_guard_findings(record['record_id'], findings=[{'class': 'safety_critical', 'closed': True, 'closure_evidence': 'CHK-261'}], safety_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_close_machine_guard_findings_rejects_machine_guard_inspection_workflow_violation(tmp_path):
+    from migrated_reference.machine_guard_inspection_pqc.service import MachineGuardInspectionPQC
+    record=dict(RECORD,state='reviewed'); app=MachineGuardInspectionPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.close_machine_guard_findings(record['record_id'], findings=[{'class': 'safety_critical', 'closed': False, 'closure_evidence': ''}], safety_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

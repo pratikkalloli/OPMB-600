@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_accept_retained_sample_custody_enforces_production_sample_custody_workflow(tmp_path):
+    from production_sample_custody.service import ProductionSampleCustody
+    record=dict(RECORD,state='reviewed'); app=ProductionSampleCustody(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.accept_retained_sample_custody(record['record_id'], custody_events=[{'sequence': RECORD['sequence'], 'custodian': 'custodian-1', 'seal_id': 'SEAL-270'}], disposition='retain', destruction_witness=None, custodian_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_accept_retained_sample_custody_rejects_production_sample_custody_workflow_violation(tmp_path):
+    from production_sample_custody.service import ProductionSampleCustody
+    record=dict(RECORD,state='reviewed'); app=ProductionSampleCustody(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.accept_retained_sample_custody(record['record_id'], custody_events=[{'sequence': RECORD['sequence'] + 1, 'custodian': 'custodian-1', 'seal_id': 'SEAL-270'}], disposition='retain', destruction_witness=None, custodian_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

@@ -53,3 +53,20 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_approve_gauge_repeatability_study_enforces_gauge_r_and_r_study_workflow(tmp_path):
+    from migrated_reference.gauge_r_and_r_study_pqc.service import GaugeRAndRStudyPQC
+    record=dict(RECORD,state='reviewed'); app=GaugeRAndRStudyPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.approve_gauge_repeatability_study(record['record_id'], samples=[10.0, 10.2, 10.1], maximum_spread=0.5, study_digest=RECORD['evidence_digest'], metrology_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db: event=db.execute('SELECT previous_state,next_state FROM workflow_events').fetchone()
+    assert event==('reviewed','released')
+
+def test_approve_gauge_repeatability_study_rejects_gauge_r_and_r_study_workflow_violation(tmp_path):
+    from migrated_reference.gauge_r_and_r_study_pqc.service import GaugeRAndRStudyPQC
+    record=dict(RECORD,state='reviewed'); app=GaugeRAndRStudyPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.approve_gauge_repeatability_study(record['record_id'], samples=[10.0, 11.0, 10.1], maximum_spread=0.5, study_digest=RECORD['evidence_digest'], metrology_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

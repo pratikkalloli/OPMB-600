@@ -29,3 +29,25 @@ class GaugeRAndRStudy:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
+    def approve_gauge_repeatability_study(self, record_id, **decision):
+        # Apply the GaugeRAndRStudy decision and preserve its signed evidence.
+        samples=decision['samples']
+        maximum_spread=decision['maximum_spread']
+        study_digest=decision['study_digest']
+        metrology_public=decision['metrology_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('gauge study must be reviewed before approval')
+        if not isinstance(samples,list) or len(samples)<2 or any(type(x) not in (int,float) for x in samples): raise ValueError('gauge study requires at least two numeric samples')
+        if type(maximum_spread) not in (int,float) or maximum_spread<0 or max(samples)-min(samples)>maximum_spread: raise ValueError('measurement variation exceeds the approved study spread')
+        if study_digest!=record['evidence_digest']: raise ValueError('study dataset digest differs from the controlled gauge record')
+        if not self.verify_approval(record_id,metrology_public): raise PermissionError('metrology approval signature is invalid')
+        return self._commit_domain_decision(record,'released','gauge_r_and_r_approved',{'workcell_id':record['workcell_id'],'sample_count':len(samples),'spread':max(samples)-min(samples),'study_digest':study_digest})
