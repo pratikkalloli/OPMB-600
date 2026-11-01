@@ -1,0 +1,1 @@
+"""BatchYieldCertificate original application."""

@@ -1,0 +1,602 @@
+[
+  {
+    "repository_id": "REPO-241",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "WorkcellRecipeVault",
+    "slug": "workcell_recipe_vault",
+    "entity": "workcell_recipe",
+    "purpose": "Controls revisioned production recipes by workcell and approver, preventing an unreviewed recipe from being issued to a line.",
+    "workflow": "Recipe authoring, quality review, controlled release, and retirement for one manufacturing workcell.",
+    "scope_field": "line_id",
+    "rule_field": "recipe_digest",
+    "rule_kind": "sha256",
+    "rule_description": "Recipe content must be identified by a lowercase SHA-256 digest.",
+    "states": [
+      "draft",
+      "reviewed",
+      "released",
+      "retired"
+    ],
+    "transitions": {
+      "draft": [
+        "reviewed",
+        "retired"
+      ],
+      "reviewed": [
+        "released",
+        "draft",
+        "retired"
+      ],
+      "released": [
+        "retired"
+      ],
+      "retired": []
+    },
+    "fields": [
+      "record_id",
+      "line_id",
+      "recipe_digest",
+      "revision",
+      "approver_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "recipe-241",
+      "line_id": "line-press-4",
+      "recipe_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "revision": 3,
+      "approver_id": "qa-17",
+      "state": "draft"
+    },
+    "invalid": {
+      "recipe_digest": "not-a-digest"
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Manufacturing execution is gated on a signed recipe revision and its specific workcell; it is not a generic configuration or firmware release."
+  },
+  {
+    "repository_id": "REPO-242",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "LineClearanceToken",
+    "slug": "line_clearance_token",
+    "entity": "line_clearance",
+    "purpose": "Issues shift-bound line-clearance attestations after a product changeover and records which supervisor released the line.",
+    "workflow": "Changeover checklist, supervisor approval, release token issuance, and later revocation for a production line.",
+    "scope_field": "line_id",
+    "rule_field": "clearance_code",
+    "rule_kind": "token",
+    "rule_description": "Clearance codes must be uppercase alphanumeric tokens with hyphens and a bounded length.",
+    "states": [
+      "requested",
+      "inspected",
+      "cleared",
+      "revoked"
+    ],
+    "transitions": {
+      "requested": [
+        "inspected",
+        "revoked"
+      ],
+      "inspected": [
+        "cleared",
+        "requested",
+        "revoked"
+      ],
+      "cleared": [
+        "revoked"
+      ],
+      "revoked": []
+    },
+    "fields": [
+      "record_id",
+      "line_id",
+      "product_code",
+      "clearance_code",
+      "shift_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "clear-242",
+      "line_id": "line-pack-2",
+      "product_code": "SKU-88",
+      "clearance_code": "CL-242-A",
+      "shift_id": "shift-north",
+      "state": "requested"
+    },
+    "invalid": {
+      "clearance_code": "bad code"
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "A time-bounded manufacturing changeover release with checklist and shift context, distinct from approvals, permits, and general access control."
+  },
+  {
+    "repository_id": "REPO-243",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "FixtureCalibrationDossier",
+    "slug": "fixture_calibration_dossier",
+    "entity": "fixture_calibration",
+    "purpose": "Stores dimensional calibration observations for production fixtures and blocks release when measured error exceeds the shop tolerance.",
+    "workflow": "Fixture identification, technician measurement, tolerance review, calibration certificate signing, and expiration.",
+    "scope_field": "fixture_id",
+    "rule_field": "measured_error_microns",
+    "rule_kind": "bounded_int",
+    "rule_min": 0,
+    "rule_max": 250,
+    "rule_description": "Measured dimensional error must be an integer from 0 through 250 microns.",
+    "states": [
+      "scheduled",
+      "measured",
+      "accepted",
+      "expired"
+    ],
+    "transitions": {
+      "scheduled": [
+        "measured",
+        "expired"
+      ],
+      "measured": [
+        "accepted",
+        "scheduled",
+        "expired"
+      ],
+      "accepted": [
+        "expired"
+      ],
+      "expired": [
+        "scheduled"
+      ]
+    },
+    "fields": [
+      "record_id",
+      "fixture_id",
+      "measured_error_microns",
+      "calibration_revision",
+      "technician_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "cal-243",
+      "fixture_id": "fixture-jig-9",
+      "measured_error_microns": 37,
+      "calibration_revision": 12,
+      "technician_id": "tech-31",
+      "state": "scheduled"
+    },
+    "invalid": {
+      "measured_error_microns": 9999
+    },
+    "baseline_mode": "ec",
+    "classical_signature": "ECDSA P-256/SHA-256",
+    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Tolerance-bound calibration certificates for reusable tooling; no sensor fleet telemetry or equipment service order is represented."
+  },
+  {
+    "repository_id": "REPO-244",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "WeldProcedureRelease",
+    "slug": "weld_procedure_release",
+    "entity": "weld_procedure",
+    "purpose": "Releases qualified weld procedure specifications by joint class and material pairing, retaining the procedure digest used for each production run.",
+    "workflow": "Procedure drafting, welding-engineer qualification, controlled issue, and supersession of a weld specification.",
+    "scope_field": "joint_class",
+    "rule_field": "procedure_digest",
+    "rule_kind": "sha256",
+    "rule_description": "Qualified procedure content must use a lowercase SHA-256 digest.",
+    "states": [
+      "draft",
+      "qualified",
+      "issued",
+      "superseded"
+    ],
+    "transitions": {
+      "draft": [
+        "qualified",
+        "superseded"
+      ],
+      "qualified": [
+        "issued",
+        "draft",
+        "superseded"
+      ],
+      "issued": [
+        "superseded"
+      ],
+      "superseded": []
+    },
+    "fields": [
+      "record_id",
+      "joint_class",
+      "procedure_digest",
+      "material_pair",
+      "engineer_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "wps-244",
+      "joint_class": "butt-plate-6mm",
+      "procedure_digest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "material_pair": "A36-to-A36",
+      "engineer_id": "weld-eng-8",
+      "state": "draft"
+    },
+    "invalid": {
+      "procedure_digest": "bad"
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Weld qualification binds joint geometry and material pair to a versioned welding procedure, rather than signing a generic work instruction."
+  },
+  {
+    "repository_id": "REPO-245",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "BatchYieldCertificate",
+    "slug": "batch_yield_certificate",
+    "entity": "batch_yield",
+    "purpose": "Certifies good and rejected unit counts for a completed manufacturing lot and links the totals to its shift and inspection station.",
+    "workflow": "Lot closeout, yield reconciliation, quality signoff, certificate publication, and correction through a new revision.",
+    "scope_field": "batch_id",
+    "rule_field": "good_units",
+    "rule_kind": "nonnegative_int",
+    "rule_description": "Good-unit counts must be nonnegative integers; lot totals are reconciled with rejected units.",
+    "states": [
+      "open",
+      "reconciled",
+      "certified",
+      "corrected"
+    ],
+    "transitions": {
+      "open": [
+        "reconciled"
+      ],
+      "reconciled": [
+        "certified",
+        "open"
+      ],
+      "certified": [
+        "corrected"
+      ],
+      "corrected": [
+        "reconciled"
+      ]
+    },
+    "fields": [
+      "record_id",
+      "batch_id",
+      "good_units",
+      "rejected_units",
+      "inspection_station",
+      "state"
+    ],
+    "sample": {
+      "record_id": "yield-245",
+      "batch_id": "lot-2026-17",
+      "good_units": 982,
+      "rejected_units": 18,
+      "inspection_station": "qa-gate-3",
+      "state": "open"
+    },
+    "invalid": {
+      "good_units": -1
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "A signed production-yield reconciliation over accepted/rejected unit totals, not a purchase order or financial ledger."
+  },
+  {
+    "repository_id": "REPO-246",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "ToolChangeAuthorization",
+    "slug": "tool_change_authorization",
+    "entity": "tool_change",
+    "purpose": "Authorizes a specific cutting-tool change at a machine cell with a reason code and technician identity before the cell resumes production.",
+    "workflow": "Tool wear report, technician assignment, supervisor authorization, change confirmation, and return-to-service.",
+    "scope_field": "cell_id",
+    "rule_field": "tool_serial",
+    "rule_kind": "token",
+    "rule_description": "Tool serials must be normalized uppercase alphanumeric identifiers.",
+    "states": [
+      "reported",
+      "authorized",
+      "changed",
+      "returned_to_service"
+    ],
+    "transitions": {
+      "reported": [
+        "authorized"
+      ],
+      "authorized": [
+        "changed",
+        "reported"
+      ],
+      "changed": [
+        "returned_to_service"
+      ],
+      "returned_to_service": [
+        "reported"
+      ]
+    },
+    "fields": [
+      "record_id",
+      "cell_id",
+      "tool_serial",
+      "technician_id",
+      "reason_code",
+      "state"
+    ],
+    "sample": {
+      "record_id": "tool-246",
+      "cell_id": "cnc-12",
+      "tool_serial": "CUTTER-88B",
+      "technician_id": "tech-9",
+      "reason_code": "wear-limit",
+      "state": "reported"
+    },
+    "invalid": {
+      "tool_serial": "bad serial!"
+    },
+    "baseline_mode": "ec",
+    "classical_signature": "ECDSA P-256/SHA-256",
+    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "A machine-cell change authorization binds the exact tool serial to technician and restart state, unlike a general maintenance work order."
+  },
+  {
+    "repository_id": "REPO-247",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "CleanroomProcessTicket",
+    "slug": "cleanroom_process_ticket",
+    "entity": "cleanroom_ticket",
+    "purpose": "Records a controlled cleanroom process window and its particle-count reading, allowing release only when the monitored room stays within its qualified limit.",
+    "workflow": "Room readiness, exposure-window capture, contamination review, process release, and incident quarantine.",
+    "scope_field": "room_id",
+    "rule_field": "particle_count",
+    "rule_kind": "bounded_int",
+    "rule_min": 0,
+    "rule_max": 1000,
+    "rule_description": "Particle counts must be integer readings between 0 and 1000 for the configured sampling interval.",
+    "states": [
+      "prepared",
+      "monitored",
+      "released",
+      "quarantined"
+    ],
+    "transitions": {
+      "prepared": [
+        "monitored",
+        "quarantined"
+      ],
+      "monitored": [
+        "released",
+        "quarantined"
+      ],
+      "released": [
+        "quarantined"
+      ],
+      "quarantined": [
+        "prepared"
+      ]
+    },
+    "fields": [
+      "record_id",
+      "room_id",
+      "particle_count",
+      "sampling_interval",
+      "operator_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "clean-247",
+      "room_id": "cleanroom-c",
+      "particle_count": 144,
+      "sampling_interval": "minute-15",
+      "operator_id": "op-25",
+      "state": "prepared"
+    },
+    "invalid": {
+      "particle_count": 1001
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "A contamination-threshold process release tied to a room and sampling interval, not a generic inspection report."
+  },
+  {
+    "repository_id": "REPO-248",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "ProductionDeviationCase",
+    "slug": "production_deviation_case",
+    "entity": "production_deviation",
+    "purpose": "Routes manufacturing deviations through severity-based containment and disposition, preserving the approver trail for each corrective decision.",
+    "workflow": "Deviation intake, severity assignment, containment, disposition approval, and closure evidence.",
+    "scope_field": "production_order",
+    "rule_field": "severity",
+    "rule_kind": "enum",
+    "rule_choices": [
+      "minor",
+      "major",
+      "critical"
+    ],
+    "rule_description": "Deviation severity must be one of the controlled quality values minor, major, or critical.",
+    "states": [
+      "opened",
+      "contained",
+      "dispositioned",
+      "closed"
+    ],
+    "transitions": {
+      "opened": [
+        "contained"
+      ],
+      "contained": [
+        "dispositioned",
+        "opened"
+      ],
+      "dispositioned": [
+        "closed",
+        "contained"
+      ],
+      "closed": []
+    },
+    "fields": [
+      "record_id",
+      "production_order",
+      "severity",
+      "nonconformance_code",
+      "reporter_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "dev-248",
+      "production_order": "po-551",
+      "severity": "major",
+      "nonconformance_code": "NC-17",
+      "reporter_id": "inspector-4",
+      "state": "opened"
+    },
+    "invalid": {
+      "severity": "unknown"
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Severity-driven quality containment and disposition, distinct from general approval flow and product warranty handling."
+  },
+  {
+    "repository_id": "REPO-249",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "MachineInterlockPermit",
+    "slug": "machine_interlock_permit",
+    "entity": "interlock_permit",
+    "purpose": "Issues epoch-bound machine interlock permits after a safety case is reviewed and blocks restart on stale or superseded interlock settings.",
+    "workflow": "Safety-case review, interlock epoch issuance, operator acknowledgment, and restart authorization.",
+    "scope_field": "machine_id",
+    "rule_field": "interlock_epoch",
+    "rule_kind": "positive_int",
+    "rule_description": "Interlock epochs must be positive integers and advance on each permit revision.",
+    "states": [
+      "proposed",
+      "reviewed",
+      "armed",
+      "revoked"
+    ],
+    "transitions": {
+      "proposed": [
+        "reviewed",
+        "revoked"
+      ],
+      "reviewed": [
+        "armed",
+        "proposed",
+        "revoked"
+      ],
+      "armed": [
+        "revoked"
+      ],
+      "revoked": []
+    },
+    "fields": [
+      "record_id",
+      "machine_id",
+      "interlock_epoch",
+      "safety_case_digest",
+      "safety_officer_id",
+      "state"
+    ],
+    "sample": {
+      "record_id": "permit-249",
+      "machine_id": "press-5",
+      "interlock_epoch": 8,
+      "safety_case_digest": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "safety_officer_id": "safety-7",
+      "state": "proposed"
+    },
+    "invalid": {
+      "interlock_epoch": 0
+    },
+    "baseline_mode": "ec",
+    "classical_signature": "ECDSA P-256/SHA-256",
+    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Restart authority is bound to the machine interlock epoch and safety-case digest, not a software configuration rollout."
+  },
+  {
+    "repository_id": "REPO-250",
+    "batch": 1,
+    "domain_group": "B1 Industrial automation and manufacturing",
+    "name": "ComponentTraceLot",
+    "slug": "component_trace_lot",
+    "entity": "component_trace",
+    "purpose": "Links a received component lot to its source material digest and production batch so downstream assemblies can verify provenance before use.",
+    "workflow": "Receiving inspection, source-lot binding, production consumption, and traceability export.",
+    "scope_field": "component_id",
+    "rule_field": "material_digest",
+    "rule_kind": "sha256",
+    "rule_description": "Material provenance must be anchored to a lowercase SHA-256 digest.",
+    "states": [
+      "received",
+      "verified",
+      "consumed",
+      "quarantined"
+    ],
+    "transitions": {
+      "received": [
+        "verified",
+        "quarantined"
+      ],
+      "verified": [
+        "consumed",
+        "quarantined"
+      ],
+      "consumed": [],
+      "quarantined": [
+        "received"
+      ]
+    },
+    "fields": [
+      "record_id",
+      "component_id",
+      "source_lot",
+      "material_digest",
+      "receipt_sequence",
+      "state"
+    ],
+    "sample": {
+      "record_id": "trace-250",
+      "component_id": "bearing-22",
+      "source_lot": "mill-19-lot-5",
+      "material_digest": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+      "receipt_sequence": 19,
+      "state": "received"
+    },
+    "invalid": {
+      "material_digest": "short"
+    },
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+    "target": "ML-DSA-65 and ML-KEM-768",
+    "differentiation": "Component-level material provenance at the receiving-to-production boundary, not an append-only shipping custody ledger."
+  }
+]

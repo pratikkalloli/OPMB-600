@@ -1,0 +1,48 @@
+{
+  "repository_id": "REPO-243",
+  "application_name": "FixtureCalibrationDossier",
+  "status": "passed",
+  "basis": "Runtime behavior covered by the recorded original and PQC pytest suites; not independent security certification.",
+  "checks": [
+    "RSA-PSS or ML-DSA-65 signing and verification",
+    "modified record rejection",
+    "wrong verification key rejection",
+    "versioned public key serialization round-trip",
+    "RSA-OAEP/AES-GCM or ML-KEM-768/HKDF/AES-GCM seal/open round-trip",
+    "tampered ciphertext rejection",
+    "wrong recipient key rejection",
+    "unknown envelope version rejection",
+    "SQLite approval persistence and changed-record signature invalidation"
+  ],
+  "suite_results": [
+    {
+      "suite": "original",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_fixture_calibration_dossier.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-243/original-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-243",
+      "started_utc": "2026-11-01T11:43:08.539630+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-243/original-pytest.log",
+      "junit_xml": "reports/evidence/REPO-243/original-junit.xml"
+    },
+    {
+      "suite": "pqc",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_fixture_calibration_dossier_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-243/pqc-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-243",
+      "started_utc": "2026-11-01T11:43:10.547957+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-243/pqc-pytest.log",
+      "junit_xml": "reports/evidence/REPO-243/pqc-junit.xml"
+    }
+  ],
+  "limitations": [
+    "Synthetic benchmark implementation; no formal verification, security certification, third-party review, or production readiness claim."
+  ]
+}

@@ -1,0 +1,3 @@
+# Cryptographic verification summary — batch 01
+
+Runtime pytest coverage used `cryptography==50.0.2` to exercise RSA-PSS and ML-DSA-65 signatures, altered records, wrong verification keys, public-key serialization, RSA-OAEP/AES-GCM and ML-KEM-768/HKDF-SHA-256/AES-256-GCM envelopes, tampered envelopes, wrong recipient keys, unsupported envelope versions, and persisted approvals becoming invalid after record-state change. Results are in `reports/evidence/REPO-241/` through `REPO-250/`. These are functional test results only; no formal verification, certification, third-party audit, or production-readiness claim is made.

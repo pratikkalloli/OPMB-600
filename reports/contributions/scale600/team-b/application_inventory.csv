@@ -1,0 +1,11 @@
+repository_id,name,domain,path,task_count,status
+REPO-241,WorkcellRecipeVault,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-241,10,candidate
+REPO-242,LineClearanceToken,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-242,10,candidate
+REPO-243,FixtureCalibrationDossier,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-243,10,candidate
+REPO-244,WeldProcedureRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-244,10,candidate
+REPO-245,BatchYieldCertificate,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-245,10,candidate
+REPO-246,ToolChangeAuthorization,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-246,10,candidate
+REPO-247,CleanroomProcessTicket,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-247,10,candidate
+REPO-248,ProductionDeviationCase,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-248,10,candidate
+REPO-249,MachineInterlockPermit,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-249,10,candidate
+REPO-250,ComponentTraceLot,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-250,10,candidate

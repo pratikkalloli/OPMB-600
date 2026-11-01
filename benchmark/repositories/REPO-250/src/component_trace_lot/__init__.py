@@ -1,0 +1,1 @@
+"""ComponentTraceLot original application."""

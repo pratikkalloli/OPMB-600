@@ -1,0 +1,10 @@
+{
+  "schema_dialect": "Draft 2020-12",
+  "jsonschema_version": "4.25.1",
+  "batch": 1,
+  "repositories_checked": 10,
+  "repositories_valid": 10,
+  "tasks_checked": 100,
+  "tasks_valid": 100,
+  "errors": []
+}

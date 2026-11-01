@@ -1,0 +1,420 @@
+{
+  "team": "B",
+  "part": "scale600",
+  "batch_plan": {
+    "batch-01": [
+      "REPO-241",
+      "REPO-242",
+      "REPO-243",
+      "REPO-244",
+      "REPO-245",
+      "REPO-246",
+      "REPO-247",
+      "REPO-248",
+      "REPO-249",
+      "REPO-250"
+    ]
+  },
+  "repositories": [
+    {
+      "repository_id": "REPO-241",
+      "name": "WorkcellRecipeVault",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-241",
+      "purpose": "Controls revisioned production recipes by workcell and approver, preventing an unreviewed recipe from being issued to a line.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2401",
+        "OPMB-2402",
+        "OPMB-2403",
+        "OPMB-2404",
+        "OPMB-2405",
+        "OPMB-2406",
+        "OPMB-2407",
+        "OPMB-2408",
+        "OPMB-2409",
+        "OPMB-2410"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/workcell_recipe_vault/domain.py",
+        "src/workcell_recipe_vault/crypto.py",
+        "src/workcell_recipe_vault/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-242",
+      "name": "LineClearanceToken",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-242",
+      "purpose": "Issues shift-bound line-clearance attestations after a product changeover and records which supervisor released the line.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2411",
+        "OPMB-2412",
+        "OPMB-2413",
+        "OPMB-2414",
+        "OPMB-2415",
+        "OPMB-2416",
+        "OPMB-2417",
+        "OPMB-2418",
+        "OPMB-2419",
+        "OPMB-2420"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/line_clearance_token/domain.py",
+        "src/line_clearance_token/crypto.py",
+        "src/line_clearance_token/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-243",
+      "name": "FixtureCalibrationDossier",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-243",
+      "purpose": "Stores dimensional calibration observations for production fixtures and blocks release when measured error exceeds the shop tolerance.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2421",
+        "OPMB-2422",
+        "OPMB-2423",
+        "OPMB-2424",
+        "OPMB-2425",
+        "OPMB-2426",
+        "OPMB-2427",
+        "OPMB-2428",
+        "OPMB-2429",
+        "OPMB-2430"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/fixture_calibration_dossier/domain.py",
+        "src/fixture_calibration_dossier/crypto.py",
+        "src/fixture_calibration_dossier/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-244",
+      "name": "WeldProcedureRelease",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-244",
+      "purpose": "Releases qualified weld procedure specifications by joint class and material pairing, retaining the procedure digest used for each production run.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2431",
+        "OPMB-2432",
+        "OPMB-2433",
+        "OPMB-2434",
+        "OPMB-2435",
+        "OPMB-2436",
+        "OPMB-2437",
+        "OPMB-2438",
+        "OPMB-2439",
+        "OPMB-2440"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/weld_procedure_release/domain.py",
+        "src/weld_procedure_release/crypto.py",
+        "src/weld_procedure_release/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-245",
+      "name": "BatchYieldCertificate",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-245",
+      "purpose": "Certifies good and rejected unit counts for a completed manufacturing lot and links the totals to its shift and inspection station.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2441",
+        "OPMB-2442",
+        "OPMB-2443",
+        "OPMB-2444",
+        "OPMB-2445",
+        "OPMB-2446",
+        "OPMB-2447",
+        "OPMB-2448",
+        "OPMB-2449",
+        "OPMB-2450"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/batch_yield_certificate/domain.py",
+        "src/batch_yield_certificate/crypto.py",
+        "src/batch_yield_certificate/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-246",
+      "name": "ToolChangeAuthorization",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-246",
+      "purpose": "Authorizes a specific cutting-tool change at a machine cell with a reason code and technician identity before the cell resumes production.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2451",
+        "OPMB-2452",
+        "OPMB-2453",
+        "OPMB-2454",
+        "OPMB-2455",
+        "OPMB-2456",
+        "OPMB-2457",
+        "OPMB-2458",
+        "OPMB-2459",
+        "OPMB-2460"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/tool_change_authorization/domain.py",
+        "src/tool_change_authorization/crypto.py",
+        "src/tool_change_authorization/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-247",
+      "name": "CleanroomProcessTicket",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-247",
+      "purpose": "Records a controlled cleanroom process window and its particle-count reading, allowing release only when the monitored room stays within its qualified limit.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2461",
+        "OPMB-2462",
+        "OPMB-2463",
+        "OPMB-2464",
+        "OPMB-2465",
+        "OPMB-2466",
+        "OPMB-2467",
+        "OPMB-2468",
+        "OPMB-2469",
+        "OPMB-2470"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/cleanroom_process_ticket/domain.py",
+        "src/cleanroom_process_ticket/crypto.py",
+        "src/cleanroom_process_ticket/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-248",
+      "name": "ProductionDeviationCase",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-248",
+      "purpose": "Routes manufacturing deviations through severity-based containment and disposition, preserving the approver trail for each corrective decision.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2471",
+        "OPMB-2472",
+        "OPMB-2473",
+        "OPMB-2474",
+        "OPMB-2475",
+        "OPMB-2476",
+        "OPMB-2477",
+        "OPMB-2478",
+        "OPMB-2479",
+        "OPMB-2480"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/production_deviation_case/domain.py",
+        "src/production_deviation_case/crypto.py",
+        "src/production_deviation_case/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-249",
+      "name": "MachineInterlockPermit",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-249",
+      "purpose": "Issues epoch-bound machine interlock permits after a safety case is reviewed and blocks restart on stale or superseded interlock settings.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2481",
+        "OPMB-2482",
+        "OPMB-2483",
+        "OPMB-2484",
+        "OPMB-2485",
+        "OPMB-2486",
+        "OPMB-2487",
+        "OPMB-2488",
+        "OPMB-2489",
+        "OPMB-2490"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/machine_interlock_permit/domain.py",
+        "src/machine_interlock_permit/crypto.py",
+        "src/machine_interlock_permit/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-250",
+      "name": "ComponentTraceLot",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-250",
+      "purpose": "Links a received component lot to its source material digest and production batch so downstream assemblies can verify provenance before use.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2491",
+        "OPMB-2492",
+        "OPMB-2493",
+        "OPMB-2494",
+        "OPMB-2495",
+        "OPMB-2496",
+        "OPMB-2497",
+        "OPMB-2498",
+        "OPMB-2499",
+        "OPMB-2500"
+      ],
+      "batch": 1,
+      "main_modules": [
+        "src/component_trace_lot/domain.py",
+        "src/component_trace_lot/crypto.py",
+        "src/component_trace_lot/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "repository_id": "REPO-246",
+  "status": "not_run",
+  "reason": "No dedicated cryptographic scanner was run in this batch.",
+  "manual_review": "A limited secret-pattern scan is recorded in batch validation; it is not a cryptographic security review."
+}
