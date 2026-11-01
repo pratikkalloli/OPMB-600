@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2596",
+  "repository_id": "REPO-260",
+  "repository_name": "AssemblySequencePermit",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "export_public_key for assembly sequence permit workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/assembly_sequence_permit/domain.py",
+    "src/assembly_sequence_permit/crypto.py",
+    "src/assembly_sequence_permit/service.py"
+  ],
+  "function_names": [
+    "export_public_key"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate AssemblySequencePermit serialize the verification key in the algorithm format from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Authorizes a constrained assembly step only after its prerequisite operations have been recorded; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "AssemblySequencePermit original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve workcell_id and event_count semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind assembly_sequence_permit version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_assembly_sequence_permit.py"
+  ],
+  "migration_tests": [
+    "tests/test_assembly_sequence_permit_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-260/tasks/OPMB-2596",
+  "reference_path": "benchmark/repositories/REPO-260/migrated_reference/assembly_sequence_permit_pqc",
+  "original_test_evidence": "reports/evidence/REPO-260/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-260/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-260/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-260/post-migration-scan.json"
+}

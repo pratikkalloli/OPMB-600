@@ -13,6 +13,18 @@
       "REPO-248",
       "REPO-249",
       "REPO-250"
+    ],
+    "batch-02": [
+      "REPO-251",
+      "REPO-252",
+      "REPO-253",
+      "REPO-254",
+      "REPO-255",
+      "REPO-256",
+      "REPO-257",
+      "REPO-258",
+      "REPO-259",
+      "REPO-260"
     ]
   },
   "repositories": [
@@ -400,6 +412,406 @@
         "src/component_trace_lot/domain.py",
         "src/component_trace_lot/crypto.py",
         "src/component_trace_lot/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-251",
+      "name": "SerializedMachinePassport",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-251",
+      "purpose": "Tracks an industrial machine's identity, custodian, and maintenance attestations across controlled ownership changes.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2501",
+        "OPMB-2502",
+        "OPMB-2503",
+        "OPMB-2504",
+        "OPMB-2505",
+        "OPMB-2506",
+        "OPMB-2507",
+        "OPMB-2508",
+        "OPMB-2509",
+        "OPMB-2510"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/serialized_machine_passport/domain.py",
+        "src/serialized_machine_passport/crypto.py",
+        "src/serialized_machine_passport/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-252",
+      "name": "TorqueAuditLedger",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-252",
+      "purpose": "Retains signed torque-tool readings against a production job so quality staff can reconcile out-of-tolerance fastening events.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2511",
+        "OPMB-2512",
+        "OPMB-2513",
+        "OPMB-2514",
+        "OPMB-2515",
+        "OPMB-2516",
+        "OPMB-2517",
+        "OPMB-2518",
+        "OPMB-2519",
+        "OPMB-2520"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/torque_audit_ledger/domain.py",
+        "src/torque_audit_ledger/crypto.py",
+        "src/torque_audit_ledger/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-253",
+      "name": "ToolWearForecastCase",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-253",
+      "purpose": "Records measured cutting-tool wear and the maintenance disposition used to prevent an expired tool from returning to a workcell.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2521",
+        "OPMB-2522",
+        "OPMB-2523",
+        "OPMB-2524",
+        "OPMB-2525",
+        "OPMB-2526",
+        "OPMB-2527",
+        "OPMB-2528",
+        "OPMB-2529",
+        "OPMB-2530"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/tool_wear_forecast_case/domain.py",
+        "src/tool_wear_forecast_case/crypto.py",
+        "src/tool_wear_forecast_case/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-254",
+      "name": "FurnaceCycleWitness",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-254",
+      "purpose": "Binds furnace temperature-time evidence to a heat-treatment batch and blocks release when the cycle window is violated.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2531",
+        "OPMB-2532",
+        "OPMB-2533",
+        "OPMB-2534",
+        "OPMB-2535",
+        "OPMB-2536",
+        "OPMB-2537",
+        "OPMB-2538",
+        "OPMB-2539",
+        "OPMB-2540"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/furnace_cycle_witness/domain.py",
+        "src/furnace_cycle_witness/crypto.py",
+        "src/furnace_cycle_witness/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-255",
+      "name": "PackagingArtworkRelease",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-255",
+      "purpose": "Controls the approved artwork revision and market destination before a packaging line can print labels.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2541",
+        "OPMB-2542",
+        "OPMB-2543",
+        "OPMB-2544",
+        "OPMB-2545",
+        "OPMB-2546",
+        "OPMB-2547",
+        "OPMB-2548",
+        "OPMB-2549",
+        "OPMB-2550"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/packaging_artwork_release/domain.py",
+        "src/packaging_artwork_release/crypto.py",
+        "src/packaging_artwork_release/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-256",
+      "name": "FixtureInspectionSchedule",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-256",
+      "purpose": "Tracks fixture inspection intervals and blocks production use when inspection evidence is overdue.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2551",
+        "OPMB-2552",
+        "OPMB-2553",
+        "OPMB-2554",
+        "OPMB-2555",
+        "OPMB-2556",
+        "OPMB-2557",
+        "OPMB-2558",
+        "OPMB-2559",
+        "OPMB-2560"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/fixture_inspection_schedule/domain.py",
+        "src/fixture_inspection_schedule/crypto.py",
+        "src/fixture_inspection_schedule/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-257",
+      "name": "ShiftHandoverDocket",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-257",
+      "purpose": "Transfers open safety and quality actions between production shifts with named outgoing and incoming leads.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2561",
+        "OPMB-2562",
+        "OPMB-2563",
+        "OPMB-2564",
+        "OPMB-2565",
+        "OPMB-2566",
+        "OPMB-2567",
+        "OPMB-2568",
+        "OPMB-2569",
+        "OPMB-2570"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/shift_handover_docket/domain.py",
+        "src/shift_handover_docket/crypto.py",
+        "src/shift_handover_docket/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-258",
+      "name": "ProductionScrapVoucher",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-258",
+      "purpose": "Authorizes scrapping a quantity of serialized work in process and preserves the quality disposition.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2571",
+        "OPMB-2572",
+        "OPMB-2573",
+        "OPMB-2574",
+        "OPMB-2575",
+        "OPMB-2576",
+        "OPMB-2577",
+        "OPMB-2578",
+        "OPMB-2579",
+        "OPMB-2580"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/production_scrap_voucher/domain.py",
+        "src/production_scrap_voucher/crypto.py",
+        "src/production_scrap_voucher/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-259",
+      "name": "SurfaceTreatmentBatch",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-259",
+      "purpose": "Records coating chemistry and cure evidence for a component lot before downstream assembly.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2581",
+        "OPMB-2582",
+        "OPMB-2583",
+        "OPMB-2584",
+        "OPMB-2585",
+        "OPMB-2586",
+        "OPMB-2587",
+        "OPMB-2588",
+        "OPMB-2589",
+        "OPMB-2590"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/surface_treatment_batch/domain.py",
+        "src/surface_treatment_batch/crypto.py",
+        "src/surface_treatment_batch/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-260",
+      "name": "AssemblySequencePermit",
+      "application_domain": "B1 Industrial automation and manufacturing",
+      "path": "benchmark/repositories/REPO-260",
+      "purpose": "Authorizes a constrained assembly step only after its prerequisite operations have been recorded.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-2591",
+        "OPMB-2592",
+        "OPMB-2593",
+        "OPMB-2594",
+        "OPMB-2595",
+        "OPMB-2596",
+        "OPMB-2597",
+        "OPMB-2598",
+        "OPMB-2599",
+        "OPMB-2600"
+      ],
+      "batch": 2,
+      "main_modules": [
+        "src/assembly_sequence_permit/domain.py",
+        "src/assembly_sequence_permit/crypto.py",
+        "src/assembly_sequence_permit/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",

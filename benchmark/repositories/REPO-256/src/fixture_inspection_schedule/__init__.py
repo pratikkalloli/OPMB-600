@@ -1,0 +1,1 @@
+"""FixtureInspectionSchedule original application."""

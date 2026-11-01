@@ -74,7 +74,7 @@ def validate_record(record: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("record_id must be a nonempty string")
     if not isinstance(record.get(SCOPE_FIELD), str) or not record[SCOPE_FIELD].strip():
         raise ValueError("workflow scope must be a nonempty string")
-    if any(isinstance(record[k], str) and not record[k].strip() for k in REQUIRED_FIELDS if k not in {RULE_FIELD, "state"}):
+    if any(isinstance(record[k], str) and not record[k].strip() for k in REQUIRED_FIELDS if k not in {{RULE_FIELD, "state"}}):
         raise ValueError("string workflow fields must be nonempty")
     if record["state"] not in STATES:
         raise ValueError("unknown {entity.replace('_', ' ')} state")

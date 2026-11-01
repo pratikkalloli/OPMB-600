@@ -1,0 +1,1 @@
+"""FurnaceCycleWitness original application."""

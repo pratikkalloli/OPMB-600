@@ -1,8 +1,7 @@
 # Known issues and remaining work
 
-- Only batch 01 (REPO-241–250; 100 task records) is implemented in this checkout. Batches 02–18 remain unimplemented.
-- Current contribution manifests describe batch 01 only and have not been integrated into the shared manifests.
-- Tasks remain `candidate`; no independent acceptance review has occurred.
-- The duplicate review covers the base checkout application catalogue; concepts from unavailable teammate contributions are not assessed.
-- Dedicated crypto/static security scanners were not run.
-- GitHub delivery and pull request creation have not been attempted.
+- Implemented and tested 20/180 applications and 200/1,800 tasks; 160 applications and 1600 tasks remain.
+- No independent acceptance review has occurred; tasks remain candidate.
+- Dedicated cryptographic/static security scanners were not executed; the recorded secret-pattern scan is limited and is not a security review.
+- GitHub push and pull-request delivery are deferred until all batches and the full audit pass.
+- Batch 01 metadata/code discrepancy: REPO-243, REPO-246, REPO-249 declare ECDSA in the committed task/spec metadata, while their generated original implementation and executed tests use RSA-PSS. Batch 01 was preserved; this requires a separately reviewed corrective commit before final acceptance.

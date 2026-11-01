@@ -1,8 +1,24 @@
 # Team B batch progress
 
-| Batch | Repositories | Tasks | Original tests | PQC tests | Schema | Status |
-|---|---|---:|---:|---:|---|---|
-| 01 | REPO-241–250 | 100 | 10 suites / 60 passed | 10 suites / 60 passed | 10 repo + 100 task records valid | Implemented and locally tested; candidate pending independent review |
-| 02–18 | REPO-251–420 | 1,700 | NOT RUN | NOT RUN | NOT RUN | NOT IMPLEMENTED |
+| Batch | Repositories | Tasks | Pytest suites | Passed | Failed | Skipped | Schema / path | Status |
+|---|---|---:|---:|---:|---:|---:|---|---|
+| 01 | REPO-241–250 | 100 | 20 | 120 | 0 | 0 | passed | tested |
+| 02 | REPO-251–260 | 100 | 20 | 120 | 0 | 0 | passed | tested |
+| 03 | REPO-261–270 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 04 | REPO-271–280 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 05 | REPO-281–290 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 06 | REPO-291–300 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 07 | REPO-301–310 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 08 | REPO-311–320 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 09 | REPO-321–330 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 10 | REPO-331–340 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 11 | REPO-341–350 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 12 | REPO-351–360 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 13 | REPO-361–370 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 14 | REPO-371–380 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 15 | REPO-381–390 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 16 | REPO-391–400 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 17 | REPO-401–410 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 18 | REPO-411–420 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
 
-Overall assignment progress: 10/180 applications and 100/1,800 task records. No delivery push or pull request has been attempted.
+Overall: 20/180 applications; 200/1,800 tasks; 240 tests, 240 passed, 0 failed, 0 skipped.

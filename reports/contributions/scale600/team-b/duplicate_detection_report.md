@@ -1,5 +1,5 @@
-# Duplicate detection — batch 01
+# Duplicate detection register
 
-Compared all 60 pre-existing application README titles in the base checkout with the ten proposed names; exact title collisions: 0. Names, purpose, and differentiation were reviewed against the inspected application catalogue. No exact title collision or obvious same-workflow match was identified from the available repository descriptions. This is a preliminary review, not independent review; teammate contributions absent from the base checkout are outside its scope.
+Reviewed 180 Team B planned application names against 60 pre-existing application README titles. Exact title collisions: 0. Duplicate Team B names: 0. Duplicate purpose strings: 0. The applications with completed source at this checkpoint are REPO-241–260; the remaining names are concept proposals only and require workflow-level review before implementation. This comparison is not independent review and cannot rule out semantic overlap based only on titles/descriptions.
 
-No exact title collisions were found.
+No exact title overlaps found.

@@ -1,0 +1,48 @@
+{
+  "repository_id": "REPO-259",
+  "application_name": "SurfaceTreatmentBatch",
+  "status": "passed",
+  "basis": "Functional checks from the recorded original and PQC pytest runs; not an independent security review.",
+  "checks": [
+    "Signature generation and verification",
+    "Modified-record rejection",
+    "Wrong verification-key rejection",
+    "Versioned public-key round trip",
+    "Classical envelope or ML-KEM/HKDF/AES-GCM seal/open round trip",
+    "Tampered ciphertext rejection",
+    "Wrong recipient-key rejection",
+    "Unsupported envelope version rejection",
+    "Persistent approval and stale-record rejection"
+  ],
+  "suite_results": [
+    {
+      "suite": "original",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_surface_treatment_batch.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-259/original-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-259",
+      "started_utc": "2026-11-01T12:01:24.331124+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-259/original-pytest.log",
+      "junit_xml": "reports/evidence/REPO-259/original-junit.xml"
+    },
+    {
+      "suite": "pqc",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_surface_treatment_batch_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-259/pqc-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-259",
+      "started_utc": "2026-11-01T12:01:26.349227+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-259/pqc-pytest.log",
+      "junit_xml": "reports/evidence/REPO-259/pqc-junit.xml"
+    }
+  ],
+  "limitations": [
+    "No formal verification, certification, independent audit, or production readiness claim."
+  ]
+}
