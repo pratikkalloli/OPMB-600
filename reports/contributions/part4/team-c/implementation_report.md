@@ -2,12 +2,12 @@
 
 Status: IN PROGRESS.
 
-- Completed application: REPO-048 InvoiceSeal.
-- Candidate task records created: OPMB-0471 through OPMB-0480 (10).
-- Original tests: 6 passed, 0 failed, 0 skipped.
-- PQC reference tests: 5 passed, 0 failed, 0 skipped.
-- Compile check: passed.
-- Scanner: zero targeted classical public-key findings in the reference source; lexical scope only.
-- Accepted tasks: 0; integration and independent review are pending.
-- Remaining allocation: 12 applications and 120 tasks.
-- Shared manifests, root README, shared progress, catalogue, schemas, and validation modules were not changed.
+- Applications implemented in this contribution: REPO-048 InvoiceSeal and REPO-049 EventPass (2 of 13).
+- Candidate task IDs: OPMB-0471 through OPMB-0490 (20).
+- Original tests: 9 passed, 0 failed, 0 skipped.
+- PQC reference tests: 8 passed, 0 failed, 0 skipped.
+- Compilation checks passed for both repositories.
+- Lexical scans found no targeted classical public-key calls in either reference package; scanner limitations are documented.
+- Accepted tasks: 0. All remain candidates pending independent review.
+- Remaining: 11 applications and 110 new tasks.
+- Shared canonical manifests, catalogue, schemas, validation modules, root README, and progress files have not been changed.

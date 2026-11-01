@@ -1,2 +1,3 @@
 repository_id,name,domain,purpose,task_count,status
-REPO-048,InvoiceSeal,synthetic_invoice_signing,"Synthetic invoice issue, revision, signature history, and signature verification",10,candidate
+REPO-048,InvoiceSeal,synthetic_invoice_signing,Invoice revisions and signed history,10,candidate
+REPO-049,EventPass,offline_event_credentials,Signed event passes with offline expiry/revocation verification,10,candidate

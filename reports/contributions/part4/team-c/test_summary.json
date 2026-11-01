@@ -1,6 +1,6 @@
 {
-  "repository_count": 1,
-  "task_count": 10,
+  "repository_count": 2,
+  "task_count": 20,
   "original_tests": {
     "passed": 6,
     "failed": 0,
@@ -21,5 +21,31 @@
     "pytest": "8.4.2",
     "platform": "Windows"
   },
-  "evidence": "reports/evidence/REPO-048/test-results.json"
+  "evidence": "reports/evidence/REPO-048/test-results.json",
+  "results": {
+    "REPO-048": {
+      "original_passed": 6,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 5,
+      "reference_failed": 0,
+      "reference_skipped": 0
+    },
+    "REPO-049": {
+      "original_passed": 3,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 3,
+      "reference_failed": 0,
+      "reference_skipped": 0
+    }
+  },
+  "aggregate": {
+    "original_passed": 9,
+    "original_failed": 0,
+    "original_skipped": 0,
+    "reference_passed": 8,
+    "reference_failed": 0,
+    "reference_skipped": 0
+  }
 }

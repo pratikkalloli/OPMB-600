@@ -1,7 +1,7 @@
-# InvoiceSeal cryptographic verification
+# Team C cryptographic verification checkpoint
 
-Original suite: 6 passed, 0 failed, 0 skipped. PQC reference suite: 5 passed, 0 failed, 0 skipped. Compile check passed.
+InvoiceSeal: 6 original tests and 5 ML-DSA reference tests passed. EventPass: 3 original tests and 3 ML-DSA reference tests passed. No skips or failures.
 
-Coverage includes RSA-PSS and ML-DSA-65 acceptance, altered-payload and wrong-key rejection, ML-DSA public-key encoding round trip, malformed-key rejection, canonical invoice validation, algorithm-tagged version IDs, database payload-digest tampering rejection, and persisted invoice issue/revision/history behavior. ML-DSA uses an InvoiceSeal-specific context string. The lexical scanner found no targeted RSA/ECDSA/ECDH/X25519/X448 calls in migrated Python source.
+Coverage includes signature acceptance, modified payload rejection, wrong-key rejection, PQC public-key serialization, malformed-key rejection, invoice revision identity and digest tampering, and event pass expiration, revocation snapshots, duplicate serials, and offline verification. Both references use an application-specific ML-DSA context string. The reference scanner reported no RSA/ECDSA/ECDH/X25519/X448 source matches for these two apps.
 
-These tests do not establish formal security or certification. The scanner does not inspect dependencies, runtime-loaded code, serialized data, or side channels. Exact commands, timestamps, versions, exit codes, and counts are in reports/evidence/REPO-048/test-results.json.
+Evidence is under reports/evidence/REPO-048 and reports/evidence/REPO-049. Unit tests and lexical scans are not formal security proofs, dependency scans, side-channel evaluations, or independent certification.

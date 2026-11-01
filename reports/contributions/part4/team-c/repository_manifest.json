@@ -23,6 +23,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-048/test-results.json"
+    },
+    {
+      "repository_id": "REPO-049",
+      "name": "EventPass",
+      "application_domain": "offline_event_credentials",
+      "path": "benchmark/repositories/REPO-049",
+      "purpose": "Synthetic event pass issuance, offline verification, expiry, revocation snapshots, and duplicate serial prevention.",
+      "task_ids": [
+        "OPMB-0481",
+        "OPMB-0482",
+        "OPMB-0483",
+        "OPMB-0484",
+        "OPMB-0485",
+        "OPMB-0486",
+        "OPMB-0487",
+        "OPMB-0488",
+        "OPMB-0489",
+        "OPMB-0490"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-049/test-results.json"
     }
   ]
 }
