@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0490",
+  "repository_id": "REPO-049",
+  "repository_name": "EventPass",
+  "application_domain": "offline_event_credentials",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Issuer pass issuance and persistence workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/eventpass/crypto.py",
+    "src/eventpass/service.py"
+  ],
+  "function_names": [
+    "issue"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Update persisted pass issuance to store larger PQC signatures without changing duplicate or expiry behavior.",
+  "preconditions": [
+    "EventPass original suite passes.",
+    "Events, holders, and pass records are synthetic."
+  ],
+  "expected_behavior": [
+    "Offline verifiers accept active, correctly signed, unexpired passes.",
+    "Expired, revoked, malformed, or modified pass evidence is rejected."
+  ],
+  "migration_requirements": [
+    "Use standardized ML-DSA-65 through the pinned provider.",
+    "Update offline public-key distribution and signature persistence.",
+    "No classical fallback; retain credential context binding."
+  ],
+  "original_tests": [
+    "tests/test_eventpass.py"
+  ],
+  "migration_tests": [
+    "tests/test_eventpass_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and reference test modules separately.",
+    "Test valid, altered, wrong-key, expired, revoked, malformed-key, duplicate-serial, and serialization cases."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent integration review.",
+    "Offline revocation is only as fresh as the verifier snapshot."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-049/tasks/OPMB-0490",
+  "reference_path": "benchmark/repositories/REPO-049/migrated_reference/eventpass_pqc",
+  "original_test_evidence": "reports/evidence/REPO-049/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-049/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-049/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-049/post-migration-scan.json"
+}

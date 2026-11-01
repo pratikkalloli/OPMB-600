@@ -1,0 +1,47 @@
+{
+  "repository_id": "REPO-049",
+  "application": "EventPass",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_eventpass.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T15:38:03.718543+05:30",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.52s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "python -m pytest tests/test_eventpass_pqc.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T15:38:04.584456+05:30",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.09s"
+    }
+  ],
+  "crypto_cases": [
+    "valid RSA-PSS and ML-DSA-65 offline verification",
+    "altered pass claim rejection",
+    "wrong issuer key rejection",
+    "ML-DSA raw public-key round trip",
+    "malformed PQC key rejection",
+    "expiration policy",
+    "local revocation snapshot",
+    "database revocation state",
+    "unique pass serial constraint"
+  ],
+  "limitations": [
+    "Offline revocation freshness depends on verifier-provided snapshot.",
+    "Tests are not formal security certification."
+  ]
+}

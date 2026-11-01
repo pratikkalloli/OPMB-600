@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-0561",
+  "repository_id": "REPO-057",
+  "repository_name": "SecureCalendar",
+  "application_domain": "synthetic_secure_calendar_invitations",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Canonicalize a versioned calendar invitation",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/securecalendar/crypto.py"
+  ],
+  "function_names": [
+    "canonical_invitation"
+  ],
+  "migration_family": "Invitation serialization migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Bind calendar, host, participant, event times, title, and invitation version.",
+  "preconditions": [
+    "SecureCalendar baseline tests pass.",
+    "Application records and identities are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
+  ],
+  "migration_requirements": [
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
+  ],
+  "original_tests": [
+    "tests/test_securecalendar.py"
+  ],
+  "migration_tests": [
+    "tests/test_securecalendar_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-057/tasks/OPMB-0561",
+  "reference_path": "benchmark/repositories/REPO-057/migrated_reference/securecalendar_pqc",
+  "original_test_evidence": "reports/evidence/REPO-057/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-057/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-057/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-057/post-migration-scan.json"
+}

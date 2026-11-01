@@ -1,0 +1,46 @@
+{
+  "repository_id": "REPO-060",
+  "application": "TenderProof",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_tenderproof.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:24:00+05:30",
+      "exit_code": 0,
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.68s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_tenderproof_pqc.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:24:01+05:30",
+      "exit_code": 0,
+      "total": 2,
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.13s"
+    }
+  ],
+  "compile": {
+    "exit_code": 0
+  },
+  "scanner": {
+    "exit_code": 0,
+    "path": "reports/evidence/REPO-060/post-migration-scan.json",
+    "scope_limit": "Lexical public-key API scan only."
+  },
+  "limitations": [
+    "Synthetic application inputs only.",
+    "Tests and lexical scans are not formal cryptographic proofs."
+  ]
+}

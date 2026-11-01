@@ -1,0 +1,46 @@
+{
+  "repository_id": "REPO-056",
+  "application": "CredentialRevocation",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_credentialrevocation.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:54+05:30",
+      "exit_code": 0,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.26s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_credentialrevocation_pqc.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:55+05:30",
+      "exit_code": 0,
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.28s"
+    }
+  ],
+  "compile": {
+    "exit_code": 0
+  },
+  "scanner": {
+    "exit_code": 0,
+    "path": "reports/evidence/REPO-056/post-migration-scan.json",
+    "scope_limit": "Lexical public-key API scan only."
+  },
+  "limitations": [
+    "Synthetic application inputs only.",
+    "Tests and lexical scans are not formal cryptographic proofs."
+  ]
+}
