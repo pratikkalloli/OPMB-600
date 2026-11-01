@@ -6,7 +6,8 @@
     4,
     5,
     6,
-    7
+    7,
+    8
   ],
   "applications": [
     {
@@ -1127,6 +1128,166 @@
         "skipped": 0,
         "log": "reports/evidence/REPO-310/original-pytest.log",
         "junit_xml": "reports/evidence/REPO-310/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-311",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_utility_crew_permit.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-311/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-311",
+        "started_utc": "2026-11-01T12:06:47.088057+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-311/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-311/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-312",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_hydro_reservoir_release.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-312/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-312",
+        "started_utc": "2026-11-01T12:06:50.465292+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-312/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-312/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-313",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_substation_relay_setting.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-313/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-313",
+        "started_utc": "2026-11-01T12:06:53.382359+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-313/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-313/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-314",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carbon_intensity_attestation.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-314/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-314",
+        "started_utc": "2026-11-01T12:06:56.558207+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-314/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-314/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-315",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_e_v_charge_session.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-315/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-315",
+        "started_utc": "2026-11-01T12:06:59.961020+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-315/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-315/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-316",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_utility_interconnect_application.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-316/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-316",
+        "started_utc": "2026-11-01T12:07:03.641378+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-316/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-316/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-317",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_fuel_blend_certificate.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-317/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-317",
+        "started_utc": "2026-11-01T12:07:06.461502+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-317/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-317/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-318",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_power_purchase_allocation.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-318/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-318",
+        "started_utc": "2026-11-01T12:07:09.516971+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-318/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-318/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-319",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_outage_restoration_log.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-319/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-319",
+        "started_utc": "2026-11-01T12:07:13.111149+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-319/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-319/original-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-320",
+      "suite": {
+        "suite": "original",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_water_pump_energy_ledger.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-320/original-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-320",
+        "started_utc": "2026-11-01T12:07:16.352454+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-320/original-pytest.log",
+        "junit_xml": "reports/evidence/REPO-320/original-junit.xml"
       }
     }
   ]

@@ -6,7 +6,8 @@
     4,
     5,
     6,
-    7
+    7,
+    8
   ],
   "applications": [
     {
@@ -1127,6 +1128,166 @@
         "skipped": 0,
         "log": "reports/evidence/REPO-310/pqc-pytest.log",
         "junit_xml": "reports/evidence/REPO-310/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-311",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_utility_crew_permit_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-311/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-311",
+        "started_utc": "2026-11-01T12:06:49.405848+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-311/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-311/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-312",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_hydro_reservoir_release_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-312/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-312",
+        "started_utc": "2026-11-01T12:06:52.380264+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-312/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-312/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-313",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_substation_relay_setting_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-313/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-313",
+        "started_utc": "2026-11-01T12:06:55.523785+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-313/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-313/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-314",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carbon_intensity_attestation_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-314/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-314",
+        "started_utc": "2026-11-01T12:06:58.842168+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-314/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-314/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-315",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_e_v_charge_session_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-315/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-315",
+        "started_utc": "2026-11-01T12:07:02.534333+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-315/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-315/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-316",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_utility_interconnect_application_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-316/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-316",
+        "started_utc": "2026-11-01T12:07:05.392735+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-316/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-316/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-317",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_fuel_blend_certificate_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-317/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-317",
+        "started_utc": "2026-11-01T12:07:08.441347+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-317/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-317/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-318",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_power_purchase_allocation_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-318/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-318",
+        "started_utc": "2026-11-01T12:07:12.011429+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-318/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-318/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-319",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_outage_restoration_log_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-319/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-319",
+        "started_utc": "2026-11-01T12:07:15.304322+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-319/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-319/pqc-junit.xml"
+      }
+    },
+    {
+      "repository_id": "REPO-320",
+      "suite": {
+        "suite": "pqc",
+        "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_water_pump_energy_ledger_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-320/pqc-junit.xml",
+        "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-320",
+        "started_utc": "2026-11-01T12:07:18.078634+00:00",
+        "exit_code": 0,
+        "tests": 6,
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0,
+        "log": "reports/evidence/REPO-320/pqc-pytest.log",
+        "junit_xml": "reports/evidence/REPO-320/pqc-junit.xml"
       }
     }
   ]

@@ -1,0 +1,1 @@
+"""PowerPurchaseAllocation separate PQC reference."""

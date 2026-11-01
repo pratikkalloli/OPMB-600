@@ -1,0 +1,1 @@
+"""SubstationRelaySetting separate PQC reference."""
