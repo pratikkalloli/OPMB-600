@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0324",
+  "repository_id": "REPO-033",
+  "repository_name": "TenantPortal",
+  "application_domain": "tenant_portal",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Domain decision signature verification",
+  "source_files": [
+    "src/tenant_portal/service.py"
+  ],
+  "function_names": [
+    "verify_tenant_invitation_decision"
+  ],
+  "migration_family": "API, dependency and compatibility migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Update decision verification for ML-DSA-65 and continue rejecting modified records and invalid signatures. TenantPortal workflow: Tenant invitations and role grants with expiry, revocation, and tenant-bound encrypted evidence. Domain-specific invariants: Invitation role must be one of viewer, editor, or admin, with a positive expiration. The task concerns fields invitation_id, tenant_id, invitee_email, role, expires_at, status and legal transitions pending -> accepted -> revoked.",
+  "preconditions": [
+    "The TenantPortal baseline tests pass before migration.",
+    "All tenant_invitation records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve TenantPortal domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_tenant_portal.py"
+  ],
+  "migration_tests": [
+    "tests/test_tenant_portal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_tenant_portal.py for the baseline suite.",
+    "Run tests/test_tenant_portal_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-033/tasks/OPMB-0324",
+  "reference_path": "benchmark/repositories/REPO-033/migrated_reference/tenant_portal_pqc",
+  "task_title": "TenantPortal: Verify a domain decision",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B1"
+}
