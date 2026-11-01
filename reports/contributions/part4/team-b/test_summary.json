@@ -16,6 +16,19 @@
     "result": "FAILED: ReadTimeoutError downloading cryptography==50.0.2 from files.pythonhosted.org:443",
     "venv_package_inventory": ["pip==25.0.1"]
   },
+  "package_source_audit": {
+    "approved_internal_index_configured": false,
+    "pip_index_or_find_links_environment_setting": false,
+    "pip_ini_in_standard_locations": false,
+    "cached_wheels": 0,
+    "searched_wheelhouse_locations": [
+      "C:\\somegitrepos\\wheelhouse",
+      "C:\\somegitrepos\\.wheelhouse",
+      "%LOCALAPPDATA%\\pip\\Cache\\wheels",
+      "repository *.whl files"
+    ],
+    "next_prerequisite": "Permit HTTPS wheel downloads from files.pythonhosted.org:443 or provide an approved internal package index/offline wheelhouse containing the pinned requirements and transitive dependencies."
+  },
   "schema_validation": {
     "status": "NOT RUN",
     "schemas": ["benchmark/schemas/repository.schema.json", "benchmark/schemas/task.schema.json"],
