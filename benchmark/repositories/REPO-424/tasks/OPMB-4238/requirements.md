@@ -1,3 +1,3 @@
 # Migration requirements
 
-HTTP endpoint input is rejected before signing. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Preserve the MeshServiceLease domain validation rule: claims do not match the lease schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

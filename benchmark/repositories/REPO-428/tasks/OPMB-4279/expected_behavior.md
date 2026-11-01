@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BackupReceipt must receipt verification checks tenant ownership. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BackupReceipt: Keep signed backup receipt issuance in SQLite and reject duplicate receipt_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

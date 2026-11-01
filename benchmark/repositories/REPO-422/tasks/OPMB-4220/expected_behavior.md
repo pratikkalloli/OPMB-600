@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated WorkloadPassport must rotation to a new issuer key preserves old-key verification policy. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+WorkloadPassport: Bind workload passport lookup identifiers to signed claims and preserve deactivation behavior. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

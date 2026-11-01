@@ -1,3 +1,3 @@
 # Migration requirements
 
-empty snapshot receipt is rejected by backup policy. Preserve cloud_backup_snapshot_receipts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BackupReceipt: Verify ML-DSA-65 backup receipt signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

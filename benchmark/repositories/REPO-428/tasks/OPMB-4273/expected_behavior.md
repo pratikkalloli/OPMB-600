@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BackupReceipt must signature protects snapshot creation time and object count. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BackupReceipt: Replace P-256 signer generation for backup receipt issuers with ML-DSA-65 key generation. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Migration requirements
 
-sequence continuity is verified when reading the ledger. Preserve cloud_hash_chained_audit_streams semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudAuditLedger: Replace ECDSA-SHA256 signatures over canonical audit event claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

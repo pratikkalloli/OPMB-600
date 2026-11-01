@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudAuditLedger must sequence continuity is verified when reading the ledger. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudAuditLedger: Replace ECDSA-SHA256 signatures over canonical audit event claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

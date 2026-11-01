@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated WorkloadPassport must issuer key serialization supports offline validators. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+WorkloadPassport: Reject unknown or missing workload passport claim fields before cryptographic processing. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

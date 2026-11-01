@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudQuotaGrant must authorization rejects requests exceeding the signed ceiling. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudQuotaGrant: Replace ECDSA-SHA256 signatures over canonical quota grant claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must expired lease is refused by route authorization. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Replace ECDSA-SHA256 signatures over canonical service lease claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

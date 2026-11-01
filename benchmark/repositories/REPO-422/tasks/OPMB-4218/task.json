@@ -6,24 +6,18 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "ECDSA P-256 with SHA-256",
-  "cryptographic_operation": "Authenticate passport claims and enforce cloud workflow policy",
+  "cryptographic_operation": "domain policy preservation for workload passport",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/workloadpassport/crypto.py",
     "src/workloadpassport/service.py"
   ],
   "function_names": [
-    "canonical_claims",
-    "sign_claims",
-    "verify_claims",
-    "validate_claims",
-    "issue",
-    "verify",
-    "deactivate"
+    "validate_claims"
   ],
-  "migration_family": "digital signature migration",
+  "migration_family": "domain policy preservation",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "WorkloadPassport: tampered workload identifier fails signature verification.",
+  "migration_objective": "WorkloadPassport: Preserve the WorkloadPassport domain validation rule: claims do not match the passport schema.",
   "preconditions": [
     "WorkloadPassport baseline tests pass.",
     "All tenant and workload records are synthetic."
@@ -33,8 +27,9 @@
     "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
   ],
   "migration_requirements": [
-    "Use provider ML-DSA-65 without fallback.",
-    "Retain canonical claim encoding and application-specific validation."
+    "Migrate domain policy preservation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve WorkloadPassport canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
   ],
   "original_tests": [
     "tests/test_workloadpassport.py"

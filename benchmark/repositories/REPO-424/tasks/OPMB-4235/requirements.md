@@ -1,3 +1,3 @@
 # Migration requirements
 
-lease renewal increments service sequence monotonically. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Reject malformed public-key encodings when loading service lease verification keys. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

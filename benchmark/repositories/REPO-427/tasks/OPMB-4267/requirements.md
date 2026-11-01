@@ -1,3 +1,3 @@
 # Migration requirements
 
-promotion requires a signed rollout record for the same environment. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Verify ML-DSA-65 configuration rollout signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

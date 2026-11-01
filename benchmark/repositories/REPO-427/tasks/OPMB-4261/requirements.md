@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical rollout binds environment and configuration digest. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Canonicalize configuration rollout claims and bind the signed record to its rollout_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

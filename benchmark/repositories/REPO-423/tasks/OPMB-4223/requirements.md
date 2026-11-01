@@ -1,3 +1,3 @@
 # Migration requirements
 
-manifest signature covers each object name and digest. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Replace P-256 signer generation for bucket manifest issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

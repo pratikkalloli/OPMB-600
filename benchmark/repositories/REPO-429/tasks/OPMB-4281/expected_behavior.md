@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must canonical permit binds tenant, requester and exact export field set. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Canonicalize export permit claims and bind the signed record to its permit_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

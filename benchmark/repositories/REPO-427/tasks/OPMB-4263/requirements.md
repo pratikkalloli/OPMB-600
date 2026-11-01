@@ -1,3 +1,3 @@
 # Migration requirements
 
-signature protects revision and canary policy. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Replace P-256 signer generation for configuration rollout issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

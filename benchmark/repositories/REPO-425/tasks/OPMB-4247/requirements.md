@@ -1,3 +1,3 @@
 # Migration requirements
 
-retirement notice is bound to the version being retired. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Verify ML-DSA-65 tenant key rotation signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

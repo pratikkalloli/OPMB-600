@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must canonical lease binds endpoint, service and sequence. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Canonicalize service lease claims and bind the signed record to its lease_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Migration requirements
 
-canary percentage must stay in the allowed range. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Replace ECDSA-SHA256 signatures over canonical configuration rollout claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BucketManifest must manifest creation persists one immutable generation record. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BucketManifest: Reject malformed public-key encodings when loading bucket manifest verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

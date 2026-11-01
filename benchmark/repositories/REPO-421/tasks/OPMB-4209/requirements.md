@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate grant identifiers are rejected by persistence. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Keep signed quota grant issuance in SQLite and reject duplicate grant_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

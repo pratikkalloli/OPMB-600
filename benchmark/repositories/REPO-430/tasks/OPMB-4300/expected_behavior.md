@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must verification checks the expected tenant and approver. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Bind change approval lookup identifiers to signed claims and preserve deactivation behavior. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

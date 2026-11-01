@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must configuration digest mutation fails rollout verification. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Replace DER public-key export with ML-DSA-65 serialization for configuration rollout verifiers. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

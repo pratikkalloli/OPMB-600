@@ -1,3 +1,3 @@
 # Migration requirements
 
-verification checks the expected tenant and approver. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Bind change approval lookup identifiers to signed claims and preserve deactivation behavior. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

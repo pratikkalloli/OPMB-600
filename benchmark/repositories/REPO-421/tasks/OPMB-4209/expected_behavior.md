@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudQuotaGrant must duplicate grant identifiers are rejected by persistence. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudQuotaGrant: Keep signed quota grant issuance in SQLite and reject duplicate grant_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

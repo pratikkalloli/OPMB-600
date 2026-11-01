@@ -1,3 +1,3 @@
 # Migration requirements
 
-signed transition binds the new public-key digest. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Replace P-256 signer generation for tenant key rotation issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

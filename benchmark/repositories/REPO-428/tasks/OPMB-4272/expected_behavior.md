@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BackupReceipt must receipt signer serialization supports offline restore checks. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BackupReceipt: Reject unknown or missing backup receipt claim fields before cryptographic processing. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

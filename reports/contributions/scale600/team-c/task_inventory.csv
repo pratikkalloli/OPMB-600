@@ -1,101 +1,201 @@
 task_id,repository_id,repository_name,application_domain,migration_objective,migration_target,validation_status
-OPMB-4201,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: canonical grant claims with tenant and resource binding.,ML-DSA-65,candidate
-OPMB-4202,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: issuer key generation and public key serialization.,ML-DSA-65,candidate
-OPMB-4203,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: ML-DSA signature over quota ceiling and expiry.,ML-DSA-65,candidate
-OPMB-4204,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: verification rejects grant mutation and wrong issuer.,ML-DSA-65,candidate
-OPMB-4205,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: grant issuance stores immutable signed claims.,ML-DSA-65,candidate
-OPMB-4206,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: authorization rejects requests exceeding the signed ceiling.,ML-DSA-65,candidate
-OPMB-4207,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: expired grant rejection using caller-supplied clock.,ML-DSA-65,candidate
-OPMB-4208,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: revocation state prevents later authorization.,ML-DSA-65,candidate
-OPMB-4209,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: duplicate grant identifiers are rejected by persistence.,ML-DSA-65,candidate
-OPMB-4210,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: audit record preserves the exact signed quota context.,ML-DSA-65,candidate
-OPMB-4211,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: canonical passport includes workload identity and audience.,ML-DSA-65,candidate
-OPMB-4212,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: issuer key serialization supports offline validators.,ML-DSA-65,candidate
-OPMB-4213,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: signing preserves not-before and expiry boundaries.,ML-DSA-65,candidate
-OPMB-4214,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: wrong audience is rejected by workload authorization.,ML-DSA-65,candidate
-OPMB-4215,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: passport issuance persists the signed identity claim.,ML-DSA-65,candidate
-OPMB-4216,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: not-before and expiry checks use explicit verification time.,ML-DSA-65,candidate
-OPMB-4217,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: revoked passport cannot authenticate a workload.,ML-DSA-65,candidate
-OPMB-4218,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: tampered workload identifier fails signature verification.,ML-DSA-65,candidate
-OPMB-4219,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: malformed passport payload is rejected during decode.,ML-DSA-65,candidate
-OPMB-4220,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: rotation to a new issuer key preserves old-key verification policy.,ML-DSA-65,candidate
-OPMB-4221,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: canonical object inventory binds bucket and generation.,ML-DSA-65,candidate
-OPMB-4222,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: public key encoding is stable for remote storage auditors.,ML-DSA-65,candidate
-OPMB-4223,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest signature covers each object name and digest.,ML-DSA-65,candidate
-OPMB-4224,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: changed object digest is rejected during inventory verification.,ML-DSA-65,candidate
-OPMB-4225,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest creation persists one immutable generation record.,ML-DSA-65,candidate
-OPMB-4226,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: duplicate object names are rejected before signing.,ML-DSA-65,candidate
-OPMB-4227,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: empty inventory is rejected for this snapshot workflow.,ML-DSA-65,candidate
-OPMB-4228,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: out-of-order generation is rejected by bucket policy.,ML-DSA-65,candidate
-OPMB-4229,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: manifest serialization round trip retains object ordering rules.,ML-DSA-65,candidate
-OPMB-4230,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: audit verification detects replaced persisted manifest bytes.,ML-DSA-65,candidate
-OPMB-4231,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,"MeshServiceLease: canonical lease binds endpoint, service and sequence.",ML-DSA-65,candidate
-OPMB-4232,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: issuer public-key encoding is accepted by mesh validators.,ML-DSA-65,candidate
-OPMB-4233,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease signature protects the endpoint routing claim.,ML-DSA-65,candidate
-OPMB-4234,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: endpoint substitution is rejected by signature verification.,ML-DSA-65,candidate
-OPMB-4235,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease renewal increments service sequence monotonically.,ML-DSA-65,candidate
-OPMB-4236,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: expired lease is refused by route authorization.,ML-DSA-65,candidate
-OPMB-4237,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: revoked lease cannot be used to establish a route.,ML-DSA-65,candidate
-OPMB-4238,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: HTTP endpoint input is rejected before signing.,ML-DSA-65,candidate
-OPMB-4239,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: lease persistence prevents duplicate lease identifiers.,ML-DSA-65,candidate
-OPMB-4240,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: verification binds the expected service identity to lease.,ML-DSA-65,candidate
-OPMB-4241,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,"TenantKeyRotation: canonical rotation links tenant, key identifier and version.",ML-DSA-65,candidate
-OPMB-4242,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: rotation publisher keys can be serialized for auditors.,ML-DSA-65,candidate
-OPMB-4243,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: signed transition binds the new public-key digest.,ML-DSA-65,candidate
-OPMB-4244,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: modified key digest invalidates the transition signature.,ML-DSA-65,candidate
-OPMB-4245,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: first key version starts at one for a tenant key lineage.,ML-DSA-65,candidate
-OPMB-4246,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: later versions must advance the stored tenant version.,ML-DSA-65,candidate
-OPMB-4247,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: retirement notice is bound to the version being retired.,ML-DSA-65,candidate
-OPMB-4248,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: malformed key digest is rejected before persistence.,ML-DSA-65,candidate
-OPMB-4249,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: rotation record retrieval preserves signed issuance time.,ML-DSA-65,candidate
-OPMB-4250,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: verification rejects records for a different tenant.,ML-DSA-65,candidate
-OPMB-4251,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: canonical audit event binds stream sequence and event digest.,ML-DSA-65,candidate
-OPMB-4252,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: audit signer public-key export supports independent readers.,ML-DSA-65,candidate
-OPMB-4253,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: event signature authenticates the chain link.,ML-DSA-65,candidate
-OPMB-4254,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: tampered previous hash breaks signature validation.,ML-DSA-65,candidate
-OPMB-4255,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: append operation checks expected previous stream head.,ML-DSA-65,candidate
-OPMB-4256,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: sequence continuity is verified when reading the ledger.,ML-DSA-65,candidate
-OPMB-4257,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: duplicate event identifiers are rejected by the database.,ML-DSA-65,candidate
-OPMB-4258,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: genesis event has a fixed all-zero predecessor.,ML-DSA-65,candidate
-OPMB-4259,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: event timestamps are included in signed audit evidence.,ML-DSA-65,candidate
-OPMB-4260,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: verification identifies a replaced persisted event.,ML-DSA-65,candidate
-OPMB-4261,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: canonical rollout binds environment and configuration digest.,ML-DSA-65,candidate
-OPMB-4262,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: public key serialization supports deployment agents.,ML-DSA-65,candidate
-OPMB-4263,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: signature protects revision and canary policy.,ML-DSA-65,candidate
-OPMB-4264,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: configuration digest mutation fails rollout verification.,ML-DSA-65,candidate
-OPMB-4265,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: staged revisions must increase monotonically per environment.,ML-DSA-65,candidate
-OPMB-4266,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: canary percentage must stay in the allowed range.,ML-DSA-65,candidate
-OPMB-4267,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: promotion requires a signed rollout record for the same environment.,ML-DSA-65,candidate
-OPMB-4268,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: duplicate rollout identifier is rejected at persistence.,ML-DSA-65,candidate
-OPMB-4269,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: rollout verification checks the requested environment.,ML-DSA-65,candidate
-OPMB-4270,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: stored rollout bytes are revalidated before promotion.,ML-DSA-65,candidate
-OPMB-4271,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,"BackupReceipt: canonical receipt binds tenant, snapshot and object-root digest.",ML-DSA-65,candidate
-OPMB-4272,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt signer serialization supports offline restore checks.,ML-DSA-65,candidate
-OPMB-4273,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: signature protects snapshot creation time and object count.,ML-DSA-65,candidate
-OPMB-4274,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: changed root digest is rejected before restore authorization.,ML-DSA-65,candidate
-OPMB-4275,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt creation stores immutable snapshot evidence.,ML-DSA-65,candidate
-OPMB-4276,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: restore check requires the expected snapshot identifier.,ML-DSA-65,candidate
-OPMB-4277,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: empty snapshot receipt is rejected by backup policy.,ML-DSA-65,candidate
-OPMB-4278,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: duplicate receipt identifiers cannot overwrite prior evidence.,ML-DSA-65,candidate
-OPMB-4279,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: receipt verification checks tenant ownership.,ML-DSA-65,candidate
-OPMB-4280,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: persistence tampering is detected during receipt inspection.,ML-DSA-65,candidate
-OPMB-4281,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,"SaaSExportPermit: canonical permit binds tenant, requester and exact export field set.",ML-DSA-65,candidate
-OPMB-4282,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: signing key encoding is consumable by export workers.,ML-DSA-65,candidate
-OPMB-4283,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: signature protects allowed fields and permit expiry.,ML-DSA-65,candidate
-OPMB-4284,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: adding a restricted field invalidates the permit.,ML-DSA-65,candidate
-OPMB-4285,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: permit issuance persists the exact authorization scope.,ML-DSA-65,candidate
-OPMB-4286,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: export check rejects a requester mismatch.,ML-DSA-65,candidate
-OPMB-4287,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: expired permit cannot authorize data extraction.,ML-DSA-65,candidate
-OPMB-4288,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: duplicate fields are rejected before signing.,ML-DSA-65,candidate
-OPMB-4289,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: duplicate permit identifiers do not replace active grants.,ML-DSA-65,candidate
-OPMB-4290,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: verification checks tenant isolation across exports.,ML-DSA-65,candidate
-OPMB-4291,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,"CloudChangeApproval: canonical approval binds approver, tenant and action digest.",ML-DSA-65,candidate
-OPMB-4292,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: approval public key is serialized for change-control auditors.,ML-DSA-65,candidate
-OPMB-4293,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: signature covers decision and request identifier.,ML-DSA-65,candidate
-OPMB-4294,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: changed infrastructure digest invalidates approval.,ML-DSA-65,candidate
-OPMB-4295,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: approval creation preserves the signed decision record.,ML-DSA-65,candidate
-OPMB-4296,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: only the matching request can consume an approval.,ML-DSA-65,candidate
-OPMB-4297,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: reject decisions cannot authorize execution.,ML-DSA-65,candidate
-OPMB-4298,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: malformed digest and unknown decision are rejected.,ML-DSA-65,candidate
-OPMB-4299,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: duplicate approval identifiers cannot overwrite history.,ML-DSA-65,candidate
-OPMB-4300,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: verification checks the expected tenant and approver.,ML-DSA-65,candidate
+OPMB-4201,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Canonicalize quota grant claims and bind the signed record to its grant_id identifier.,ML-DSA-65,candidate
+OPMB-4202,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Reject unknown or missing quota grant claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4203,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Replace P-256 signer generation for quota grant issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4204,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Replace DER public-key export with ML-DSA-65 serialization for quota grant verifiers.,ML-DSA-65,candidate
+OPMB-4205,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Reject malformed public-key encodings when loading quota grant verification keys.,ML-DSA-65,candidate
+OPMB-4206,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Replace ECDSA-SHA256 signatures over canonical quota grant claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4207,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Verify ML-DSA-65 quota grant signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4208,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Preserve the CloudQuotaGrant domain validation rule: claims do not match the grant schema.,ML-DSA-65,candidate
+OPMB-4209,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Keep signed quota grant issuance in SQLite and reject duplicate grant_id records.,ML-DSA-65,candidate
+OPMB-4210,REPO-421,CloudQuotaGrant,tenant_quota_grants,CloudQuotaGrant: Bind quota grant lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4211,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Canonicalize workload passport claims and bind the signed record to its passport_id identifier.,ML-DSA-65,candidate
+OPMB-4212,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Reject unknown or missing workload passport claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4213,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Replace P-256 signer generation for workload passport issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4214,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Replace DER public-key export with ML-DSA-65 serialization for workload passport verifiers.,ML-DSA-65,candidate
+OPMB-4215,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Reject malformed public-key encodings when loading workload passport verification keys.,ML-DSA-65,candidate
+OPMB-4216,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Replace ECDSA-SHA256 signatures over canonical workload passport claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4217,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Verify ML-DSA-65 workload passport signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4218,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Preserve the WorkloadPassport domain validation rule: claims do not match the passport schema.,ML-DSA-65,candidate
+OPMB-4219,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Keep signed workload passport issuance in SQLite and reject duplicate passport_id records.,ML-DSA-65,candidate
+OPMB-4220,REPO-422,WorkloadPassport,cloud_workload_audience_credentials,WorkloadPassport: Bind workload passport lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4221,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Canonicalize bucket manifest claims and bind the signed record to its manifest_id identifier.,ML-DSA-65,candidate
+OPMB-4222,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Reject unknown or missing bucket manifest claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4223,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Replace P-256 signer generation for bucket manifest issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4224,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Replace DER public-key export with ML-DSA-65 serialization for bucket manifest verifiers.,ML-DSA-65,candidate
+OPMB-4225,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Reject malformed public-key encodings when loading bucket manifest verification keys.,ML-DSA-65,candidate
+OPMB-4226,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Replace ECDSA-SHA256 signatures over canonical bucket manifest claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4227,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Verify ML-DSA-65 bucket manifest signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4228,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Preserve the BucketManifest domain validation rule: claims do not match the manifest schema.,ML-DSA-65,candidate
+OPMB-4229,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Keep signed bucket manifest issuance in SQLite and reject duplicate manifest_id records.,ML-DSA-65,candidate
+OPMB-4230,REPO-423,BucketManifest,cloud_object_inventory_manifests,BucketManifest: Bind bucket manifest lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4231,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Canonicalize service lease claims and bind the signed record to its lease_id identifier.,ML-DSA-65,candidate
+OPMB-4232,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Reject unknown or missing service lease claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4233,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Replace P-256 signer generation for service lease issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4234,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Replace DER public-key export with ML-DSA-65 serialization for service lease verifiers.,ML-DSA-65,candidate
+OPMB-4235,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Reject malformed public-key encodings when loading service lease verification keys.,ML-DSA-65,candidate
+OPMB-4236,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Replace ECDSA-SHA256 signatures over canonical service lease claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4237,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Verify ML-DSA-65 service lease signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4238,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Preserve the MeshServiceLease domain validation rule: claims do not match the lease schema.,ML-DSA-65,candidate
+OPMB-4239,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Keep signed service lease issuance in SQLite and reject duplicate lease_id records.,ML-DSA-65,candidate
+OPMB-4240,REPO-424,MeshServiceLease,cloud_service_endpoint_leases,MeshServiceLease: Bind service lease lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4241,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Canonicalize tenant key rotation claims and bind the signed record to its rotation_id identifier.,ML-DSA-65,candidate
+OPMB-4242,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Reject unknown or missing tenant key rotation claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4243,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Replace P-256 signer generation for tenant key rotation issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4244,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Replace DER public-key export with ML-DSA-65 serialization for tenant key rotation verifiers.,ML-DSA-65,candidate
+OPMB-4245,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Reject malformed public-key encodings when loading tenant key rotation verification keys.,ML-DSA-65,candidate
+OPMB-4246,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Replace ECDSA-SHA256 signatures over canonical tenant key rotation claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4247,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Verify ML-DSA-65 tenant key rotation signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4248,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Preserve the TenantKeyRotation domain validation rule: claims do not match the rotation schema.,ML-DSA-65,candidate
+OPMB-4249,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Keep signed tenant key rotation issuance in SQLite and reject duplicate rotation_id records.,ML-DSA-65,candidate
+OPMB-4250,REPO-425,TenantKeyRotation,tenant_key_rotation_registry,TenantKeyRotation: Bind tenant key rotation lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4251,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Canonicalize audit event claims and bind the signed record to its event_id identifier.,ML-DSA-65,candidate
+OPMB-4252,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Reject unknown or missing audit event claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4253,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Replace P-256 signer generation for audit event issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4254,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Replace DER public-key export with ML-DSA-65 serialization for audit event verifiers.,ML-DSA-65,candidate
+OPMB-4255,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Reject malformed public-key encodings when loading audit event verification keys.,ML-DSA-65,candidate
+OPMB-4256,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Replace ECDSA-SHA256 signatures over canonical audit event claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4257,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Verify ML-DSA-65 audit event signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4258,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Preserve the CloudAuditLedger domain validation rule: claims do not match the event schema.,ML-DSA-65,candidate
+OPMB-4259,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Keep signed audit event issuance in SQLite and reject duplicate event_id records.,ML-DSA-65,candidate
+OPMB-4260,REPO-426,CloudAuditLedger,cloud_hash_chained_audit_streams,CloudAuditLedger: Bind audit event lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4261,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Canonicalize configuration rollout claims and bind the signed record to its rollout_id identifier.,ML-DSA-65,candidate
+OPMB-4262,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Reject unknown or missing configuration rollout claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4263,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Replace P-256 signer generation for configuration rollout issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4264,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Replace DER public-key export with ML-DSA-65 serialization for configuration rollout verifiers.,ML-DSA-65,candidate
+OPMB-4265,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Reject malformed public-key encodings when loading configuration rollout verification keys.,ML-DSA-65,candidate
+OPMB-4266,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Replace ECDSA-SHA256 signatures over canonical configuration rollout claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4267,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Verify ML-DSA-65 configuration rollout signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4268,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Preserve the ConfigRollout domain validation rule: claims do not match the rollout schema.,ML-DSA-65,candidate
+OPMB-4269,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Keep signed configuration rollout issuance in SQLite and reject duplicate rollout_id records.,ML-DSA-65,candidate
+OPMB-4270,REPO-427,ConfigRollout,signed_cloud_configuration_rollouts,ConfigRollout: Bind configuration rollout lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4271,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Canonicalize backup receipt claims and bind the signed record to its receipt_id identifier.,ML-DSA-65,candidate
+OPMB-4272,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Reject unknown or missing backup receipt claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4273,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Replace P-256 signer generation for backup receipt issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4274,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Replace DER public-key export with ML-DSA-65 serialization for backup receipt verifiers.,ML-DSA-65,candidate
+OPMB-4275,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Reject malformed public-key encodings when loading backup receipt verification keys.,ML-DSA-65,candidate
+OPMB-4276,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Replace ECDSA-SHA256 signatures over canonical backup receipt claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4277,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Verify ML-DSA-65 backup receipt signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4278,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Preserve the BackupReceipt domain validation rule: claims do not match the receipt schema.,ML-DSA-65,candidate
+OPMB-4279,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Keep signed backup receipt issuance in SQLite and reject duplicate receipt_id records.,ML-DSA-65,candidate
+OPMB-4280,REPO-428,BackupReceipt,cloud_backup_snapshot_receipts,BackupReceipt: Bind backup receipt lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4281,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Canonicalize export permit claims and bind the signed record to its permit_id identifier.,ML-DSA-65,candidate
+OPMB-4282,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Reject unknown or missing export permit claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4283,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Replace P-256 signer generation for export permit issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4284,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Replace DER public-key export with ML-DSA-65 serialization for export permit verifiers.,ML-DSA-65,candidate
+OPMB-4285,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Reject malformed public-key encodings when loading export permit verification keys.,ML-DSA-65,candidate
+OPMB-4286,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Replace ECDSA-SHA256 signatures over canonical export permit claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4287,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Verify ML-DSA-65 export permit signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4288,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Preserve the SaaSExportPermit domain validation rule: claims do not match the permit schema.,ML-DSA-65,candidate
+OPMB-4289,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Keep signed export permit issuance in SQLite and reject duplicate permit_id records.,ML-DSA-65,candidate
+OPMB-4290,REPO-429,SaaSExportPermit,tenant_scoped_saas_export_authorization,SaaSExportPermit: Bind export permit lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4291,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Canonicalize change approval claims and bind the signed record to its approval_id identifier.,ML-DSA-65,candidate
+OPMB-4292,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Reject unknown or missing change approval claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4293,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Replace P-256 signer generation for change approval issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4294,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Replace DER public-key export with ML-DSA-65 serialization for change approval verifiers.,ML-DSA-65,candidate
+OPMB-4295,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Reject malformed public-key encodings when loading change approval verification keys.,ML-DSA-65,candidate
+OPMB-4296,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Replace ECDSA-SHA256 signatures over canonical change approval claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4297,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Verify ML-DSA-65 change approval signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4298,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Preserve the CloudChangeApproval domain validation rule: claims do not match the approval schema.,ML-DSA-65,candidate
+OPMB-4299,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Keep signed change approval issuance in SQLite and reject duplicate approval_id records.,ML-DSA-65,candidate
+OPMB-4300,REPO-430,CloudChangeApproval,cloud_infrastructure_change_approvals,CloudChangeApproval: Bind change approval lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4301,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Canonicalize tenant policy bundle claims and bind the signed record to its bundle_id identifier.,ML-DSA-65,candidate
+OPMB-4302,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Reject unknown or missing tenant policy bundle claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4303,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Replace P-256 signer generation for tenant policy bundle issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4304,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Replace DER public-key export with ML-DSA-65 serialization for tenant policy bundle verifiers.,ML-DSA-65,candidate
+OPMB-4305,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Reject malformed public-key encodings when loading tenant policy bundle verification keys.,ML-DSA-65,candidate
+OPMB-4306,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Replace ECDSA-SHA256 signatures over canonical tenant policy bundle claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4307,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Verify ML-DSA-65 tenant policy bundle signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4308,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Preserve the TenantPolicyBundle domain validation rule: claims do not match the bundle schema.,ML-DSA-65,candidate
+OPMB-4309,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Keep signed tenant policy bundle issuance in SQLite and reject duplicate bundle_id records.,ML-DSA-65,candidate
+OPMB-4310,REPO-431,TenantPolicyBundle,tenant_policy_bundles,TenantPolicyBundle: Bind tenant policy bundle lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4311,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Canonicalize federated trust claims and bind the signed record to its trust_id identifier.,ML-DSA-65,candidate
+OPMB-4312,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Reject unknown or missing federated trust claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4313,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Replace P-256 signer generation for federated trust issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4314,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Replace DER public-key export with ML-DSA-65 serialization for federated trust verifiers.,ML-DSA-65,candidate
+OPMB-4315,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Reject malformed public-key encodings when loading federated trust verification keys.,ML-DSA-65,candidate
+OPMB-4316,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Replace ECDSA-SHA256 signatures over canonical federated trust claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4317,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Verify ML-DSA-65 federated trust signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4318,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Preserve the FederatedServiceTrust domain validation rule: claims do not match the trust schema.,ML-DSA-65,candidate
+OPMB-4319,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Keep signed federated trust issuance in SQLite and reject duplicate trust_id records.,ML-DSA-65,candidate
+OPMB-4320,REPO-432,FederatedServiceTrust,federated_service_trust_records,FederatedServiceTrust: Bind federated trust lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4321,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Canonicalize retention seal claims and bind the signed record to its seal_id identifier.,ML-DSA-65,candidate
+OPMB-4322,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Reject unknown or missing retention seal claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4323,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Replace P-256 signer generation for retention seal issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4324,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Replace DER public-key export with ML-DSA-65 serialization for retention seal verifiers.,ML-DSA-65,candidate
+OPMB-4325,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Reject malformed public-key encodings when loading retention seal verification keys.,ML-DSA-65,candidate
+OPMB-4326,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Replace ECDSA-SHA256 signatures over canonical retention seal claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4327,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Verify ML-DSA-65 retention seal signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4328,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Preserve the ObjectRetentionSeal domain validation rule: claims do not match the seal schema.,ML-DSA-65,candidate
+OPMB-4329,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Keep signed retention seal issuance in SQLite and reject duplicate seal_id records.,ML-DSA-65,candidate
+OPMB-4330,REPO-433,ObjectRetentionSeal,cloud_object_retention_seals,ObjectRetentionSeal: Bind retention seal lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4331,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Canonicalize identity bridge claims and bind the signed record to its bridge_id identifier.,ML-DSA-65,candidate
+OPMB-4332,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Reject unknown or missing identity bridge claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4333,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Replace P-256 signer generation for identity bridge issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4334,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Replace DER public-key export with ML-DSA-65 serialization for identity bridge verifiers.,ML-DSA-65,candidate
+OPMB-4335,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Reject malformed public-key encodings when loading identity bridge verification keys.,ML-DSA-65,candidate
+OPMB-4336,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Replace ECDSA-SHA256 signatures over canonical identity bridge claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4337,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Verify ML-DSA-65 identity bridge signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4338,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Preserve the CloudIdentityBridge domain validation rule: claims do not match the bridge schema.,ML-DSA-65,candidate
+OPMB-4339,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Keep signed identity bridge issuance in SQLite and reject duplicate bridge_id records.,ML-DSA-65,candidate
+OPMB-4340,REPO-434,CloudIdentityBridge,cloud_identity_federation_bridges,CloudIdentityBridge: Bind identity bridge lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4341,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Canonicalize namespace transfer receipt claims and bind the signed record to its transfer_id identifier.,ML-DSA-65,candidate
+OPMB-4342,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Reject unknown or missing namespace transfer receipt claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4343,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Replace P-256 signer generation for namespace transfer receipt issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4344,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Replace DER public-key export with ML-DSA-65 serialization for namespace transfer receipt verifiers.,ML-DSA-65,candidate
+OPMB-4345,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Reject malformed public-key encodings when loading namespace transfer receipt verification keys.,ML-DSA-65,candidate
+OPMB-4346,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Replace ECDSA-SHA256 signatures over canonical namespace transfer receipt claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4347,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Verify ML-DSA-65 namespace transfer receipt signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4348,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Preserve the NamespaceTransferReceipt domain validation rule: claims do not match the receipt schema.,ML-DSA-65,candidate
+OPMB-4349,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Keep signed namespace transfer receipt issuance in SQLite and reject duplicate transfer_id records.,ML-DSA-65,candidate
+OPMB-4350,REPO-435,NamespaceTransferReceipt,tenant_namespace_transfer_receipts,NamespaceTransferReceipt: Bind namespace transfer receipt lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4351,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Canonicalize secret access lease claims and bind the signed record to its lease_id identifier.,ML-DSA-65,candidate
+OPMB-4352,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Reject unknown or missing secret access lease claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4353,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Replace P-256 signer generation for secret access lease issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4354,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Replace DER public-key export with ML-DSA-65 serialization for secret access lease verifiers.,ML-DSA-65,candidate
+OPMB-4355,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Reject malformed public-key encodings when loading secret access lease verification keys.,ML-DSA-65,candidate
+OPMB-4356,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Replace ECDSA-SHA256 signatures over canonical secret access lease claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4357,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Verify ML-DSA-65 secret access lease signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4358,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Preserve the SecretsAccessLease domain validation rule: claims do not match the lease schema.,ML-DSA-65,candidate
+OPMB-4359,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Keep signed secret access lease issuance in SQLite and reject duplicate lease_id records.,ML-DSA-65,candidate
+OPMB-4360,REPO-436,SecretsAccessLease,tenant_secret_access_leases,SecretsAccessLease: Bind secret access lease lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4361,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Canonicalize regional failover proof claims and bind the signed record to its failover_id identifier.,ML-DSA-65,candidate
+OPMB-4362,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Reject unknown or missing regional failover proof claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4363,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Replace P-256 signer generation for regional failover proof issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4364,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Replace DER public-key export with ML-DSA-65 serialization for regional failover proof verifiers.,ML-DSA-65,candidate
+OPMB-4365,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Reject malformed public-key encodings when loading regional failover proof verification keys.,ML-DSA-65,candidate
+OPMB-4366,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Replace ECDSA-SHA256 signatures over canonical regional failover proof claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4367,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Verify ML-DSA-65 regional failover proof signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4368,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Preserve the RegionalFailoverProof domain validation rule: claims do not match the proof schema.,ML-DSA-65,candidate
+OPMB-4369,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Keep signed regional failover proof issuance in SQLite and reject duplicate failover_id records.,ML-DSA-65,candidate
+OPMB-4370,REPO-437,RegionalFailoverProof,cloud_regional_failover_proofs,RegionalFailoverProof: Bind regional failover proof lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4371,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Canonicalize data residency attestation claims and bind the signed record to its attestation_id identifier.,ML-DSA-65,candidate
+OPMB-4372,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Reject unknown or missing data residency attestation claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4373,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Replace P-256 signer generation for data residency attestation issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4374,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Replace DER public-key export with ML-DSA-65 serialization for data residency attestation verifiers.,ML-DSA-65,candidate
+OPMB-4375,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Reject malformed public-key encodings when loading data residency attestation verification keys.,ML-DSA-65,candidate
+OPMB-4376,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Replace ECDSA-SHA256 signatures over canonical data residency attestation claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4377,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Verify ML-DSA-65 data residency attestation signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4378,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Preserve the SaaSDataResidencyAttestation domain validation rule: claims do not match the attestation schema.,ML-DSA-65,candidate
+OPMB-4379,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Keep signed data residency attestation issuance in SQLite and reject duplicate attestation_id records.,ML-DSA-65,candidate
+OPMB-4380,REPO-438,SaaSDataResidencyAttestation,tenant_data_residency_attestations,SaaSDataResidencyAttestation: Bind data residency attestation lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4381,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Canonicalize tenant invitation claims and bind the signed record to its invite_id identifier.,ML-DSA-65,candidate
+OPMB-4382,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Reject unknown or missing tenant invitation claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4383,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Replace P-256 signer generation for tenant invitation issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4384,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Replace DER public-key export with ML-DSA-65 serialization for tenant invitation verifiers.,ML-DSA-65,candidate
+OPMB-4385,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Reject malformed public-key encodings when loading tenant invitation verification keys.,ML-DSA-65,candidate
+OPMB-4386,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Replace ECDSA-SHA256 signatures over canonical tenant invitation claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4387,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Verify ML-DSA-65 tenant invitation signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4388,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Preserve the TenantInviteApproval domain validation rule: claims do not match the invite schema.,ML-DSA-65,candidate
+OPMB-4389,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Keep signed tenant invitation issuance in SQLite and reject duplicate invite_id records.,ML-DSA-65,candidate
+OPMB-4390,REPO-439,TenantInviteApproval,tenant_membership_invite_approvals,TenantInviteApproval: Bind tenant invitation lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate
+OPMB-4391,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Canonicalize webhook registration claims and bind the signed record to its webhook_id identifier.,ML-DSA-65,candidate
+OPMB-4392,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Reject unknown or missing webhook registration claim fields before cryptographic processing.,ML-DSA-65,candidate
+OPMB-4393,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Replace P-256 signer generation for webhook registration issuers with ML-DSA-65 key generation.,ML-DSA-65,candidate
+OPMB-4394,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Replace DER public-key export with ML-DSA-65 serialization for webhook registration verifiers.,ML-DSA-65,candidate
+OPMB-4395,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Reject malformed public-key encodings when loading webhook registration verification keys.,ML-DSA-65,candidate
+OPMB-4396,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Replace ECDSA-SHA256 signatures over canonical webhook registration claims with ML-DSA-65.,ML-DSA-65,candidate
+OPMB-4397,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Verify ML-DSA-65 webhook registration signatures and reject wrong-key or altered-claim verification.,ML-DSA-65,candidate
+OPMB-4398,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Preserve the CloudWebhookRegistry domain validation rule: claims do not match the webhook schema.,ML-DSA-65,candidate
+OPMB-4399,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Keep signed webhook registration issuance in SQLite and reject duplicate webhook_id records.,ML-DSA-65,candidate
+OPMB-4400,REPO-440,CloudWebhookRegistry,tenant_cloud_webhook_registrations,CloudWebhookRegistry: Bind webhook registration lookup identifiers to signed claims and preserve deactivation behavior.,ML-DSA-65,candidate

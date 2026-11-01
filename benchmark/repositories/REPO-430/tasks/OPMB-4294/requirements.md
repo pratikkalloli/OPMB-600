@@ -1,3 +1,3 @@
 # Migration requirements
 
-changed infrastructure digest invalidates approval. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Replace DER public-key export with ML-DSA-65 serialization for change approval verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

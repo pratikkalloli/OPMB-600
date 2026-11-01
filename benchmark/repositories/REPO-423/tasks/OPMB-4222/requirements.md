@@ -1,3 +1,3 @@
 # Migration requirements
 
-public key encoding is stable for remote storage auditors. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Reject unknown or missing bucket manifest claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

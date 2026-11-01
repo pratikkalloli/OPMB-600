@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudQuotaGrant must canonical grant claims with tenant and resource binding. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudQuotaGrant: Canonicalize quota grant claims and bind the signed record to its grant_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

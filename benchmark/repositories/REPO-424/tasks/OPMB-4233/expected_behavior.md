@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must lease signature protects the endpoint routing claim. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Replace P-256 signer generation for service lease issuers with ML-DSA-65 key generation. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

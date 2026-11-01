@@ -1,3 +1,3 @@
 # Migration requirements
 
-empty inventory is rejected for this snapshot workflow. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Verify ML-DSA-65 bucket manifest signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

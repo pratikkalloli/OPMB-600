@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated TenantKeyRotation must first key version starts at one for a tenant key lineage. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+TenantKeyRotation: Reject malformed public-key encodings when loading tenant key rotation verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

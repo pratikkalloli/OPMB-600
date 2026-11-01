@@ -1,3 +1,3 @@
 # Migration requirements
 
-ML-DSA signature over quota ceiling and expiry. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Replace P-256 signer generation for quota grant issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

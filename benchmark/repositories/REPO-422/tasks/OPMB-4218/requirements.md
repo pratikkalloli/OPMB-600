@@ -1,3 +1,3 @@
 # Migration requirements
 
-tampered workload identifier fails signature verification. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Preserve the WorkloadPassport domain validation rule: claims do not match the passport schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

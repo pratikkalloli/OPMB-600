@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BucketManifest must out-of-order generation is rejected by bucket policy. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BucketManifest: Preserve the BucketManifest domain validation rule: claims do not match the manifest schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

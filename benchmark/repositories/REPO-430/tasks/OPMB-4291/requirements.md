@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical approval binds approver, tenant and action digest. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Canonicalize change approval claims and bind the signed record to its approval_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

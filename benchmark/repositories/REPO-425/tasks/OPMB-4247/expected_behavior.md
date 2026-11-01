@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated TenantKeyRotation must retirement notice is bound to the version being retired. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+TenantKeyRotation: Verify ML-DSA-65 tenant key rotation signatures and reject wrong-key or altered-claim verification. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

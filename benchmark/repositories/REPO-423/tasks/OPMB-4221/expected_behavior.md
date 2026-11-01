@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BucketManifest must canonical object inventory binds bucket and generation. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BucketManifest: Canonicalize bucket manifest claims and bind the signed record to its manifest_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

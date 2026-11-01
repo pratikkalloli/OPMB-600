@@ -1,3 +1,3 @@
 # Migration requirements
 
-rotation record retrieval preserves signed issuance time. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Keep signed tenant key rotation issuance in SQLite and reject duplicate rotation_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

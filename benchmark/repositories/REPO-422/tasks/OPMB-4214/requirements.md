@@ -1,3 +1,3 @@
 # Migration requirements
 
-wrong audience is rejected by workload authorization. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Replace DER public-key export with ML-DSA-65 serialization for workload passport verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

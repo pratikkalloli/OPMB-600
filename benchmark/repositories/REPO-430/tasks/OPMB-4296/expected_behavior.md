@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must only the matching request can consume an approval. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Replace ECDSA-SHA256 signatures over canonical change approval claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

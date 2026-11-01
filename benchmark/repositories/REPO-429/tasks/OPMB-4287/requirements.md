@@ -1,3 +1,3 @@
 # Migration requirements
 
-expired permit cannot authorize data extraction. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Verify ML-DSA-65 export permit signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

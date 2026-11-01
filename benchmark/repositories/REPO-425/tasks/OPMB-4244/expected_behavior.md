@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated TenantKeyRotation must modified key digest invalidates the transition signature. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+TenantKeyRotation: Replace DER public-key export with ML-DSA-65 serialization for tenant key rotation verifiers. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must rollout verification checks the requested environment. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Keep signed configuration rollout issuance in SQLite and reject duplicate rollout_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

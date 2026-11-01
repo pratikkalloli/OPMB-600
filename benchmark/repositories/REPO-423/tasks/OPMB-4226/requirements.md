@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate object names are rejected before signing. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Replace ECDSA-SHA256 signatures over canonical bucket manifest claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

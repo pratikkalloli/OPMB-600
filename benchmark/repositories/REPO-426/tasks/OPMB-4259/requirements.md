@@ -1,3 +1,3 @@
 # Migration requirements
 
-event timestamps are included in signed audit evidence. Preserve cloud_hash_chained_audit_streams semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudAuditLedger: Keep signed audit event issuance in SQLite and reject duplicate event_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

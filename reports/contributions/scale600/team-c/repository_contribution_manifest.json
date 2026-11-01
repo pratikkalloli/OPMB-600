@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 10,
+  "implemented_application_count": 20,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -122,6 +122,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-430/test-results.json"
+    },
+    {
+      "repository_id": "REPO-431",
+      "name": "TenantPolicyBundle",
+      "application_domain": "tenant_policy_bundles",
+      "path": "benchmark/repositories/REPO-431",
+      "purpose": "Manage tenant policy bundle evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-431/test-results.json"
+    },
+    {
+      "repository_id": "REPO-432",
+      "name": "FederatedServiceTrust",
+      "application_domain": "federated_service_trust_records",
+      "path": "benchmark/repositories/REPO-432",
+      "purpose": "Manage federated service trust evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-432/test-results.json"
+    },
+    {
+      "repository_id": "REPO-433",
+      "name": "ObjectRetentionSeal",
+      "application_domain": "cloud_object_retention_seals",
+      "path": "benchmark/repositories/REPO-433",
+      "purpose": "Manage object retention seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-433/test-results.json"
+    },
+    {
+      "repository_id": "REPO-434",
+      "name": "CloudIdentityBridge",
+      "application_domain": "cloud_identity_federation_bridges",
+      "path": "benchmark/repositories/REPO-434",
+      "purpose": "Manage cloud identity bridge evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-434/test-results.json"
+    },
+    {
+      "repository_id": "REPO-435",
+      "name": "NamespaceTransferReceipt",
+      "application_domain": "tenant_namespace_transfer_receipts",
+      "path": "benchmark/repositories/REPO-435",
+      "purpose": "Manage namespace transfer receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-435/test-results.json"
+    },
+    {
+      "repository_id": "REPO-436",
+      "name": "SecretsAccessLease",
+      "application_domain": "tenant_secret_access_leases",
+      "path": "benchmark/repositories/REPO-436",
+      "purpose": "Manage secrets access lease evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-436/test-results.json"
+    },
+    {
+      "repository_id": "REPO-437",
+      "name": "RegionalFailoverProof",
+      "application_domain": "cloud_regional_failover_proofs",
+      "path": "benchmark/repositories/REPO-437",
+      "purpose": "Manage regional failover proof evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-437/test-results.json"
+    },
+    {
+      "repository_id": "REPO-438",
+      "name": "SaaSDataResidencyAttestation",
+      "application_domain": "tenant_data_residency_attestations",
+      "path": "benchmark/repositories/REPO-438",
+      "purpose": "Manage saa s data residency attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-438/test-results.json"
+    },
+    {
+      "repository_id": "REPO-439",
+      "name": "TenantInviteApproval",
+      "application_domain": "tenant_membership_invite_approvals",
+      "path": "benchmark/repositories/REPO-439",
+      "purpose": "Manage tenant invite approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-439/test-results.json"
+    },
+    {
+      "repository_id": "REPO-440",
+      "name": "CloudWebhookRegistry",
+      "application_domain": "tenant_cloud_webhook_registrations",
+      "path": "benchmark/repositories/REPO-440",
+      "purpose": "Manage cloud webhook registry evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-440/test-results.json"
     }
   ]
 }

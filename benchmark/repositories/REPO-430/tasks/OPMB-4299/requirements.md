@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate approval identifiers cannot overwrite history. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Keep signed change approval issuance in SQLite and reject duplicate approval_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

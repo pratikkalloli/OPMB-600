@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical lease binds endpoint, service and sequence. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Canonicalize service lease claims and bind the signed record to its lease_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

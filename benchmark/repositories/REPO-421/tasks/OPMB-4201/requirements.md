@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical grant claims with tenant and resource binding. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Canonicalize quota grant claims and bind the signed record to its grant_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

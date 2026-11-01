@@ -1,3 +1,3 @@
 # Migration requirements
 
-malformed key digest is rejected before persistence. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Preserve the TenantKeyRotation domain validation rule: claims do not match the rotation schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

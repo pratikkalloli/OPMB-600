@@ -1,3 +1,3 @@
 # Implementation report
 
-Team C scale expansion is in progress. Batch 01 provides ten SQLite-backed synthetic SaaS/cloud workflows, separate ECDSA baseline and ML-DSA-65 reference implementations, baseline/reference tests, 100 candidate task specifications, per-application evidence, and contribution inventories. This is not completion of the 180-application allocation.
+Team C scale expansion is in progress. Batches 01 and 02 provide twenty synthetic cloud/SaaS workflows, distinct domain claim validation, SQLite persistence, separate ECDSA baselines and ML-DSA-65 reference implementations, tests, 200 candidate task specifications and per-application evidence. This is not completion of the 180-application allocation.

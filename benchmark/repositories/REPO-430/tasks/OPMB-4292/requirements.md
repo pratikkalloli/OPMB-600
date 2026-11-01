@@ -1,3 +1,3 @@
 # Migration requirements
 
-approval public key is serialized for change-control auditors. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Reject unknown or missing change approval claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

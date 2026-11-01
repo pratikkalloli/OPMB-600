@@ -1,3 +1,3 @@
 # Migration requirements
 
-verification identifies a replaced persisted event. Preserve cloud_hash_chained_audit_streams semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudAuditLedger: Bind audit event lookup identifiers to signed claims and preserve deactivation behavior. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

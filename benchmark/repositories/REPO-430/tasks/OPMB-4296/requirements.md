@@ -1,3 +1,3 @@
 # Migration requirements
 
-only the matching request can consume an approval. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Replace ECDSA-SHA256 signatures over canonical change approval claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

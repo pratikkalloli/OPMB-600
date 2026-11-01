@@ -1,3 +1,3 @@
 # Migration requirements
 
-signing preserves not-before and expiry boundaries. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Replace P-256 signer generation for workload passport issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

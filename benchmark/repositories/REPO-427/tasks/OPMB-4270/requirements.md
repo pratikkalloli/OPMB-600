@@ -1,3 +1,3 @@
 # Migration requirements
 
-stored rollout bytes are revalidated before promotion. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Bind configuration rollout lookup identifiers to signed claims and preserve deactivation behavior. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

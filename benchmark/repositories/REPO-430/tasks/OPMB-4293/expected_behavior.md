@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must signature covers decision and request identifier. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Replace P-256 signer generation for change approval issuers with ML-DSA-65 key generation. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

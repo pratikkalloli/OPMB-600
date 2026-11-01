@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical audit event binds stream sequence and event digest. Preserve cloud_hash_chained_audit_streams semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudAuditLedger: Canonicalize audit event claims and bind the signed record to its event_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

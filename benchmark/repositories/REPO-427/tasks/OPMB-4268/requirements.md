@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate rollout identifier is rejected at persistence. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Preserve the ConfigRollout domain validation rule: claims do not match the rollout schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

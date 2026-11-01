@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must adding a restricted field invalidates the permit. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Replace DER public-key export with ML-DSA-65 serialization for export permit verifiers. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Migration requirements
 
-verification binds the expected service identity to lease. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Bind service lease lookup identifiers to signed claims and preserve deactivation behavior. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

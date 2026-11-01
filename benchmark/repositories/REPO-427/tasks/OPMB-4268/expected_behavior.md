@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must duplicate rollout identifier is rejected at persistence. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Preserve the ConfigRollout domain validation rule: claims do not match the rollout schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

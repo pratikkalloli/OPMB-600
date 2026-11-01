@@ -1,3 +1,3 @@
 # Migration requirements
 
-issuer key serialization supports offline validators. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Reject unknown or missing workload passport claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

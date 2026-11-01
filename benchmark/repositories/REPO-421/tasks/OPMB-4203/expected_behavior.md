@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudQuotaGrant must ml-dsa signature over quota ceiling and expiry. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudQuotaGrant: Replace P-256 signer generation for quota grant issuers with ML-DSA-65 key generation. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

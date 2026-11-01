@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must http endpoint input is rejected before signing. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Preserve the MeshServiceLease domain validation rule: claims do not match the lease schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

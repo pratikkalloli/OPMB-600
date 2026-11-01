@@ -1,3 +1,3 @@
 # Migration requirements
 
-revoked passport cannot authenticate a workload. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Verify ML-DSA-65 workload passport signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

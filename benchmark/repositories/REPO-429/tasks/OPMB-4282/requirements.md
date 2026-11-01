@@ -1,3 +1,3 @@
 # Migration requirements
 
-signing key encoding is consumable by export workers. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Reject unknown or missing export permit claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

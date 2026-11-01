@@ -1,3 +1,3 @@
 # Migration requirements
 
-issuer key generation and public key serialization. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Reject unknown or missing quota grant claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

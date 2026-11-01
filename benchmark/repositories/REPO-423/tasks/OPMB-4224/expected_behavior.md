@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BucketManifest must changed object digest is rejected during inventory verification. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BucketManifest: Replace DER public-key export with ML-DSA-65 serialization for bucket manifest verifiers. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

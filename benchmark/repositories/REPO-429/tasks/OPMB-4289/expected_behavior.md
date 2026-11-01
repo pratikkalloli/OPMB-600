@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must duplicate permit identifiers do not replace active grants. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Keep signed export permit issuance in SQLite and reject duplicate permit_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

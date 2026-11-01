@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must endpoint substitution is rejected by signature verification. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Replace DER public-key export with ML-DSA-65 serialization for service lease verifiers. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

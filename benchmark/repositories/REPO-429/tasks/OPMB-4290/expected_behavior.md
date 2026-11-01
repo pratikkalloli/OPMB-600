@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must verification checks tenant isolation across exports. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Bind export permit lookup identifiers to signed claims and preserve deactivation behavior. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

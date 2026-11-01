@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical rotation links tenant, key identifier and version. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Canonicalize tenant key rotation claims and bind the signed record to its rotation_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

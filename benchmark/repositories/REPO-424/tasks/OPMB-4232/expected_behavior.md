@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must issuer public-key encoding is accepted by mesh validators. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Reject unknown or missing service lease claim fields before cryptographic processing. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

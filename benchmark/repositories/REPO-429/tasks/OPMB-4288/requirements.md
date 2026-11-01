@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate fields are rejected before signing. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Preserve the SaaSExportPermit domain validation rule: claims do not match the permit schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

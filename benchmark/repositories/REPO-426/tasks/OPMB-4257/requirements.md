@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate event identifiers are rejected by the database. Preserve cloud_hash_chained_audit_streams semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudAuditLedger: Verify ML-DSA-65 audit event signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

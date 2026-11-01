@@ -1,3 +1,3 @@
 # Migration requirements
 
-receipt verification checks tenant ownership. Preserve cloud_backup_snapshot_receipts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BackupReceipt: Keep signed backup receipt issuance in SQLite and reject duplicate receipt_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

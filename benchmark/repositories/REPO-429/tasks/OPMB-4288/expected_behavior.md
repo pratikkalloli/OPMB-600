@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must duplicate fields are rejected before signing. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Preserve the SaaSExportPermit domain validation rule: claims do not match the permit schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

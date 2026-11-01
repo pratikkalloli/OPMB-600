@@ -1,3 +1,3 @@
 # Migration requirements
 
-adding a restricted field invalidates the permit. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Replace DER public-key export with ML-DSA-65 serialization for export permit verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

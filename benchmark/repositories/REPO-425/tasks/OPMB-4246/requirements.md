@@ -1,3 +1,3 @@
 # Migration requirements
 
-later versions must advance the stored tenant version. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Replace ECDSA-SHA256 signatures over canonical tenant key rotation claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

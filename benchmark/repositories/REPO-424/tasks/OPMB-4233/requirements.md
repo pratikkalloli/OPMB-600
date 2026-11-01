@@ -1,3 +1,3 @@
 # Migration requirements
 
-lease signature protects the endpoint routing claim. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Replace P-256 signer generation for service lease issuers with ML-DSA-65 key generation. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

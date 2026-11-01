@@ -1,3 +1,3 @@
 # Migration requirements
 
-malformed passport payload is rejected during decode. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Keep signed workload passport issuance in SQLite and reject duplicate passport_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

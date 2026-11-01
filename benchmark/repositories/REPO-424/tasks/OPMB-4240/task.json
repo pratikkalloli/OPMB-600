@@ -6,24 +6,19 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "ECDSA P-256 with SHA-256",
-  "cryptographic_operation": "Authenticate lease claims and enforce cloud workflow policy",
+  "cryptographic_operation": "identifier binding and revocation for service lease",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/meshservicelease/crypto.py",
     "src/meshservicelease/service.py"
   ],
   "function_names": [
-    "canonical_claims",
-    "sign_claims",
-    "verify_claims",
-    "validate_claims",
-    "issue",
     "verify",
     "deactivate"
   ],
-  "migration_family": "digital signature migration",
+  "migration_family": "identifier binding and revocation",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "MeshServiceLease: verification binds the expected service identity to lease.",
+  "migration_objective": "MeshServiceLease: Bind service lease lookup identifiers to signed claims and preserve deactivation behavior.",
   "preconditions": [
     "MeshServiceLease baseline tests pass.",
     "All tenant and workload records are synthetic."
@@ -33,8 +28,9 @@
     "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
   ],
   "migration_requirements": [
-    "Use provider ML-DSA-65 without fallback.",
-    "Retain canonical claim encoding and application-specific validation."
+    "Migrate identifier binding and revocation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve MeshServiceLease canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
   ],
   "original_tests": [
     "tests/test_meshservicelease.py"

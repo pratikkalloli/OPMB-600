@@ -1,3 +1,3 @@
 # Migration requirements
 
-revoked lease cannot be used to establish a route. Preserve cloud_service_endpoint_leases semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+MeshServiceLease: Verify ML-DSA-65 service lease signatures and reject wrong-key or altered-claim verification. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

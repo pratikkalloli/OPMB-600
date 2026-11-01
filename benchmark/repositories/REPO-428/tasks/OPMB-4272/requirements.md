@@ -1,3 +1,3 @@
 # Migration requirements
 
-receipt signer serialization supports offline restore checks. Preserve cloud_backup_snapshot_receipts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BackupReceipt: Reject unknown or missing backup receipt claim fields before cryptographic processing. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

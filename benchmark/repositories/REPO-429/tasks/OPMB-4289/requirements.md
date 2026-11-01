@@ -1,3 +1,3 @@
 # Migration requirements
 
-duplicate permit identifiers do not replace active grants. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Keep signed export permit issuance in SQLite and reject duplicate permit_id records. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

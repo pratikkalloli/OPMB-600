@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must promotion requires a signed rollout record for the same environment. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Verify ML-DSA-65 configuration rollout signatures and reject wrong-key or altered-claim verification. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

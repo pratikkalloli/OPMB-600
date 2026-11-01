@@ -1,3 +1,3 @@
 # Migration requirements
 
-authorization rejects requests exceeding the signed ceiling. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Replace ECDSA-SHA256 signatures over canonical quota grant claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

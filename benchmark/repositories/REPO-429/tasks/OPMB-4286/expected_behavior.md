@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must export check rejects a requester mismatch. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Replace ECDSA-SHA256 signatures over canonical export permit claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

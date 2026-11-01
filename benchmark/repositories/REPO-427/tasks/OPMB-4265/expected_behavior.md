@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must staged revisions must increase monotonically per environment. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Reject malformed public-key encodings when loading configuration rollout verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

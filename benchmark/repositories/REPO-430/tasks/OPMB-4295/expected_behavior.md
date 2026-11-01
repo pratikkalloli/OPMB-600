@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must approval creation preserves the signed decision record. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Reject malformed public-key encodings when loading change approval verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

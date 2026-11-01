@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudAuditLedger must event timestamps are included in signed audit evidence. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudAuditLedger: Keep signed audit event issuance in SQLite and reject duplicate event_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

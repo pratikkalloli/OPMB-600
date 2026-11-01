@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must duplicate approval identifiers cannot overwrite history. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Keep signed change approval issuance in SQLite and reject duplicate approval_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

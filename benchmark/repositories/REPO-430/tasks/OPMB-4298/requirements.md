@@ -1,3 +1,3 @@
 # Migration requirements
 
-malformed digest and unknown decision are rejected. Preserve cloud_infrastructure_change_approvals semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudChangeApproval: Preserve the CloudChangeApproval domain validation rule: claims do not match the approval schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

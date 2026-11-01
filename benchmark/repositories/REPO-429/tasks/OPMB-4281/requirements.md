@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical permit binds tenant, requester and exact export field set. Preserve tenant_scoped_saas_export_authorization semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+SaaSExportPermit: Canonicalize export permit claims and bind the signed record to its permit_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

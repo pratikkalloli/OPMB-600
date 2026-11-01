@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated WorkloadPassport must tampered workload identifier fails signature verification. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+WorkloadPassport: Preserve the WorkloadPassport domain validation rule: claims do not match the passport schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

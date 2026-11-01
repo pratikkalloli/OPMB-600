@@ -1,3 +1,3 @@
 # Migration requirements
 
-not-before and expiry checks use explicit verification time. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Replace ECDSA-SHA256 signatures over canonical workload passport claims with ML-DSA-65. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

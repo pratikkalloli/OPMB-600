@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated TenantKeyRotation must canonical rotation links tenant, key identifier and version. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+TenantKeyRotation: Canonicalize tenant key rotation claims and bind the signed record to its rotation_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -6,7 +6,7 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "ECDSA P-256 with SHA-256",
-  "cryptographic_operation": "Authenticate rotation claims and enforce cloud workflow policy",
+  "cryptographic_operation": "digital signature verification for tenant key rotation",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/tenantkeyrotation/crypto.py",
@@ -14,16 +14,12 @@
   ],
   "function_names": [
     "canonical_claims",
-    "sign_claims",
     "verify_claims",
-    "validate_claims",
-    "issue",
-    "verify",
-    "deactivate"
+    "verify"
   ],
-  "migration_family": "digital signature migration",
+  "migration_family": "digital signature verification",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "TenantKeyRotation: retirement notice is bound to the version being retired.",
+  "migration_objective": "TenantKeyRotation: Verify ML-DSA-65 tenant key rotation signatures and reject wrong-key or altered-claim verification.",
   "preconditions": [
     "TenantKeyRotation baseline tests pass.",
     "All tenant and workload records are synthetic."
@@ -33,8 +29,9 @@
     "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
   ],
   "migration_requirements": [
-    "Use provider ML-DSA-65 without fallback.",
-    "Retain canonical claim encoding and application-specific validation."
+    "Migrate digital signature verification to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve TenantKeyRotation canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
   ],
   "original_tests": [
     "tests/test_tenantkeyrotation.py"

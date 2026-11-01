@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated MeshServiceLease must lease persistence prevents duplicate lease identifiers. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+MeshServiceLease: Keep signed service lease issuance in SQLite and reject duplicate lease_id records. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated ConfigRollout must canary percentage must stay in the allowed range. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+ConfigRollout: Replace ECDSA-SHA256 signatures over canonical configuration rollout claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

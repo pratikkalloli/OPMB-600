@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudQuotaGrant must grant issuance stores immutable signed claims. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudQuotaGrant: Reject malformed public-key encodings when loading quota grant verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

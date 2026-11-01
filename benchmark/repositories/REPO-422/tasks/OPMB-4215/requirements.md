@@ -1,3 +1,3 @@
 # Migration requirements
 
-passport issuance persists the signed identity claim. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Reject malformed public-key encodings when loading workload passport verification keys. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

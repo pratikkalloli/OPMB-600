@@ -1,3 +1,3 @@
 # Migration requirements
 
-changed object digest is rejected during inventory verification. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Replace DER public-key export with ML-DSA-65 serialization for bucket manifest verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

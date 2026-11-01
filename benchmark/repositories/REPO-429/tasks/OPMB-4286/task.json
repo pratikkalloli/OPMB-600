@@ -6,7 +6,7 @@
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "ECDSA P-256 with SHA-256",
-  "cryptographic_operation": "Authenticate permit claims and enforce cloud workflow policy",
+  "cryptographic_operation": "digital signature migration for export permit",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
     "src/saasexportpermit/crypto.py",
@@ -14,16 +14,11 @@
   ],
   "function_names": [
     "canonical_claims",
-    "sign_claims",
-    "verify_claims",
-    "validate_claims",
-    "issue",
-    "verify",
-    "deactivate"
+    "sign_claims"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "SaaSExportPermit: export check rejects a requester mismatch.",
+  "migration_objective": "SaaSExportPermit: Replace ECDSA-SHA256 signatures over canonical export permit claims with ML-DSA-65.",
   "preconditions": [
     "SaaSExportPermit baseline tests pass.",
     "All tenant and workload records are synthetic."
@@ -33,8 +28,9 @@
     "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
   ],
   "migration_requirements": [
-    "Use provider ML-DSA-65 without fallback.",
-    "Retain canonical claim encoding and application-specific validation."
+    "Migrate digital signature migration to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve SaaSExportPermit canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
   ],
   "original_tests": [
     "tests/test_saasexportpermit.py"

@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudAuditLedger must canonical audit event binds stream sequence and event digest. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudAuditLedger: Canonicalize audit event claims and bind the signed record to its event_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

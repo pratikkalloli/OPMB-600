@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated CloudChangeApproval must approval public key is serialized for change-control auditors. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+CloudChangeApproval: Reject unknown or missing change approval claim fields before cryptographic processing. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

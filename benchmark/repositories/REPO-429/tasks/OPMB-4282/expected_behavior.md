@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated SaaSExportPermit must signing key encoding is consumable by export workers. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+SaaSExportPermit: Reject unknown or missing export permit claim fields before cryptographic processing. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

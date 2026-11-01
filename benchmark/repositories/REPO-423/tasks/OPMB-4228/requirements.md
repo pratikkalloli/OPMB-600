@@ -1,3 +1,3 @@
 # Migration requirements
 
-out-of-order generation is rejected by bucket policy. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Preserve the BucketManifest domain validation rule: claims do not match the manifest schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

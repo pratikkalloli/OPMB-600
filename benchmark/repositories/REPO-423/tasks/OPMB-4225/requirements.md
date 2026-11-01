@@ -1,3 +1,3 @@
 # Migration requirements
 
-manifest creation persists one immutable generation record. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Reject malformed public-key encodings when loading bucket manifest verification keys. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

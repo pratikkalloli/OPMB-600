@@ -1,3 +1,3 @@
 # Migration requirements
 
-revocation state prevents later authorization. Preserve tenant_quota_grants semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+CloudQuotaGrant: Preserve the CloudQuotaGrant domain validation rule: claims do not match the grant schema. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

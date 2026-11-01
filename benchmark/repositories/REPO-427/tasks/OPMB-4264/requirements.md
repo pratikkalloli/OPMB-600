@@ -1,3 +1,3 @@
 # Migration requirements
 
-configuration digest mutation fails rollout verification. Preserve signed_cloud_configuration_rollouts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+ConfigRollout: Replace DER public-key export with ML-DSA-65 serialization for configuration rollout verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical passport includes workload identity and audience. Preserve cloud_workload_audience_credentials semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+WorkloadPassport: Canonicalize workload passport claims and bind the signed record to its passport_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

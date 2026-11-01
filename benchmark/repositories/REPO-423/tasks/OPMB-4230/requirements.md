@@ -1,3 +1,3 @@
 # Migration requirements
 
-audit verification detects replaced persisted manifest bytes. Preserve cloud_object_inventory_manifests semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BucketManifest: Bind bucket manifest lookup identifiers to signed claims and preserve deactivation behavior. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

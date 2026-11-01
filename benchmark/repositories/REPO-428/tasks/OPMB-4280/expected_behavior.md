@@ -1,3 +1,3 @@
 # Expected behavior
 
-The migrated BackupReceipt must persistence tampering is detected during receipt inspection. Valid signed claims continue to pass; invalid context, modified bytes and wrong keys fail closed.
+BackupReceipt: Bind backup receipt lookup identifiers to signed claims and preserve deactivation behavior. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

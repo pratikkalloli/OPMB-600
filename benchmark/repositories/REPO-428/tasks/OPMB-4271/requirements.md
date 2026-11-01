@@ -1,3 +1,3 @@
 # Migration requirements
 
-canonical receipt binds tenant, snapshot and object-root digest. Preserve cloud_backup_snapshot_receipts semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+BackupReceipt: Canonicalize backup receipt claims and bind the signed record to its receipt_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

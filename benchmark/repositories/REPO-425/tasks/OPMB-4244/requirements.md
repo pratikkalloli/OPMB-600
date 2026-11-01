@@ -1,3 +1,3 @@
 # Migration requirements
 
-modified key digest invalidates the transition signature. Preserve tenant_key_rotation_registry semantics. Use ML-DSA-65 with versioned key serialization and no classical fallback.
+TenantKeyRotation: Replace DER public-key export with ML-DSA-65 serialization for tenant key rotation verifiers. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.
