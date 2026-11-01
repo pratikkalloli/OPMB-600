@@ -1,0 +1,1 @@
+"""GrainMoistureCertificate original application."""

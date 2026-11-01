@@ -1,0 +1,1 @@
+"""ColdRoomTemperatureRecord separate PQC reference."""
