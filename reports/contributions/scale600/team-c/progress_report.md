@@ -1,13 +1,13 @@
 # Team C scale600 progress
 
-## Batch 07 checkpoint
+## Batch 08 checkpoint
 
 - Assignment: REPO-421–REPO-600, OPMB-4201–OPMB-6000.
-- Completed batches: 07 of 18 (REPO-421–REPO-490; 70 applications and 700 candidate tasks).
-- Original tests: 350 passed; PQC reference tests: 420 passed; 0 failed and 0 skipped.
-- Compilation checks: 70 applications passed.
+- Completed batches: 08 of 18 (REPO-421–REPO-500; 80 applications and 800 candidate tasks).
+- Original tests: 400 passed; PQC reference tests: 480 passed; 0 failed and 0 skipped.
+- Compilation checks: 80 applications passed.
 - All tasks remain candidates pending independent review.
-- Remaining: 11 batches, 110 applications, 1,100 tasks.
+- Remaining: 10 batches, 100 applications, 1,000 tasks.
 
 ## Inventory limitation
 

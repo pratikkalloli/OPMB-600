@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 70,
+  "implemented_application_count": 80,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -842,6 +842,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-490/test-results.json"
+    },
+    {
+      "repository_id": "REPO-491",
+      "name": "GPUWorkerEnrollment",
+      "application_domain": "machine_learning_gpu_worker_enrollments",
+      "path": "benchmark/repositories/REPO-491",
+      "purpose": "Manage g p u worker enrollment evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-491/test-results.json"
+    },
+    {
+      "repository_id": "REPO-492",
+      "name": "EvaluationResultAttestation",
+      "application_domain": "model_evaluation_result_attestations",
+      "path": "benchmark/repositories/REPO-492",
+      "purpose": "Manage evaluation result attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-492/test-results.json"
+    },
+    {
+      "repository_id": "REPO-493",
+      "name": "PromptTemplateRelease",
+      "application_domain": "signed_prompt_template_releases",
+      "path": "benchmark/repositories/REPO-493",
+      "purpose": "Manage prompt template release evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-493/test-results.json"
+    },
+    {
+      "repository_id": "REPO-494",
+      "name": "EmbeddingIndexReceipt",
+      "application_domain": "embedding_index_build_receipts",
+      "path": "benchmark/repositories/REPO-494",
+      "purpose": "Manage embedding index receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-494/test-results.json"
+    },
+    {
+      "repository_id": "REPO-495",
+      "name": "DatasetSnapshotManifest",
+      "application_domain": "training_dataset_snapshot_manifests",
+      "path": "benchmark/repositories/REPO-495",
+      "purpose": "Manage dataset snapshot manifest evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-495/test-results.json"
+    },
+    {
+      "repository_id": "REPO-496",
+      "name": "ModelRegistryTransfer",
+      "application_domain": "model_registry_transfer_receipts",
+      "path": "benchmark/repositories/REPO-496",
+      "purpose": "Manage model registry transfer evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-496/test-results.json"
+    },
+    {
+      "repository_id": "REPO-497",
+      "name": "InferencePolicyBundle",
+      "application_domain": "model_inference_policy_bundles",
+      "path": "benchmark/repositories/REPO-497",
+      "purpose": "Manage inference policy bundle evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-497/test-results.json"
+    },
+    {
+      "repository_id": "REPO-498",
+      "name": "TrainingRunApproval",
+      "application_domain": "training_job_approvals",
+      "path": "benchmark/repositories/REPO-498",
+      "purpose": "Manage training run approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-498/test-results.json"
+    },
+    {
+      "repository_id": "REPO-499",
+      "name": "DataJoinLineage",
+      "application_domain": "data_pipeline_join_lineage_records",
+      "path": "benchmark/repositories/REPO-499",
+      "purpose": "Manage data join lineage evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-499/test-results.json"
+    },
+    {
+      "repository_id": "REPO-500",
+      "name": "SyntheticDataReceipt",
+      "application_domain": "synthetic_training_data_receipts",
+      "path": "benchmark/repositories/REPO-500",
+      "purpose": "Manage synthetic data receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-500/test-results.json"
     }
   ]
 }
