@@ -1219,6 +1219,1216 @@
       "reference_test_evidence": "reports/evidence/REPO-049/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-049/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-049/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0491",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA-PSS handoff signature generation",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "sign_handoff"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate each custody event signature to ML-DSA-65 with ShipmentProof context.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0491",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0492",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "RSA-PSS handoff signature verification",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "verify_handoff"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA verification and retain tampered-event rejection.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0492",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0493",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Custody signer key generation",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "generate_signer"
+      ],
+      "migration_family": "Cryptographic key management",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Provision ML-DSA keys for custody actors and update public-key distribution.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0493",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0494",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "PEM custody public-key loading",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "load_public_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA PEM loading with strict ML-DSA raw key decoding for verifiers.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0494",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0495",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Offline custody public-key export",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "export_public_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate custody verifier key export format to ML-DSA raw encoding.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0495",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0496",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Canonical custody handoff format",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "canonical_handoff"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve shipment, sequence, sender, recipient, location, time, and prior-event commitment in signed payloads.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0496",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0497",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Hash-linked custody event digest",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "event_digest"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Maintain event-link digest compatibility when signature size and encoding change to PQC.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0497",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0498",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Shipment registration and initial custodian",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "register_shipment"
+      ],
+      "migration_family": "Cryptographic key management",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve shipment ownership initialization and validation through migration.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0498",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0499",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Authorized custody transfer and persistence",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "transfer_custody"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Update transfer workflow for PQC signature storage while preserving current-custodian checks and sequence increments.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0499",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0500",
+      "repository_id": "REPO-050",
+      "repository_name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "End-to-end custody chain verification",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/shipmentproof/crypto.py",
+        "src/shipmentproof/ledger.py"
+      ],
+      "function_names": [
+        "verify_chain"
+      ],
+      "migration_family": "Cross-component cryptographic migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Update multi-event verification to validate PQC signatures and every predecessor digest.",
+      "preconditions": [
+        "ShipmentProof original suite passes.",
+        "Shipment actors and package records are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the current holder may transfer custody.",
+        "Sequence links and signatures detect modified or missing events."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA with a ShipmentProof context string.",
+        "Update stored signature and public-key encodings.",
+        "Preserve append-only event ordering and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_shipmentproof.py"
+      ],
+      "migration_tests": [
+        "tests/test_shipmentproof_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC suites separately.",
+        "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+      ],
+      "difficulty": "hard",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "This simulation does not establish legal chain-of-custody certification."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0500",
+      "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+      "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0501",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Generate classical cache node ECDH identities",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "generate_node_keypair"
+      ],
+      "migration_family": "Cryptographic key management",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Replace X25519 node identity generation with ML-KEM-768 key pairs and update key custody interfaces.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0501",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0502",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Derive a cache transfer key from X25519 ECDH",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "derive_session_key"
+      ],
+      "migration_family": "ECDH key establishment migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Replace pairwise ECDH derivation with recipient ML-KEM encapsulation and context-bound HKDF.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0502",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0503",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Provision ECDSA cache metadata signing identities",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "generate_signer"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace ECDSA signer provisioning with ML-DSA-65 and revise persisted public-key formats.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0503",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0504",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Encrypt and sign versioned cache snapshots",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "seal_snapshot"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve AES-GCM snapshot protection while signing bound metadata with ML-DSA-65.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0504",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0505",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Authenticate cache snapshot signatures and payloads",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "open_snapshot"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Verify ML-DSA-65 metadata signatures before AES-GCM decryption and fail closed on tampering.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0505",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0506",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Serialize X25519 node exchange public keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "export_node_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Replace classical raw key serialization consumers with standardized ML-KEM-768 public-key bytes.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0506",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0507",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Load serialized X25519 node public keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/crypto.py"
+      ],
+      "function_names": [
+        "load_node_key"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Decode ML-KEM-768 public keys strictly and reject incompatible classical encodings.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0507",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0508",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Persist exchange and verification public keys for cache nodes",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/service.py"
+      ],
+      "function_names": [
+        "register_node"
+      ],
+      "migration_family": "API, dependency and compatibility migration",
+      "migration_target": "ML-KEM-768 and ML-DSA-65",
+      "migration_objective": "Update registry serialization for ML-KEM-768 and ML-DSA-65 keys without weakening node identity uniqueness.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0508",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0509",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Create a recipient-bound distributed cache snapshot",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/service.py"
+      ],
+      "function_names": [
+        "store_snapshot"
+      ],
+      "migration_family": "Cross-component protocol/API compatibility",
+      "migration_target": "ML-KEM-768 and ML-DSA-65",
+      "migration_objective": "Establish the snapshot key using ML-KEM-768 and preserve active-node checks, metadata signatures, and version semantics.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0509",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0510",
+      "repository_id": "REPO-051",
+      "repository_name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "X25519 ECDH and ECDSA with SHA-256",
+      "cryptographic_operation": "Retrieve snapshots using recipient private keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/distributedcache/service.py"
+      ],
+      "function_names": [
+        "read_snapshot"
+      ],
+      "migration_family": "Cross-component protocol/API compatibility",
+      "migration_target": "ML-KEM-768 and ML-DSA-65",
+      "migration_objective": "Decapsulate ML-KEM session keys, verify ML-DSA signer identity, and reject revoked nodes or altered snapshots.",
+      "preconditions": [
+        "DistributedCache original tests pass.",
+        "Node identities and cache payloads are synthetic."
+      ],
+      "expected_behavior": [
+        "Only registered active source and target nodes may transfer snapshots.",
+        "Snapshot identity, endpoint, version, signature, and authenticated ciphertext remain bound and fail closed."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-KEM-768 for key establishment and ML-DSA-65 where metadata is signed.",
+        "Update serialized public-key formats and callers; do not silently fall back to classical public-key cryptography.",
+        "Retain AES-256-GCM and bind snapshot context through authenticated metadata."
+      ],
+      "original_tests": [
+        "tests/test_distributedcache.py"
+      ],
+      "migration_tests": [
+        "tests/test_distributedcache_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test modules independently.",
+        "Exercise positive roundtrip, wrong context/key, revoked-node, tampered-metadata, key-serialization, and authentication failure cases."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Cryptographic tests are not formal proofs; benchmark uses synthetic cache records."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-051/tasks/OPMB-0510",
+      "reference_path": "benchmark/repositories/REPO-051/migrated_reference/distributedcache_pqc",
+      "original_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
     }
   ]
 }

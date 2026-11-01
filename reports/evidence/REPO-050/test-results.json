@@ -1,0 +1,44 @@
+{
+  "repository_id": "REPO-050",
+  "application": "ShipmentProof",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_shipmentproof.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T16:01:38.183417+05:30",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.42s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "python -m pytest tests/test_shipmentproof_pqc.py -q --basetemp=../../.pytest-tmp",
+      "started_at": "2026-11-01T16:01:38.959634+05:30",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.10s"
+    }
+  ],
+  "cryptographic_cases": [
+    "per-custodian signature verification with distinct public keys",
+    "unauthorized sender rejection",
+    "valid sequence and previous-event digest validation",
+    "tampered handoff field rejection",
+    "modified signature payload rejection",
+    "wrong custodian verification key rejection",
+    "ML-DSA public-key serialization"
+  ],
+  "limitations": [
+    "Synthetic custody evidence only; no legal certification.",
+    "Tests are not formal cryptographic proofs."
+  ]
+}

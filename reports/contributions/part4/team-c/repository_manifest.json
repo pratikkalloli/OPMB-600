@@ -47,6 +47,54 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-049/test-results.json"
+    },
+    {
+      "repository_id": "REPO-050",
+      "name": "ShipmentProof",
+      "application_domain": "shipment_custody_evidence",
+      "path": "benchmark/repositories/REPO-050",
+      "purpose": "Append-only synthetic shipment handoff ledger with sequence links, signer checks, and history verification.",
+      "task_ids": [
+        "OPMB-0491",
+        "OPMB-0492",
+        "OPMB-0493",
+        "OPMB-0494",
+        "OPMB-0495",
+        "OPMB-0496",
+        "OPMB-0497",
+        "OPMB-0498",
+        "OPMB-0499",
+        "OPMB-0500"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-050/test-results.json"
+    },
+    {
+      "repository_id": "REPO-051",
+      "name": "DistributedCache",
+      "application_domain": "distributed_cache_snapshot_transfer",
+      "path": "benchmark/repositories/REPO-051",
+      "purpose": "Synthetic distributed cache node registry, recipient-bound snapshots, revocation, and authenticated retrieval.",
+      "task_ids": [
+        "OPMB-0501",
+        "OPMB-0502",
+        "OPMB-0503",
+        "OPMB-0504",
+        "OPMB-0505",
+        "OPMB-0506",
+        "OPMB-0507",
+        "OPMB-0508",
+        "OPMB-0509",
+        "OPMB-0510"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-051/test-results.json"
     }
   ]
 }

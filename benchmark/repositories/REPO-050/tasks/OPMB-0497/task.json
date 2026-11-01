@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0497",
+  "repository_id": "REPO-050",
+  "repository_name": "ShipmentProof",
+  "application_domain": "shipment_custody_evidence",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Hash-linked custody event digest",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/shipmentproof/crypto.py",
+    "src/shipmentproof/ledger.py"
+  ],
+  "function_names": [
+    "event_digest"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Maintain event-link digest compatibility when signature size and encoding change to PQC.",
+  "preconditions": [
+    "ShipmentProof original suite passes.",
+    "Shipment actors and package records are synthetic."
+  ],
+  "expected_behavior": [
+    "Only the current holder may transfer custody.",
+    "Sequence links and signatures detect modified or missing events."
+  ],
+  "migration_requirements": [
+    "Use standardized ML-DSA with a ShipmentProof context string.",
+    "Update stored signature and public-key encodings.",
+    "Preserve append-only event ordering and fail closed."
+  ],
+  "original_tests": [
+    "tests/test_shipmentproof.py"
+  ],
+  "migration_tests": [
+    "tests/test_shipmentproof_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and PQC suites separately.",
+    "Test authorized/unauthorized handoff, valid chain, tampering, wrong key, serialization, and malformed fields."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "This simulation does not establish legal chain-of-custody certification."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-050/tasks/OPMB-0497",
+  "reference_path": "benchmark/repositories/REPO-050/migrated_reference/shipmentproof_pqc",
+  "original_test_evidence": "reports/evidence/REPO-050/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-050/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-050/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-050/post-migration-scan.json"
+}
