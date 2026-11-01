@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-5742",
+  "repository_id": "REPO-575",
+  "repository_name": "SnapshotLineageProof",
+  "application_domain": "storage_snapshot_lineage_proofs",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "claim schema validation for snapshotlineageproof",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/snapshotlineageproof/crypto.py",
+    "src/snapshotlineageproof/service.py"
+  ],
+  "function_names": [
+    "validate_claims"
+  ],
+  "migration_family": "claim schema validation",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "SnapshotLineageProof: Reject unknown or missing snapshotlineageproof claim fields before cryptographic processing.",
+  "preconditions": [
+    "SnapshotLineageProof baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate claim schema validation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve SnapshotLineageProof canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_snapshotlineageproof.py"
+  ],
+  "migration_tests": [
+    "tests/test_snapshotlineageproof_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-575/tasks/OPMB-5742",
+  "reference_path": "benchmark/repositories/REPO-575/migrated_reference/snapshotlineageproof_pqc",
+  "original_test_evidence": "reports/evidence/REPO-575/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-575/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-575/post-migration-scan.json"
+}
