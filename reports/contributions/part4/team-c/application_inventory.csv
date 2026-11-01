@@ -5,3 +5,4 @@ REPO-050,ShipmentProof,shipment_custody_evidence,Hash-linked custody event trans
 REPO-051,DistributedCache,distributed_cache_snapshot_transfer,Synthetic node registry and recipient-bound encrypted cache snapshots,10,candidate
 REPO-052,ClearingDesk,synthetic_payment_approval_and_clearing,Two-person payment approval and encrypted clearing transfer,10,candidate
 REPO-053,FirmwareFleet,synthetic_iot_firmware_rollout,Device enrollment and signed anti-rollback firmware releases,10,candidate
+REPO-054,CareConsent,synthetic_research_consent_registry,Purpose-limited study consent with expiry and withdrawal audit,10,candidate

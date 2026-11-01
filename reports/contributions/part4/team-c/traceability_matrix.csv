@@ -59,3 +59,13 @@ OPMB-0527,REPO-053,src/firmwarefleet/service.py,enroll_device,tests/test_firmwar
 OPMB-0528,REPO-053,src/firmwarefleet/service.py,publish_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
 OPMB-0529,REPO-053,src/firmwarefleet/service.py,install_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
 OPMB-0530,REPO-053,src/firmwarefleet/service.py,device_version,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0531,REPO-054,src/careconsent/crypto.py,canonical_consent,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0532,REPO-054,src/careconsent/crypto.py,generate_authority,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0533,REPO-054,src/careconsent/crypto.py,sign_consent,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0534,REPO-054,src/careconsent/crypto.py,verify_consent,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0535,REPO-054,src/careconsent/crypto.py,export_authority,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0536,REPO-054,src/careconsent/crypto.py,load_authority,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0537,REPO-054,src/careconsent/service.py,grant,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0538,REPO-054,src/careconsent/service.py,revoke,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0539,REPO-054,src/careconsent/service.py,authorize,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0540,REPO-054,src/careconsent/service.py,revision,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate

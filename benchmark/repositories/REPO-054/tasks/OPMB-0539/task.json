@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0539",
+  "repository_id": "REPO-054",
+  "repository_name": "CareConsent",
+  "application_domain": "synthetic_research_consent_registry",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Evaluate purpose-limited consent before access",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/careconsent/service.py"
+  ],
+  "function_names": [
+    "authorize"
+  ],
+  "migration_family": "Cross-component protocol/API migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Verify ML-DSA grant authenticity and enforce subject, study, scope, expiry, and revocation constraints.",
+  "preconditions": [
+    "CareConsent baseline tests pass.",
+    "Subjects, studies, and consent scopes are synthetic."
+  ],
+  "expected_behavior": [
+    "Authorization is allowed only for the matching subject, study, permitted scope, and unexpired active grant.",
+    "Revocation blocks subsequent access checks and retains its reason and timestamp.",
+    "Consent identity, revision, and expiry are protected by the authority signature."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 with a CareConsent-specific context.",
+    "Update stored signatures and public-key encodings without fallback to RSA.",
+    "Preserve fail-closed authorization and revocation behavior."
+  ],
+  "original_tests": [
+    "tests/test_careconsent.py"
+  ],
+  "migration_tests": [
+    "tests/test_careconsent_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and PQC test modules independently.",
+    "Exercise authorization positive/negative cases, expiry, revocation, invalid record, signature and serialization behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic consent only; this is not a clinical consent system or legal compliance certification."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-054/tasks/OPMB-0539",
+  "reference_path": "benchmark/repositories/REPO-054/migrated_reference/careconsent_pqc",
+  "original_test_evidence": "reports/evidence/REPO-054/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-054/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-054/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-054/post-migration-scan.json"
+}
