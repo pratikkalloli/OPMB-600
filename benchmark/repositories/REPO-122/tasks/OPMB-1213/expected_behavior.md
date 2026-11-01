@@ -1,0 +1,7 @@
+# Expected behavior
+
+- Preserve the WalletAttestation workflow and its domain-specific policy.
+- Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.
+- Keep signing and transport key purposes separate.
+
+The exact source target is src/wallet_attestation/workflow.py, src/wallet_attestation/crypto.py; the original test is `tests/test_wallet_attestation.py::test_task_1213_malformed_serialization_and_wrong_purpose_are_rejected` and PQC migration test is `tests/test_wallet_attestation_pqc.py::test_task_1213_malformed_serialization_and_wrong_purpose_are_rejected`.

@@ -441,7 +441,7 @@ def validate_@@SLUG@@_record(record: dict) -> dict:
             raise ValueError("clinical record sequence must advance")
         if not record["purpose_code"].startswith("care:"): raise ValueError("clinical purpose must be scoped")
     elif DOMAIN == "identity_credentials_pki_trust":
-        if not isinstance(record["assurance_level"], int) or not POLICY_VARIANT + 1 <= record["assurance_level"] <= 4:
+        if not isinstance(record["assurance_level"], int) or not POLICY_VARIANT % 3 + 1 <= record["assurance_level"] <= 4:
             raise ValueError("credential assurance level is outside issuer policy")
         if len(record["credential_type"]) > 64: raise ValueError("credential type is too long")
     elif DOMAIN == "education_research":
@@ -664,7 +664,7 @@ def example_for(row: dict) -> dict:
     domain = row["domain"]
     if domain == "financial_services_insurance": record.update(transaction_ref="txn-42", account_ref="acct-7", amount_minor=100_000 + row["policy_variant"] * 100, currency="USD", approval_ref="approval-9")
     elif domain == "healthcare_life_sciences": record.update(patient_ref="patient-sim-2", provider_ref="provider-4", purpose_code="care:workflow", source_ref="source-3", sequence=row["policy_variant"] + 1)
-    elif domain == "identity_credentials_pki_trust": record.update(holder_ref="holder-8", issuer_ref="issuer-1", credential_type="workflow-credential", assurance_level=row["policy_variant"] + 1, sequence=1)
+    elif domain == "identity_credentials_pki_trust": record.update(holder_ref="holder-8", issuer_ref="issuer-1", credential_type="workflow-credential", assurance_level=row["policy_variant"] % 3 + 1, sequence=1)
     elif domain == "education_research": record.update(learner_ref="learner-5", institution_ref="institution-2", artifact_kind="workflow-artifact", academic_period="2025-2026", sequence=1)
     elif domain == "legal_civic_public_records": record.update(matter_ref="matter-6", authority_ref="authority-1", jurisdiction="US-CA", filing_sequence=row["policy_variant"] + 1, custody_state="filed")
     else: record.update(order_ref="order-3", seller_ref="seller-2", product_ref="product-8", quantity=row["policy_variant"] + 1, region="US")
