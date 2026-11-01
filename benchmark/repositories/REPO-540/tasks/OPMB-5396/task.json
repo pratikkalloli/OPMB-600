@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-5396",
+  "repository_id": "REPO-540",
+  "repository_name": "GalleryLoanConditionReport",
+  "application_domain": "digital_art_gallery_loan_condition_reports",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "digital signature migration for galleryloanconditionreport",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/galleryloanconditionreport/crypto.py",
+    "src/galleryloanconditionreport/service.py"
+  ],
+  "function_names": [
+    "canonical_claims",
+    "sign_claims"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "GalleryLoanConditionReport: Replace ECDSA-SHA256 signatures over canonical galleryloanconditionreport claims with ML-DSA-65.",
+  "preconditions": [
+    "GalleryLoanConditionReport baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate digital signature migration to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve GalleryLoanConditionReport canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_galleryloanconditionreport.py"
+  ],
+  "migration_tests": [
+    "tests/test_galleryloanconditionreport_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-540/tasks/OPMB-5396",
+  "reference_path": "benchmark/repositories/REPO-540/migrated_reference/galleryloanconditionreport_pqc",
+  "original_test_evidence": "reports/evidence/REPO-540/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-540/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-540/post-migration-scan.json"
+}
