@@ -109,3 +109,13 @@ OPMB-0577,REPO-058,src/backupvault/crypto.py,export_signer,tests/test_backupvaul
 OPMB-0578,REPO-058,src/backupvault/crypto.py,load_signer,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
 OPMB-0579,REPO-058,src/backupvault/service.py,create_backup,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
 OPMB-0580,REPO-058,src/backupvault/service.py,restore,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0581,REPO-059,src/licensedesk/crypto.py,canonical_license,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0582,REPO-059,src/licensedesk/crypto.py,generate_authority,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0583,REPO-059,src/licensedesk/crypto.py,sign_license,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0584,REPO-059,src/licensedesk/crypto.py,verify_license,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0585,REPO-059,src/licensedesk/crypto.py,export_authority,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0586,REPO-059,src/licensedesk/crypto.py,load_authority,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0587,REPO-059,src/licensedesk/service.py,issue,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0588,REPO-059,src/licensedesk/service.py,revoke,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0589,REPO-059,src/licensedesk/service.py,verify_offline,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate
+OPMB-0590,REPO-059,src/licensedesk/service.py,revocation_snapshot,tests/test_licensedesk.py,tests/test_licensedesk_pqc.py,reports/evidence/REPO-059/test-results.json,candidate

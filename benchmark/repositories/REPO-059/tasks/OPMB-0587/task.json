@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0587",
+  "repository_id": "REPO-059",
+  "repository_name": "LicenseDesk",
+  "application_domain": "synthetic_software_license_issuance",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Issue and persist an installation-bound license",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/licensedesk/service.py"
+  ],
+  "function_names": [
+    "issue"
+  ],
+  "migration_family": "Cross-component protocol/API migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Integrate ML-DSA signatures while retaining unique license identity and exact feature set.",
+  "preconditions": [
+    "LicenseDesk baseline tests pass.",
+    "Products and installation identifiers are synthetic."
+  ],
+  "expected_behavior": [
+    "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+    "Revoked IDs in the offline snapshot invalidate licenses.",
+    "Expiry and issue boundaries are enforced consistently."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+    "Replace RSA public-key serialization and update all consumers without fallback.",
+    "Preserve offline verification and revocation snapshot formats and semantics."
+  ],
+  "original_tests": [
+    "tests/test_licensedesk.py"
+  ],
+  "migration_tests": [
+    "tests/test_licensedesk_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run baseline and PQC test modules independently.",
+    "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0587",
+  "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+  "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+}

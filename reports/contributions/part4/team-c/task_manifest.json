@@ -6699,6 +6699,616 @@
       "reference_test_evidence": "reports/evidence/REPO-058/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-058/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-058/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0581",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Canonicalize an installation-bound software license",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "canonical_license"
+      ],
+      "migration_family": "Cryptographic protocol canonicalization",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve product, installation, feature set, issue time, and expiry binding in canonical signed bytes.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0581",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0582",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Provision RSA license authority keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "generate_authority"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA signing identities with ML-DSA-65 authority keys.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0582",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0583",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Sign license grants with RSA-PSS",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "sign_license"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate license signatures to ML-DSA-65 using a LicenseDesk context.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0583",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0584",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Verify software license authority signatures",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "verify_license"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA-65 verification and preserve rejection of tampered grants and wrong keys.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0584",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0585",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Export RSA license authority keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "export_authority"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace PEM encoding with raw ML-DSA public-key serialization.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0585",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0586",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Load serialized license authority keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/crypto.py"
+      ],
+      "function_names": [
+        "load_authority"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Strictly decode ML-DSA-65 keys and reject incompatible classical encodings.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0586",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0587",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Issue and persist an installation-bound license",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/service.py"
+      ],
+      "function_names": [
+        "issue"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Integrate ML-DSA signatures while retaining unique license identity and exact feature set.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0587",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0588",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Revoke a license and record a reason",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/service.py"
+      ],
+      "function_names": [
+        "revoke"
+      ],
+      "migration_family": "Workflow compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve withdrawal audit information and produce a verifier-facing revocation snapshot.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0588",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0589",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Validate license claims without a live issuer call",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/service.py"
+      ],
+      "function_names": [
+        "verify_offline"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Verify ML-DSA authenticity and enforce product, installation, feature, validity window, and supplied revocations.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0589",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0590",
+      "repository_id": "REPO-059",
+      "repository_name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Export revoked license identifiers for offline checks",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/licensedesk/service.py"
+      ],
+      "function_names": [
+        "revocation_snapshot"
+      ],
+      "migration_family": "API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve the offline revocation distribution contract after signature migration.",
+      "preconditions": [
+        "LicenseDesk baseline tests pass.",
+        "Products and installation identifiers are synthetic."
+      ],
+      "expected_behavior": [
+        "Only authentic licenses matching product, installation, requested feature, and current time validate.",
+        "Revoked IDs in the offline snapshot invalidate licenses.",
+        "Expiry and issue boundaries are enforced consistently."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
+        "Replace RSA public-key serialization and update all consumers without fallback.",
+        "Preserve offline verification and revocation snapshot formats and semantics."
+      ],
+      "original_tests": [
+        "tests/test_licensedesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_licensedesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run baseline and PQC test modules independently.",
+        "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0590",
+      "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-059/post-migration-scan.json"
     }
   ]
 }

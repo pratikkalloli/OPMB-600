@@ -263,6 +263,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-058/test-results.json"
+    },
+    {
+      "repository_id": "REPO-059",
+      "name": "LicenseDesk",
+      "application_domain": "synthetic_software_license_issuance",
+      "path": "benchmark/repositories/REPO-059",
+      "purpose": "Installation-bound software license issuance with feature and validity checks plus offline revocation snapshots.",
+      "task_ids": [
+        "OPMB-0581",
+        "OPMB-0582",
+        "OPMB-0583",
+        "OPMB-0584",
+        "OPMB-0585",
+        "OPMB-0586",
+        "OPMB-0587",
+        "OPMB-0588",
+        "OPMB-0589",
+        "OPMB-0590"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-059/test-results.json"
     }
   ]
 }
