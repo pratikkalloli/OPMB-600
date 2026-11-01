@@ -4869,6 +4869,616 @@
       "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0551",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Canonicalize an environmental sensor reading",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "canonical_reading"
+      ],
+      "migration_family": "Cryptographic protocol canonicalization",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve deterministic device, sequence, timestamp, metric, and value binding for signed telemetry.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0551",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0552",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Provision ECDSA sensor signing keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "generate_device_signer"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace ECDSA device identities with ML-DSA-65 keys and update enrollment.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0552",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0553",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Sign a sensor reading with ECDSA",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "sign_reading"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate telemetry attestation to ML-DSA-65 with a SensorAttest context.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0553",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0554",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Verify sensor telemetry signatures",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "verify_reading"
+      ],
+      "migration_family": "ECDSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA-65 verification and reject malformed or wrong-device signatures.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0554",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0555",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Export an ECDSA device public key",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "export_device_key"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace DER SubjectPublicKeyInfo with raw ML-DSA public-key encoding.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0555",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0556",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Load serialized ECDSA device public keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/crypto.py"
+      ],
+      "function_names": [
+        "load_device_key"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Strictly load ML-DSA-65 keys in place of the classical EC decoder.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0556",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0557",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Register a sensor verification identity and sequence state",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/service.py"
+      ],
+      "function_names": [
+        "enroll"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Persist the migrated ML-DSA key and initialize replay protection for each device.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0557",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0558",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Disable an enrolled sensor identity",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/service.py"
+      ],
+      "function_names": [
+        "deactivate"
+      ],
+      "migration_family": "Workflow compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve device lifecycle revocation behavior after verification-key migration.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0558",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0559",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Verify and persist signed telemetry readings",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/service.py"
+      ],
+      "function_names": [
+        "submit"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Integrate ML-DSA verification with per-device monotonic sequence checks and fail closed.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0559",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0560",
+      "repository_id": "REPO-056",
+      "repository_name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "ECDSA P-256 with SHA-256",
+      "cryptographic_operation": "Read the highest accepted sensor sequence number",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/sensorattest/service.py"
+      ],
+      "function_names": [
+        "last_sequence"
+      ],
+      "migration_family": "API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve replay-state API behavior after changing signature and key formats.",
+      "preconditions": [
+        "SensorAttest baseline tests pass.",
+        "Device identities and sensor readings are synthetic."
+      ],
+      "expected_behavior": [
+        "Only valid readings signed by an active enrolled sensor are accepted.",
+        "Accepted readings advance a strictly monotonic device sequence and reject replay.",
+        "Device identity and all reading fields are integrity bound."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a SensorAttest-specific context.",
+        "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
+        "Preserve fail-closed signature validation, device deactivation, and replay checks."
+      ],
+      "original_tests": [
+        "tests/test_sensorattest.py"
+      ],
+      "migration_tests": [
+        "tests/test_sensorattest_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the original and PQC suites independently.",
+        "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic telemetry only; this is not a certified IoT ingestion service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0560",
+      "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+      "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-056/post-migration-scan.json"
     }
   ]
 }

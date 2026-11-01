@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-056",
+  "application": "SensorAttest",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_sensorattest.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_sensorattest_pqc.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "ECDSA P-256 baseline and ML-DSA-65 reading signatures",
+    "replay/out-of-order sequence rejection",
+    "wrong signer rejection",
+    "inactive device rejection",
+    "public key serialization roundtrip",
+    "invalid reading field rejection"
+  ],
+  "limitations": [
+    "Synthetic sensor values and identities only.",
+    "Tests are not formal cryptographic proofs."
+  ]
+}

@@ -191,6 +191,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-055/test-results.json"
+    },
+    {
+      "repository_id": "REPO-056",
+      "name": "SensorAttest",
+      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "path": "benchmark/repositories/REPO-056",
+      "purpose": "Synthetic sensor enrollment, signed telemetry acceptance, and monotonic replay protection.",
+      "task_ids": [
+        "OPMB-0551",
+        "OPMB-0552",
+        "OPMB-0553",
+        "OPMB-0554",
+        "OPMB-0555",
+        "OPMB-0556",
+        "OPMB-0557",
+        "OPMB-0558",
+        "OPMB-0559",
+        "OPMB-0560"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-056/test-results.json"
     }
   ]
 }

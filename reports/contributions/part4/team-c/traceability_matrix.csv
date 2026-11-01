@@ -79,3 +79,13 @@ OPMB-0547,REPO-055,src/securemailbox/crypto.py,load_recipient,tests/test_securem
 OPMB-0548,REPO-055,src/securemailbox/crypto.py,export_sender,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
 OPMB-0549,REPO-055,src/securemailbox/service.py,send,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
 OPMB-0550,REPO-055,src/securemailbox/service.py,receive,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0551,REPO-056,src/sensorattest/crypto.py,canonical_reading,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0552,REPO-056,src/sensorattest/crypto.py,generate_device_signer,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0553,REPO-056,src/sensorattest/crypto.py,sign_reading,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0554,REPO-056,src/sensorattest/crypto.py,verify_reading,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0555,REPO-056,src/sensorattest/crypto.py,export_device_key,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0556,REPO-056,src/sensorattest/crypto.py,load_device_key,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0557,REPO-056,src/sensorattest/service.py,enroll,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0558,REPO-056,src/sensorattest/service.py,deactivate,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0559,REPO-056,src/sensorattest/service.py,submit,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
+OPMB-0560,REPO-056,src/sensorattest/service.py,last_sequence,tests/test_sensorattest.py,tests/test_sensorattest_pqc.py,reports/evidence/REPO-056/test-results.json,candidate
