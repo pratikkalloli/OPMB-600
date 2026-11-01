@@ -1,6 +1,6 @@
 {
   "status": "PASS_WITH_LIMITATIONS",
-  "reason": "All 30 official per-application pytest suites, pinned Draft 2020-12 validation, the contribution structural audit, and root pytest tests passed. Dataset tasks remain pending for review/acceptance and GitHub delivery has not been completed.",
+  "reason": "All structural, pinned schema, official application pytest, and root pytest checks passed on the merged Team B branch. Tasks remain pending for review/acceptance, and remote push/PR delivery is not yet completed.",
   "python_runtime": ".venv Python 3.12.14",
   "pytest": "8.4.2",
   "python_setup_attempt": {
@@ -113,7 +113,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-033/test-results.json"
+      "evidence": "reports/evidence/REPO-033/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-033",
@@ -126,7 +127,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-033/test-results.json"
+      "evidence": "reports/evidence/REPO-033/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-034",
@@ -139,7 +141,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-034/test-results.json"
+      "evidence": "reports/evidence/REPO-034/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-034",
@@ -152,7 +155,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-034/test-results.json"
+      "evidence": "reports/evidence/REPO-034/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-035",
@@ -165,7 +169,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-035/test-results.json"
+      "evidence": "reports/evidence/REPO-035/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-035",
@@ -178,7 +183,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-035/test-results.json"
+      "evidence": "reports/evidence/REPO-035/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-036",
@@ -191,7 +197,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-036/test-results.json"
+      "evidence": "reports/evidence/REPO-036/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-036",
@@ -204,7 +211,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-036/test-results.json"
+      "evidence": "reports/evidence/REPO-036/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-037",
@@ -217,7 +225,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-037/test-results.json"
+      "evidence": "reports/evidence/REPO-037/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-037",
@@ -230,7 +239,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-037/test-results.json"
+      "evidence": "reports/evidence/REPO-037/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-038",
@@ -243,7 +253,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-038/test-results.json"
+      "evidence": "reports/evidence/REPO-038/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-038",
@@ -256,7 +267,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-038/test-results.json"
+      "evidence": "reports/evidence/REPO-038/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-039",
@@ -269,7 +281,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-039/test-results.json"
+      "evidence": "reports/evidence/REPO-039/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-039",
@@ -282,7 +295,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-039/test-results.json"
+      "evidence": "reports/evidence/REPO-039/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-040",
@@ -295,7 +309,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-040/test-results.json"
+      "evidence": "reports/evidence/REPO-040/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-040",
@@ -308,7 +323,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-040/test-results.json"
+      "evidence": "reports/evidence/REPO-040/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-041",
@@ -321,7 +337,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-041/test-results.json"
+      "evidence": "reports/evidence/REPO-041/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-041",
@@ -334,7 +351,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-041/test-results.json"
+      "evidence": "reports/evidence/REPO-041/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-042",
@@ -347,7 +365,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-042/test-results.json"
+      "evidence": "reports/evidence/REPO-042/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-042",
@@ -360,7 +379,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-042/test-results.json"
+      "evidence": "reports/evidence/REPO-042/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-043",
@@ -373,7 +393,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-043/test-results.json"
+      "evidence": "reports/evidence/REPO-043/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-043",
@@ -386,7 +407,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-043/test-results.json"
+      "evidence": "reports/evidence/REPO-043/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-044",
@@ -399,7 +421,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-044/test-results.json"
+      "evidence": "reports/evidence/REPO-044/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-044",
@@ -412,7 +435,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-044/test-results.json"
+      "evidence": "reports/evidence/REPO-044/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-045",
@@ -425,7 +449,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-045/test-results.json"
+      "evidence": "reports/evidence/REPO-045/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-045",
@@ -438,7 +463,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-045/test-results.json"
+      "evidence": "reports/evidence/REPO-045/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-046",
@@ -451,7 +477,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-046/test-results.json"
+      "evidence": "reports/evidence/REPO-046/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-046",
@@ -464,7 +491,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-046/test-results.json"
+      "evidence": "reports/evidence/REPO-046/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-047",
@@ -477,7 +505,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-047/test-results.json"
+      "evidence": "reports/evidence/REPO-047/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-047",
@@ -490,7 +519,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-047/test-results.json"
+      "evidence": "reports/evidence/REPO-047/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     }
   ],
   "evidence_files": [
@@ -529,7 +559,7 @@
     {
       "command": ".venv\\Scripts\\python.exe -m pip install --retries 0 --timeout 20 -r requirements.txt",
       "exit_code": 0,
-      "result": "Installed cryptography==50.0.2, jsonschema==4.25.1, pytest==8.4.2 and required transitive dependencies."
+      "result": "PASS: exact pinned dependencies installed."
     },
     {
       "command": ".venv\\Scripts\\python.exe -m pip check",
@@ -538,31 +568,36 @@
     },
     {
       "command": "node reports/contributions/part4/team-b/validate_dataset.js",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
-      "result": "PASS: 15 repositories, 150 tasks, no ID/objective duplicates, consistent task copies/paths, zero local allocation conflicts."
+      "result": "PASS: 15 repositories, 150 tasks, expected ranges, unique IDs/objectives, valid copies and paths, zero local allocation collisions."
     },
     {
-      "command": "In each application directory: .venv\\Scripts\\python.exe -m pytest tests/test_<slug>.py -q -p no:cacheprovider; separately .venv\\Scripts\\python.exe -m pytest tests/test_<slug>_pqc.py -q -p no:cacheprovider",
+      "command": "In each of 15 app directories: .venv\\Scripts\\python.exe -m pytest tests/test_<slug>.py -q -p no:cacheprovider; separately .venv\\Scripts\\python.exe -m pytest tests/test_<slug>_pqc.py -q -p no:cacheprovider",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
-      "result": "30 separate official pytest suites passed; 4 passed per suite, 120 total, zero failures."
+      "result": "30 separate official suites; 4 passed per suite, 120 total, zero failures."
     },
     {
       "command": ".venv\\Scripts\\python.exe -m pytest tests -q -p no:cacheprovider",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
       "result": "Root project tests: 2 passed."
     },
     {
-      "command": "Pinned Draft202012Validator.check_schema and iter_errors for contribution repository_manifest.json and task_manifest.json",
+      "command": "Pinned Draft202012Validator.check_schema and iter_errors for Team B repository_manifest.json and task_manifest.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
-      "result": "15 repository records and 150 task records validated with jsonschema==4.25.1; zero errors."
+      "result": "15 repositories and 150 tasks with jsonschema==4.25.1; zero errors."
     },
     {
-      "command": "Codex-managed Python 3.12.14 -m validation.<module> for the five read-only validators",
+      "command": "Codex-managed Python 3.12.14 -m validation.<module> for five read-only validators",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
-      "result": "PASS on integrated baseline only (2 repositories, 20 tasks); not Team B contribution data."
+      "result": "PASS on integrated baseline only (17 repositories, 170 tasks); not Team B manifests."
     }
   ],
-  "note": "Task statuses remain pending. Test passage alone does not establish independent review, task acceptance, security certification, or successful remote delivery.",
+  "note": "Task statuses remain pending. Passing checks do not establish independent review, task acceptance, security certification, or successful remote delivery.",
   "application_syntax": {
     "status": "PASS",
     "method": "Python ast.parse using Codex-managed Python 3.12.14; no imports or test execution",
@@ -722,7 +757,6 @@
   },
   "project_validators": {
     "status": "PASS",
-    "runtime": "Codex-managed Python 3.12.14",
     "modules": [
       "validation.validate_metadata",
       "validation.validate_tasks",
@@ -732,12 +766,12 @@
     ],
     "results": [
       "metadata: ok",
-      "tasks: 20; linked repositories: 2; errors: 0",
+      "tasks: 170; linked repositories: 17; errors: 0",
       "exact duplicate groups: 0; near-duplicate pairs: 0",
-      "repositories: 2/60; errors: 0",
-      "reference implementations tested: 20/20; errors: 0"
+      "repositories: 17/60; errors: 0",
+      "reference implementations tested: 30/170; errors: 0"
     ],
-    "scope": "These read-only validators inspect the currently integrated shared manifests, not Team B. Team B contribution validation is performed by validate_dataset.js and the pinned manifest schema check. validation.run_all was not run because its quality report generator writes shared global files."
+    "scope": "These read-only modules validate the integrated global manifests (17 repositories, 170 tasks), not Team B manifests. Team B is validated by its contribution-specific Node validator and pinned schema check."
   },
   "security_scan": {
     "status": "LIMITED_PATTERN_SCAN_ONLY",
@@ -764,7 +798,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-033/test-results.json"
+      "evidence": "reports/evidence/REPO-033/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-033",
@@ -777,7 +812,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-033/test-results.json"
+      "evidence": "reports/evidence/REPO-033/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-034",
@@ -790,7 +826,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-034/test-results.json"
+      "evidence": "reports/evidence/REPO-034/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-034",
@@ -803,7 +840,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-034/test-results.json"
+      "evidence": "reports/evidence/REPO-034/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-035",
@@ -816,7 +854,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-035/test-results.json"
+      "evidence": "reports/evidence/REPO-035/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-035",
@@ -829,7 +868,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-035/test-results.json"
+      "evidence": "reports/evidence/REPO-035/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-036",
@@ -842,7 +882,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-036/test-results.json"
+      "evidence": "reports/evidence/REPO-036/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-036",
@@ -855,7 +896,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-036/test-results.json"
+      "evidence": "reports/evidence/REPO-036/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-037",
@@ -868,7 +910,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-037/test-results.json"
+      "evidence": "reports/evidence/REPO-037/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-037",
@@ -881,7 +924,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-037/test-results.json"
+      "evidence": "reports/evidence/REPO-037/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-038",
@@ -894,7 +938,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-038/test-results.json"
+      "evidence": "reports/evidence/REPO-038/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-038",
@@ -907,7 +952,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-038/test-results.json"
+      "evidence": "reports/evidence/REPO-038/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-039",
@@ -920,7 +966,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-039/test-results.json"
+      "evidence": "reports/evidence/REPO-039/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-039",
@@ -933,7 +980,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-039/test-results.json"
+      "evidence": "reports/evidence/REPO-039/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-040",
@@ -946,7 +994,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-040/test-results.json"
+      "evidence": "reports/evidence/REPO-040/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-040",
@@ -959,7 +1008,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-040/test-results.json"
+      "evidence": "reports/evidence/REPO-040/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-041",
@@ -972,7 +1022,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-041/test-results.json"
+      "evidence": "reports/evidence/REPO-041/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-041",
@@ -985,7 +1036,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-041/test-results.json"
+      "evidence": "reports/evidence/REPO-041/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-042",
@@ -998,7 +1050,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-042/test-results.json"
+      "evidence": "reports/evidence/REPO-042/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-042",
@@ -1011,7 +1064,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-042/test-results.json"
+      "evidence": "reports/evidence/REPO-042/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-043",
@@ -1024,7 +1078,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-043/test-results.json"
+      "evidence": "reports/evidence/REPO-043/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-043",
@@ -1037,7 +1092,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-043/test-results.json"
+      "evidence": "reports/evidence/REPO-043/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-044",
@@ -1050,7 +1106,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-044/test-results.json"
+      "evidence": "reports/evidence/REPO-044/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-044",
@@ -1063,7 +1120,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-044/test-results.json"
+      "evidence": "reports/evidence/REPO-044/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-045",
@@ -1076,7 +1134,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-045/test-results.json"
+      "evidence": "reports/evidence/REPO-045/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-045",
@@ -1089,7 +1148,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-045/test-results.json"
+      "evidence": "reports/evidence/REPO-045/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-046",
@@ -1102,7 +1162,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-046/test-results.json"
+      "evidence": "reports/evidence/REPO-046/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-046",
@@ -1115,7 +1176,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-046/test-results.json"
+      "evidence": "reports/evidence/REPO-046/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-047",
@@ -1128,7 +1190,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-047/test-results.json"
+      "evidence": "reports/evidence/REPO-047/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     },
     {
       "repository_id": "REPO-047",
@@ -1141,7 +1204,8 @@
       "failed": 0,
       "skipped": 0,
       "status": "PASS",
-      "evidence": "reports/evidence/REPO-047/test-results.json"
+      "evidence": "reports/evidence/REPO-047/test-results.json",
+      "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2"
     }
   ],
   "installed_dependencies": {
@@ -1151,10 +1215,24 @@
     "pytest": "8.4.2"
   },
   "root_pytest": {
-    "command": "C:\\somegitrepos\\OPMB-600-team-b\\.venv\\Scripts\\python.exe -m pytest tests -q -p no:cacheprovider",
+    "command": ".venv\\Scripts\\python.exe -m pytest tests -q -p no:cacheprovider",
+    "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
     "exit_code": 0,
     "passed": 2,
     "failed": 0,
     "status": "PASS"
+  },
+  "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
+  "base_integration": {
+    "fetched_base": "feature/opmb-600-benchmark",
+    "fetched_base_commit": "6be8ba74a5cc57ee3812d8847ff7d9dcaf43b869",
+    "merge_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
+    "method": "normal --no-ff merge; no conflicts",
+    "remote_repository_or_task_id_collisions": 0,
+    "changed_path_overlap_with_fetched_base": 0
+  },
+  "delivery": {
+    "push_status": "NOT ATTEMPTED",
+    "pull_request_status": "NOT CREATED"
   }
 }

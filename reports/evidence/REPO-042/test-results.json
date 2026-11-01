@@ -2,7 +2,8 @@
   "repository_id": "REPO-042",
   "application": "DigitalWarranty",
   "status": "PASS",
-  "timestamp_utc": "2026-11-01T11:00:17.772522+00:00",
+  "timestamp_utc": "2026-11-01T11:05:04.220010+00:00",
+  "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
   "environment": {
     "python": "3.12.14",
     "cryptography": "50.0.2",
@@ -18,6 +19,7 @@
       "environment": {
         "PYTHONDONTWRITEBYTECODE": "1"
       },
+      "recorded_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
       "passed": 4,
       "failed": 0,
@@ -32,6 +34,7 @@
       "environment": {
         "PYTHONDONTWRITEBYTECODE": "1"
       },
+      "recorded_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
       "exit_code": 0,
       "passed": 4,
       "failed": 0,
@@ -39,5 +42,5 @@
       "result": "PASS"
     }
   ],
-  "note": "Results are from separate official pytest invocations. The earlier direct-invocation evidence is supplemental and is not substituted for these runs."
+  "note": "Post-merge official pytest invocations. Earlier direct-invocation evidence remains supplemental and is not substituted for these runs."
 }
