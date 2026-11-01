@@ -60802,31 +60802,31 @@
   {
     "task_id": "OPMB-1551",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "key generation and purpose separation",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "create_research_release_identity",
+      "create_research_data_access_identity",
       "generate_signing_keypair",
       "generate_transport_keypair"
     ],
     "migration_family": "key generation and purpose separation",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for key generation and purpose separation: Provision separate signing and transport identities for this workflow; reject key-purpose confusion. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for key generation and purpose separation: Provision separate signing and transport identities for this workflow; reject key-purpose confusion. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -60836,14 +60836,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1551_identity_separates_signing_and_transport_keys"
+      "tests/test_research_data_access.py::test_task_1551_identity_separates_signing_and_transport_keys"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1551_identity_separates_signing_and_transport_keys"
+      "tests/test_research_data_access_pqc.py::test_task_1551_identity_separates_signing_and_transport_keys"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -60858,7 +60858,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1551",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -60866,31 +60866,31 @@
   {
     "task_id": "OPMB-1552",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "public key serialization and import",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "export_research_release_public_key",
-      "load_research_release_public_key",
+      "export_research_data_access_public_key",
+      "load_research_data_access_public_key",
       "serialize_public_key"
     ],
     "migration_family": "public key serialization and import",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for public key serialization and import: Round-trip each public key with an explicit purpose and version tag while preserving the workflow's key contract. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for public key serialization and import: Round-trip each public key with an explicit purpose and version tag while preserving the workflow's key contract. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -60900,14 +60900,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1552_public_key_encoding_round_trips_and_binds_purpose"
+      "tests/test_research_data_access.py::test_task_1552_public_key_encoding_round_trips_and_binds_purpose"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1552_public_key_encoding_round_trips_and_binds_purpose"
+      "tests/test_research_data_access_pqc.py::test_task_1552_public_key_encoding_round_trips_and_binds_purpose"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -60922,7 +60922,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1552",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -60930,30 +60930,30 @@
   {
     "task_id": "OPMB-1553",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "strict key input validation",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "load_research_release_public_key",
+      "load_research_data_access_public_key",
       "load_public_key"
     ],
     "migration_family": "strict key input validation",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for strict key input validation: Reject malformed, unsupported-version, unsupported-algorithm, and wrong-purpose key encodings. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for strict key input validation: Reject malformed, unsupported-version, unsupported-algorithm, and wrong-purpose key encodings. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -60963,14 +60963,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1553_malformed_serialization_and_wrong_purpose_are_rejected"
+      "tests/test_research_data_access.py::test_task_1553_malformed_serialization_and_wrong_purpose_are_rejected"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1553_malformed_serialization_and_wrong_purpose_are_rejected"
+      "tests/test_research_data_access_pqc.py::test_task_1553_malformed_serialization_and_wrong_purpose_are_rejected"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -60985,7 +60985,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1553",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -60993,30 +60993,30 @@
   {
     "task_id": "OPMB-1554",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "domain validation and authorization policy",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "validate_research_release_record",
-      "canonicalize_research_release_record"
+      "validate_research_data_access_record",
+      "canonicalize_research_data_access_record"
     ],
     "migration_family": "domain validation and authorization policy",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61026,14 +61026,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1554_domain_schema_and_policy_reject_invalid_records"
+      "tests/test_research_data_access.py::test_task_1554_domain_schema_and_policy_reject_invalid_records"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1554_domain_schema_and_policy_reject_invalid_records"
+      "tests/test_research_data_access_pqc.py::test_task_1554_domain_schema_and_policy_reject_invalid_records"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -61048,7 +61048,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1554",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61056,29 +61056,29 @@
   {
     "task_id": "OPMB-1555",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "canonical record serialization",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "canonicalize_research_release_record"
+      "canonicalize_research_data_access_record"
     ],
     "migration_family": "canonical record serialization",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for canonical record serialization: Produce stable canonical bytes for equivalent records regardless of field insertion order. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for canonical record serialization: Produce stable canonical bytes for equivalent records regardless of field insertion order. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61088,14 +61088,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1555_canonical_record_encoding_is_stable"
+      "tests/test_research_data_access.py::test_task_1555_canonical_record_encoding_is_stable"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1555_canonical_record_encoding_is_stable"
+      "tests/test_research_data_access_pqc.py::test_task_1555_canonical_record_encoding_is_stable"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -61110,7 +61110,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1555",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61118,32 +61118,32 @@
   {
     "task_id": "OPMB-1556",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "context-bound record signatures",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "sign_research_release_record",
-      "verify_research_release_record",
+      "sign_research_data_access_record",
+      "verify_research_data_access_record",
       "sign_document",
       "verify_document"
     ],
     "migration_family": "context-bound record signatures",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61153,14 +61153,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1556_signature_binds_record_context_and_validity"
+      "tests/test_research_data_access.py::test_task_1556_signature_binds_record_context_and_validity"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1556_signature_binds_record_context_and_validity"
+      "tests/test_research_data_access_pqc.py::test_task_1556_signature_binds_record_context_and_validity"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "medium",
@@ -61175,7 +61175,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1556",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61183,30 +61183,30 @@
   {
     "task_id": "OPMB-1557",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "signature tamper and downgrade rejection",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "verify_research_release_record",
+      "verify_research_data_access_record",
       "verify_document"
     ],
     "migration_family": "signature tamper and downgrade rejection",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for signature tamper and downgrade rejection: Reject altered payloads, untrusted signing keys, malformed signatures, and algorithm or version downgrade attempts. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for signature tamper and downgrade rejection: Reject altered payloads, untrusted signing keys, malformed signatures, and algorithm or version downgrade attempts. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61216,14 +61216,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1557_signature_rejects_tamper_wrong_key_and_downgrade"
+      "tests/test_research_data_access.py::test_task_1557_signature_rejects_tamper_wrong_key_and_downgrade"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1557_signature_rejects_tamper_wrong_key_and_downgrade"
+      "tests/test_research_data_access_pqc.py::test_task_1557_signature_rejects_tamper_wrong_key_and_downgrade"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "hard",
@@ -61238,7 +61238,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1557",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61246,32 +61246,32 @@
   {
     "task_id": "OPMB-1558",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "recipient-bound hybrid confidentiality",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
-      "seal_research_release_payload",
-      "open_research_release_payload",
+      "seal_research_data_access_payload",
+      "open_research_data_access_payload",
       "seal_payload",
       "open_payload"
     ],
     "migration_family": "recipient-bound hybrid confidentiality",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for recipient-bound hybrid confidentiality: Establish a fresh content key with the configured key establishment mechanism, derive an AES-256-GCM key, and authenticate both ciphertext and workflow context. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for recipient-bound hybrid confidentiality: Establish a fresh content key with the configured key establishment mechanism, derive an AES-256-GCM key, and authenticate both ciphertext and workflow context. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61281,14 +61281,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1558_hybrid_envelope_binds_recipient_and_record_context"
+      "tests/test_research_data_access.py::test_task_1558_hybrid_envelope_binds_recipient_and_record_context"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1558_hybrid_envelope_binds_recipient_and_record_context"
+      "tests/test_research_data_access_pqc.py::test_task_1558_hybrid_envelope_binds_recipient_and_record_context"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "hard",
@@ -61303,7 +61303,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1558",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61311,31 +61311,31 @@
   {
     "task_id": "OPMB-1559",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "key rotation and retired-key policy",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
       "KeyRegistry.rotate",
       "KeyRegistry.get_active",
-      "rotate_research_release_identity"
+      "rotate_research_data_access_identity"
     ],
     "migration_family": "key rotation and retired-key policy",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for key rotation and retired-key policy: Rotate signing and transport identities together, advance their version, and reject access through the retired version. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for key rotation and retired-key policy: Rotate signing and transport identities together, advance their version, and reject access through the retired version. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61345,14 +61345,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1559_rotation_retires_old_key_version"
+      "tests/test_research_data_access.py::test_task_1559_rotation_retires_old_key_version"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1559_rotation_retires_old_key_version"
+      "tests/test_research_data_access_pqc.py::test_task_1559_rotation_retires_old_key_version"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "hard",
@@ -61367,7 +61367,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1559",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"
@@ -61375,34 +61375,34 @@
   {
     "task_id": "OPMB-1560",
     "repository_id": "REPO-156",
-    "repository_name": "research_release",
+    "repository_name": "research_data_access",
     "application_domain": "education_research",
     "repository_version": "1.0.0",
     "language": "Python",
     "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
     "cryptographic_operation": "revocation, persistence, and runnable workflow",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
     "function_names": [
       "KeyRegistry.revoke",
       "KeyRegistry.get_active",
-      "revoke_research_release_identity",
-      "ResearchReleaseLedger.publish",
-      "ResearchReleaseLedger.fetch",
-      "run_research_release_workflow"
+      "revoke_research_data_access_identity",
+      "ResearchDataAccessLedger.publish",
+      "ResearchDataAccessLedger.fetch",
+      "run_research_data_access_workflow"
     ],
     "migration_family": "revocation, persistence, and runnable workflow",
     "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-    "migration_objective": "Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for revocation, persistence, and runnable workflow: Enforce terminal revocation, persist uniquely identified signed records, and preserve validation and signature behavior through the application's command-line flow. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
+    "migration_objective": "Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for revocation, persistence, and runnable workflow: Enforce terminal revocation, persist uniquely identified signed records, and preserve validation and signature behavior through the application's command-line flow. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.",
     "preconditions": [
       "The original application tests pass.",
       "Records use synthetic data and satisfy the documented domain schema.",
       "The pinned cryptography provider supports the stated FIPS algorithm APIs."
     ],
     "expected_behavior": [
-      "Preserve the ResearchRelease workflow and its domain-specific policy.",
+      "Preserve the ResearchDataAccess workflow and its domain-specific policy.",
       "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
       "Keep signing and transport key purposes separate."
     ],
@@ -61412,14 +61412,14 @@
       "Retain the application's field validation, persistence behavior, and lifecycle policy."
     ],
     "original_tests": [
-      "tests/test_research_release.py::test_task_1560_revocation_ledger_persistence_and_cli_workflow"
+      "tests/test_research_data_access.py::test_task_1560_revocation_ledger_persistence_and_cli_workflow"
     ],
     "migration_tests": [
-      "tests/test_research_release_pqc.py::test_task_1560_revocation_ledger_persistence_and_cli_workflow"
+      "tests/test_research_data_access_pqc.py::test_task_1560_revocation_ledger_persistence_and_cli_workflow"
     ],
     "verification_procedure": [
-      "Run `python -m pytest tests/test_research_release.py -q` from `REPO-156`.",
-      "Run `python -m pytest tests/test_research_release_pqc.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access.py -q` from `REPO-156`.",
+      "Run `python -m pytest tests/test_research_data_access_pqc.py -q` from `REPO-156`.",
       "Review actual suite output in `reports/evidence/REPO-156/test-results.json`."
     ],
     "difficulty": "hard",
@@ -61434,7 +61434,7 @@
     ],
     "created_by": "OPMB-600-team-a-scale",
     "task_path": "benchmark/repositories/REPO-156/tasks/OPMB-1560",
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
     "original_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "reference_test_evidence": "reports/evidence/REPO-156/test-results.json",
     "cryptographic_verification_evidence": "reports/evidence/REPO-156/test-results.json"

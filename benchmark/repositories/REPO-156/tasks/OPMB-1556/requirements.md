@@ -1,8 +1,8 @@
-# OPMB-1556: ResearchRelease context-bound record signatures
+# OPMB-1556: ResearchDataAccess context-bound record signatures
 
 ## Objective
 
-Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
+Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
 
 ## Requirements
 

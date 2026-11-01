@@ -35,8 +35,8 @@ DOMAINS = {
     },
     "education_research": {
         "records": ["learner_ref", "institution_ref", "artifact_kind", "academic_period", "sequence"],
-        "concepts": "TranscriptSeal|DiplomaVerify|ExamCustody|AdmissionOffer|ScholarshipAward|ResearchRelease|ThesisDeposit|PeerReviewCloseout|InstrumentCalibration|GrantMilestone|LabNotebookSeal|CourseCompletion|AcademicLicense|StudentMobility|ExamAccommodation|MaterialTransfer|CitationCorrection|ProceedingRelease|MicrocredentialIssue|FacultyCredential|EnrollmentProof|DegreeEquivalence|PublicationCorrection|DissertationEmbargo|ResearchEthicsDecision|LabAccessPass|ResearchCodeArchive|AccreditationEvidence|LearningWallet|AcademicAppeal".split("|"),
-        "flows": "official transcript revision sealing|digital diploma recipient verification|examination paper custody handoff|admissions offer acceptance records|scholarship award eligibility decisions|curated research dataset release approvals|thesis repository deposit receipts|journal peer-review decision closeout|scientific instrument calibration certificates|research grant milestone acceptance|electronic laboratory notebook closure|course completion credit attestations|academic software license issuance|student exchange credit transfer|exam accommodation authorization|research material transfer approvals|scholarly citation correction notices|conference proceeding release approvals|stackable microcredential issuance|faculty appointment credential renewal|term enrollment status receipts|international degree equivalence decisions|published article correction provenance|dissertation embargo release decisions|human research ethics determinations|controlled laboratory access passes|research code archive release records|institution accreditation evidence submissions|learner-owned record wallet updates|academic appeal decision records".split("|"),
+        "concepts": "TranscriptSeal|DiplomaVerify|ExamCustody|AdmissionOffer|ScholarshipAward|ResearchDataAccess|ThesisDeposit|PeerReviewCloseout|InstrumentCalibration|GrantMilestone|LabNotebookSeal|CourseCompletion|AcademicLicense|StudentMobility|ExamAccommodation|MaterialTransfer|CitationCorrection|ProceedingRelease|MicrocredentialIssue|FacultyCredential|EnrollmentProof|DegreeEquivalence|PublicationCorrection|DissertationEmbargo|ResearchEthicsDecision|LabAccessPass|ResearchCodeArchive|AccreditationEvidence|LearningWallet|AcademicAppeal".split("|"),
+        "flows": "official transcript revision sealing|digital diploma recipient verification|examination paper custody handoff|admissions offer acceptance records|scholarship award eligibility decisions|per-researcher governed dataset query authorization and access audit|thesis repository deposit receipts|journal peer-review decision closeout|scientific instrument calibration certificates|research grant milestone acceptance|electronic laboratory notebook closure|course completion credit attestations|academic software license issuance|student exchange credit transfer|exam accommodation authorization|research material transfer approvals|scholarly citation correction notices|conference proceeding release approvals|stackable microcredential issuance|faculty appointment credential renewal|term enrollment status receipts|international degree equivalence decisions|published article correction provenance|dissertation embargo release decisions|human research ethics determinations|controlled laboratory access passes|research code archive release records|institution accreditation evidence submissions|learner-owned record wallet updates|academic appeal decision records".split("|"),
         "field": "sequence",
     },
     "legal_civic_public_records": {
@@ -62,6 +62,9 @@ def concept_rows() -> list[dict]:
         assert len(data["concepts"]) == len(data["flows"]) == 30
         for offset, (name, flow) in enumerate(zip(data["concepts"], data["flows"])):
             repo_no = 61 + len(rows)
+            distinction = f"Focuses on {flow}; its domain object and lifecycle differ from generic identity, document exchange, archives, payment clearing, firmware release, messaging, consent registry, sensor telemetry, API authorization, backup, license, and DNS workflows in the available catalogue."
+            if name == "ResearchDataAccess":
+                distinction = "Authorizes and audits an individual researcher's governed dataset queries after publication; unlike REPO-038 ResearchRelease, it does not approve curator-led dataset publication or embargo lifecycle."
             rows.append({"repository_id": f"REPO-{repo_no:03d}", "application": name,
                          "slug": slug(name), "domain": domain,
                          "unique_business_purpose": f"A synthetic {flow} service that records, validates, and cryptographically proves {flow} without using production data.",
@@ -69,7 +72,7 @@ def concept_rows() -> list[dict]:
                          "classical_operation": "RSA-3072-PSS signatures; RSA-OAEP-SHA-256 key wrapping with AES-256-GCM",
                          "migration_family": "ML-DSA signing; ML-KEM key establishment; authenticated record encryption; key lifecycle",
                          "pqc_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
-                         "distinction_from_existing": f"Focuses on {flow}; its domain object and lifecycle differ from generic identity, document exchange, archives, payment clearing, firmware release, messaging, consent registry, sensor telemetry, API authorization, backup, license, and DNS workflows in the available catalogue.",
+                         "distinction_from_existing": distinction,
                          "domain_fields": data["records"], "policy_field": data["field"], "policy_variant": offset % 6,
                          "policy_description": {
                              "financial_services_insurance": ["enforces a variant-specific minimum amount and uppercase currency", "rejects low-value or malformed currency records", "applies an auditable transaction floor", "validates currency format and approved amount range", "applies a stronger threshold to higher-risk mandates", "checks transaction amount before authorization"][offset % 6],
@@ -118,12 +121,13 @@ def scan_existing_catalogue(rows: list[dict]) -> None:
                     known.append({"repository_id": record.get("repository_id", ""),
                                   "name": record.get("name", record.get("application", "")),
                                   "purpose": record.get("purpose", record.get("scope_distinction", ""))})
-    remote = subprocess.run(["git", "show", "origin/dataset/team-c-repo048-060:reports/contributions/part4/team-c/application_inventory.csv"],
-                            cwd=ROOT, text=True, capture_output=True, check=False)
-    if remote.returncode == 0:
-        for record in csv.DictReader(remote.stdout.splitlines()):
-            known.append({"repository_id": record.get("repository_id", ""),
-                          "name": record.get("name", ""), "purpose": record.get("purpose", "")})
+    for ref, inventory in (("origin/dataset/team-b-repo033-047", "reports/contributions/part4/team-b/application_inventory.csv"),
+                           ("origin/dataset/team-c-repo048-060", "reports/contributions/part4/team-c/application_inventory.csv")):
+        remote = subprocess.run(["git", "show", f"{ref}:{inventory}"], cwd=ROOT, text=True, capture_output=True, check=False)
+        if remote.returncode == 0:
+            for record in csv.DictReader(remote.stdout.splitlines()):
+                known.append({"repository_id": record.get("repository_id", ""),
+                              "name": record.get("name", ""), "purpose": record.get("purpose", "")})
     known = [item for item in known if item["repository_id"]]
     exact_names = {item["name"].casefold() for item in known}
     name_clashes = [{"repository_id": row["repository_id"], "application": row["application"]}
@@ -143,12 +147,27 @@ def scan_existing_catalogue(rows: list[dict]) -> None:
                 close_matches.append({"repository_id": row["repository_id"], "application": row["application"],
                                       "existing_repository_id": item["repository_id"], "existing_application": item["name"],
                                       "token_jaccard": round(overlap, 3), "manual_disposition": "reviewed distinct; compare core business object and actor workflow"})
-    missing = [f"REPO-{number:03d}" for number in range(33, 48)]
+    def workflow_core(value: str) -> set[str]:
+        match = re.search(r"authorized (.*?) operator validates", value.casefold())
+        return tokens(match.group(1) if match else value)
+    near_candidate_pairs = []
+    for index, left in enumerate(rows):
+        left_tokens = workflow_core(left["main_workflow"])
+        for right in rows[index + 1:]:
+            right_tokens = workflow_core(right["main_workflow"])
+            overlap = len(left_tokens & right_tokens) / max(1, len(left_tokens | right_tokens))
+            if overlap >= 0.5:
+                near_candidate_pairs.append({"left": left["repository_id"], "right": right["repository_id"], "token_jaccard": round(overlap, 3)})
+    known_ids = {item["repository_id"] for item in known}
+    missing = [f"REPO-{number:03d}" for number in range(1, 61) if f"REPO-{number:03d}" not in known_ids]
     report = {"known_catalogue_ids": sorted({item["repository_id"] for item in known}),
               "missing_catalogue_ids_at_screening": missing,
               "candidate_name_clashes": name_clashes,
               "high_overlap_pairs": close_matches,
-              "note": "Screen used the current base's REPO-001..032 and fetched Team C REPO-048..060 catalogue. REPO-033..047 were absent from the checkout and fetched refs, so those scopes could not be compared.",
+              "candidate_near_duplicate_pairs": near_candidate_pairs,
+              "candidate_exact_purpose_duplicates": len(rows) - len({row["unique_business_purpose"].casefold() for row in rows}),
+              "candidate_exact_workflow_duplicates": len(rows) - len({row["main_workflow"].casefold() for row in rows}),
+              "note": "Screen used current base REPO-001..032 and fetched Team B REPO-033..047 and Team C REPO-048..060 inventories.",
               "result": "review_required_missing_catalogue" if missing else "passed"}
     write(OUT / "duplicate_detection_report.json", json.dumps(report, indent=2, ensure_ascii=False))
     if name_clashes:
@@ -707,7 +726,7 @@ def build_application(row: dict) -> list[dict]:
     pyproject = f'''[build-system]\nrequires = ["setuptools>=68"]\nbuild-backend = "setuptools.build_meta"\n\n[project]\nname = "opmb-{slug_value}"\nversion = "1.0.0"\nrequires-python = ">=3.11"\ndependencies = ["cryptography==50.0.2"]\n\n[tool.pytest.ini_options]\npythonpath = ["src", "migrated_reference"]\n\n[tool.setuptools.packages.find]\nwhere = ["src", "migrated_reference"]\ninclude = ["{slug_value}*", "{slug_value}_pqc*"]\n'''
     write(source_dir / "pyproject.toml", pyproject)
     write(source_dir / "requirements.txt", "cryptography==50.0.2\npytest==8.4.2\n")
-    readme = f'''# {app_name}\n\nSynthetic {row['domain'].replace('_', ' ')} application for {row['main_workflow']}.\n\nThe original implementation under `src/{slug_value}` uses a classical RSA baseline. The separate reference under `migrated_reference/{slug_value}_pqc` uses FIPS 204 ML-DSA-65 and FIPS 203 ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM. Both preserve the same {row['unique_business_purpose']} workflow, domain schema, and lifecycle policy.\n\nThe domain invariant is {row['policy_description']}. The SQLite ledger enforces unique record IDs and persists signed canonical records. The in-memory key registry demonstrates rotation, retired-version rejection, and terminal revocation.\n\nRun from this directory using the pinned root environment: `python -m pytest tests/test_{slug_value}.py -q` and `python -m pytest tests/test_{slug_value}_pqc.py -q`. This is a controlled synthetic benchmark, not a production system.\n'''
+    readme = f'''# {app_name}\n\nSynthetic {row['domain'].replace('_', ' ')} application modeling {row['main_workflow']}.\n\nThe original implementation under `src/{slug_value}` uses a classical RSA baseline. The separate reference under `migrated_reference/{slug_value}_pqc` uses FIPS 204 ML-DSA-65 and FIPS 203 ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM. Both preserve the same {row['unique_business_purpose']} workflow, domain schema, and lifecycle policy.\n\nThe domain invariant is {row['policy_description']}. The SQLite ledger enforces unique record IDs and persists signed canonical records. The in-memory key registry demonstrates rotation, retired-version rejection, and terminal revocation.\n\nRun from this directory using the pinned root environment: `python -m pytest tests/test_{slug_value}.py -q` and `python -m pytest tests/test_{slug_value}_pqc.py -q`. This is a controlled synthetic benchmark, not a production system.\n'''
     write(source_dir / "README.md", readme)
     task_docs = source_dir / "tasks"
     tasks = []

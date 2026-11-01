@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "opmb-research_release"
+name = "opmb-research_data_access"
 version = "1.0.0"
 requires-python = ">=3.11"
 dependencies = ["cryptography==50.0.2"]
@@ -13,4 +13,4 @@ pythonpath = ["src", "migrated_reference"]
 
 [tool.setuptools.packages.find]
 where = ["src", "migrated_reference"]
-include = ["research_release*", "research_release_pqc*"]
+include = ["research_data_access*", "research_data_access_pqc*"]

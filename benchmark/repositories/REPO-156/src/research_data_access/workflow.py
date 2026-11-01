@@ -1,31 +1,31 @@
-"""Domain rules for ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow."""
+"""Domain rules for ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow."""
 from __future__ import annotations
 import json, re, sqlite3, time
 from pathlib import Path
 from . import crypto
 
-CONTEXT = b"opmb-scale600:research_release:v1"
+CONTEXT = b"opmb-scale600:research_data_access:v1"
 DOMAIN = "education_research"
 DOMAIN_FIELDS = ['learner_ref', 'institution_ref', 'artifact_kind', 'academic_period', 'sequence']
 REQUIRED_FIELDS = ["record_id", "subject_ref", "workflow_ref", "issued_at", "expires_at", *DOMAIN_FIELDS]
 POLICY_VARIANT = 5
 POLICY_FIELD = "sequence"
 
-def create_research_release_identity():
+def create_research_data_access_identity():
     signing_private, signing_public = crypto.generate_signing_keypair()
     transport_private, transport_public = crypto.generate_transport_keypair()
     return {"signing_private": signing_private, "signing_public": signing_public,
             "transport_private": transport_private, "transport_public": transport_public}
 
-def export_research_release_public_key(public_key, purpose: str) -> bytes:
+def export_research_data_access_public_key(public_key, purpose: str) -> bytes:
     return crypto.serialize_public_key(public_key, purpose)
 
-def load_research_release_public_key(encoded: bytes, purpose: str):
+def load_research_data_access_public_key(encoded: bytes, purpose: str):
     return crypto.load_public_key(encoded, purpose)
 
-def validate_research_release_record(record: dict) -> dict:
+def validate_research_data_access_record(record: dict) -> dict:
     if not isinstance(record, dict) or set(record) != set(REQUIRED_FIELDS):
-        raise ValueError("record fields do not match the ResearchRelease schema")
+        raise ValueError("record fields do not match the ResearchDataAccess schema")
     if any(value is None or value == "" for value in record.values()):
         raise ValueError("record values must be present")
     if not isinstance(record["issued_at"], int) or not isinstance(record["expires_at"], int) or record["issued_at"] >= record["expires_at"]:
@@ -62,38 +62,38 @@ def validate_research_release_record(record: dict) -> dict:
     except (TypeError, ValueError) as exc:
         raise ValueError("record must contain finite JSON values") from exc
 
-def canonicalize_research_release_record(record: dict) -> bytes:
-    return json.dumps(validate_research_release_record(record), sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
+def canonicalize_research_data_access_record(record: dict) -> bytes:
+    return json.dumps(validate_research_data_access_record(record), sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode("utf-8")
 
-def sign_research_release_record(identity: dict, record: dict) -> bytes:
-    return crypto.sign_document(canonicalize_research_release_record(record), identity["signing_private"], CONTEXT)
+def sign_research_data_access_record(identity: dict, record: dict) -> bytes:
+    return crypto.sign_document(canonicalize_research_data_access_record(record), identity["signing_private"], CONTEXT)
 
-def verify_research_release_record(public_key, record: dict, envelope: bytes, now: int | None = None) -> bool:
-    try: canonical = canonicalize_research_release_record(record)
+def verify_research_data_access_record(public_key, record: dict, envelope: bytes, now: int | None = None) -> bool:
+    try: canonical = canonicalize_research_data_access_record(record)
     except (ValueError, TypeError, KeyError): return False
     now = int(time.time()) if now is None else now
     if not isinstance(now, int) or not record["issued_at"] <= now < record["expires_at"]: return False
     return crypto.verify_document(envelope, public_key, CONTEXT) == canonical
 
-def seal_research_release_payload(public_key, plaintext: bytes, record_id: str) -> bytes:
+def seal_research_data_access_payload(public_key, plaintext: bytes, record_id: str) -> bytes:
     if not isinstance(record_id, str) or not record_id.strip(): raise ValueError("record id is required for envelope binding")
     return crypto.seal_payload(plaintext, public_key, CONTEXT + b":" + record_id.encode())
 
-def open_research_release_payload(private_key, envelope: bytes, record_id: str) -> bytes:
+def open_research_data_access_payload(private_key, envelope: bytes, record_id: str) -> bytes:
     if not isinstance(record_id, str) or not record_id.strip(): raise ValueError("record id is required for envelope binding")
     return crypto.open_payload(envelope, private_key, CONTEXT + b":" + record_id.encode())
 
-def rotate_research_release_identity(registry: crypto.KeyRegistry, identity_id: str): return registry.rotate(identity_id)
-def revoke_research_release_identity(registry: crypto.KeyRegistry, identity_id: str): return registry.revoke(identity_id)
+def rotate_research_data_access_identity(registry: crypto.KeyRegistry, identity_id: str): return registry.rotate(identity_id)
+def revoke_research_data_access_identity(registry: crypto.KeyRegistry, identity_id: str): return registry.revoke(identity_id)
 
-class ResearchReleaseLedger:
+class ResearchDataAccessLedger:
     """Persistent append-only store enforcing duplicate and domain record policy."""
     def __init__(self, database: str | Path = ":memory:"):
         self._db = sqlite3.connect(str(database))
         self._db.execute("CREATE TABLE IF NOT EXISTS signed_records(record_id TEXT PRIMARY KEY, body BLOB NOT NULL, signature BLOB NOT NULL)")
         self._db.commit()
     def publish(self, identity: dict, record: dict) -> bytes:
-        canonical = canonicalize_research_release_record(record)
+        canonical = canonicalize_research_data_access_record(record)
         signature = crypto.sign_document(canonical, identity["signing_private"], CONTEXT)
         try:
             self._db.execute("INSERT INTO signed_records(record_id, body, signature) VALUES(?,?,?)", (record["record_id"], canonical, signature))
@@ -106,10 +106,10 @@ class ResearchReleaseLedger:
         return json.loads(row[0]), bytes(row[1])
     def close(self): self._db.close()
 
-def run_research_release_workflow(identity: dict, record: dict, ledger: ResearchReleaseLedger | None = None) -> dict:
-    normalized = validate_research_release_record(record)
-    signature = ledger.publish(identity, normalized) if ledger is not None else sign_research_release_record(identity, normalized)
+def run_research_data_access_workflow(identity: dict, record: dict, ledger: ResearchDataAccessLedger | None = None) -> dict:
+    normalized = validate_research_data_access_record(record)
+    signature = ledger.publish(identity, normalized) if ledger is not None else sign_research_data_access_record(identity, normalized)
     return {"record": normalized, "signature": signature, "context": CONTEXT.decode()}
 
 def example_record() -> dict:
-    return {'record_id': 'sample-001', 'subject_ref': 'subject-17', 'workflow_ref': 'research_release-workflow', 'issued_at': 1800000000, 'expires_at': 1900000000, 'learner_ref': 'learner-5', 'institution_ref': 'institution-2', 'artifact_kind': 'workflow-artifact', 'academic_period': '2025-2026', 'sequence': 1}
+    return {'record_id': 'sample-001', 'subject_ref': 'subject-17', 'workflow_ref': 'research_data_access-workflow', 'issued_at': 1800000000, 'expires_at': 1900000000, 'learner_ref': 'learner-5', 'institution_ref': 'institution-2', 'artifact_kind': 'workflow-artifact', 'academic_period': '2025-2026', 'sequence': 1}

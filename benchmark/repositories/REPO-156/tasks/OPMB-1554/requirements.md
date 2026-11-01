@@ -1,8 +1,8 @@
-# OPMB-1554: ResearchRelease domain validation and authorization policy
+# OPMB-1554: ResearchDataAccess domain validation and authorization policy
 
 ## Objective
 
-Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
+Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
 
 ## Requirements
 

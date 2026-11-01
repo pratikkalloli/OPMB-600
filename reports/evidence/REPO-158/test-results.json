@@ -1,7 +1,7 @@
 {
   "repository_id": "REPO-158",
   "application": "peer_review_closeout",
-  "captured_at_utc": "2026-11-01T11:18:16.646880+00:00",
+  "captured_at_utc": "2026-11-01T11:36:32.523660+00:00",
   "environment": {
     "python": "Python 3.11.9",
     "pytest": "pytest 8.4.2"
@@ -25,7 +25,7 @@
     "skipped": 0,
     "errors": 0,
     "warnings": 0,
-    "output": "..........                                                               [100%]\n10 passed in 5.00s\n"
+    "output": "..........                                                               [100%]\n10 passed in 4.52s\n"
   },
   "pqc_reference_suite": {
     "kind": "pqc_reference",
@@ -46,6 +46,6 @@
     "skipped": 0,
     "errors": 0,
     "warnings": 0,
-    "output": "..........                                                               [100%]\n10 passed in 0.49s\n"
+    "output": "..........                                                               [100%]\n10 passed in 0.23s\n"
   }
 }

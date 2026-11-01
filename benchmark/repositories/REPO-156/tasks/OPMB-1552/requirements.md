@@ -1,8 +1,8 @@
-# OPMB-1552: ResearchRelease public key serialization and import
+# OPMB-1552: ResearchDataAccess public key serialization and import
 
 ## Objective
 
-Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for public key serialization and import: Round-trip each public key with an explicit purpose and version tag while preserving the workflow's key contract. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
+Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for public key serialization and import: Round-trip each public key with an explicit purpose and version tag while preserving the workflow's key contract. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
 
 ## Requirements
 

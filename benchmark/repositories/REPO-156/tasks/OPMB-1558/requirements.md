@@ -1,8 +1,8 @@
-# OPMB-1558: ResearchRelease recipient-bound hybrid confidentiality
+# OPMB-1558: ResearchDataAccess recipient-bound hybrid confidentiality
 
 ## Objective
 
-Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for recipient-bound hybrid confidentiality: Establish a fresh content key with the configured key establishment mechanism, derive an AES-256-GCM key, and authenticate both ciphertext and workflow context. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
+Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for recipient-bound hybrid confidentiality: Establish a fresh content key with the configured key establishment mechanism, derive an AES-256-GCM key, and authenticate both ciphertext and workflow context. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
 
 ## Requirements
 

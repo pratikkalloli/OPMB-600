@@ -1,4 +1,4 @@
-"""FIPS 203 ML-KEM and FIPS 204 ML-DSA primitives for ResearchRelease."""
+"""FIPS 203 ML-KEM and FIPS 204 ML-DSA primitives for ResearchDataAccess."""
 from __future__ import annotations
 import base64, json, os
 from cryptography.exceptions import InvalidSignature, InvalidTag
@@ -12,7 +12,7 @@ SIGNATURE_ALGORITHM = "ML-DSA-65"
 ENVELOPE_ALGORITHM = "ML-KEM-768+HKDF-SHA256+AES-256-GCM"
 SIGNING_PRIVATE, SIGNING_PUBLIC = mldsa.MLDSA65PrivateKey, mldsa.MLDSA65PublicKey
 TRANSPORT_PRIVATE, TRANSPORT_PUBLIC = mlkem.MLKEM768PrivateKey, mlkem.MLKEM768PublicKey
-CONTEXT = b"opmb-scale600:research_release:v1"
+CONTEXT = b"opmb-scale600:research_data_access:v1"
 
 def generate_signing_keypair():
     private = SIGNING_PRIVATE.generate()

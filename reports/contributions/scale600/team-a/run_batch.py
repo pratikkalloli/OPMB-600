@@ -104,7 +104,7 @@ def main() -> int:
         completed = all(repo in results and results[repo]["original"]["result"] == results[repo]["pqc_reference"]["result"] == "passed" for repo in ids)
         orig = sum(results[r]["original"]["passed"] for r in ids if r in results)
         ref = sum(results[r]["pqc_reference"]["passed"] for r in ids if r in results)
-        progress.append(f"| {batch:02d} | REPO-{low:03d}–REPO-{high:03d} | 100 | {orig} | {ref} | {'passed' if completed else 'pending'} |")
+        progress.append(f"| {batch:02d} | REPO-{low:03d}-REPO-{high:03d} | 100 | {orig} | {ref} | {'passed' if completed else 'pending'} |")
     write_lf(OUT / "batch_progress.md", "\n".join(progress) + "\n")
     return exit_status
 

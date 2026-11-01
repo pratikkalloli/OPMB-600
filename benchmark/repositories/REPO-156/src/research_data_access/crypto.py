@@ -1,4 +1,4 @@
-"""Classical RSA baseline primitives for ResearchRelease; benchmark-only."""
+"""Classical RSA baseline primitives for ResearchDataAccess; benchmark-only."""
 from __future__ import annotations
 import base64, json, os
 from cryptography.exceptions import InvalidSignature, InvalidTag
@@ -11,7 +11,7 @@ SIGNATURE_ALGORITHM = "RSA-3072-PSS-SHA256"
 ENVELOPE_ALGORITHM = "RSA-OAEP-SHA256+AES-256-GCM"
 SIGNING_PRIVATE = TRANSPORT_PRIVATE = rsa.RSAPrivateKey
 SIGNING_PUBLIC = TRANSPORT_PUBLIC = rsa.RSAPublicKey
-CONTEXT = b"opmb-scale600:research_release:v1"
+CONTEXT = b"opmb-scale600:research_data_access:v1"
 
 def generate_signing_keypair():
     private = rsa.generate_private_key(public_exponent=65537, key_size=3072)

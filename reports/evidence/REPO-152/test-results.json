@@ -1,7 +1,7 @@
 {
   "repository_id": "REPO-152",
   "application": "diploma_verify",
-  "captured_at_utc": "2026-11-01T11:17:43.095160+00:00",
+  "captured_at_utc": "2026-11-01T11:35:59.500195+00:00",
   "environment": {
     "python": "Python 3.11.9",
     "pytest": "pytest 8.4.2"
@@ -25,7 +25,7 @@
     "skipped": 0,
     "errors": 0,
     "warnings": 0,
-    "output": "..........                                                               [100%]\n10 passed in 4.46s\n"
+    "output": "..........                                                               [100%]\n10 passed in 3.87s\n"
   },
   "pqc_reference_suite": {
     "kind": "pqc_reference",
@@ -46,6 +46,6 @@
     "skipped": 0,
     "errors": 0,
     "warnings": 0,
-    "output": "..........                                                               [100%]\n10 passed in 0.50s\n"
+    "output": "..........                                                               [100%]\n10 passed in 0.24s\n"
   }
 }

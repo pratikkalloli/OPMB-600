@@ -1,8 +1,8 @@
-# OPMB-1560: ResearchRelease revocation, persistence, and runnable workflow
+# OPMB-1560: ResearchDataAccess revocation, persistence, and runnable workflow
 
 ## Objective
 
-Migrate ResearchRelease's An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for revocation, persistence, and runnable workflow: Enforce terminal revocation, persist uniquely identified signed records, and preserve validation and signature behavior through the application's command-line flow. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
+Migrate ResearchDataAccess's An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for revocation, persistence, and runnable workflow: Enforce terminal revocation, persist uniquely identified signed records, and preserve validation and signature behavior through the application's command-line flow. Preserve its domain rule that requires a versioned scholarly artifact record; do not silently downgrade algorithms or relax validation.
 
 ## Requirements
 

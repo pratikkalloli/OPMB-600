@@ -1,9 +1,9 @@
-# ResearchRelease
+# ResearchDataAccess
 
-Synthetic education research application for An authorized curated research dataset release approvals operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state..
+Synthetic education research application modeling An authorized per-researcher governed dataset query authorization and access audit operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state..
 
-The original implementation under `src/research_release` uses a classical RSA baseline. The separate reference under `migrated_reference/research_release_pqc` uses FIPS 204 ML-DSA-65 and FIPS 203 ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM. Both preserve the same A synthetic curated research dataset release approvals service that records, validates, and cryptographically proves curated research dataset release approvals without using production data. workflow, domain schema, and lifecycle policy.
+The original implementation under `src/research_data_access` uses a classical RSA baseline. The separate reference under `migrated_reference/research_data_access_pqc` uses FIPS 204 ML-DSA-65 and FIPS 203 ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM. Both preserve the same A synthetic per-researcher governed dataset query authorization and access audit service that records, validates, and cryptographically proves per-researcher governed dataset query authorization and access audit without using production data. workflow, domain schema, and lifecycle policy.
 
 The domain invariant is requires a versioned scholarly artifact record. The SQLite ledger enforces unique record IDs and persists signed canonical records. The in-memory key registry demonstrates rotation, retired-version rejection, and terminal revocation.
 
-Run from this directory using the pinned root environment: `python -m pytest tests/test_research_release.py -q` and `python -m pytest tests/test_research_release_pqc.py -q`. This is a controlled synthetic benchmark, not a production system.
+Run from this directory using the pinned root environment: `python -m pytest tests/test_research_data_access.py -q` and `python -m pytest tests/test_research_data_access_pqc.py -q`. This is a controlled synthetic benchmark, not a production system.

@@ -1426,18 +1426,18 @@
   },
   {
     "repository_id": "REPO-156",
-    "name": "ResearchRelease",
+    "name": "ResearchDataAccess",
     "application_domain": "education_research",
     "path": "benchmark/repositories/REPO-156",
-    "purpose": "A synthetic curated research dataset release approvals service that records, validates, and cryptographically proves curated research dataset release approvals without using production data.",
+    "purpose": "A synthetic per-researcher governed dataset query authorization and access audit service that records, validates, and cryptographically proves per-researcher governed dataset query authorization and access audit without using production data.",
     "status": "candidate",
     "source_files": [
-      "src/research_release/workflow.py",
-      "src/research_release/crypto.py"
+      "src/research_data_access/workflow.py",
+      "src/research_data_access/crypto.py"
     ],
-    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_release_pqc",
-    "original_tests": "benchmark/repositories/REPO-156/tests/test_research_release.py",
-    "pqc_tests": "benchmark/repositories/REPO-156/tests/test_research_release_pqc.py"
+    "reference_path": "benchmark/repositories/REPO-156/migrated_reference/research_data_access_pqc",
+    "original_tests": "benchmark/repositories/REPO-156/tests/test_research_data_access.py",
+    "pqc_tests": "benchmark/repositories/REPO-156/tests/test_research_data_access_pqc.py"
   },
   {
     "repository_id": "REPO-157",
