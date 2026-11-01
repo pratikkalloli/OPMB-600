@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opmb-research_cohort_export"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = ["cryptography==50.0.2"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "migrated_reference"]
+
+[tool.setuptools.packages.find]
+where = ["src", "migrated_reference"]
+include = ["research_cohort_export*", "research_cohort_export_pqc*"]
