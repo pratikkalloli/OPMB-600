@@ -5,6 +5,14 @@ from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 
 class ShiftHandoverDocket:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self, path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -29,3 +37,17 @@ class ShiftHandoverDocket:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def accept_shift_handover(self, record_id, **decision):
+        # Apply the ShiftHandoverDocket business decision and retain signed evidence.
+        outgoing_lead=decision['outgoing_lead']
+        incoming_lead=decision['incoming_lead']
+        open_actions=decision['open_actions']
+        outgoing_public=decision['outgoing_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('handover docket must be reviewed before transfer')
+        if not outgoing_lead or not incoming_lead or outgoing_lead==incoming_lead: raise ValueError('handover requires distinct named shift leads')
+        if not isinstance(open_actions,list) or any(not isinstance(x,dict) or not x.get('action_id') or x.get('owner')!=incoming_lead for x in open_actions): raise ValueError('every open safety or quality action must be assigned to the incoming lead')
+        if not open_actions: raise ValueError('handover must explicitly enumerate outstanding actions')
+        if not self.verify_approval(record_id,outgoing_public): raise PermissionError('outgoing shift lead signature is invalid')
+        return self._commit_domain_decision(record,'released','shift_handover_accepted',{'workcell_id':record['workcell_id'],'outgoing_lead':outgoing_lead,'incoming_lead':incoming_lead,'open_action_ids':[x['action_id'] for x in open_actions],'evidence_digest':record['evidence_digest']})

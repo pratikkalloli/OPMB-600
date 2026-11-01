@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_transfer_machine_custody_enforces_serialized_machine_passport_policy(tmp_path):
+    from migrated_reference.serialized_machine_passport_pqc.service import SerializedMachinePassportPQC
+    record=dict(RECORD,state='reviewed'); app=SerializedMachinePassportPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.transfer_machine_custody(record['record_id'], current_custodian='operator-251', new_custodian='operator-252', expected_sequence=251, maintenance_digest='b' * 64, passport_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_transfer_machine_custody_rejects_serialized_machine_passport_policy_violation_without_transition(tmp_path):
+    from migrated_reference.serialized_machine_passport_pqc.service import SerializedMachinePassportPQC
+    record=dict(RECORD,state='reviewed'); app=SerializedMachinePassportPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.transfer_machine_custody(record['record_id'], current_custodian='operator-251', new_custodian='', expected_sequence=251, maintenance_digest='b' * 64, passport_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

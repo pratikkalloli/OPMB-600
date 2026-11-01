@@ -5,6 +5,14 @@ from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 
 class PackagingArtworkRelease:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self, path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -29,3 +37,21 @@ class PackagingArtworkRelease:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def release_packaging_artwork(self, record_id, **decision):
+        # Apply the PackagingArtworkRelease business decision and retain signed evidence.
+        revision=decision['revision']
+        approved_revisions=decision['approved_revisions']
+        market=decision['market']
+        authorized_markets=decision['authorized_markets']
+        artwork_digest=decision['artwork_digest']
+        regulatory_clearance=decision['regulatory_clearance']
+        release_public=decision['release_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('artwork must be reviewed before print release')
+        if revision not in set(approved_revisions): raise PermissionError('artwork revision is not on the approved master list')
+        if market not in set(authorized_markets): raise PermissionError('market destination is not authorized for this artwork')
+        if not isinstance(artwork_digest,str) or len(artwork_digest)!=64 or any(c not in '0123456789abcdef' for c in artwork_digest): raise ValueError('artwork proof must be identified by a SHA-256 digest')
+        if record['review_class']=='critical' and not regulatory_clearance: raise PermissionError('critical label change requires regulatory clearance')
+        if not self.verify_approval(record_id,release_public): raise PermissionError('artwork release signature is invalid')
+        return self._commit_domain_decision(record,'released','packaging_artwork_released',{'revision':revision,'market':market,'artwork_digest':artwork_digest,'review_class':record['review_class']})

@@ -11,10 +11,12 @@
   "source_files": [
     "src/furnace_cycle_witness/domain.py",
     "src/furnace_cycle_witness/crypto.py",
-    "src/furnace_cycle_witness/service.py"
+    "src/furnace_cycle_witness/service.py",
+    "migrated_reference/furnace_cycle_witness_pqc/service.py",
+    "migrated_reference/furnace_cycle_witness_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "witness_furnace_soak_window"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and event_count semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Binds furnace temperature-time evidence to a heat-treatment batch and blocks release when the cycle window is violated.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind furnace_cycle_witness version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_furnace_cycle_witness_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify witness_furnace_soak_window success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_accept_shift_handover_enforces_shift_handover_docket_policy(tmp_path):
+    from shift_handover_docket.service import ShiftHandoverDocket
+    record=dict(RECORD,state='reviewed'); app=ShiftHandoverDocket(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.accept_shift_handover(record['record_id'], outgoing_lead='lead-day', incoming_lead='lead-night', open_actions=[{'action_id': 'SAFE-257-1', 'owner': 'lead-night'}], outgoing_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_accept_shift_handover_rejects_shift_handover_docket_policy_violation_without_transition(tmp_path):
+    from shift_handover_docket.service import ShiftHandoverDocket
+    record=dict(RECORD,state='reviewed'); app=ShiftHandoverDocket(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.accept_shift_handover(record['record_id'], outgoing_lead='lead-day', incoming_lead='lead-night', open_actions=[{'action_id': 'SAFE-257-1', 'owner': 'lead-day'}], outgoing_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

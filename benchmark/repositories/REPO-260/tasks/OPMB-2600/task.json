@@ -11,10 +11,12 @@
   "source_files": [
     "src/assembly_sequence_permit/domain.py",
     "src/assembly_sequence_permit/crypto.py",
-    "src/assembly_sequence_permit/service.py"
+    "src/assembly_sequence_permit/service.py",
+    "migrated_reference/assembly_sequence_permit_pqc/service.py",
+    "migrated_reference/assembly_sequence_permit_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "authorize_assembly_operation"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and event_count semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Authorizes a constrained assembly step only after its prerequisite operations have been recorded.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind assembly_sequence_permit version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_assembly_sequence_permit_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify authorize_assembly_operation success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

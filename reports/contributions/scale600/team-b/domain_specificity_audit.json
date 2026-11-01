@@ -1,7 +1,7 @@
 {
   "applications_reviewed": 180,
-  "applications_passing_internal_evidence_check": 10,
-  "applications_requiring_remediation": 170,
+  "applications_passing_internal_evidence_check": 20,
+  "applications_requiring_remediation": 160,
   "criteria": "One non-generic service operation exists in original and PQC code; both separate test suites call it; method verifies signed approval, enforces business guards, and persists a domain decision; each suite includes at least eight tests. This is not independent acceptance review.",
   "applications": [
     {
@@ -207,101 +207,201 @@
     {
       "repository_id": "REPO-251",
       "name": "SerializedMachinePassport",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "transfer_machine_custody"
+      ],
+      "method_evidence": {
+        "transfer_machine_custody": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-252",
       "name": "TorqueAuditLedger",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "reconcile_torque_readings"
+      ],
+      "method_evidence": {
+        "reconcile_torque_readings": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-253",
       "name": "ToolWearForecastCase",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "decide_tool_wear_disposition"
+      ],
+      "method_evidence": {
+        "decide_tool_wear_disposition": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-254",
       "name": "FurnaceCycleWitness",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "witness_furnace_soak_window"
+      ],
+      "method_evidence": {
+        "witness_furnace_soak_window": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-255",
       "name": "PackagingArtworkRelease",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_packaging_artwork"
+      ],
+      "method_evidence": {
+        "release_packaging_artwork": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-256",
       "name": "FixtureInspectionSchedule",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_fixture_for_inspection"
+      ],
+      "method_evidence": {
+        "release_fixture_for_inspection": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-257",
       "name": "ShiftHandoverDocket",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "accept_shift_handover"
+      ],
+      "method_evidence": {
+        "accept_shift_handover": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-258",
       "name": "ProductionScrapVoucher",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "authorize_wip_scrap"
+      ],
+      "method_evidence": {
+        "authorize_wip_scrap": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-259",
       "name": "SurfaceTreatmentBatch",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "release_surface_treatment_batch"
+      ],
+      "method_evidence": {
+        "release_surface_treatment_batch": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {
       "repository_id": "REPO-260",
       "name": "AssemblySequencePermit",
-      "domain_methods": [],
-      "method_evidence": {},
-      "original_test_functions": 6,
-      "pqc_test_functions": 6,
-      "domain_specificity_status": "requires_remediation",
+      "domain_methods": [
+        "authorize_assembly_operation"
+      ],
+      "method_evidence": {
+        "authorize_assembly_operation": {
+          "original_source": true,
+          "pqc_reference": true,
+          "original_tests_call": true,
+          "pqc_tests_call": true,
+          "business_guard_present": true
+        }
+      },
+      "original_test_functions": 8,
+      "pqc_test_functions": 8,
+      "domain_specificity_status": "passes_internal_evidence_check",
       "review_note": "Automated evidence check only; not independent acceptance review."
     },
     {

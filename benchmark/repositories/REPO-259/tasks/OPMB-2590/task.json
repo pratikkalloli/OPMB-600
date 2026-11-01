@@ -11,10 +11,12 @@
   "source_files": [
     "src/surface_treatment_batch/domain.py",
     "src/surface_treatment_batch/crypto.py",
-    "src/surface_treatment_batch/service.py"
+    "src/surface_treatment_batch/service.py",
+    "migrated_reference/surface_treatment_batch_pqc/service.py",
+    "migrated_reference/surface_treatment_batch_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_surface_treatment_batch"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and measured_value semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Records coating chemistry and cure evidence for a component lot before downstream assembly.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind surface_treatment_batch version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_surface_treatment_batch_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify release_surface_treatment_batch success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

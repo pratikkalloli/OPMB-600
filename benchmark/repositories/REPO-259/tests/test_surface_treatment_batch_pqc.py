@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_release_surface_treatment_batch_enforces_surface_treatment_batch_policy(tmp_path):
+    from migrated_reference.surface_treatment_batch_pqc.service import SurfaceTreatmentBatchPQC
+    record=dict(RECORD,state='reviewed'); app=SurfaceTreatmentBatchPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.release_surface_treatment_batch(record['record_id'], component_lot='LOT-259', chemistry_code='ZINC-NI', qualified_chemistries={'ZINC-NI'}, cure_temperature_c=25, minimum_temperature_c=20, maximum_temperature_c=30, cure_minutes=60, minimum_cure_minutes=45, process_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_release_surface_treatment_batch_rejects_surface_treatment_batch_policy_violation_without_transition(tmp_path):
+    from migrated_reference.surface_treatment_batch_pqc.service import SurfaceTreatmentBatchPQC
+    record=dict(RECORD,state='reviewed'); app=SurfaceTreatmentBatchPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.release_surface_treatment_batch(record['record_id'], component_lot='LOT-259', chemistry_code='UNKNOWN', qualified_chemistries={'ZINC-NI'}, cure_temperature_c=25, minimum_temperature_c=20, maximum_temperature_c=30, cure_minutes=60, minimum_cure_minutes=45, process_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

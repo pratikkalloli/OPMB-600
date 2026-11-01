@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_authorize_assembly_operation_enforces_assembly_sequence_permit_policy(tmp_path):
+    from migrated_reference.assembly_sequence_permit_pqc.service import AssemblySequencePermitPQC
+    record=dict(RECORD,state='reviewed'); app=AssemblySequencePermitPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.authorize_assembly_operation(record['record_id'], required_operations={'frame-fit', 'torque-check'}, completed_operations=['frame-fit', 'torque-check', 'seal', 'inspection'], next_sequence=RECORD['sequence'] + 1, production_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_authorize_assembly_operation_rejects_assembly_sequence_permit_policy_violation_without_transition(tmp_path):
+    from migrated_reference.assembly_sequence_permit_pqc.service import AssemblySequencePermitPQC
+    record=dict(RECORD,state='reviewed'); app=AssemblySequencePermitPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.authorize_assembly_operation(record['record_id'], required_operations={'frame-fit', 'torque-check'}, completed_operations=['frame-fit'], next_sequence=RECORD['sequence'] + 1, production_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

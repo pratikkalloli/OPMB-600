@@ -6892,10 +6892,12 @@
       "source_files": [
         "src/serialized_machine_passport/domain.py",
         "src/serialized_machine_passport/crypto.py",
-        "src/serialized_machine_passport/service.py"
+        "src/serialized_machine_passport/service.py",
+        "migrated_reference/serialized_machine_passport_pqc/service.py",
+        "migrated_reference/serialized_machine_passport_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "transfer_machine_custody"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -6905,9 +6907,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and evidence_digest semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Tracks an industrial machine's identity, custodian, and maintenance attestations across controlled ownership changes.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind serialized_machine_passport version and application context into cryptographic operations.",
@@ -6921,8 +6923,8 @@
         "tests/test_serialized_machine_passport_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify transfer_machine_custody success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -7522,10 +7524,12 @@
       "source_files": [
         "src/torque_audit_ledger/domain.py",
         "src/torque_audit_ledger/crypto.py",
-        "src/torque_audit_ledger/service.py"
+        "src/torque_audit_ledger/service.py",
+        "migrated_reference/torque_audit_ledger_pqc/service.py",
+        "migrated_reference/torque_audit_ledger_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "reconcile_torque_readings"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -7535,9 +7539,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and authorization_code semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Retains signed torque-tool readings against a production job so quality staff can reconcile out-of-tolerance fastening events.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind torque_audit_ledger version and application context into cryptographic operations.",
@@ -7551,8 +7555,8 @@
         "tests/test_torque_audit_ledger_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify reconcile_torque_readings success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -8152,10 +8156,12 @@
       "source_files": [
         "src/tool_wear_forecast_case/domain.py",
         "src/tool_wear_forecast_case/crypto.py",
-        "src/tool_wear_forecast_case/service.py"
+        "src/tool_wear_forecast_case/service.py",
+        "migrated_reference/tool_wear_forecast_case_pqc/service.py",
+        "migrated_reference/tool_wear_forecast_case_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "decide_tool_wear_disposition"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -8165,9 +8171,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and measured_value semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Records measured cutting-tool wear and the maintenance disposition used to prevent an expired tool from returning to a workcell.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind tool_wear_forecast_case version and application context into cryptographic operations.",
@@ -8181,8 +8187,8 @@
         "tests/test_tool_wear_forecast_case_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify decide_tool_wear_disposition success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -8782,10 +8788,12 @@
       "source_files": [
         "src/furnace_cycle_witness/domain.py",
         "src/furnace_cycle_witness/crypto.py",
-        "src/furnace_cycle_witness/service.py"
+        "src/furnace_cycle_witness/service.py",
+        "migrated_reference/furnace_cycle_witness_pqc/service.py",
+        "migrated_reference/furnace_cycle_witness_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "witness_furnace_soak_window"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -8795,9 +8803,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and event_count semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Binds furnace temperature-time evidence to a heat-treatment batch and blocks release when the cycle window is violated.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind furnace_cycle_witness version and application context into cryptographic operations.",
@@ -8811,8 +8819,8 @@
         "tests/test_furnace_cycle_witness_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify witness_furnace_soak_window success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -9412,10 +9420,12 @@
       "source_files": [
         "src/packaging_artwork_release/domain.py",
         "src/packaging_artwork_release/crypto.py",
-        "src/packaging_artwork_release/service.py"
+        "src/packaging_artwork_release/service.py",
+        "migrated_reference/packaging_artwork_release_pqc/service.py",
+        "migrated_reference/packaging_artwork_release_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "release_packaging_artwork"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -9425,9 +9435,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and review_class semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Controls the approved artwork revision and market destination before a packaging line can print labels.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind packaging_artwork_release version and application context into cryptographic operations.",
@@ -9441,8 +9451,8 @@
         "tests/test_packaging_artwork_release_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify release_packaging_artwork success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -10042,10 +10052,12 @@
       "source_files": [
         "src/fixture_inspection_schedule/domain.py",
         "src/fixture_inspection_schedule/crypto.py",
-        "src/fixture_inspection_schedule/service.py"
+        "src/fixture_inspection_schedule/service.py",
+        "migrated_reference/fixture_inspection_schedule_pqc/service.py",
+        "migrated_reference/fixture_inspection_schedule_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "release_fixture_for_inspection"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -10055,9 +10067,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and revision_epoch semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Tracks fixture inspection intervals and blocks production use when inspection evidence is overdue.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind fixture_inspection_schedule version and application context into cryptographic operations.",
@@ -10071,8 +10083,8 @@
         "tests/test_fixture_inspection_schedule_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify release_fixture_for_inspection success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -10672,10 +10684,12 @@
       "source_files": [
         "src/shift_handover_docket/domain.py",
         "src/shift_handover_docket/crypto.py",
-        "src/shift_handover_docket/service.py"
+        "src/shift_handover_docket/service.py",
+        "migrated_reference/shift_handover_docket_pqc/service.py",
+        "migrated_reference/shift_handover_docket_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "accept_shift_handover"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -10685,9 +10699,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and evidence_digest semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Transfers open safety and quality actions between production shifts with named outgoing and incoming leads.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind shift_handover_docket version and application context into cryptographic operations.",
@@ -10701,8 +10715,8 @@
         "tests/test_shift_handover_docket_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify accept_shift_handover success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -11302,10 +11316,12 @@
       "source_files": [
         "src/production_scrap_voucher/domain.py",
         "src/production_scrap_voucher/crypto.py",
-        "src/production_scrap_voucher/service.py"
+        "src/production_scrap_voucher/service.py",
+        "migrated_reference/production_scrap_voucher_pqc/service.py",
+        "migrated_reference/production_scrap_voucher_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "authorize_wip_scrap"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -11315,9 +11331,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and authorization_code semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Authorizes scrapping a quantity of serialized work in process and preserves the quality disposition.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind production_scrap_voucher version and application context into cryptographic operations.",
@@ -11331,8 +11347,8 @@
         "tests/test_production_scrap_voucher_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify authorize_wip_scrap success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -11932,10 +11948,12 @@
       "source_files": [
         "src/surface_treatment_batch/domain.py",
         "src/surface_treatment_batch/crypto.py",
-        "src/surface_treatment_batch/service.py"
+        "src/surface_treatment_batch/service.py",
+        "migrated_reference/surface_treatment_batch_pqc/service.py",
+        "migrated_reference/surface_treatment_batch_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "release_surface_treatment_batch"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -11945,9 +11963,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and measured_value semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Records coating chemistry and cure evidence for a component lot before downstream assembly.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind surface_treatment_batch version and application context into cryptographic operations.",
@@ -11961,8 +11979,8 @@
         "tests/test_surface_treatment_batch_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify release_surface_treatment_batch success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",
@@ -12562,10 +12580,12 @@
       "source_files": [
         "src/assembly_sequence_permit/domain.py",
         "src/assembly_sequence_permit/crypto.py",
-        "src/assembly_sequence_permit/service.py"
+        "src/assembly_sequence_permit/service.py",
+        "migrated_reference/assembly_sequence_permit_pqc/service.py",
+        "migrated_reference/assembly_sequence_permit_pqc/service.py"
       ],
       "function_names": [
-        "transition_record"
+        "authorize_assembly_operation"
       ],
       "migration_family": "digital signature migration",
       "migration_target": "ML-DSA-65",
@@ -12575,9 +12595,9 @@
         "All workflow data is synthetic."
       ],
       "expected_behavior": [
-        "Preserve workcell_id and event_count semantics.",
-        "Reject malformed inputs, altered payloads and wrong keys.",
-        "Reject unsupported algorithm and envelope versions."
+        "Enforce Authorizes a constrained assembly step only after its prerequisite operations have been recorded.",
+        "Record an application-specific signed decision with an atomic state and workflow-event update.",
+        "Reject policy violations without changing the record state."
       ],
       "migration_requirements": [
         "Bind assembly_sequence_permit version and application context into cryptographic operations.",
@@ -12591,8 +12611,8 @@
         "tests/test_assembly_sequence_permit_pqc.py"
       ],
       "verification_procedure": [
-        "Run the original and PQC test files separately.",
-        "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+        "Run both original and PQC test modules and verify authorize_assembly_operation success, policy rejection, and unchanged state on rejection.",
+        "Run the batch path/schema validator and inspect generated evidence."
       ],
       "difficulty": "medium",
       "original_build_status": "passed",

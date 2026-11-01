@@ -5,6 +5,14 @@ from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 
 class ProductionScrapVoucher:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self, path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -29,3 +37,18 @@ class ProductionScrapVoucher:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def authorize_wip_scrap(self, record_id, **decision):
+        # Apply the ProductionScrapVoucher business decision and retain signed evidence.
+        serials=decision['serials']
+        authorized_quantity=decision['authorized_quantity']
+        disposition_code=decision['disposition_code']
+        quality_public=decision['quality_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('scrap voucher must be reviewed before authorization')
+        if not isinstance(serials,list) or not serials or any(not isinstance(x,str) or not x.strip() for x in serials): raise ValueError('serialized work-in-process units are required')
+        if len(set(serials))!=len(serials): raise ValueError('a serialized unit cannot be scrapped twice on one voucher')
+        if type(authorized_quantity) is not int or authorized_quantity<1 or len(serials)>authorized_quantity: raise ValueError('scrap quantity exceeds production-order authorization')
+        if not disposition_code or not disposition_code.strip(): raise ValueError('quality disposition is required')
+        if not self.verify_approval(record_id,quality_public): raise PermissionError('quality scrap authorization signature is invalid')
+        return self._commit_domain_decision(record,'released','wip_scrap_authorized',{'workcell_id':record['workcell_id'],'serials':serials,'quantity':len(serials),'disposition':disposition_code})

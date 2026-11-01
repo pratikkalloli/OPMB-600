@@ -5,6 +5,14 @@ from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 
 class ToolWearForecastCase:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self, path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -29,3 +37,19 @@ class ToolWearForecastCase:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def decide_tool_wear_disposition(self, record_id, **decision):
+        # Apply the ToolWearForecastCase business decision and retain signed evidence.
+        safe_limit=decision['safe_limit']
+        disposition=decision['disposition']
+        replacement_serial=decision['replacement_serial']
+        maintenance_public=decision['maintenance_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('wear case must be reviewed before disposition')
+        if type(safe_limit) is not int or not 0<=safe_limit<=1000: raise ValueError('safe wear limit must be in the measured scale')
+        if disposition=='return_to_service' and record['measured_value']>safe_limit: raise ValueError('worn tool exceeds the safe return-to-service limit')
+        if disposition not in {'return_to_service','replace_and_retire'}: raise ValueError('unsupported tool maintenance disposition')
+        if disposition=='replace_and_retire' and not replacement_serial: raise ValueError('replacement serial is required before retiring worn tool')
+        if not self.verify_approval(record_id,maintenance_public): raise PermissionError('maintenance disposition signature is invalid')
+        next_state='released' if disposition=='return_to_service' else 'retired'
+        return self._commit_domain_decision(record,next_state,'tool_wear_disposition_decided',{'wear_measurement':record['measured_value'],'safe_limit':safe_limit,'disposition':disposition,'replacement_serial':replacement_serial})

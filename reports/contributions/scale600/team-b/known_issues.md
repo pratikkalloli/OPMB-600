@@ -1,6 +1,7 @@
 # Known issues and remaining work
 
-- Implemented and tested 180/180 applications and 1800/1,800 tasks; 0 applications and 0 tasks remain.
-- No independent acceptance review has occurred; tasks remain candidate.
-- Dedicated cryptographic/static security scanners were not executed; the recorded secret-pattern scan is limited and is not a security review.
-- GitHub push and pull-request delivery are deferred until all batches and the full audit pass.
+- Domain-specific workflows have been implemented and tested for REPO-241–260 only. REPO-261–420 (160 applications and 1,600 task records) remain generic under the current audit and require purpose-driven implementation and tests.
+- The automated internal domain evidence check is heuristic and not independent acceptance review. Its passing result is not security or quality certification.
+- The 2,240 aggregate passing tests include historical tests for apps that still lack domain-specific workflows; passing generic tests does not close the remediation gap.
+- Dedicated cryptographic/static security scanners, formal verification, and independent review were not performed.
+- Push and pull-request delivery are deferred until all application quality and final audit checks pass.

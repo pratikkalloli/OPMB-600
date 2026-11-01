@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_release_packaging_artwork_enforces_packaging_artwork_release_policy(tmp_path):
+    from packaging_artwork_release.service import PackagingArtworkRelease
+    record=dict(RECORD,state='reviewed'); app=PackagingArtworkRelease(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.release_packaging_artwork(record['record_id'], revision='ART-255-R2', approved_revisions={'ART-255-R2'}, market='US', authorized_markets={'US', 'CA'}, artwork_digest='a'*64, regulatory_clearance=True, release_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_release_packaging_artwork_rejects_packaging_artwork_release_policy_violation_without_transition(tmp_path):
+    from packaging_artwork_release.service import PackagingArtworkRelease
+    record=dict(RECORD,state='reviewed'); app=PackagingArtworkRelease(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.release_packaging_artwork(record['record_id'], revision='ART-255-R1', approved_revisions={'ART-255-R2'}, market='US', authorized_markets={'US'}, artwork_digest='a'*64, regulatory_clearance=True, release_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

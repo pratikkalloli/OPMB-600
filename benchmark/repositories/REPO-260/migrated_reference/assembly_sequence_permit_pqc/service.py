@@ -3,6 +3,14 @@ import json, sqlite3
 from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 class AssemblySequencePermitPQC:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self,path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -27,3 +35,19 @@ class AssemblySequencePermitPQC:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def authorize_assembly_operation(self, record_id, **decision):
+        # Apply the AssemblySequencePermit business decision and retain signed evidence.
+        required_operations=decision['required_operations']
+        completed_operations=decision['completed_operations']
+        next_sequence=decision['next_sequence']
+        production_public=decision['production_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('assembly permit must be reviewed before operation authorization')
+        required=set(required_operations); completed=set(completed_operations)
+        if not required or not required.issubset(completed): raise ValueError('all predecessor assembly operations must be recorded')
+        if len(completed_operations)!=len(completed): raise ValueError('duplicate predecessor operation evidence is not accepted')
+        if type(next_sequence) is not int or next_sequence!=record['sequence']+1: raise ValueError('assembly operation sequence is not the immediate successor')
+        if record['event_count']!=len(completed): raise ValueError('permit predecessor count does not match recorded operation count')
+        if not self.verify_approval(record_id,production_public): raise PermissionError('production-control permit signature is invalid')
+        return self._commit_domain_decision(record,'released','assembly_operation_authorized',{'workcell_id':record['workcell_id'],'required_operations':sorted(required),'completed_operations':sorted(completed),'authorized_sequence':next_sequence})

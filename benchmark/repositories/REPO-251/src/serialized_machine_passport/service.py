@@ -5,6 +5,14 @@ from .domain import validate_record, transition_record, canonical_record
 from .crypto import sign_record, verify_record
 
 class SerializedMachinePassport:
+    def _commit_domain_decision(self, record, next_state, event_type, evidence):
+        updated=transition_record(record,next_state)
+        with sqlite3.connect(self.path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS workflow_events(event_id INTEGER PRIMARY KEY AUTOINCREMENT, record_id TEXT NOT NULL, event_type TEXT NOT NULL, previous_state TEXT NOT NULL, next_state TEXT NOT NULL, evidence TEXT NOT NULL)")
+            db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(updated,sort_keys=True),record['record_id']))
+            db.execute("INSERT INTO workflow_events(record_id,event_type,previous_state,next_state,evidence) VALUES(?,?,?,?,?)",(record['record_id'],event_type,record['state'],next_state,json.dumps(evidence,sort_keys=True)))
+        return updated
+
     def __init__(self, path):
         self.path=str(path)
         with sqlite3.connect(self.path) as db:
@@ -29,3 +37,18 @@ class SerializedMachinePassport:
         record=transition_record(self.retrieve(record_id),state)
         with sqlite3.connect(self.path) as db: db.execute("UPDATE records SET body=? WHERE record_id=?",(json.dumps(record,sort_keys=True),record_id))
         return record
+
+    def transfer_machine_custody(self, record_id, **decision):
+        # Apply the SerializedMachinePassport business decision and retain signed evidence.
+        current_custodian=decision['current_custodian']
+        new_custodian=decision['new_custodian']
+        expected_sequence=decision['expected_sequence']
+        maintenance_digest=decision['maintenance_digest']
+        passport_public=decision['passport_public']
+        record=self.retrieve(record_id)
+        if record['state']!='reviewed': raise ValueError('passport must be reviewed before custody transfer')
+        if type(expected_sequence) is not int or record['sequence']!=expected_sequence: raise ValueError('passport event sequence is stale')
+        if not isinstance(new_custodian,str) or not new_custodian.strip() or new_custodian==current_custodian: raise ValueError('custodian transfer must identify a different named owner')
+        if not isinstance(maintenance_digest,str) or len(maintenance_digest)!=64 or any(c not in '0123456789abcdef' for c in maintenance_digest): raise ValueError('maintenance attestation must be a SHA-256 digest')
+        if not self.verify_approval(record_id,passport_public): raise PermissionError('current custodian passport signature is invalid')
+        return self._commit_domain_decision(record,'released','machine_custody_transferred',{'from':current_custodian,'to':new_custodian,'sequence':expected_sequence,'maintenance_digest':maintenance_digest})

@@ -11,10 +11,12 @@
   "source_files": [
     "src/fixture_inspection_schedule/domain.py",
     "src/fixture_inspection_schedule/crypto.py",
-    "src/fixture_inspection_schedule/service.py"
+    "src/fixture_inspection_schedule/service.py",
+    "migrated_reference/fixture_inspection_schedule_pqc/service.py",
+    "migrated_reference/fixture_inspection_schedule_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_fixture_for_inspection"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and revision_epoch semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Tracks fixture inspection intervals and blocks production use when inspection evidence is overdue.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind fixture_inspection_schedule version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_fixture_inspection_schedule_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify release_fixture_for_inspection success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

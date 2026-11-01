@@ -1,5 +1,7 @@
-# Team B implementation report (checkpoint)
+# Team B implementation report — remediation checkpoint
 
-Implemented and locally tested 180 applications and 1800 task specifications, in batches 01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18. Original and PQC pytest results total 2200: 2200 passed, 0 failed, 0 skipped.
+The assigned inventory remains structurally complete at 180 applications and 1,800 task records. Batch 01 (REPO-241–250) and Batch 02 (REPO-251–260) now have domain-specific decision operations in separate original and PQC service layers, with tests for successful decisions and policy rejection.
 
-The full assignment remains incomplete: 0 applications and 0 tasks remain unimplemented. No task is marked accepted; independent review has not occurred. Delivery is deferred until all batches and the final audit pass.
+The two remediated batches were run as 40 original/PQC pytest suites with 320 tests passed, 0 failed, and 0 skipped. The aggregate recorded suite inventory is 360 suites and 2,240 tests passed, 0 failed, and 0 skipped. The other 160 apps' prior test results do not establish domain-workflow adequacy.
+
+The full audit is structurally passed but incomplete: 20/180 apps pass the current internal domain evidence check, 160 remain. The contribution is not ready for delivery. Tasks remain candidate; no task is accepted. Independent review and dedicated cryptographic security scanning have not occurred.

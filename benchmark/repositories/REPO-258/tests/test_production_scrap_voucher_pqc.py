@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_authorize_wip_scrap_enforces_production_scrap_voucher_policy(tmp_path):
+    from migrated_reference.production_scrap_voucher_pqc.service import ProductionScrapVoucherPQC
+    record=dict(RECORD,state='reviewed'); app=ProductionScrapVoucherPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.authorize_wip_scrap(record['record_id'], serials=['WIP-258-A', 'WIP-258-B'], authorized_quantity=2, disposition_code='NCR-258-SCRAP', quality_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_authorize_wip_scrap_rejects_production_scrap_voucher_policy_violation_without_transition(tmp_path):
+    from migrated_reference.production_scrap_voucher_pqc.service import ProductionScrapVoucherPQC
+    record=dict(RECORD,state='reviewed'); app=ProductionScrapVoucherPQC(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.authorize_wip_scrap(record['record_id'], serials=['WIP-258-A', 'WIP-258-A'], authorized_quantity=2, disposition_code='NCR-258-SCRAP', quality_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

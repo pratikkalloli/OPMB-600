@@ -11,10 +11,12 @@
   "source_files": [
     "src/packaging_artwork_release/domain.py",
     "src/packaging_artwork_release/crypto.py",
-    "src/packaging_artwork_release/service.py"
+    "src/packaging_artwork_release/service.py",
+    "migrated_reference/packaging_artwork_release_pqc/service.py",
+    "migrated_reference/packaging_artwork_release_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "release_packaging_artwork"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and review_class semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Controls the approved artwork revision and market destination before a packaging line can print labels.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind packaging_artwork_release version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_packaging_artwork_release_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify release_packaging_artwork success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

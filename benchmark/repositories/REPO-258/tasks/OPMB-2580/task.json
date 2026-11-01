@@ -11,10 +11,12 @@
   "source_files": [
     "src/production_scrap_voucher/domain.py",
     "src/production_scrap_voucher/crypto.py",
-    "src/production_scrap_voucher/service.py"
+    "src/production_scrap_voucher/service.py",
+    "migrated_reference/production_scrap_voucher_pqc/service.py",
+    "migrated_reference/production_scrap_voucher_pqc/service.py"
   ],
   "function_names": [
-    "transition_record"
+    "authorize_wip_scrap"
   ],
   "migration_family": "digital signature migration",
   "migration_target": "ML-DSA-65",
@@ -24,9 +26,9 @@
     "All workflow data is synthetic."
   ],
   "expected_behavior": [
-    "Preserve workcell_id and authorization_code semantics.",
-    "Reject malformed inputs, altered payloads and wrong keys.",
-    "Reject unsupported algorithm and envelope versions."
+    "Enforce Authorizes scrapping a quantity of serialized work in process and preserves the quality disposition.",
+    "Record an application-specific signed decision with an atomic state and workflow-event update.",
+    "Reject policy violations without changing the record state."
   ],
   "migration_requirements": [
     "Bind production_scrap_voucher version and application context into cryptographic operations.",
@@ -40,8 +42,8 @@
     "tests/test_production_scrap_voucher_pqc.py"
   ],
   "verification_procedure": [
-    "Run the original and PQC test files separately.",
-    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+    "Run both original and PQC test modules and verify authorize_wip_scrap success, policy rejection, and unchanged state on rejection.",
+    "Run the batch path/schema validator and inspect generated evidence."
   ],
   "difficulty": "medium",
   "original_build_status": "passed",

@@ -53,3 +53,21 @@ def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
     moved=app.advance(RECORD["record_id"],'reviewed')
     assert moved["state"]!='draft'
     assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_reconcile_torque_readings_enforces_torque_audit_ledger_policy(tmp_path):
+    from torque_audit_ledger.service import TorqueAuditLedger
+    record=dict(RECORD,state='reviewed'); app=TorqueAuditLedger(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    result=app.reconcile_torque_readings(record['record_id'], production_job='JOB-252', readings=[{'measured': 12, 'low': 10, 'high': 14}, {'measured': 16, 'low': 10, 'high': 14, 'disposition': 'recalibrate'}], quality_public=signer.public_key())
+    assert result['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state FROM workflow_events').fetchone()
+    assert event[0] and event[1:] == ('reviewed','released')
+
+def test_reconcile_torque_readings_rejects_torque_audit_ledger_policy_violation_without_transition(tmp_path):
+    from torque_audit_ledger.service import TorqueAuditLedger
+    record=dict(RECORD,state='reviewed'); app=TorqueAuditLedger(tmp_path/'domain.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises((ValueError,PermissionError)):
+        app.reconcile_torque_readings(record['record_id'], production_job='JOB-252', readings=[{'measured': 16, 'low': 10, 'high': 14}], quality_public=signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'
