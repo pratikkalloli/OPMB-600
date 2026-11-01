@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0453",
+  "repository_id": "REPO-046",
+  "repository_name": "SBOMSign",
+  "application_domain": "sbom_sign",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Domain decision signing",
+  "source_files": [
+    "src/sbom_sign/service.py"
+  ],
+  "function_names": [
+    "sign_sbom_release_decision"
+  ],
+  "migration_family": "RSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate domain decision signatures from RSA-PSS/SHA-256 to ML-DSA-65 while preserving canonical bytes and domain separation. SBOMSign workflow: Software bill-of-material release records with artifact digest, supplier identity, serial format, and signing state. Domain-specific invariants: SBOM release requires a lowercase SHA-256 artifact digest and supported serial format. The task concerns fields bom_id, artifact_digest, supplier_id, serial_format, created_at, verification_state and legal transitions draft -> signed -> revoked.",
+  "preconditions": [
+    "The SBOMSign baseline tests pass before migration.",
+    "All sbom_release records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve SBOMSign domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_sbom_sign.py"
+  ],
+  "migration_tests": [
+    "tests/test_sbom_sign_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_sbom_sign.py for the baseline suite.",
+    "Run tests/test_sbom_sign_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-046/tasks/OPMB-0453",
+  "reference_path": "benchmark/repositories/REPO-046/migrated_reference/sbom_sign_pqc",
+  "task_title": "SBOMSign: Sign a domain decision",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B3"
+}

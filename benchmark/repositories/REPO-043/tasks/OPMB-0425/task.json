@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0425",
+  "repository_id": "REPO-043",
+  "repository_name": "PhotoVault",
+  "application_domain": "photo_vault",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Recipient key-establishment provisioning",
+  "source_files": [
+    "src/photo_vault/service.py"
+  ],
+  "function_names": [
+    "generate_photo_object_recipient_keypair"
+  ],
+  "migration_family": "RSA encryption and key-wrapping redesign",
+  "migration_target": "ML-KEM-768",
+  "migration_objective": "Replace RSA recipient keys with ML-KEM-768 keys without reusing decision-signing keys. PhotoVault workflow: Photo object lifecycle with owner, content digest, classification, retention, and explicit sharing state. Domain-specific invariants: Photo retention must be positive and classification must use the vault policy vocabulary. The task concerns fields photo_id, owner_id, content_digest, classification, retention_days, lifecycle and legal transitions private -> shared -> revoked -> expired.",
+  "preconditions": [
+    "The PhotoVault baseline tests pass before migration.",
+    "All photo_object records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve PhotoVault domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_photo_vault.py"
+  ],
+  "migration_tests": [
+    "tests/test_photo_vault_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_photo_vault.py for the baseline suite.",
+    "Run tests/test_photo_vault_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-043/tasks/OPMB-0425",
+  "reference_path": "benchmark/repositories/REPO-043/migrated_reference/photo_vault_pqc",
+  "task_title": "PhotoVault: Generate recipient key pairs",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B3"
+}

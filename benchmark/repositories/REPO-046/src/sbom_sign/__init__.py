@@ -1,0 +1,1 @@
+"""SBOMSign classical baseline."""

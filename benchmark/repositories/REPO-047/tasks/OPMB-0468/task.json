@@ -1,0 +1,66 @@
+{
+  "task_id": "OPMB-0468",
+  "repository_id": "REPO-047",
+  "repository_name": "SecureForms",
+  "application_domain": "secure_forms",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Recipient key serialization compatibility",
+  "source_files": [
+    "src/secure_forms/service.py"
+  ],
+  "function_names": [
+    "encode_form_submission_recipient_public",
+    "load_form_submission_recipient_public"
+  ],
+  "migration_family": "API, dependency and compatibility migration",
+  "migration_target": "ML-KEM-768",
+  "migration_objective": "Replace RSA PEM serialization with the pinned provider raw ML-KEM-768 public-key encoding and update consumers. SecureForms workflow: Form submissions binding schema version, submitter reference, consent version, and processing lifecycle. Domain-specific invariants: Submission schema version must be positive and consent version must be present. The task concerns fields form_id, submission_id, submitter_ref, schema_version, received_at, consent_version, processing_state and legal transitions received -> validated -> sealed -> rejected.",
+  "preconditions": [
+    "The SecureForms baseline tests pass before migration.",
+    "All form_submission records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve SecureForms domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_secure_forms.py"
+  ],
+  "migration_tests": [
+    "tests/test_secure_forms_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_secure_forms.py for the baseline suite.",
+    "Run tests/test_secure_forms_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-047/tasks/OPMB-0468",
+  "reference_path": "benchmark/repositories/REPO-047/migrated_reference/secure_forms_pqc",
+  "task_title": "SecureForms: Encode recipient public-key material",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B3"
+}
