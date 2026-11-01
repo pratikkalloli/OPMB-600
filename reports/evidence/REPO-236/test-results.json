@@ -1,0 +1,51 @@
+{
+  "repository_id": "REPO-236",
+  "application": "franchise_royalty_report",
+  "captured_at_utc": "2026-11-01T11:29:51.641782+00:00",
+  "environment": {
+    "python": "Python 3.11.9",
+    "pytest": "pytest 8.4.2"
+  },
+  "original_suite": {
+    "kind": "original",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_franchise_royalty_report.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-236",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 4.04s\n"
+  },
+  "pqc_reference_suite": {
+    "kind": "pqc_reference",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_franchise_royalty_report_pqc.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-236",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 0.47s\n"
+  }
+}

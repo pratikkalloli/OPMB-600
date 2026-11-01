@@ -1,9 +1,9 @@
 {
   "result": "passed",
   "repositories_planned": 180,
-  "repositories_with_implementation": 170,
+  "repositories_with_implementation": 180,
   "tasks_planned": 1800,
-  "tasks_with_definition": 1700,
+  "tasks_with_definition": 1800,
   "tasks_by_repository": {
     "REPO-061": 10,
     "REPO-062": 10,
@@ -174,7 +174,17 @@
     "REPO-227": 10,
     "REPO-228": 10,
     "REPO-229": 10,
-    "REPO-230": 10
+    "REPO-230": 10,
+    "REPO-231": 10,
+    "REPO-232": 10,
+    "REPO-233": 10,
+    "REPO-234": 10,
+    "REPO-235": 10,
+    "REPO-236": 10,
+    "REPO-237": 10,
+    "REPO-238": 10,
+    "REPO-239": 10,
+    "REPO-240": 10
   },
   "errors": []
 }
