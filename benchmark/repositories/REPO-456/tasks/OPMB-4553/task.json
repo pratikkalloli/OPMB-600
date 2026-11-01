@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-4553",
+  "repository_id": "REPO-456",
+  "repository_name": "SourcePackageAttestation",
+  "application_domain": "source_package_publication_attestations",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "PQC key generation for sourcepackageattestation",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/sourcepackageattestation/crypto.py",
+    "src/sourcepackageattestation/service.py"
+  ],
+  "function_names": [
+    "generate_signer"
+  ],
+  "migration_family": "PQC key generation",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "SourcePackageAttestation: Replace P-256 signer generation for sourcepackageattestation issuers with ML-DSA-65 key generation.",
+  "preconditions": [
+    "SourcePackageAttestation baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate PQC key generation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve SourcePackageAttestation canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_sourcepackageattestation.py"
+  ],
+  "migration_tests": [
+    "tests/test_sourcepackageattestation_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-456/tasks/OPMB-4553",
+  "reference_path": "benchmark/repositories/REPO-456/migrated_reference/sourcepackageattestation_pqc",
+  "original_test_evidence": "reports/evidence/REPO-456/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-456/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-456/post-migration-scan.json"
+}

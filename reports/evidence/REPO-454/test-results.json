@@ -1,0 +1,38 @@
+{
+  "repository_id": "REPO-454",
+  "application": "DeveloperSigningRoster",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-454/tests/test_developersigningroster.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-454\\original",
+      "started_at": "2026-11-01T16:41:21.739974+05:30",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ".....                                                                    [100%]\n5 passed in 0.15s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-454/tests/test_developersigningroster_pqc.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-454\\pqc_reference",
+      "started_at": "2026-11-01T16:41:22.244748+05:30",
+      "exit_code": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "......                                                                   [100%]\n6 passed in 0.16s"
+    }
+  ],
+  "scanner": {
+    "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe pqc_agent/scanner/scan_python.py benchmark/repositories/REPO-454/migrated_reference",
+    "exit_code": 0,
+    "findings": 0,
+    "scope_limit": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+  }
+}

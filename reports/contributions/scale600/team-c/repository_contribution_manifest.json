@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 30,
+  "implemented_application_count": 40,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -362,6 +362,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-450/test-results.json"
+    },
+    {
+      "repository_id": "REPO-451",
+      "name": "BuildArtifactEnvelope",
+      "application_domain": "build_artifact_signing",
+      "path": "benchmark/repositories/REPO-451",
+      "purpose": "Manage build artifact envelope evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-451/test-results.json"
+    },
+    {
+      "repository_id": "REPO-452",
+      "name": "DependencyMirrorWitness",
+      "application_domain": "dependency_registry_mirror_witnesses",
+      "path": "benchmark/repositories/REPO-452",
+      "purpose": "Manage dependency mirror witness evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-452/test-results.json"
+    },
+    {
+      "repository_id": "REPO-453",
+      "name": "CIWorkerEnrollment",
+      "application_domain": "ci_worker_enrollment_records",
+      "path": "benchmark/repositories/REPO-453",
+      "purpose": "Manage c i worker enrollment evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-453/test-results.json"
+    },
+    {
+      "repository_id": "REPO-454",
+      "name": "DeveloperSigningRoster",
+      "application_domain": "developer_signing_rosters",
+      "path": "benchmark/repositories/REPO-454",
+      "purpose": "Manage developer signing roster evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-454/test-results.json"
+    },
+    {
+      "repository_id": "REPO-455",
+      "name": "ReleaseProvenanceLog",
+      "application_domain": "software_release_provenance_logs",
+      "path": "benchmark/repositories/REPO-455",
+      "purpose": "Manage release provenance log evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-455/test-results.json"
+    },
+    {
+      "repository_id": "REPO-456",
+      "name": "SourcePackageAttestation",
+      "application_domain": "source_package_publication_attestations",
+      "path": "benchmark/repositories/REPO-456",
+      "purpose": "Manage source package attestation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-456/test-results.json"
+    },
+    {
+      "repository_id": "REPO-457",
+      "name": "DeploymentPlanApproval",
+      "application_domain": "deployment_change_plan_approvals",
+      "path": "benchmark/repositories/REPO-457",
+      "purpose": "Manage deployment plan approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-457/test-results.json"
+    },
+    {
+      "repository_id": "REPO-458",
+      "name": "UpdateChannelManifest",
+      "application_domain": "software_update_channel_manifests",
+      "path": "benchmark/repositories/REPO-458",
+      "purpose": "Manage update channel manifest evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-458/test-results.json"
+    },
+    {
+      "repository_id": "REPO-459",
+      "name": "BuildCacheIntegrity",
+      "application_domain": "build_cache_integrity_receipts",
+      "path": "benchmark/repositories/REPO-459",
+      "purpose": "Manage build cache integrity evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-459/test-results.json"
+    },
+    {
+      "repository_id": "REPO-460",
+      "name": "PipelineStepIdentity",
+      "application_domain": "ci_pipeline_step_identities",
+      "path": "benchmark/repositories/REPO-460",
+      "purpose": "Manage pipeline step identity evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-460/test-results.json"
     }
   ]
 }
