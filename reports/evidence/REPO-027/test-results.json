@@ -1,0 +1,51 @@
+{
+  "repository_id": "REPO-027",
+  "application": "geodispatch",
+  "captured_at_utc": "2026-11-01T10:29:39.899469+00:00",
+  "environment": {
+    "python": "Python 3.11.9",
+    "pytest": "pytest 8.4.2"
+  },
+  "original_suite": {
+    "kind": "original",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_geodispatch.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-027",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 3.37s\n"
+  },
+  "pqc_reference_suite": {
+    "kind": "pqc_reference",
+    "command": [
+      "python",
+      "-m",
+      "pytest",
+      "tests/test_geodispatch_pqc.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-027",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 0.36s\n"
+  }
+}

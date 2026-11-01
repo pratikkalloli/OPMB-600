@@ -1,0 +1,62 @@
+{
+  "task_id": "OPMB-0208",
+  "repository_id": "REPO-021",
+  "repository_name": "mailguard",
+  "application_domain": "secure_email_envelopes",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS; RSA-OAEP with AES-256-GCM",
+  "cryptographic_operation": "hybrid authenticated encryption",
+  "source_files": [
+    "src/mailguard/workflow.py",
+    "src/mailguard/crypto.py"
+  ],
+  "function_names": [
+    "seal_mail_envelope_payload"
+  ],
+  "migration_family": "hybrid key establishment",
+  "migration_target": "ML-KEM-768, HKDF-SHA-256, and AES-256-GCM envelope",
+  "migration_objective": "Within MailGuard's secure email envelopes and attachments workflow, migrate confidential delivery from the RSA baseline to ML-KEM-768, HKDF-SHA-256, and AES-256-GCM envelope, preserving the application contract and rejecting invalid or downgraded inputs.",
+  "preconditions": [
+    "The original MailGuard application tests pass.",
+    "The application record satisfies the documented domain policy.",
+    "No real personal, financial, or production data is used."
+  ],
+  "expected_behavior": [
+    "Preserve MailGuard's domain workflow and validation rules.",
+    "Reject malformed, wrong-purpose, stale, tampered, or context-mismatched cryptographic inputs.",
+    "Keep signing and transport keys distinct."
+  ],
+  "migration_requirements": [
+    "Use the pinned cryptography provider and standardized FIPS 203 ML-KEM-768 / FIPS 204 ML-DSA-65 APIs.",
+    "Use ML-KEM only for key establishment; derive AES-256-GCM content keys with HKDF-SHA-256.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_mailguard.py::test_task_0208_hybrid_envelope_authenticates_context_and_recipient"
+  ],
+  "migration_tests": [
+    "tests/test_mailguard_pqc.py::test_task_0208_hybrid_envelope_authenticates_context_and_recipient"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_mailguard.py -q` from `REPO-021` using the pinned root environment.",
+    "Run `python -m pytest tests/test_mailguard_pqc.py -q` from `REPO-021` using the pinned root environment.",
+    "Review the linked application evidence for actual exit codes and per-suite counts."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; persistent private-key custody is outside this benchmark application.",
+    "Candidate task only; independent review and acceptance are pending."
+  ],
+  "created_by": "OPMB-600-team-a",
+  "task_path": "benchmark/repositories/REPO-021/tasks/OPMB-0208",
+  "reference_path": "benchmark/repositories/REPO-021/migrated_reference/mailguard_pqc",
+  "original_test_evidence": "reports/evidence/REPO-021/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-021/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-021/test-results.json"
+}
