@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 50,
+  "implemented_application_count": 60,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -602,6 +602,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-470/test-results.json"
+    },
+    {
+      "repository_id": "REPO-471",
+      "name": "FeatureFlagRelease",
+      "application_domain": "signed_cloud_feature_flag_releases",
+      "path": "benchmark/repositories/REPO-471",
+      "purpose": "Manage feature flag release evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-471/test-results.json"
+    },
+    {
+      "repository_id": "REPO-472",
+      "name": "ArtifactRetentionLease",
+      "application_domain": "software_artifact_retention_leases",
+      "path": "benchmark/repositories/REPO-472",
+      "purpose": "Manage artifact retention lease evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-472/test-results.json"
+    },
+    {
+      "repository_id": "REPO-473",
+      "name": "BuildFarmKeyRotation",
+      "application_domain": "build_farm_signing_key_rotations",
+      "path": "benchmark/repositories/REPO-473",
+      "purpose": "Manage build farm key rotation evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-473/test-results.json"
+    },
+    {
+      "repository_id": "REPO-474",
+      "name": "ReleaseRollbackPermit",
+      "application_domain": "software_release_rollback_permits",
+      "path": "benchmark/repositories/REPO-474",
+      "purpose": "Manage release rollback permit evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-474/test-results.json"
+    },
+    {
+      "repository_id": "REPO-475",
+      "name": "ModuleRegistryMirror",
+      "application_domain": "software_module_registry_mirror_receipts",
+      "path": "benchmark/repositories/REPO-475",
+      "purpose": "Manage module registry mirror evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-475/test-results.json"
+    },
+    {
+      "repository_id": "REPO-476",
+      "name": "VulnerabilityWaiverSeal",
+      "application_domain": "dependency_vulnerability_waivers",
+      "path": "benchmark/repositories/REPO-476",
+      "purpose": "Manage vulnerability waiver seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-476/test-results.json"
+    },
+    {
+      "repository_id": "REPO-477",
+      "name": "BuildGraphSignature",
+      "application_domain": "build_graph_root_signatures",
+      "path": "benchmark/repositories/REPO-477",
+      "purpose": "Manage build graph signature evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-477/test-results.json"
+    },
+    {
+      "repository_id": "REPO-478",
+      "name": "ReproducibleBuildWitness",
+      "application_domain": "reproducible_build_witnesses",
+      "path": "benchmark/repositories/REPO-478",
+      "purpose": "Manage reproducible build witness evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-478/test-results.json"
+    },
+    {
+      "repository_id": "REPO-479",
+      "name": "DeveloperDeviceEnrollment",
+      "application_domain": "developer_device_enrollment_records",
+      "path": "benchmark/repositories/REPO-479",
+      "purpose": "Manage developer device enrollment evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-479/test-results.json"
+    },
+    {
+      "repository_id": "REPO-480",
+      "name": "DeploymentDriftRecord",
+      "application_domain": "deployment_configuration_drift_records",
+      "path": "benchmark/repositories/REPO-480",
+      "purpose": "Manage deployment drift record evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-480/test-results.json"
     }
   ]
 }

@@ -32,5 +32,3 @@ class RunAttestationPQCStore:
 
     def deactivate(self, record_id: str) -> bool:
         with sqlite3.connect(self.path) as db: return db.execute("UPDATE records SET active=0 WHERE record_id=? AND active=1",(record_id,)).rowcount==1
-
-

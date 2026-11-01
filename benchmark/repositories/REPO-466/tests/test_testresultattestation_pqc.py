@@ -37,5 +37,3 @@ def test_record_identifier_is_bound_to_signed_claim(tmp_path):
 def test_malformed_public_key_rejected():
     import pytest
     with pytest.raises(ValueError): load_public_key(b'bad-key')
-
-

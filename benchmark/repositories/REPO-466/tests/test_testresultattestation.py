@@ -33,5 +33,3 @@ def test_record_identifier_is_bound_to_signed_claim(tmp_path):
     key=generate_signer(); store=RunAttestationStore(tmp_path/'record-id.db'); claims=sample(); store.issue(claims,key)
     with sqlite3.connect(store.path) as db: db.execute("UPDATE records SET record_id=?",('different-row-id',))
     assert not store.verify('different-row-id',key.public_key())
-
-
