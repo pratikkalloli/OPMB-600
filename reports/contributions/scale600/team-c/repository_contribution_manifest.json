@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 90,
+  "implemented_application_count": 100,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -1082,6 +1082,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-510/test-results.json"
+    },
+    {
+      "repository_id": "REPO-511",
+      "name": "EditorialApprovalChain",
+      "application_domain": "digital_publishing_editorial_approval_chains",
+      "path": "benchmark/repositories/REPO-511",
+      "purpose": "Manage editorial approval chain evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-511/test-results.json"
+    },
+    {
+      "repository_id": "REPO-512",
+      "name": "PressEmbargoPermit",
+      "application_domain": "press_embargo_publication_permits",
+      "path": "benchmark/repositories/REPO-512",
+      "purpose": "Manage press embargo permit evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-512/test-results.json"
+    },
+    {
+      "repository_id": "REPO-513",
+      "name": "MediaAssetOriginSeal",
+      "application_domain": "media_asset_origin_seals",
+      "path": "benchmark/repositories/REPO-513",
+      "purpose": "Manage media asset origin seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-513/test-results.json"
+    },
+    {
+      "repository_id": "REPO-514",
+      "name": "StreamingLicenseGrant",
+      "application_domain": "digital_streaming_license_grants",
+      "path": "benchmark/repositories/REPO-514",
+      "purpose": "Manage streaming license grant evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-514/test-results.json"
+    },
+    {
+      "repository_id": "REPO-515",
+      "name": "ArtworkCustodyTransfer",
+      "application_domain": "digital_artwork_custody_transfers",
+      "path": "benchmark/repositories/REPO-515",
+      "purpose": "Manage artwork custody transfer evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-515/test-results.json"
+    },
+    {
+      "repository_id": "REPO-516",
+      "name": "CaptionRevisionApproval",
+      "application_domain": "media_caption_revision_approvals",
+      "path": "benchmark/repositories/REPO-516",
+      "purpose": "Manage caption revision approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-516/test-results.json"
+    },
+    {
+      "repository_id": "REPO-517",
+      "name": "PodcastEpisodeRelease",
+      "application_domain": "podcast_episode_release_records",
+      "path": "benchmark/repositories/REPO-517",
+      "purpose": "Manage podcast episode release evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-517/test-results.json"
+    },
+    {
+      "repository_id": "REPO-518",
+      "name": "PhotoUsageClearance",
+      "application_domain": "photography_usage_clearances",
+      "path": "benchmark/repositories/REPO-518",
+      "purpose": "Manage photo usage clearance evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-518/test-results.json"
+    },
+    {
+      "repository_id": "REPO-519",
+      "name": "PrintEditionManifest",
+      "application_domain": "digital_print_edition_manifests",
+      "path": "benchmark/repositories/REPO-519",
+      "purpose": "Manage print edition manifest evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-519/test-results.json"
+    },
+    {
+      "repository_id": "REPO-520",
+      "name": "NewsCorrectionLedger",
+      "application_domain": "digital_news_correction_ledger",
+      "path": "benchmark/repositories/REPO-520",
+      "purpose": "Manage news correction ledger evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-520/test-results.json"
     }
   ]
 }
