@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 120,
+  "implemented_application_count": 130,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -1442,6 +1442,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-540/test-results.json"
+    },
+    {
+      "repository_id": "REPO-541",
+      "name": "WorkspaceMemberGrant",
+      "application_domain": "collaboration_workspace_member_grants",
+      "path": "benchmark/repositories/REPO-541",
+      "purpose": "Manage workspace member grant evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-541/test-results.json"
+    },
+    {
+      "repository_id": "REPO-542",
+      "name": "MeetingDecisionLedger",
+      "application_domain": "collaboration_meeting_decision_ledgers",
+      "path": "benchmark/repositories/REPO-542",
+      "purpose": "Manage meeting decision ledger evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-542/test-results.json"
+    },
+    {
+      "repository_id": "REPO-543",
+      "name": "SharedBoardRevisionSeal",
+      "application_domain": "collaboration_shared_board_revision_seals",
+      "path": "benchmark/repositories/REPO-543",
+      "purpose": "Manage shared board revision seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-543/test-results.json"
+    },
+    {
+      "repository_id": "REPO-544",
+      "name": "TeamMessageReceipt",
+      "application_domain": "team_channel_message_receipts",
+      "path": "benchmark/repositories/REPO-544",
+      "purpose": "Manage team message receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-544/test-results.json"
+    },
+    {
+      "repository_id": "REPO-545",
+      "name": "DocumentCommentResolution",
+      "application_domain": "collaboration_document_comment_resolutions",
+      "path": "benchmark/repositories/REPO-545",
+      "purpose": "Manage document comment resolution evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-545/test-results.json"
+    },
+    {
+      "repository_id": "REPO-546",
+      "name": "ProjectHandoffApproval",
+      "application_domain": "collaboration_project_handoff_approvals",
+      "path": "benchmark/repositories/REPO-546",
+      "purpose": "Manage project handoff approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-546/test-results.json"
+    },
+    {
+      "repository_id": "REPO-547",
+      "name": "TaskDelegationPermit",
+      "application_domain": "collaboration_task_delegation_permits",
+      "path": "benchmark/repositories/REPO-547",
+      "purpose": "Manage task delegation permit evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-547/test-results.json"
+    },
+    {
+      "repository_id": "REPO-548",
+      "name": "WhiteboardSnapshotSeal",
+      "application_domain": "collaboration_whiteboard_snapshot_seals",
+      "path": "benchmark/repositories/REPO-548",
+      "purpose": "Manage whiteboard snapshot seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-548/test-results.json"
+    },
+    {
+      "repository_id": "REPO-549",
+      "name": "ContactDirectoryDelta",
+      "application_domain": "organization_contact_directory_deltas",
+      "path": "benchmark/repositories/REPO-549",
+      "purpose": "Manage contact directory delta evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-549/test-results.json"
+    },
+    {
+      "repository_id": "REPO-550",
+      "name": "GroupKeyEpochNotice",
+      "application_domain": "collaboration_group_key_epoch_notices",
+      "path": "benchmark/repositories/REPO-550",
+      "purpose": "Manage group key epoch notice evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-550/test-results.json"
     }
   ]
 }
