@@ -1,0 +1,1 @@
+"""CarrierInterconnectReceipt original application."""

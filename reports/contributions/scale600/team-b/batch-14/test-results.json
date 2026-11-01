@@ -1,0 +1,337 @@
+{
+  "batch": 14,
+  "recorded_utc": "2026-11-01T12:11:15.104091+00:00",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "dependencies": {
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "jsonschema": "4.25.1"
+  },
+  "applications": [
+    {
+      "repository_id": "REPO-371",
+      "application_name": "DNSSECKeyCeremony",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_d_n_s_s_e_c_key_ceremony.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-371/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-371",
+          "started_utc": "2026-11-01T12:10:43.497767+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-371/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-371/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_d_n_s_s_e_c_key_ceremony_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-371/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-371",
+          "started_utc": "2026-11-01T12:10:45.601684+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-371/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-371/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-372",
+      "application_name": "ServiceChainActivation",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_service_chain_activation.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-372/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-372",
+          "started_utc": "2026-11-01T12:10:46.781956+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-372/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-372/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_service_chain_activation_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-372/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-372",
+          "started_utc": "2026-11-01T12:10:49.111182+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-372/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-372/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-373",
+      "application_name": "NetworkChangeWindow",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_network_change_window.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-373/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-373",
+          "started_utc": "2026-11-01T12:10:50.229064+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-373/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-373/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_network_change_window_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-373/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-373",
+          "started_utc": "2026-11-01T12:10:52.202716+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-373/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-373/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-374",
+      "application_name": "CarrierInterconnectReceipt",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carrier_interconnect_receipt.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-374/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-374",
+          "started_utc": "2026-11-01T12:10:53.240632+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-374/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-374/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carrier_interconnect_receipt_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-374/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-374",
+          "started_utc": "2026-11-01T12:10:55.274840+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-374/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-374/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-375",
+      "application_name": "BGPCommunityApproval",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_b_g_p_community_approval.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-375/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-375",
+          "started_utc": "2026-11-01T12:10:56.405163+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-375/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-375/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_b_g_p_community_approval_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-375/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-375",
+          "started_utc": "2026-11-01T12:10:58.416516+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-375/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-375/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-376",
+      "application_name": "OLTProfileRelease",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_o_l_t_profile_release.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-376/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-376",
+          "started_utc": "2026-11-01T12:10:59.422944+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-376/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-376/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_o_l_t_profile_release_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-376/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-376",
+          "started_utc": "2026-11-01T12:11:01.613838+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-376/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-376/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-377",
+      "application_name": "BaseStationClockAttestation",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_base_station_clock_attestation.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-377/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-377",
+          "started_utc": "2026-11-01T12:11:02.630601+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-377/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-377/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_base_station_clock_attestation_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-377/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-377",
+          "started_utc": "2026-11-01T12:11:05.298021+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-377/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-377/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-378",
+      "application_name": "QoSContractRevision",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_qo_s_contract_revision.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-378/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-378",
+          "started_utc": "2026-11-01T12:11:06.381506+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-378/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-378/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_qo_s_contract_revision_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-378/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-378",
+          "started_utc": "2026-11-01T12:11:08.204723+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-378/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-378/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-379",
+      "application_name": "RoamingPartnerProfile",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_roaming_partner_profile.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-379/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-379",
+          "started_utc": "2026-11-01T12:11:09.313879+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-379/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-379/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_roaming_partner_profile_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-379/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-379",
+          "started_utc": "2026-11-01T12:11:11.081304+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-379/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-379/pqc-junit.xml"
+        }
+      ]
+    },
+    {
+      "repository_id": "REPO-380",
+      "application_name": "SyntheticInterceptAudit",
+      "suites": [
+        {
+          "suite": "original",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_synthetic_intercept_audit.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-380/original-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-380",
+          "started_utc": "2026-11-01T12:11:12.098469+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-380/original-pytest.log",
+          "junit_xml": "reports/evidence/REPO-380/original-junit.xml"
+        },
+        {
+          "suite": "pqc",
+          "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_synthetic_intercept_audit_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-380/pqc-junit.xml",
+          "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-380",
+          "started_utc": "2026-11-01T12:11:14.029235+00:00",
+          "exit_code": 0,
+          "tests": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0,
+          "log": "reports/evidence/REPO-380/pqc-pytest.log",
+          "junit_xml": "reports/evidence/REPO-380/pqc-junit.xml"
+        }
+      ]
+    }
+  ],
+  "total_suites": 20,
+  "total_tests": 120,
+  "total_passed": 120,
+  "total_failed": 0,
+  "total_skipped": 0
+}

@@ -1,0 +1,1 @@
+"""SyntheticInterceptAudit original application."""
