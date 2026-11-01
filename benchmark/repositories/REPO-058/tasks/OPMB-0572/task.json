@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0572",
+  "repository_id": "REPO-058",
+  "repository_name": "BackupVault",
+  "application_domain": "synthetic_encrypted_backup_and_restore",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Provision RSA backup manifest signer identities",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/backupvault/crypto.py"
+  ],
+  "function_names": [
+    "generate_signer"
+  ],
+  "migration_family": "RSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Replace RSA signer generation with ML-DSA-65 key pairs.",
+  "preconditions": [
+    "BackupVault baseline tests pass.",
+    "Backup owners and snapshot contents are synthetic."
+  ],
+  "expected_behavior": [
+    "Only the matching active owner can restore a backup encrypted to that owner.",
+    "Backup generations increase monotonically and duplicate IDs fail.",
+    "The signed manifest authenticates owner, generation, and ciphertext digest."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 with a BackupVault manifest context.",
+    "Use ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM for recipient encryption.",
+    "Update serialized key formats and integrations without classical fallback."
+  ],
+  "original_tests": [
+    "tests/test_backupvault.py"
+  ],
+  "migration_tests": [
+    "tests/test_backupvault_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run baseline and PQC suites independently.",
+    "Test snapshot roundtrip, generation rollback, wrong owner, inactive owner, missing backup, duplicate ID, and serialization."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic backup service only; not an enterprise backup or disaster-recovery certification."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-058/tasks/OPMB-0572",
+  "reference_path": "benchmark/repositories/REPO-058/migrated_reference/backupvault_pqc",
+  "original_test_evidence": "reports/evidence/REPO-058/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-058/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-058/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-058/post-migration-scan.json"
+}

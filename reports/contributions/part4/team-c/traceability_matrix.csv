@@ -99,3 +99,13 @@ OPMB-0567,REPO-057,src/capabilitygate/service.py,issue,tests/test_capabilitygate
 OPMB-0568,REPO-057,src/capabilitygate/service.py,revoke,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
 OPMB-0569,REPO-057,src/capabilitygate/service.py,authorize,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
 OPMB-0570,REPO-057,src/capabilitygate/service.py,status,tests/test_capabilitygate.py,tests/test_capabilitygate_pqc.py,reports/evidence/REPO-057/test-results.json,candidate
+OPMB-0571,REPO-058,src/backupvault/crypto.py,canonical_manifest,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0572,REPO-058,src/backupvault/crypto.py,generate_signer,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0573,REPO-058,src/backupvault/crypto.py,sign_manifest,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0574,REPO-058,src/backupvault/crypto.py,verify_manifest,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0575,REPO-058,src/backupvault/crypto.py,generate_recipient,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0576,REPO-058,src/backupvault/crypto.py,seal_backup,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0577,REPO-058,src/backupvault/crypto.py,export_signer,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0578,REPO-058,src/backupvault/crypto.py,load_signer,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0579,REPO-058,src/backupvault/service.py,create_backup,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate
+OPMB-0580,REPO-058,src/backupvault/service.py,restore,tests/test_backupvault.py,tests/test_backupvault_pqc.py,reports/evidence/REPO-058/test-results.json,candidate

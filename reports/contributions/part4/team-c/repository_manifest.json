@@ -239,6 +239,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-057/test-results.json"
+    },
+    {
+      "repository_id": "REPO-058",
+      "name": "BackupVault",
+      "application_domain": "synthetic_encrypted_backup_and_restore",
+      "path": "benchmark/repositories/REPO-058",
+      "purpose": "Synthetic owner-bound encrypted backups with signed manifests and monotonic generation enforcement.",
+      "task_ids": [
+        "OPMB-0571",
+        "OPMB-0572",
+        "OPMB-0573",
+        "OPMB-0574",
+        "OPMB-0575",
+        "OPMB-0576",
+        "OPMB-0577",
+        "OPMB-0578",
+        "OPMB-0579",
+        "OPMB-0580"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-058/test-results.json"
     }
   ]
 }

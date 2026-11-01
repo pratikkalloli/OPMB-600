@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-058",
+  "application": "BackupVault",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_backupvault.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_backupvault_pqc.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "RSA-PSS/X25519 baseline and ML-DSA/ML-KEM reference",
+    "encrypted snapshot roundtrip",
+    "monotonic generation rejection",
+    "wrong owner rejection",
+    "inactive owner rejection",
+    "unique backup ID enforcement"
+  ],
+  "limitations": [
+    "Synthetic backup records only.",
+    "Tests are not formal cryptographic proofs or recovery guarantees."
+  ]
+}
