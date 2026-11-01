@@ -119,6 +119,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-052/test-results.json"
+    },
+    {
+      "repository_id": "REPO-053",
+      "name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "path": "benchmark/repositories/REPO-053",
+      "purpose": "Synthetic device enrollment and signed firmware release rollout with family, bootloader, and anti-rollback checks.",
+      "task_ids": [
+        "OPMB-0521",
+        "OPMB-0522",
+        "OPMB-0523",
+        "OPMB-0524",
+        "OPMB-0525",
+        "OPMB-0526",
+        "OPMB-0527",
+        "OPMB-0528",
+        "OPMB-0529",
+        "OPMB-0530"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-053/test-results.json"
     }
   ]
 }

@@ -3039,6 +3039,616 @@
       "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0521",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Canonicalize a device firmware release manifest",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "canonical_manifest"
+      ],
+      "migration_family": "Cryptographic protocol canonicalization",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve deterministic family, version, image digest, and minimum-bootloader binding.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0521",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0522",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Provision an RSA firmware release signing key",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "generate_release_signer"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA signing identities with standardized ML-DSA-65 keys for firmware authority.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0522",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0523",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Sign firmware release metadata using RSA-PSS",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "sign_release"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate release-manifest attestation to ML-DSA-65 with a dedicated context string.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0523",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0524",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Verify a signed release before installation",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "verify_release"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA-65 verification and reject altered manifests or signatures from an unknown authority.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0524",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0525",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Serialize an RSA release authority key as PEM",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "serialize_signer_public"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace PEM RSA key transport with raw ML-DSA public-key encoding and update device tooling.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0525",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0526",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Load a serialized RSA release authority key",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/crypto.py"
+      ],
+      "function_names": [
+        "load_signer_public"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Strictly decode ML-DSA public-key bytes and reject incompatible encodings.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0526",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0527",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Register a device family, bootloader, and active firmware version",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/service.py"
+      ],
+      "function_names": [
+        "enroll_device"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Keep enrollment semantics compatible with the migrated release verification interface.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0527",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0528",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Publish a signed firmware image and policy manifest",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/service.py"
+      ],
+      "function_names": [
+        "publish_release"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Store the exact release fields and signature produced by the ML-DSA migration.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0528",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0529",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Authorize device installation of a signed release",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/service.py"
+      ],
+      "function_names": [
+        "install_release"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Verify ML-DSA authenticity, family, bootloader floor, and monotonic version before updating device state.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0529",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0530",
+      "repository_id": "REPO-053",
+      "repository_name": "FirmwareFleet",
+      "application_domain": "synthetic_iot_firmware_rollout",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256",
+      "cryptographic_operation": "Read current device firmware version",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/firmwarefleet/service.py"
+      ],
+      "function_names": [
+        "device_version"
+      ],
+      "migration_family": "API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve rollout status API behavior after signature key migration.",
+      "preconditions": [
+        "FirmwareFleet baseline tests pass.",
+        "Device identities and firmware images are synthetic."
+      ],
+      "expected_behavior": [
+        "Install only authentic releases for the enrolled device family.",
+        "Reject rollback versions and releases requiring a newer bootloader.",
+        "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+      ],
+      "migration_requirements": [
+        "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
+        "Update public-key serialization and all verification callers; do not fall back to RSA.",
+        "Preserve monotonic device rollout checks and fail closed."
+      ],
+      "original_tests": [
+        "tests/test_firmwarefleet.py"
+      ],
+      "migration_tests": [
+        "tests/test_firmwarefleet_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and migrated test modules independently.",
+        "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0530",
+      "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+      "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-053/post-migration-scan.json"
     }
   ]
 }

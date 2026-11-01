@@ -49,3 +49,13 @@ OPMB-0517,REPO-052,src/clearingdesk/crypto.py,generate_desk_keypair,tests/test_c
 OPMB-0518,REPO-052,src/clearingdesk/crypto.py,seal_transfer,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
 OPMB-0519,REPO-052,src/clearingdesk/service.py,approve_instruction,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
 OPMB-0520,REPO-052,src/clearingdesk/service.py,settle_instruction,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0521,REPO-053,src/firmwarefleet/crypto.py,canonical_manifest,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0522,REPO-053,src/firmwarefleet/crypto.py,generate_release_signer,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0523,REPO-053,src/firmwarefleet/crypto.py,sign_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0524,REPO-053,src/firmwarefleet/crypto.py,verify_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0525,REPO-053,src/firmwarefleet/crypto.py,serialize_signer_public,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0526,REPO-053,src/firmwarefleet/crypto.py,load_signer_public,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0527,REPO-053,src/firmwarefleet/service.py,enroll_device,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0528,REPO-053,src/firmwarefleet/service.py,publish_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0529,REPO-053,src/firmwarefleet/service.py,install_release,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate
+OPMB-0530,REPO-053,src/firmwarefleet/service.py,device_version,tests/test_firmwarefleet.py,tests/test_firmwarefleet_pqc.py,reports/evidence/REPO-053/test-results.json,candidate

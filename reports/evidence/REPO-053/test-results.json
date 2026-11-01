@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-053",
+  "application": "FirmwareFleet",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_firmwarefleet.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_firmwarefleet_pqc.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "RSA-PSS baseline and ML-DSA-65 release signatures",
+    "firmware family mismatch rejection",
+    "rollback version rejection",
+    "wrong signer rejection",
+    "release key serialization roundtrip",
+    "malformed manifest rejection"
+  ],
+  "limitations": [
+    "Synthetic firmware workflow only.",
+    "Tests do not constitute secure boot certification or formal cryptographic proofs."
+  ]
+}
