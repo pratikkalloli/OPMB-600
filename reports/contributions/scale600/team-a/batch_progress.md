@@ -9,7 +9,7 @@
 | 05 | REPO-101–REPO-110 | 100 | 100 | 100 | passed |
 | 06 | REPO-111–REPO-120 | 100 | 100 | 100 | passed |
 | 07 | REPO-121–REPO-130 | 100 | 100 | 100 | passed |
-| 08 | REPO-131–REPO-140 | 100 | 0 | 0 | pending |
+| 08 | REPO-131–REPO-140 | 100 | 100 | 100 | passed |
 | 09 | REPO-141–REPO-150 | 100 | 0 | 0 | pending |
 | 10 | REPO-151–REPO-160 | 100 | 0 | 0 | pending |
 | 11 | REPO-161–REPO-170 | 100 | 0 | 0 | pending |
