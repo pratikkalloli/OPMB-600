@@ -1,0 +1,1 @@
+"""RobotMissionReceipt original application."""

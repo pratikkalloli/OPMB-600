@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-291",
+    "name": "DeviceTrustRenewal",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-291",
+    "purpose": "Renews device trust after periodic evidence collection and rejects expired attestation windows.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2901",
+      "OPMB-2902",
+      "OPMB-2903",
+      "OPMB-2904",
+      "OPMB-2905",
+      "OPMB-2906",
+      "OPMB-2907",
+      "OPMB-2908",
+      "OPMB-2909",
+      "OPMB-2910"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/device_trust_renewal/domain.py",
+      "src/device_trust_renewal/crypto.py",
+      "src/device_trust_renewal/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-292",
+    "name": "MicrocontrollerBuildProof",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-292",
+    "purpose": "Records compiler, source revision, and reproducible build digest for a microcontroller image.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2911",
+      "OPMB-2912",
+      "OPMB-2913",
+      "OPMB-2914",
+      "OPMB-2915",
+      "OPMB-2916",
+      "OPMB-2917",
+      "OPMB-2918",
+      "OPMB-2919",
+      "OPMB-2920"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/microcontroller_build_proof/domain.py",
+      "src/microcontroller_build_proof/crypto.py",
+      "src/microcontroller_build_proof/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-293",
+    "name": "CameraPrivacyZone",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-293",
+    "purpose": "Distributes approved privacy masks and retention rules to cameras assigned to a physical zone.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2921",
+      "OPMB-2922",
+      "OPMB-2923",
+      "OPMB-2924",
+      "OPMB-2925",
+      "OPMB-2926",
+      "OPMB-2927",
+      "OPMB-2928",
+      "OPMB-2929",
+      "OPMB-2930"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/camera_privacy_zone/domain.py",
+      "src/camera_privacy_zone/crypto.py",
+      "src/camera_privacy_zone/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-294",
+    "name": "HomeEnergyDeviceCommission",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-294",
+    "purpose": "Commissions synthetic home energy equipment and binds it to an installer and premises.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2931",
+      "OPMB-2932",
+      "OPMB-2933",
+      "OPMB-2934",
+      "OPMB-2935",
+      "OPMB-2936",
+      "OPMB-2937",
+      "OPMB-2938",
+      "OPMB-2939",
+      "OPMB-2940"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/home_energy_device_commission/domain.py",
+      "src/home_energy_device_commission/crypto.py",
+      "src/home_energy_device_commission/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-295",
+    "name": "SecureBLEPairingBook",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-295",
+    "purpose": "Records bluetooth pairing authorization and session expiry for a named embedded device pair.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2941",
+      "OPMB-2942",
+      "OPMB-2943",
+      "OPMB-2944",
+      "OPMB-2945",
+      "OPMB-2946",
+      "OPMB-2947",
+      "OPMB-2948",
+      "OPMB-2949",
+      "OPMB-2950"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/secure_b_l_e_pairing_book/domain.py",
+      "src/secure_b_l_e_pairing_book/crypto.py",
+      "src/secure_b_l_e_pairing_book/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-296",
+    "name": "FleetCertificateRotation",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-296",
+    "purpose": "Rotates device fleet certificates in cohorts and tracks overlap and retirement windows.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2951",
+      "OPMB-2952",
+      "OPMB-2953",
+      "OPMB-2954",
+      "OPMB-2955",
+      "OPMB-2956",
+      "OPMB-2957",
+      "OPMB-2958",
+      "OPMB-2959",
+      "OPMB-2960"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/fleet_certificate_rotation/domain.py",
+      "src/fleet_certificate_rotation/crypto.py",
+      "src/fleet_certificate_rotation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-297",
+    "name": "RobotMissionReceipt",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-297",
+    "purpose": "Captures robot mission intent, completion status, and signed exception evidence.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2961",
+      "OPMB-2962",
+      "OPMB-2963",
+      "OPMB-2964",
+      "OPMB-2965",
+      "OPMB-2966",
+      "OPMB-2967",
+      "OPMB-2968",
+      "OPMB-2969",
+      "OPMB-2970"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/robot_mission_receipt/domain.py",
+      "src/robot_mission_receipt/crypto.py",
+      "src/robot_mission_receipt/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-298",
+    "name": "IoTDataRetentionPolicy",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-298",
+    "purpose": "Assigns retention and deletion schedules to device data classes with an auditable policy revision.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2971",
+      "OPMB-2972",
+      "OPMB-2973",
+      "OPMB-2974",
+      "OPMB-2975",
+      "OPMB-2976",
+      "OPMB-2977",
+      "OPMB-2978",
+      "OPMB-2979",
+      "OPMB-2980"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/io_t_data_retention_policy/domain.py",
+      "src/io_t_data_retention_policy/crypto.py",
+      "src/io_t_data_retention_policy/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-299",
+    "name": "LowPowerNetworkJoin",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-299",
+    "purpose": "Authorizes low-power sensor network attachment with a site, join epoch, and duty-cycle profile.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2981",
+      "OPMB-2982",
+      "OPMB-2983",
+      "OPMB-2984",
+      "OPMB-2985",
+      "OPMB-2986",
+      "OPMB-2987",
+      "OPMB-2988",
+      "OPMB-2989",
+      "OPMB-2990"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/low_power_network_join/domain.py",
+      "src/low_power_network_join/crypto.py",
+      "src/low_power_network_join/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-300",
+    "name": "SensorAnomalyWitness",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-300",
+    "purpose": "Preserves an anomalous sensor interval with calibration and provenance context for review.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2991",
+      "OPMB-2992",
+      "OPMB-2993",
+      "OPMB-2994",
+      "OPMB-2995",
+      "OPMB-2996",
+      "OPMB-2997",
+      "OPMB-2998",
+      "OPMB-2999",
+      "OPMB-3000"
+    ],
+    "batch": 6,
+    "main_modules": [
+      "src/sensor_anomaly_witness/domain.py",
+      "src/sensor_anomaly_witness/crypto.py",
+      "src/sensor_anomaly_witness/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

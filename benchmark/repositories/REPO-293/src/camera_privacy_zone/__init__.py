@@ -1,0 +1,1 @@
+"""CameraPrivacyZone original application."""

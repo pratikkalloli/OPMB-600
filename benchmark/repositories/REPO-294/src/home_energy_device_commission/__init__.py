@@ -1,0 +1,1 @@
+"""HomeEnergyDeviceCommission original application."""

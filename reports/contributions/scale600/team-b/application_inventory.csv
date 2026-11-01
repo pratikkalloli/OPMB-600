@@ -49,16 +49,16 @@ REPO-287,FieldGatewayBridge,"B2 IoT, embedded devices and robotics",benchmark/re
 REPO-288,FirmwareRollbackPermit,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-288,10,candidate,tested
 REPO-289,SensorBatchProvenance,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-289,10,candidate,tested
 REPO-290,RobotToolingIdentity,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-290,10,candidate,tested
-REPO-291,DeviceTrustRenewal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-291,10,candidate,planned
-REPO-292,MicrocontrollerBuildProof,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-292,10,candidate,planned
-REPO-293,CameraPrivacyZone,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-293,10,candidate,planned
-REPO-294,HomeEnergyDeviceCommission,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-294,10,candidate,planned
-REPO-295,SecureBLEPairingBook,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-295,10,candidate,planned
-REPO-296,FleetCertificateRotation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-296,10,candidate,planned
-REPO-297,RobotMissionReceipt,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-297,10,candidate,planned
-REPO-298,IoTDataRetentionPolicy,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-298,10,candidate,planned
-REPO-299,LowPowerNetworkJoin,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-299,10,candidate,planned
-REPO-300,SensorAnomalyWitness,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-300,10,candidate,planned
+REPO-291,DeviceTrustRenewal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-291,10,candidate,tested
+REPO-292,MicrocontrollerBuildProof,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-292,10,candidate,tested
+REPO-293,CameraPrivacyZone,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-293,10,candidate,tested
+REPO-294,HomeEnergyDeviceCommission,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-294,10,candidate,tested
+REPO-295,SecureBLEPairingBook,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-295,10,candidate,tested
+REPO-296,FleetCertificateRotation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-296,10,candidate,tested
+REPO-297,RobotMissionReceipt,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-297,10,candidate,tested
+REPO-298,IoTDataRetentionPolicy,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-298,10,candidate,tested
+REPO-299,LowPowerNetworkJoin,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-299,10,candidate,tested
+REPO-300,SensorAnomalyWitness,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-300,10,candidate,tested
 REPO-301,MeterReadCycle,B3 Energy and utilities,benchmark/repositories/REPO-301,10,candidate,planned
 REPO-302,RenewableOutputCertificate,B3 Energy and utilities,benchmark/repositories/REPO-302,10,candidate,planned
 REPO-303,FeederSwitchingOrder,B3 Energy and utilities,benchmark/repositories/REPO-303,10,candidate,planned
