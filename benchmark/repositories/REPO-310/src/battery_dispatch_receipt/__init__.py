@@ -1,0 +1,1 @@
+"""BatteryDispatchReceipt original application."""

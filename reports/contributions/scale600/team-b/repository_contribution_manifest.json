@@ -73,6 +73,18 @@
       "REPO-298",
       "REPO-299",
       "REPO-300"
+    ],
+    "batch-07": [
+      "REPO-301",
+      "REPO-302",
+      "REPO-303",
+      "REPO-304",
+      "REPO-305",
+      "REPO-306",
+      "REPO-307",
+      "REPO-308",
+      "REPO-309",
+      "REPO-310"
     ]
   },
   "repositories": [
@@ -2460,6 +2472,406 @@
         "src/sensor_anomaly_witness/domain.py",
         "src/sensor_anomaly_witness/crypto.py",
         "src/sensor_anomaly_witness/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-301",
+      "name": "MeterReadCycle",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-301",
+      "purpose": "Closes a utility meter-reading cycle with interval completeness and authorized correction records.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3001",
+        "OPMB-3002",
+        "OPMB-3003",
+        "OPMB-3004",
+        "OPMB-3005",
+        "OPMB-3006",
+        "OPMB-3007",
+        "OPMB-3008",
+        "OPMB-3009",
+        "OPMB-3010"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/meter_read_cycle/domain.py",
+        "src/meter_read_cycle/crypto.py",
+        "src/meter_read_cycle/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-302",
+      "name": "RenewableOutputCertificate",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-302",
+      "purpose": "Attests renewable generator output for a defined meter interval and plant identity.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3011",
+        "OPMB-3012",
+        "OPMB-3013",
+        "OPMB-3014",
+        "OPMB-3015",
+        "OPMB-3016",
+        "OPMB-3017",
+        "OPMB-3018",
+        "OPMB-3019",
+        "OPMB-3020"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/renewable_output_certificate/domain.py",
+        "src/renewable_output_certificate/crypto.py",
+        "src/renewable_output_certificate/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-303",
+      "name": "FeederSwitchingOrder",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-303",
+      "purpose": "Approves a feeder switching sequence with prerequisite checks and operator acknowledgements.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3021",
+        "OPMB-3022",
+        "OPMB-3023",
+        "OPMB-3024",
+        "OPMB-3025",
+        "OPMB-3026",
+        "OPMB-3027",
+        "OPMB-3028",
+        "OPMB-3029",
+        "OPMB-3030"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/feeder_switching_order/domain.py",
+        "src/feeder_switching_order/crypto.py",
+        "src/feeder_switching_order/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-304",
+      "name": "TransformerOilSample",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-304",
+      "purpose": "Tracks transformer oil sample custody, laboratory results, and maintenance disposition.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3031",
+        "OPMB-3032",
+        "OPMB-3033",
+        "OPMB-3034",
+        "OPMB-3035",
+        "OPMB-3036",
+        "OPMB-3037",
+        "OPMB-3038",
+        "OPMB-3039",
+        "OPMB-3040"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/transformer_oil_sample/domain.py",
+        "src/transformer_oil_sample/crypto.py",
+        "src/transformer_oil_sample/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-305",
+      "name": "DemandResponseEnrollment",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-305",
+      "purpose": "Enrolls a customer resource in a demand-response event with capacity and opt-out bounds.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3041",
+        "OPMB-3042",
+        "OPMB-3043",
+        "OPMB-3044",
+        "OPMB-3045",
+        "OPMB-3046",
+        "OPMB-3047",
+        "OPMB-3048",
+        "OPMB-3049",
+        "OPMB-3050"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/demand_response_enrollment/domain.py",
+        "src/demand_response_enrollment/crypto.py",
+        "src/demand_response_enrollment/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-306",
+      "name": "MicrogridIslandEvent",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-306",
+      "purpose": "Records islanding and reconnection transitions for a microgrid with synchronism evidence.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3051",
+        "OPMB-3052",
+        "OPMB-3053",
+        "OPMB-3054",
+        "OPMB-3055",
+        "OPMB-3056",
+        "OPMB-3057",
+        "OPMB-3058",
+        "OPMB-3059",
+        "OPMB-3060"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/microgrid_island_event/domain.py",
+        "src/microgrid_island_event/crypto.py",
+        "src/microgrid_island_event/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-307",
+      "name": "GridTopologySnapshot",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-307",
+      "purpose": "Signs a versioned distribution topology snapshot used by a simulation's switching planner.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3061",
+        "OPMB-3062",
+        "OPMB-3063",
+        "OPMB-3064",
+        "OPMB-3065",
+        "OPMB-3066",
+        "OPMB-3067",
+        "OPMB-3068",
+        "OPMB-3069",
+        "OPMB-3070"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/grid_topology_snapshot/domain.py",
+        "src/grid_topology_snapshot/crypto.py",
+        "src/grid_topology_snapshot/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-308",
+      "name": "TurbineMaintenanceDossier",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-308",
+      "purpose": "Records wind turbine maintenance work, component serials, and post-service inspection.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3071",
+        "OPMB-3072",
+        "OPMB-3073",
+        "OPMB-3074",
+        "OPMB-3075",
+        "OPMB-3076",
+        "OPMB-3077",
+        "OPMB-3078",
+        "OPMB-3079",
+        "OPMB-3080"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/turbine_maintenance_dossier/domain.py",
+        "src/turbine_maintenance_dossier/crypto.py",
+        "src/turbine_maintenance_dossier/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-309",
+      "name": "SolarStringInspection",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-309",
+      "purpose": "Tracks photovoltaic string inspection measurements and corrective action before energization.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3081",
+        "OPMB-3082",
+        "OPMB-3083",
+        "OPMB-3084",
+        "OPMB-3085",
+        "OPMB-3086",
+        "OPMB-3087",
+        "OPMB-3088",
+        "OPMB-3089",
+        "OPMB-3090"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/solar_string_inspection/domain.py",
+        "src/solar_string_inspection/crypto.py",
+        "src/solar_string_inspection/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-310",
+      "name": "BatteryDispatchReceipt",
+      "application_domain": "B3 Energy and utilities",
+      "path": "benchmark/repositories/REPO-310",
+      "purpose": "Records a storage dispatch request, state-of-charge bounds, and metered response.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3091",
+        "OPMB-3092",
+        "OPMB-3093",
+        "OPMB-3094",
+        "OPMB-3095",
+        "OPMB-3096",
+        "OPMB-3097",
+        "OPMB-3098",
+        "OPMB-3099",
+        "OPMB-3100"
+      ],
+      "batch": 7,
+      "main_modules": [
+        "src/battery_dispatch_receipt/domain.py",
+        "src/battery_dispatch_receipt/crypto.py",
+        "src/battery_dispatch_receipt/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",

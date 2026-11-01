@@ -1,0 +1,1 @@
+"""GridTopologySnapshot original application."""

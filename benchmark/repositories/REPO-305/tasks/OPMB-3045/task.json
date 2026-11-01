@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3045",
+  "repository_id": "REPO-305",
+  "repository_name": "DemandResponseEnrollment",
+  "application_domain": "B3 Energy and utilities",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "verify_record for demand response enrollment workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/demand_response_enrollment/domain.py",
+    "src/demand_response_enrollment/crypto.py",
+    "src/demand_response_enrollment/service.py"
+  ],
+  "function_names": [
+    "verify_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate DemandResponseEnrollment verify a record signature and reject changed records from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Enrolls a customer resource in a demand-response event with capacity and opt-out bounds; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "DemandResponseEnrollment original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve asset_id and evidence_digest semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind demand_response_enrollment version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_demand_response_enrollment.py"
+  ],
+  "migration_tests": [
+    "tests/test_demand_response_enrollment_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-305/tasks/OPMB-3045",
+  "reference_path": "benchmark/repositories/REPO-305/migrated_reference/demand_response_enrollment_pqc",
+  "original_test_evidence": "reports/evidence/REPO-305/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-305/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-305/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-305/post-migration-scan.json"
+}

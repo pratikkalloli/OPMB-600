@@ -1,0 +1,1 @@
+"""BatteryDispatchReceipt separate PQC reference."""

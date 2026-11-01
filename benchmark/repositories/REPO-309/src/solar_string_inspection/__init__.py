@@ -1,0 +1,1 @@
+"""SolarStringInspection original application."""

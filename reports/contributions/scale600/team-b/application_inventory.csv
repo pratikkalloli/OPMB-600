@@ -59,16 +59,16 @@ REPO-297,RobotMissionReceipt,"B2 IoT, embedded devices and robotics",benchmark/r
 REPO-298,IoTDataRetentionPolicy,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-298,10,candidate,tested
 REPO-299,LowPowerNetworkJoin,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-299,10,candidate,tested
 REPO-300,SensorAnomalyWitness,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-300,10,candidate,tested
-REPO-301,MeterReadCycle,B3 Energy and utilities,benchmark/repositories/REPO-301,10,candidate,planned
-REPO-302,RenewableOutputCertificate,B3 Energy and utilities,benchmark/repositories/REPO-302,10,candidate,planned
-REPO-303,FeederSwitchingOrder,B3 Energy and utilities,benchmark/repositories/REPO-303,10,candidate,planned
-REPO-304,TransformerOilSample,B3 Energy and utilities,benchmark/repositories/REPO-304,10,candidate,planned
-REPO-305,DemandResponseEnrollment,B3 Energy and utilities,benchmark/repositories/REPO-305,10,candidate,planned
-REPO-306,MicrogridIslandEvent,B3 Energy and utilities,benchmark/repositories/REPO-306,10,candidate,planned
-REPO-307,GridTopologySnapshot,B3 Energy and utilities,benchmark/repositories/REPO-307,10,candidate,planned
-REPO-308,TurbineMaintenanceDossier,B3 Energy and utilities,benchmark/repositories/REPO-308,10,candidate,planned
-REPO-309,SolarStringInspection,B3 Energy and utilities,benchmark/repositories/REPO-309,10,candidate,planned
-REPO-310,BatteryDispatchReceipt,B3 Energy and utilities,benchmark/repositories/REPO-310,10,candidate,planned
+REPO-301,MeterReadCycle,B3 Energy and utilities,benchmark/repositories/REPO-301,10,candidate,tested
+REPO-302,RenewableOutputCertificate,B3 Energy and utilities,benchmark/repositories/REPO-302,10,candidate,tested
+REPO-303,FeederSwitchingOrder,B3 Energy and utilities,benchmark/repositories/REPO-303,10,candidate,tested
+REPO-304,TransformerOilSample,B3 Energy and utilities,benchmark/repositories/REPO-304,10,candidate,tested
+REPO-305,DemandResponseEnrollment,B3 Energy and utilities,benchmark/repositories/REPO-305,10,candidate,tested
+REPO-306,MicrogridIslandEvent,B3 Energy and utilities,benchmark/repositories/REPO-306,10,candidate,tested
+REPO-307,GridTopologySnapshot,B3 Energy and utilities,benchmark/repositories/REPO-307,10,candidate,tested
+REPO-308,TurbineMaintenanceDossier,B3 Energy and utilities,benchmark/repositories/REPO-308,10,candidate,tested
+REPO-309,SolarStringInspection,B3 Energy and utilities,benchmark/repositories/REPO-309,10,candidate,tested
+REPO-310,BatteryDispatchReceipt,B3 Energy and utilities,benchmark/repositories/REPO-310,10,candidate,tested
 REPO-311,UtilityCrewPermit,B3 Energy and utilities,benchmark/repositories/REPO-311,10,candidate,planned
 REPO-312,HydroReservoirRelease,B3 Energy and utilities,benchmark/repositories/REPO-312,10,candidate,planned
 REPO-313,SubstationRelaySetting,B3 Energy and utilities,benchmark/repositories/REPO-313,10,candidate,planned
