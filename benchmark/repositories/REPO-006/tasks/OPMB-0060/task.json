@@ -1,0 +1,57 @@
+{
+  "task_id": "OPMB-0060",
+  "repository_id": "REPO-006",
+  "repository_name": "CareLink",
+  "application_domain": "healthcare_messaging",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 OAEP/PSS",
+  "cryptographic_operation": "Cross-component migration and regression",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/carelink/crypto.py"
+  ],
+  "function_names": [
+    "operation_10"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-KEM-768 + ML-DSA-65",
+  "migration_objective": "Within CareLink's Confidential clinical message exchange with recipient key establishment and audit signatures, migrate the complete workflow across producer, storage, and verifier; cover success, corruption, downgrade, and lifecycle regressions.",
+  "preconditions": [
+    "Use synthetic benchmark records and fictional identities only.",
+    "The original baseline is in src/carelink/crypto.py."
+  ],
+  "expected_behavior": [
+    "Preserve the documented application workflow and caller-visible success/failure contract.",
+    "Reject malformed keys, corrupted data, and unsupported versions without fallback or secret disclosure."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+    "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+    "Update serialization, dependent call sites, and explicit key lifecycle handling."
+  ],
+  "original_tests": [
+    "tests/test_carelink.py"
+  ],
+  "migration_tests": [
+    "tests/test_carelink_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run python -m pytest from the application directory.",
+    "Verify positive workflow, wrong-key, malformed encoding, tampering, and downgrade rejection as applicable.",
+    "Record provider version and machine-readable output before changing evidence statuses."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate specification; reference migration and independent review remain pending.",
+    "Synthetic in-memory baseline is not production security guidance."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-006/tasks/OPMB-0060",
+  "reference_path": "benchmark/repositories/REPO-006/migrated_reference/carelink_pqc"
+}

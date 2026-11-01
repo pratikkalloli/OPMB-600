@@ -8,7 +8,7 @@ How do migration agents perform when replacing classical public-key cryptography
 
 ## Intended design
 
-The full benchmark targets 60 distinct applications and 600 tasks across nine application domains. Task families cover RSA signatures, RSA encryption/key wrapping redesign, ECDSA, ECDH, key management, API/dependency compatibility, and cross-component changes. Reference targets follow NIST FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), or FIPS 205 (SLH-DSA) where supported. The first implemented pilot is REPO-001 SecureVault (10 candidate tasks); see `docs/application_catalogue.md` and `reports/progress.md` for implemented and pending scope. No task is accepted yet.
+The benchmark currently contains 17 original, controlled applications and 170 candidate tasks across 17 application domains. Ten tasks are linked to each application. REPO-001 SecureVault, REPO-002 KeyLedger, and REPO-003 SecurePrint have executable reference migration suites with recorded results. REPO-004 through REPO-017 still have pending reference implementations and skipped placeholder tests (140 task references). No task is accepted yet. The full benchmark target is 60 applications and 600 tasks, leaving 43 applications and 430 tasks to complete. Task families cover RSA signatures, RSA encryption/key-wrapping redesign, key establishment, key management, API and dependency compatibility, and cross-component changes. Reference targets follow NIST FIPS 203 (ML-KEM), FIPS 204 (ML-DSA), or FIPS 205 (SLH-DSA) where supported. See `docs/application_catalogue.md` and `reports/progress.md` for current scope and validation state.
 
 ## Setup
 

@@ -1,0 +1,23 @@
+{
+  "repository_id": "REPO-003",
+  "original_tests": {
+    "status": "not_run",
+    "reason": "cryptography and pytest unavailable"
+  },
+  "pqc_reference_tests": {
+    "status": "not_run",
+    "reason": "cryptography and pytest unavailable"
+  },
+  "syntax_compilation": {
+    "status": "passed",
+    "command": "python -m compileall -q benchmark/repositories/REPO-003"
+  },
+  "test_counts": {
+    "original_passed": null,
+    "original_failed": null,
+    "reference_passed": null,
+    "reference_failed": null
+  },
+  "accepted_tasks": 0,
+  "candidate_tasks": 10
+}

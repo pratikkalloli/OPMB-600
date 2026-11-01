@@ -1,0 +1,57 @@
+{
+  "task_id": "OPMB-0045",
+  "repository_id": "REPO-005",
+  "repository_name": "FleetUpdate",
+  "application_domain": "secure_firmware_updates",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS",
+  "cryptographic_operation": "Recipient key establishment",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/fleetupdate/crypto.py"
+  ],
+  "function_names": [
+    "operation_05"
+  ],
+  "migration_family": "RSA encryption and key-wrapping redesign",
+  "migration_target": "ML-KEM-768 + HKDF + AES-256-GCM",
+  "migration_objective": "Within FleetUpdate's Signed firmware release manifests, staged rollout approvals, and device acknowledgements, replace RSA key transport with ML-KEM encapsulation, context-bound HKDF, and authenticated wrapping of a fresh data key.",
+  "preconditions": [
+    "Use synthetic benchmark records and fictional identities only.",
+    "The original baseline is in src/fleetupdate/crypto.py."
+  ],
+  "expected_behavior": [
+    "Preserve the documented application workflow and caller-visible success/failure contract.",
+    "Reject malformed keys, corrupted data, and unsupported versions without fallback or secret disclosure."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+    "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+    "Update serialization, dependent call sites, and explicit key lifecycle handling."
+  ],
+  "original_tests": [
+    "tests/test_fleetupdate.py"
+  ],
+  "migration_tests": [
+    "tests/test_fleetupdate_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run python -m pytest from the application directory.",
+    "Verify positive workflow, wrong-key, malformed encoding, tampering, and downgrade rejection as applicable.",
+    "Record provider version and machine-readable output before changing evidence statuses."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate specification; reference migration and independent review remain pending.",
+    "Synthetic in-memory baseline is not production security guidance."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-005/tasks/OPMB-0045",
+  "reference_path": "benchmark/repositories/REPO-005/migrated_reference/fleetupdate_pqc"
+}

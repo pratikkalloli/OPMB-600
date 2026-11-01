@@ -19,3 +19,153 @@ OPMB-0017,REPO-002,KeyLedger,key_management,"API, dependency and compatibility m
 OPMB-0018,REPO-002,KeyLedger,key_management,Cryptographic key management,ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
 OPMB-0019,REPO-002,KeyLedger,key_management,"API, dependency and compatibility migration",ML-KEM-768 and ML-DSA-65 with encrypted PKCS#8,medium,candidate
 OPMB-0020,REPO-002,KeyLedger,key_management,Cross-component cryptographic migration,ML-KEM-768 and ML-DSA-65,hard,candidate
+OPMB-0021,REPO-003,SecurePrint,secure_print_release,Cryptographic key management,ML-KEM-768,medium,candidate
+OPMB-0022,REPO-003,SecurePrint,secure_print_release,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0023,REPO-003,SecurePrint,secure_print_release,"API, dependency and compatibility migration",ML-KEM-768 SubjectPublicKeyInfo,medium,candidate
+OPMB-0024,REPO-003,SecurePrint,secure_print_release,"API, dependency and compatibility migration",ML-KEM-768,medium,candidate
+OPMB-0025,REPO-003,SecurePrint,secure_print_release,RSA encryption and key-wrapping redesign,"ML-KEM-768, HKDF-SHA-256, AES-256-GCM",medium,candidate
+OPMB-0026,REPO-003,SecurePrint,secure_print_release,Cross-component cryptographic migration,"ML-KEM-768, HKDF-SHA-256, AES-256-GCM",medium,candidate
+OPMB-0027,REPO-003,SecurePrint,secure_print_release,Cross-component cryptographic migration,ML-DSA-65 signed metadata compatibility,medium,candidate
+OPMB-0028,REPO-003,SecurePrint,secure_print_release,RSA digital signature migration,ML-DSA-65,hard,candidate
+OPMB-0029,REPO-003,SecurePrint,secure_print_release,Cross-component cryptographic migration,ML-DSA-65,hard,candidate
+OPMB-0030,REPO-003,SecurePrint,secure_print_release,"API, dependency and compatibility migration",Hex JSON ML-KEM encapsulation package,hard,candidate
+OPMB-0031,REPO-004,TrustBridge,service_identity,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0032,REPO-004,TrustBridge,service_identity,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0033,REPO-004,TrustBridge,service_identity,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0034,REPO-004,TrustBridge,service_identity,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0035,REPO-004,TrustBridge,service_identity,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0036,REPO-004,TrustBridge,service_identity,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0037,REPO-004,TrustBridge,service_identity,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0038,REPO-004,TrustBridge,service_identity,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0039,REPO-004,TrustBridge,service_identity,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0040,REPO-004,TrustBridge,service_identity,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0041,REPO-005,FleetUpdate,secure_firmware_updates,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0042,REPO-005,FleetUpdate,secure_firmware_updates,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0043,REPO-005,FleetUpdate,secure_firmware_updates,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0044,REPO-005,FleetUpdate,secure_firmware_updates,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0045,REPO-005,FleetUpdate,secure_firmware_updates,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0046,REPO-005,FleetUpdate,secure_firmware_updates,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0047,REPO-005,FleetUpdate,secure_firmware_updates,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0048,REPO-005,FleetUpdate,secure_firmware_updates,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0049,REPO-005,FleetUpdate,secure_firmware_updates,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0050,REPO-005,FleetUpdate,secure_firmware_updates,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0051,REPO-006,CareLink,healthcare_messaging,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0052,REPO-006,CareLink,healthcare_messaging,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0053,REPO-006,CareLink,healthcare_messaging,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0054,REPO-006,CareLink,healthcare_messaging,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0055,REPO-006,CareLink,healthcare_messaging,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0056,REPO-006,CareLink,healthcare_messaging,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0057,REPO-006,CareLink,healthcare_messaging,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0058,REPO-006,CareLink,healthcare_messaging,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0059,REPO-006,CareLink,healthcare_messaging,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0060,REPO-006,CareLink,healthcare_messaging,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0061,REPO-007,PayRoute,payment_routing,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0062,REPO-007,PayRoute,payment_routing,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0063,REPO-007,PayRoute,payment_routing,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0064,REPO-007,PayRoute,payment_routing,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0065,REPO-007,PayRoute,payment_routing,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0066,REPO-007,PayRoute,payment_routing,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0067,REPO-007,PayRoute,payment_routing,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0068,REPO-007,PayRoute,payment_routing,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0069,REPO-007,PayRoute,payment_routing,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0070,REPO-007,PayRoute,payment_routing,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0071,REPO-008,CodeSignHub,software_supply_chain,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0072,REPO-008,CodeSignHub,software_supply_chain,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0073,REPO-008,CodeSignHub,software_supply_chain,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0074,REPO-008,CodeSignHub,software_supply_chain,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0075,REPO-008,CodeSignHub,software_supply_chain,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0076,REPO-008,CodeSignHub,software_supply_chain,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0077,REPO-008,CodeSignHub,software_supply_chain,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0078,REPO-008,CodeSignHub,software_supply_chain,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0079,REPO-008,CodeSignHub,software_supply_chain,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0080,REPO-008,CodeSignHub,software_supply_chain,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0081,REPO-009,EdgeTunnel,secure_networking,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0082,REPO-009,EdgeTunnel,secure_networking,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0083,REPO-009,EdgeTunnel,secure_networking,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0084,REPO-009,EdgeTunnel,secure_networking,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0085,REPO-009,EdgeTunnel,secure_networking,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0086,REPO-009,EdgeTunnel,secure_networking,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0087,REPO-009,EdgeTunnel,secure_networking,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0088,REPO-009,EdgeTunnel,secure_networking,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0089,REPO-009,EdgeTunnel,secure_networking,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0090,REPO-009,EdgeTunnel,secure_networking,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0091,REPO-010,ArchiveSeal,records_archiving,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0092,REPO-010,ArchiveSeal,records_archiving,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0093,REPO-010,ArchiveSeal,records_archiving,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0094,REPO-010,ArchiveSeal,records_archiving,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0095,REPO-010,ArchiveSeal,records_archiving,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0096,REPO-010,ArchiveSeal,records_archiving,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0097,REPO-010,ArchiveSeal,records_archiving,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0098,REPO-010,ArchiveSeal,records_archiving,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0099,REPO-010,ArchiveSeal,records_archiving,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0100,REPO-010,ArchiveSeal,records_archiving,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0101,REPO-011,DevicePair,iot_device_enrollment,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0102,REPO-011,DevicePair,iot_device_enrollment,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0103,REPO-011,DevicePair,iot_device_enrollment,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0104,REPO-011,DevicePair,iot_device_enrollment,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0105,REPO-011,DevicePair,iot_device_enrollment,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0106,REPO-011,DevicePair,iot_device_enrollment,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0107,REPO-011,DevicePair,iot_device_enrollment,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0108,REPO-011,DevicePair,iot_device_enrollment,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0109,REPO-011,DevicePair,iot_device_enrollment,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0110,REPO-011,DevicePair,iot_device_enrollment,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0111,REPO-012,BuildRelay,ci_cd_security,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0112,REPO-012,BuildRelay,ci_cd_security,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0113,REPO-012,BuildRelay,ci_cd_security,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0114,REPO-012,BuildRelay,ci_cd_security,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0115,REPO-012,BuildRelay,ci_cd_security,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0116,REPO-012,BuildRelay,ci_cd_security,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0117,REPO-012,BuildRelay,ci_cd_security,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0118,REPO-012,BuildRelay,ci_cd_security,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0119,REPO-012,BuildRelay,ci_cd_security,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0120,REPO-012,BuildRelay,ci_cd_security,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0121,REPO-013,CaseExchange,legal_document_exchange,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0122,REPO-013,CaseExchange,legal_document_exchange,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0123,REPO-013,CaseExchange,legal_document_exchange,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0124,REPO-013,CaseExchange,legal_document_exchange,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0125,REPO-013,CaseExchange,legal_document_exchange,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0126,REPO-013,CaseExchange,legal_document_exchange,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0127,REPO-013,CaseExchange,legal_document_exchange,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0128,REPO-013,CaseExchange,legal_document_exchange,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0129,REPO-013,CaseExchange,legal_document_exchange,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0130,REPO-013,CaseExchange,legal_document_exchange,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0131,REPO-014,SensorMesh,industrial_telemetry,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0132,REPO-014,SensorMesh,industrial_telemetry,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0133,REPO-014,SensorMesh,industrial_telemetry,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0134,REPO-014,SensorMesh,industrial_telemetry,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0135,REPO-014,SensorMesh,industrial_telemetry,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0136,REPO-014,SensorMesh,industrial_telemetry,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0137,REPO-014,SensorMesh,industrial_telemetry,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0138,REPO-014,SensorMesh,industrial_telemetry,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0139,REPO-014,SensorMesh,industrial_telemetry,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0140,REPO-014,SensorMesh,industrial_telemetry,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0141,REPO-015,IdentityCache,identity_federation,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0142,REPO-015,IdentityCache,identity_federation,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0143,REPO-015,IdentityCache,identity_federation,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0144,REPO-015,IdentityCache,identity_federation,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0145,REPO-015,IdentityCache,identity_federation,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0146,REPO-015,IdentityCache,identity_federation,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0147,REPO-015,IdentityCache,identity_federation,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0148,REPO-015,IdentityCache,identity_federation,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0149,REPO-015,IdentityCache,identity_federation,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0150,REPO-015,IdentityCache,identity_federation,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0151,REPO-016,BackupRelay,backup_replication,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0152,REPO-016,BackupRelay,backup_replication,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0153,REPO-016,BackupRelay,backup_replication,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0154,REPO-016,BackupRelay,backup_replication,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0155,REPO-016,BackupRelay,backup_replication,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0156,REPO-016,BackupRelay,backup_replication,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0157,REPO-016,BackupRelay,backup_replication,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0158,REPO-016,BackupRelay,backup_replication,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0159,REPO-016,BackupRelay,backup_replication,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0160,REPO-016,BackupRelay,backup_replication,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate
+OPMB-0161,REPO-017,PolicyGate,access_control,Cryptographic key management,ML-DSA-65,medium,candidate
+OPMB-0162,REPO-017,PolicyGate,access_control,"API, dependency and compatibility migration",ML-DSA-65,medium,candidate
+OPMB-0163,REPO-017,PolicyGate,access_control,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0164,REPO-017,PolicyGate,access_control,RSA digital signature migration,ML-DSA-65,medium,candidate
+OPMB-0165,REPO-017,PolicyGate,access_control,RSA encryption and key-wrapping redesign,ML-KEM-768 + HKDF + AES-256-GCM,medium,candidate
+OPMB-0166,REPO-017,PolicyGate,access_control,"API, dependency and compatibility migration",Versioned ML-KEM envelope,medium,candidate
+OPMB-0167,REPO-017,PolicyGate,access_control,Cross-component cryptographic migration,ML-KEM + HKDF + AES-256-GCM,hard,candidate
+OPMB-0168,REPO-017,PolicyGate,access_control,Cryptographic key management,Versioned ML-DSA/ML-KEM key registry,medium,candidate
+OPMB-0169,REPO-017,PolicyGate,access_control,"API, dependency and compatibility migration",Maintained standardized PQC provider,medium,candidate
+OPMB-0170,REPO-017,PolicyGate,access_control,Cross-component cryptographic migration,ML-KEM-768 + ML-DSA-65,hard,candidate

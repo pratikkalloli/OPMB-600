@@ -1,0 +1,102 @@
+{
+  "repository_id": "REPO-012",
+  "application": "BuildRelay",
+  "task_ids": [
+    "OPMB-0111",
+    "OPMB-0112",
+    "OPMB-0113",
+    "OPMB-0114",
+    "OPMB-0115",
+    "OPMB-0116",
+    "OPMB-0117",
+    "OPMB-0118",
+    "OPMB-0119",
+    "OPMB-0120"
+  ],
+  "reference_paths": [
+    "benchmark/repositories/REPO-012/migrated_reference/buildrelay_pqc"
+  ],
+  "task_requirements": {
+    "OPMB-0111": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0112": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0113": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0114": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0115": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0116": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0117": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0118": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0119": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ],
+    "OPMB-0120": [
+      "Use standardized algorithms through the pinned maintained provider; do not implement primitives.",
+      "Keep ML-KEM key establishment separate from ML-DSA signatures and bind protocol context.",
+      "Update serialization, dependent call sites, and explicit key lifecycle handling."
+    ]
+  },
+  "migration_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_buildrelay_pqc.py",
+      "-q",
+      "-rs"
+    ],
+    "exit_code": 0,
+    "result": "pending",
+    "passed": 0,
+    "skipped": 1,
+    "failed": 0,
+    "output": "s                                                                        [100%]\n=========================== short test summary info ===========================\nSKIPPED [1] tests\\test_buildrelay_pqc.py:4: PQC reference implementation is pending; candidate task only\n1 skipped in 0.01s\n"
+  },
+  "original_suite": {
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv-reference\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_buildrelay.py",
+      "-q"
+    ],
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 3,
+    "skipped": 0,
+    "failed": 0,
+    "output": "...                                                                      [100%]\n3 passed in 0.14s\n"
+  }
+}

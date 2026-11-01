@@ -2,6 +2,9 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
+.validation-venv/
+.venv311/
+.venv-reference/
 .env
 reports/generated/
 
