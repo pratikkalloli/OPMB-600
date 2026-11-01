@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 80,
+  "implemented_application_count": 90,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -962,6 +962,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-500/test-results.json"
+    },
+    {
+      "repository_id": "REPO-501",
+      "name": "ModelAdapterSignature",
+      "application_domain": "machine_learning_adapter_signatures",
+      "path": "benchmark/repositories/REPO-501",
+      "purpose": "Manage model adapter signature evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-501/test-results.json"
+    },
+    {
+      "repository_id": "REPO-502",
+      "name": "VectorStoreSnapshot",
+      "application_domain": "vector_store_snapshot_manifests",
+      "path": "benchmark/repositories/REPO-502",
+      "purpose": "Manage vector store snapshot evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-502/test-results.json"
+    },
+    {
+      "repository_id": "REPO-503",
+      "name": "InferenceResponseReceipt",
+      "application_domain": "model_inference_response_receipts",
+      "path": "benchmark/repositories/REPO-503",
+      "purpose": "Manage inference response receipt evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-503/test-results.json"
+    },
+    {
+      "repository_id": "REPO-504",
+      "name": "BatchScoringManifest",
+      "application_domain": "batch_model_scoring_manifests",
+      "path": "benchmark/repositories/REPO-504",
+      "purpose": "Manage batch scoring manifest evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-504/test-results.json"
+    },
+    {
+      "repository_id": "REPO-505",
+      "name": "DataQualityWaiver",
+      "application_domain": "training_data_quality_waivers",
+      "path": "benchmark/repositories/REPO-505",
+      "purpose": "Manage data quality waiver evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-505/test-results.json"
+    },
+    {
+      "repository_id": "REPO-506",
+      "name": "ModelCardApproval",
+      "application_domain": "model_card_review_approvals",
+      "path": "benchmark/repositories/REPO-506",
+      "purpose": "Manage model card approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-506/test-results.json"
+    },
+    {
+      "repository_id": "REPO-507",
+      "name": "PipelineCheckpointSeal",
+      "application_domain": "data_pipeline_checkpoint_seals",
+      "path": "benchmark/repositories/REPO-507",
+      "purpose": "Manage pipeline checkpoint seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-507/test-results.json"
+    },
+    {
+      "repository_id": "REPO-508",
+      "name": "FeatureAccessLease",
+      "application_domain": "feature_store_feature_access_leases",
+      "path": "benchmark/repositories/REPO-508",
+      "purpose": "Manage feature access lease evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-508/test-results.json"
+    },
+    {
+      "repository_id": "REPO-509",
+      "name": "FineTuneJobIdentity",
+      "application_domain": "model_finetuning_job_identities",
+      "path": "benchmark/repositories/REPO-509",
+      "purpose": "Manage fine tune job identity evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-509/test-results.json"
+    },
+    {
+      "repository_id": "REPO-510",
+      "name": "ModelDeprecationNotice",
+      "application_domain": "model_version_deprecation_notices",
+      "path": "benchmark/repositories/REPO-510",
+      "purpose": "Manage model deprecation notice evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-510/test-results.json"
     }
   ]
 }
