@@ -1,0 +1,7 @@
+# Expected behavior
+
+- Preserve the ProxyVoteInstruction workflow and its domain-specific policy.
+- Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.
+- Keep signing and transport key purposes separate.
+
+The exact source target is src/proxy_vote_instruction/workflow.py, src/proxy_vote_instruction/crypto.py; the original test is `tests/test_proxy_vote_instruction.py::test_task_0621_identity_separates_signing_and_transport_keys` and PQC migration test is `tests/test_proxy_vote_instruction_pqc.py::test_task_0621_identity_separates_signing_and_transport_keys`.

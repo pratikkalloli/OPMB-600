@@ -1,0 +1,22 @@
+# Batch progress
+
+| Batch | Applications | Tasks | Original tests | PQC tests | Status |
+|---:|---|---:|---:|---:|---|
+| 01 | REPO-061–REPO-070 | 100 | 100 | 100 | passed |
+| 02 | REPO-071–REPO-080 | 100 | 0 | 0 | pending |
+| 03 | REPO-081–REPO-090 | 100 | 0 | 0 | pending |
+| 04 | REPO-091–REPO-100 | 100 | 0 | 0 | pending |
+| 05 | REPO-101–REPO-110 | 100 | 0 | 0 | pending |
+| 06 | REPO-111–REPO-120 | 100 | 0 | 0 | pending |
+| 07 | REPO-121–REPO-130 | 100 | 0 | 0 | pending |
+| 08 | REPO-131–REPO-140 | 100 | 0 | 0 | pending |
+| 09 | REPO-141–REPO-150 | 100 | 0 | 0 | pending |
+| 10 | REPO-151–REPO-160 | 100 | 0 | 0 | pending |
+| 11 | REPO-161–REPO-170 | 100 | 0 | 0 | pending |
+| 12 | REPO-171–REPO-180 | 100 | 0 | 0 | pending |
+| 13 | REPO-181–REPO-190 | 100 | 0 | 0 | pending |
+| 14 | REPO-191–REPO-200 | 100 | 0 | 0 | pending |
+| 15 | REPO-201–REPO-210 | 100 | 0 | 0 | pending |
+| 16 | REPO-211–REPO-220 | 100 | 0 | 0 | pending |
+| 17 | REPO-221–REPO-230 | 100 | 0 | 0 | pending |
+| 18 | REPO-231–REPO-240 | 100 | 0 | 0 | pending |

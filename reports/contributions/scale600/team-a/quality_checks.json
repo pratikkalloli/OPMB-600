@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "repositories_planned": 180,
+  "repositories_with_implementation": 10,
+  "tasks_planned": 1800,
+  "tasks_with_definition": 100,
+  "tasks_by_repository": {
+    "REPO-061": 10,
+    "REPO-062": 10,
+    "REPO-063": 10,
+    "REPO-064": 10,
+    "REPO-065": 10,
+    "REPO-066": 10,
+    "REPO-067": 10,
+    "REPO-068": 10,
+    "REPO-069": 10,
+    "REPO-070": 10
+  },
+  "errors": []
+}
