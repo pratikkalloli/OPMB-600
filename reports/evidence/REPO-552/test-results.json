@@ -1,0 +1,38 @@
+{
+  "repository_id": "REPO-552",
+  "application": "AvailabilityBlockSeal",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-552/tests/test_availabilityblockseal.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-552\\original",
+      "started_at": "2026-11-01T16:59:54.381038+05:30",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ".....                                                                    [100%]\n5 passed in 0.23s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-552/tests/test_availabilityblockseal_pqc.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-552\\pqc_reference",
+      "started_at": "2026-11-01T16:59:55.006890+05:30",
+      "exit_code": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "......                                                                   [100%]\n6 passed in 0.25s"
+    }
+  ],
+  "scanner": {
+    "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe pqc_agent/scanner/scan_python.py benchmark/repositories/REPO-552/migrated_reference",
+    "exit_code": 0,
+    "findings": 0,
+    "scope_limit": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+  }
+}
