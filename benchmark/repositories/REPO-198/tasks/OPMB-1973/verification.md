@@ -1,0 +1,6 @@
+# Verification
+
+- Original: `tests/test_admin_appeal.py::test_task_1973_malformed_serialization_and_wrong_purpose_are_rejected`
+- PQC reference: `tests/test_admin_appeal_pqc.py::test_task_1973_malformed_serialization_and_wrong_purpose_are_rejected`
+- Procedure: strict public-key loading and algorithm discrimination.
+- Evidence: `reports/evidence/REPO-198/test-results.json` (status remains pending until actual execution).

@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-1986",
+  "repository_id": "REPO-199",
+  "repository_name": "regulatory_filing",
+  "application_domain": "legal_civic_public_records",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "context-bound record signatures",
+  "source_files": [
+    "src/regulatory_filing/workflow.py",
+    "src/regulatory_filing/crypto.py"
+  ],
+  "function_names": [
+    "sign_regulatory_filing_record",
+    "verify_regulatory_filing_record",
+    "sign_document",
+    "verify_document"
+  ],
+  "migration_family": "context-bound record signatures",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate RegulatoryFiling's An authorized regulatory filing amendment tracking operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that requires an increasing filing sequence and recognized custody state; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the RegulatoryFiling workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_regulatory_filing.py::test_task_1986_signature_binds_record_context_and_validity"
+  ],
+  "migration_tests": [
+    "tests/test_regulatory_filing_pqc.py::test_task_1986_signature_binds_record_context_and_validity"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_regulatory_filing.py -q` from `REPO-199`.",
+    "Run `python -m pytest tests/test_regulatory_filing_pqc.py -q` from `REPO-199`.",
+    "Review actual suite output in `reports/evidence/REPO-199/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-199/tasks/OPMB-1986",
+  "reference_path": "benchmark/repositories/REPO-199/migrated_reference/regulatory_filing_pqc",
+  "original_test_evidence": "reports/evidence/REPO-199/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-199/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-199/test-results.json"
+}
