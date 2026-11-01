@@ -1,0 +1,1 @@
+"""EmergencyBroadcastAuthorization original application."""

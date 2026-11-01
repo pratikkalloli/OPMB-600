@@ -169,6 +169,18 @@
       "REPO-378",
       "REPO-379",
       "REPO-380"
+    ],
+    "batch-15": [
+      "REPO-381",
+      "REPO-382",
+      "REPO-383",
+      "REPO-384",
+      "REPO-385",
+      "REPO-386",
+      "REPO-387",
+      "REPO-388",
+      "REPO-389",
+      "REPO-390"
     ]
   },
   "repositories": [
@@ -5756,6 +5768,406 @@
         "src/synthetic_intercept_audit/domain.py",
         "src/synthetic_intercept_audit/crypto.py",
         "src/synthetic_intercept_audit/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-381",
+      "name": "CircuitMigrationPlan",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-381",
+      "purpose": "Coordinates circuit endpoint migration with outage bounds and rollback checkpoints.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3801",
+        "OPMB-3802",
+        "OPMB-3803",
+        "OPMB-3804",
+        "OPMB-3805",
+        "OPMB-3806",
+        "OPMB-3807",
+        "OPMB-3808",
+        "OPMB-3809",
+        "OPMB-3810"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/circuit_migration_plan/domain.py",
+        "src/circuit_migration_plan/crypto.py",
+        "src/circuit_migration_plan/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-382",
+      "name": "EmergencyBroadcastAuthorization",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-382",
+      "purpose": "Authorizes an emergency broadcast area, message revision, and expiry.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3811",
+        "OPMB-3812",
+        "OPMB-3813",
+        "OPMB-3814",
+        "OPMB-3815",
+        "OPMB-3816",
+        "OPMB-3817",
+        "OPMB-3818",
+        "OPMB-3819",
+        "OPMB-3820"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/emergency_broadcast_authorization/domain.py",
+        "src/emergency_broadcast_authorization/crypto.py",
+        "src/emergency_broadcast_authorization/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-383",
+      "name": "NetworkTelemetryCheckpoint",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-383",
+      "purpose": "Seals interval telemetry summaries with collector identity and sequence continuity.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3821",
+        "OPMB-3822",
+        "OPMB-3823",
+        "OPMB-3824",
+        "OPMB-3825",
+        "OPMB-3826",
+        "OPMB-3827",
+        "OPMB-3828",
+        "OPMB-3829",
+        "OPMB-3830"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/network_telemetry_checkpoint/domain.py",
+        "src/network_telemetry_checkpoint/crypto.py",
+        "src/network_telemetry_checkpoint/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-384",
+      "name": "PacketBrokerFilterUpdate",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-384",
+      "purpose": "Releases a packet broker filter revision with scope and rollback constraints.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3831",
+        "OPMB-3832",
+        "OPMB-3833",
+        "OPMB-3834",
+        "OPMB-3835",
+        "OPMB-3836",
+        "OPMB-3837",
+        "OPMB-3838",
+        "OPMB-3839",
+        "OPMB-3840"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/packet_broker_filter_update/domain.py",
+        "src/packet_broker_filter_update/crypto.py",
+        "src/packet_broker_filter_update/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-385",
+      "name": "CarrierNumberPorting",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-385",
+      "purpose": "Tracks synthetic number port authorization, donor release, and recipient activation.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3841",
+        "OPMB-3842",
+        "OPMB-3843",
+        "OPMB-3844",
+        "OPMB-3845",
+        "OPMB-3846",
+        "OPMB-3847",
+        "OPMB-3848",
+        "OPMB-3849",
+        "OPMB-3850"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/carrier_number_porting/domain.py",
+        "src/carrier_number_porting/crypto.py",
+        "src/carrier_number_porting/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-386",
+      "name": "WiFiControllerEnrollment",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-386",
+      "purpose": "Enrolls a wireless controller with site ownership and approved firmware evidence.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3851",
+        "OPMB-3852",
+        "OPMB-3853",
+        "OPMB-3854",
+        "OPMB-3855",
+        "OPMB-3856",
+        "OPMB-3857",
+        "OPMB-3858",
+        "OPMB-3859",
+        "OPMB-3860"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/wi_fi_controller_enrollment/domain.py",
+        "src/wi_fi_controller_enrollment/crypto.py",
+        "src/wi_fi_controller_enrollment/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-387",
+      "name": "CPEFirmwareCampaign",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-387",
+      "purpose": "Stages customer-premises firmware rollout cohorts with exception tracking.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3861",
+        "OPMB-3862",
+        "OPMB-3863",
+        "OPMB-3864",
+        "OPMB-3865",
+        "OPMB-3866",
+        "OPMB-3867",
+        "OPMB-3868",
+        "OPMB-3869",
+        "OPMB-3870"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/c_p_e_firmware_campaign/domain.py",
+        "src/c_p_e_firmware_campaign/crypto.py",
+        "src/c_p_e_firmware_campaign/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-388",
+      "name": "InternetExchangeMembership",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-388",
+      "purpose": "Approves a member port, route-server policy, and scheduled activation.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3871",
+        "OPMB-3872",
+        "OPMB-3873",
+        "OPMB-3874",
+        "OPMB-3875",
+        "OPMB-3876",
+        "OPMB-3877",
+        "OPMB-3878",
+        "OPMB-3879",
+        "OPMB-3880"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/internet_exchange_membership/domain.py",
+        "src/internet_exchange_membership/crypto.py",
+        "src/internet_exchange_membership/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-389",
+      "name": "MicrowaveLinkAlignment",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-389",
+      "purpose": "Records link alignment measurements and acceptance bounds for a radio hop.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3881",
+        "OPMB-3882",
+        "OPMB-3883",
+        "OPMB-3884",
+        "OPMB-3885",
+        "OPMB-3886",
+        "OPMB-3887",
+        "OPMB-3888",
+        "OPMB-3889",
+        "OPMB-3890"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/microwave_link_alignment/domain.py",
+        "src/microwave_link_alignment/crypto.py",
+        "src/microwave_link_alignment/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-390",
+      "name": "TelecomDataRetentionFreeze",
+      "application_domain": "B5 Telecommunications, networks and edge",
+      "path": "benchmark/repositories/REPO-390",
+      "purpose": "Places a scoped synthetic record class under a timed retention hold and tracks release.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3891",
+        "OPMB-3892",
+        "OPMB-3893",
+        "OPMB-3894",
+        "OPMB-3895",
+        "OPMB-3896",
+        "OPMB-3897",
+        "OPMB-3898",
+        "OPMB-3899",
+        "OPMB-3900"
+      ],
+      "batch": 15,
+      "main_modules": [
+        "src/telecom_data_retention_freeze/domain.py",
+        "src/telecom_data_retention_freeze/crypto.py",
+        "src/telecom_data_retention_freeze/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",
