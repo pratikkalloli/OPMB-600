@@ -1,0 +1,304 @@
+{
+  "repositories": [
+    {
+      "repository_id": "REPO-018",
+      "name": "DNSZoneGuard",
+      "application_domain": "dns_zone_integrity",
+      "path": "benchmark/repositories/REPO-018",
+      "purpose": "DNS zone integrity and signed zone updates",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0171",
+        "OPMB-0172",
+        "OPMB-0173",
+        "OPMB-0174",
+        "OPMB-0175",
+        "OPMB-0176",
+        "OPMB-0177",
+        "OPMB-0178",
+        "OPMB-0179",
+        "OPMB-0180"
+      ]
+    },
+    {
+      "repository_id": "REPO-019",
+      "name": "WebhookShield",
+      "application_domain": "signed_webhook_delivery",
+      "path": "benchmark/repositories/REPO-019",
+      "purpose": "Signed webhook delivery and replay protection",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0181",
+        "OPMB-0182",
+        "OPMB-0183",
+        "OPMB-0184",
+        "OPMB-0185",
+        "OPMB-0186",
+        "OPMB-0187",
+        "OPMB-0188",
+        "OPMB-0189",
+        "OPMB-0190"
+      ]
+    },
+    {
+      "repository_id": "REPO-020",
+      "name": "TimeSeal",
+      "application_domain": "timestamp_tokens",
+      "path": "benchmark/repositories/REPO-020",
+      "purpose": "Signed timestamp-token simulation",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0191",
+        "OPMB-0192",
+        "OPMB-0193",
+        "OPMB-0194",
+        "OPMB-0195",
+        "OPMB-0196",
+        "OPMB-0197",
+        "OPMB-0198",
+        "OPMB-0199",
+        "OPMB-0200"
+      ]
+    },
+    {
+      "repository_id": "REPO-021",
+      "name": "MailGuard",
+      "application_domain": "secure_email_envelopes",
+      "path": "benchmark/repositories/REPO-021",
+      "purpose": "Secure email envelopes and attachments",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0201",
+        "OPMB-0202",
+        "OPMB-0203",
+        "OPMB-0204",
+        "OPMB-0205",
+        "OPMB-0206",
+        "OPMB-0207",
+        "OPMB-0208",
+        "OPMB-0209",
+        "OPMB-0210"
+      ]
+    },
+    {
+      "repository_id": "REPO-022",
+      "name": "SessionExchange",
+      "application_domain": "secure_session_establishment",
+      "path": "benchmark/repositories/REPO-022",
+      "purpose": "Secure session establishment and negotiation",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0211",
+        "OPMB-0212",
+        "OPMB-0213",
+        "OPMB-0214",
+        "OPMB-0215",
+        "OPMB-0216",
+        "OPMB-0217",
+        "OPMB-0218",
+        "OPMB-0219",
+        "OPMB-0220"
+      ]
+    },
+    {
+      "repository_id": "REPO-023",
+      "name": "ConfigSign",
+      "application_domain": "signed_configuration_distribution",
+      "path": "benchmark/repositories/REPO-023",
+      "purpose": "Signed configuration distribution and rollback protection",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0221",
+        "OPMB-0222",
+        "OPMB-0223",
+        "OPMB-0224",
+        "OPMB-0225",
+        "OPMB-0226",
+        "OPMB-0227",
+        "OPMB-0228",
+        "OPMB-0229",
+        "OPMB-0230"
+      ]
+    },
+    {
+      "repository_id": "REPO-024",
+      "name": "DataProvenance",
+      "application_domain": "verifiable_data_provenance",
+      "path": "benchmark/repositories/REPO-024",
+      "purpose": "Signed data provenance and verifiable checkpoints",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0231",
+        "OPMB-0232",
+        "OPMB-0233",
+        "OPMB-0234",
+        "OPMB-0235",
+        "OPMB-0236",
+        "OPMB-0237",
+        "OPMB-0238",
+        "OPMB-0239",
+        "OPMB-0240"
+      ]
+    },
+    {
+      "repository_id": "REPO-025",
+      "name": "MediaRights",
+      "application_domain": "protected_media_rights",
+      "path": "benchmark/repositories/REPO-025",
+      "purpose": "Protected media distribution and signed rights manifests",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0241",
+        "OPMB-0242",
+        "OPMB-0243",
+        "OPMB-0244",
+        "OPMB-0245",
+        "OPMB-0246",
+        "OPMB-0247",
+        "OPMB-0248",
+        "OPMB-0249",
+        "OPMB-0250"
+      ]
+    },
+    {
+      "repository_id": "REPO-026",
+      "name": "SecureSurvey",
+      "application_domain": "encrypted_survey_submissions",
+      "path": "benchmark/repositories/REPO-026",
+      "purpose": "Encrypted survey responses and signed submission receipts",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0251",
+        "OPMB-0252",
+        "OPMB-0253",
+        "OPMB-0254",
+        "OPMB-0255",
+        "OPMB-0256",
+        "OPMB-0257",
+        "OPMB-0258",
+        "OPMB-0259",
+        "OPMB-0260"
+      ]
+    },
+    {
+      "repository_id": "REPO-027",
+      "name": "GeoDispatch",
+      "application_domain": "protected_dispatch_instructions",
+      "path": "benchmark/repositories/REPO-027",
+      "purpose": "Protected dispatch instructions and signed location records",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0261",
+        "OPMB-0262",
+        "OPMB-0263",
+        "OPMB-0264",
+        "OPMB-0265",
+        "OPMB-0266",
+        "OPMB-0267",
+        "OPMB-0268",
+        "OPMB-0269",
+        "OPMB-0270"
+      ]
+    },
+    {
+      "repository_id": "REPO-028",
+      "name": "DesktopUpdateProof",
+      "application_domain": "desktop_update_integrity",
+      "path": "benchmark/repositories/REPO-028",
+      "purpose": "Desktop software update integrity and signed releases",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0271",
+        "OPMB-0272",
+        "OPMB-0273",
+        "OPMB-0274",
+        "OPMB-0275",
+        "OPMB-0276",
+        "OPMB-0277",
+        "OPMB-0278",
+        "OPMB-0279",
+        "OPMB-0280"
+      ]
+    },
+    {
+      "repository_id": "REPO-029",
+      "name": "PackageMirror",
+      "application_domain": "package_mirror_integrity",
+      "path": "benchmark/repositories/REPO-029",
+      "purpose": "Software package mirror integrity and signed indexes",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0281",
+        "OPMB-0282",
+        "OPMB-0283",
+        "OPMB-0284",
+        "OPMB-0285",
+        "OPMB-0286",
+        "OPMB-0287",
+        "OPMB-0288",
+        "OPMB-0289",
+        "OPMB-0290"
+      ]
+    },
+    {
+      "repository_id": "REPO-030",
+      "name": "ApprovalFlow",
+      "application_domain": "quorum_approval_signatures",
+      "path": "benchmark/repositories/REPO-030",
+      "purpose": "Multi-stage approval signatures and quorum verification",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0291",
+        "OPMB-0292",
+        "OPMB-0293",
+        "OPMB-0294",
+        "OPMB-0295",
+        "OPMB-0296",
+        "OPMB-0297",
+        "OPMB-0298",
+        "OPMB-0299",
+        "OPMB-0300"
+      ]
+    },
+    {
+      "repository_id": "REPO-031",
+      "name": "ClinicalConsent",
+      "application_domain": "synthetic_clinical_consent",
+      "path": "benchmark/repositories/REPO-031",
+      "purpose": "Synthetic healthcare consent records and revocation",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0301",
+        "OPMB-0302",
+        "OPMB-0303",
+        "OPMB-0304",
+        "OPMB-0305",
+        "OPMB-0306",
+        "OPMB-0307",
+        "OPMB-0308",
+        "OPMB-0309",
+        "OPMB-0310"
+      ]
+    },
+    {
+      "repository_id": "REPO-032",
+      "name": "FleetPermit",
+      "application_domain": "offline_vehicle_permits",
+      "path": "benchmark/repositories/REPO-032",
+      "purpose": "Vehicle permit issuance and offline verification simulation",
+      "status": "candidate",
+      "task_ids": [
+        "OPMB-0311",
+        "OPMB-0312",
+        "OPMB-0313",
+        "OPMB-0314",
+        "OPMB-0315",
+        "OPMB-0316",
+        "OPMB-0317",
+        "OPMB-0318",
+        "OPMB-0319",
+        "OPMB-0320"
+      ]
+    }
+  ]
+}

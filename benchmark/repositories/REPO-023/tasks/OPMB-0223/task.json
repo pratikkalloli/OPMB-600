@@ -1,0 +1,62 @@
+{
+  "task_id": "OPMB-0223",
+  "repository_id": "REPO-023",
+  "repository_name": "configsign",
+  "application_domain": "signed_configuration_distribution",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS; RSA-OAEP with AES-256-GCM",
+  "cryptographic_operation": "public-key parsing",
+  "source_files": [
+    "src/configsign/workflow.py",
+    "src/configsign/crypto.py"
+  ],
+  "function_names": [
+    "load_configuration_release_public_key"
+  ],
+  "migration_family": "key encoding compatibility",
+  "migration_target": "Strict ML-DSA/ML-KEM public-key decoding and type validation",
+  "migration_objective": "Within ConfigSign's signed configuration distribution and rollback protection workflow, migrate public-key loading from the RSA baseline to Strict ML-DSA/ML-KEM public-key decoding and type validation, preserving the application contract and rejecting invalid or downgraded inputs.",
+  "preconditions": [
+    "The original ConfigSign application tests pass.",
+    "The application record satisfies the documented domain policy.",
+    "No real personal, financial, or production data is used."
+  ],
+  "expected_behavior": [
+    "Preserve ConfigSign's domain workflow and validation rules.",
+    "Reject malformed, wrong-purpose, stale, tampered, or context-mismatched cryptographic inputs.",
+    "Keep signing and transport keys distinct."
+  ],
+  "migration_requirements": [
+    "Use the pinned cryptography provider and standardized FIPS 203 ML-KEM-768 / FIPS 204 ML-DSA-65 APIs.",
+    "Use ML-KEM only for key establishment; derive AES-256-GCM content keys with HKDF-SHA-256.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_configsign.py::test_task_0223_key_purpose_and_encoding_inputs_are_strict"
+  ],
+  "migration_tests": [
+    "tests/test_configsign_pqc.py::test_task_0223_key_purpose_and_encoding_inputs_are_strict"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_configsign.py -q` from `REPO-023` using the pinned root environment.",
+    "Run `python -m pytest tests/test_configsign_pqc.py -q` from `REPO-023` using the pinned root environment.",
+    "Review the linked application evidence for actual exit codes and per-suite counts."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; persistent private-key custody is outside this benchmark application.",
+    "Candidate task only; independent review and acceptance are pending."
+  ],
+  "created_by": "OPMB-600-team-a",
+  "task_path": "benchmark/repositories/REPO-023/tasks/OPMB-0223",
+  "reference_path": "benchmark/repositories/REPO-023/migrated_reference/configsign_pqc",
+  "original_test_evidence": "reports/evidence/REPO-023/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-023/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-023/test-results.json"
+}

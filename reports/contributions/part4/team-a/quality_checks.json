@@ -1,0 +1,466 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "check": "15 allocated repositories",
+      "result": "passed",
+      "detail": "found 15: ['REPO-018', 'REPO-019', 'REPO-020', 'REPO-021', 'REPO-022', 'REPO-023', 'REPO-024', 'REPO-025', 'REPO-026', 'REPO-027', 'REPO-028', 'REPO-029', 'REPO-030', 'REPO-031', 'REPO-032']"
+    },
+    {
+      "check": "application names do not collide",
+      "result": "passed",
+      "detail": "[]"
+    },
+    {
+      "check": "application domain labels are unique",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "no exact application-domain collision",
+      "result": "passed",
+      "detail": "[]"
+    },
+    {
+      "check": "repository manifest schema",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "150 sequential task IDs",
+      "result": "passed",
+      "detail": "count=150, unique=150"
+    },
+    {
+      "check": "task IDs unique",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "task metadata schema",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "no duplicate Team A objectives",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "no exact objective collision with base catalogue",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-018 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-018 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-018 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-018 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-018 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-019 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-019 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-019 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-019 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-019 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-020 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-020 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-020 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-020 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-020 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-021 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-021 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-021 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-021 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-021 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-022 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-022 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-022 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-022 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-022 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-023 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-023 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-023 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-023 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-023 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-024 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-024 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-024 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-024 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-024 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-025 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-025 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-025 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-025 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-025 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-026 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-026 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-026 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-026 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-026 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-027 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-027 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-027 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-027 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-027 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-028 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-028 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-028 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-028 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-028 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-029 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-029 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-029 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-029 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-029 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-030 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-030 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-030 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-030 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-030 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-031 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-031 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-031 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-031 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-031 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-032 application layout",
+      "result": "passed",
+      "detail": "task files=10"
+    },
+    {
+      "check": "REPO-032 separated candidate/reference tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-032 no skipped/placeholder PQC tests",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-032 standardized PQC provider algorithms",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "REPO-032 distinct classical baseline",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "task-to-source function links",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "task-to-original/PQC test links",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "all task specification files exist",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "all tasks remain candidates",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "all 30 suites have clean execution evidence",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "aggregate test summary complete",
+      "result": "passed",
+      "detail": ""
+    },
+    {
+      "check": "task manifest IDs are allocated only",
+      "result": "passed",
+      "detail": ""
+    }
+  ],
+  "problems": []
+}
