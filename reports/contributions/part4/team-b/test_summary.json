@@ -1,8 +1,8 @@
 {
   "status": "BLOCKED",
-  "reason": "No trustworthy Python runtime or pytest executable is available. WSL access was denied and Docker is unavailable. An attempted user-scoped Python 3.13.17 install was stopped because the downloaded installer SHA-256 did not match Python.org's published checksum and setup returned Windows error 1392; the installer was removed and no runtime or dependencies were installed.",
-  "python_runtime": "not available",
-  "pytest": "not available",
+  "reason": "A Codex-managed Python 3.12.14 runtime is available and a branch-local .venv was created, but installing pinned requirements failed while downloading cryptography==50.0.2 from files.pythonhosted.org:443 with a read timeout. All Python runtime suites and validators remain NOT RUN.",
+  "python_runtime": "Codex-managed Python 3.12.14; branch-local .venv created",
+  "pytest": "not installed in .venv",
   "python_setup_attempt": {
     "scope": "user LocalAppData only",
     "installer_source": "https://www.python.org/ftp/python/3.13.17/python-3.13.17-amd64.exe",
@@ -11,11 +11,16 @@
     "installer_exit_code": 1392,
     "result": "NOT INSTALLED; mismatched installer artifact removed"
   },
+  "dependency_install_attempt": {
+    "command": ".venv\\Scripts\\python.exe -m pip install -r requirements.txt",
+    "result": "FAILED: ReadTimeoutError downloading cryptography==50.0.2 from files.pythonhosted.org:443",
+    "venv_package_inventory": ["pip==25.0.1"]
+  },
   "schema_validation": {
     "status": "NOT RUN",
     "schemas": ["benchmark/schemas/repository.schema.json", "benchmark/schemas/task.schema.json"],
     "dialect": "Draft 2020-12",
-    "reason": "Python jsonschema==4.25.1 and a compatible Node schema validator are unavailable; no schema results are claimed."
+    "reason": "The pinned jsonschema==4.25.1 dependency could not be installed; no compatible Node schema validator is available, and no schema results are claimed."
   },
   "structural_validation": {
     "status": "PASS",
@@ -55,7 +60,7 @@
     },
     {
       "command": "python -m pytest tests/test_<slug>.py -q and python -m pytest tests/test_<slug>_pqc.py -q for each slug in applications.json",
-      "result": "NOT RUN: no Python runtime or pytest."
+      "result": "NOT RUN: pinned dependencies, including pytest, could not be installed into .venv."
     }
   ],
   "note": "No test evidence or pass status has been fabricated."

@@ -1,7 +1,8 @@
 # Team B known issues
 
-- Python and pytest remain unavailable; all 30 application suites and shared validators are NOT RUN. An attempted user-scoped Python 3.13.17 setup could not be trusted: the downloaded installer SHA-256 did not match Python.org's published release checksum, and setup returned Windows error 1392. The installer was removed; no Python runtime or project dependency was installed.
-- Team B manifests have NOT been validated against the repository's Draft 2020-12 JSON Schemas. The documented `jsonschema==4.25.1` dependency could not be installed; no compatible Node schema validator is present.
+- A Codex-managed Python 3.12.14 runtime is available, and `.venv` was created inside this checkout. Installing the pinned requirements failed while downloading `cryptography==50.0.2` from `files.pythonhosted.org:443` with a read timeout; the venv contains only pip. All 30 application suites and Python validators remain NOT RUN.
+- An earlier user-scoped Python 3.13.17 installer attempt was rejected: its SHA-256 did not match Python.org's published release checksum and setup returned Windows error 1392. That artifact was removed and was not reused.
+- Team B manifests have NOT been validated against the repository's Draft 2020-12 JSON Schemas. The pinned `jsonschema==4.25.1` dependency could not be installed; no compatible Node schema validator is present.
 - WSL enumeration returned access denied; Docker is unavailable; no approved pre-provisioned runtime was found. No packages were installed.
 - No test result, scanner output, cryptographic verification result, or accepted status is claimed.
 - GitHub fetch failed because github.com:443 is unreachable; the local base ref is 31d9fc3fb9767966100209305d9b78c487a6de24. Push and PR creation are blocked.
