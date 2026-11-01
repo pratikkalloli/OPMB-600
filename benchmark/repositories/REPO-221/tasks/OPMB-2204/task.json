@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2204",
+  "repository_id": "REPO-221",
+  "repository_name": "catalog_offer_proof",
+  "application_domain": "commerce_business_transactions",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "domain validation and authorization policy",
+  "source_files": [
+    "src/catalog_offer_proof/workflow.py",
+    "src/catalog_offer_proof/crypto.py"
+  ],
+  "function_names": [
+    "validate_catalog_offer_proof_record",
+    "canonicalize_catalog_offer_proof_record"
+  ],
+  "migration_family": "domain validation and authorization policy",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate CatalogOfferProof's An authorized marketplace catalog offer verification operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that validates product quantity before transaction acceptance; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the CatalogOfferProof workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_catalog_offer_proof.py::test_task_2204_domain_schema_and_policy_reject_invalid_records"
+  ],
+  "migration_tests": [
+    "tests/test_catalog_offer_proof_pqc.py::test_task_2204_domain_schema_and_policy_reject_invalid_records"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_catalog_offer_proof.py -q` from `REPO-221`.",
+    "Run `python -m pytest tests/test_catalog_offer_proof_pqc.py -q` from `REPO-221`.",
+    "Review actual suite output in `reports/evidence/REPO-221/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-221/tasks/OPMB-2204",
+  "reference_path": "benchmark/repositories/REPO-221/migrated_reference/catalog_offer_proof_pqc",
+  "original_test_evidence": "reports/evidence/REPO-221/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-221/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-221/test-results.json"
+}

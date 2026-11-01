@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0716",
+  "repository_id": "REPO-072",
+  "repository_name": "reinsurance_slip",
+  "application_domain": "financial_services_insurance",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "context-bound record signatures",
+  "source_files": [
+    "src/reinsurance_slip/workflow.py",
+    "src/reinsurance_slip/crypto.py"
+  ],
+  "function_names": [
+    "sign_reinsurance_slip_record",
+    "verify_reinsurance_slip_record",
+    "sign_document",
+    "verify_document"
+  ],
+  "migration_family": "context-bound record signatures",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate ReinsuranceSlip's An authorized reinsurance bordereaux exchange operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for context-bound record signatures: Sign the canonical business record with the approved signature key and bind verification to application context and record validity. Preserve its domain rule that checks transaction amount before authorization; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the ReinsuranceSlip workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_reinsurance_slip.py::test_task_0716_signature_binds_record_context_and_validity"
+  ],
+  "migration_tests": [
+    "tests/test_reinsurance_slip_pqc.py::test_task_0716_signature_binds_record_context_and_validity"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_reinsurance_slip.py -q` from `REPO-072`.",
+    "Run `python -m pytest tests/test_reinsurance_slip_pqc.py -q` from `REPO-072`.",
+    "Review actual suite output in `reports/evidence/REPO-072/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-072/tasks/OPMB-0716",
+  "reference_path": "benchmark/repositories/REPO-072/migrated_reference/reinsurance_slip_pqc",
+  "original_test_evidence": "reports/evidence/REPO-072/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-072/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-072/test-results.json"
+}

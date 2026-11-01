@@ -1,0 +1,64 @@
+{
+  "task_id": "OPMB-1781",
+  "repository_id": "REPO-179",
+  "repository_name": "learning_wallet",
+  "application_domain": "education_research",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "key generation and purpose separation",
+  "source_files": [
+    "src/learning_wallet/workflow.py",
+    "src/learning_wallet/crypto.py"
+  ],
+  "function_names": [
+    "create_learning_wallet_identity",
+    "generate_signing_keypair",
+    "generate_transport_keypair"
+  ],
+  "migration_family": "key generation and purpose separation",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate LearningWallet's An authorized learner-owned record wallet updates operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for key generation and purpose separation: Provision separate signing and transport identities for this workflow; reject key-purpose confusion. Preserve its domain rule that validates institution-scoped academic periods; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the LearningWallet workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_learning_wallet.py::test_task_1781_identity_separates_signing_and_transport_keys"
+  ],
+  "migration_tests": [
+    "tests/test_learning_wallet_pqc.py::test_task_1781_identity_separates_signing_and_transport_keys"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_learning_wallet.py -q` from `REPO-179`.",
+    "Run `python -m pytest tests/test_learning_wallet_pqc.py -q` from `REPO-179`.",
+    "Review actual suite output in `reports/evidence/REPO-179/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-179/tasks/OPMB-1781",
+  "reference_path": "benchmark/repositories/REPO-179/migrated_reference/learning_wallet_pqc",
+  "original_test_evidence": "reports/evidence/REPO-179/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-179/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-179/test-results.json"
+}

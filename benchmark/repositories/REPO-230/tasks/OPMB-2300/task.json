@@ -1,0 +1,67 @@
+{
+  "task_id": "OPMB-2300",
+  "repository_id": "REPO-230",
+  "repository_name": "sustainability_claim",
+  "application_domain": "commerce_business_transactions",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "revocation, persistence, and runnable workflow",
+  "source_files": [
+    "src/sustainability_claim/workflow.py",
+    "src/sustainability_claim/crypto.py"
+  ],
+  "function_names": [
+    "KeyRegistry.revoke",
+    "KeyRegistry.get_active",
+    "revoke_sustainability_claim_identity",
+    "SustainabilityClaimLedger.publish",
+    "SustainabilityClaimLedger.fetch",
+    "run_sustainability_claim_workflow"
+  ],
+  "migration_family": "revocation, persistence, and runnable workflow",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate SustainabilityClaim's An authorized supplier sustainability claim evidence operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for revocation, persistence, and runnable workflow: Enforce terminal revocation, persist uniquely identified signed records, and preserve validation and signature behavior through the application's command-line flow. Preserve its domain rule that rejects zero quantity orders and malformed regions; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the SustainabilityClaim workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_sustainability_claim.py::test_task_2300_revocation_ledger_persistence_and_cli_workflow"
+  ],
+  "migration_tests": [
+    "tests/test_sustainability_claim_pqc.py::test_task_2300_revocation_ledger_persistence_and_cli_workflow"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_sustainability_claim.py -q` from `REPO-230`.",
+    "Run `python -m pytest tests/test_sustainability_claim_pqc.py -q` from `REPO-230`.",
+    "Review actual suite output in `reports/evidence/REPO-230/test-results.json`."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-230/tasks/OPMB-2300",
+  "reference_path": "benchmark/repositories/REPO-230/migrated_reference/sustainability_claim_pqc",
+  "original_test_evidence": "reports/evidence/REPO-230/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-230/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-230/test-results.json"
+}

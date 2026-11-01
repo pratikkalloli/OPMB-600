@@ -1,0 +1,64 @@
+{
+  "task_id": "OPMB-1872",
+  "repository_id": "REPO-188",
+  "repository_name": "land_title_transfer",
+  "application_domain": "legal_civic_public_records",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "public key serialization and import",
+  "source_files": [
+    "src/land_title_transfer/workflow.py",
+    "src/land_title_transfer/crypto.py"
+  ],
+  "function_names": [
+    "export_land_title_transfer_public_key",
+    "load_land_title_transfer_public_key",
+    "serialize_public_key"
+  ],
+  "migration_family": "public key serialization and import",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate LandTitleTransfer's An authorized property title transfer instrument custody operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for public key serialization and import: Round-trip each public key with an explicit purpose and version tag while preserving the workflow's key contract. Preserve its domain rule that rejects untracked public-record custody transitions; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the LandTitleTransfer workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_land_title_transfer.py::test_task_1872_public_key_encoding_round_trips_and_binds_purpose"
+  ],
+  "migration_tests": [
+    "tests/test_land_title_transfer_pqc.py::test_task_1872_public_key_encoding_round_trips_and_binds_purpose"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_land_title_transfer.py -q` from `REPO-188`.",
+    "Run `python -m pytest tests/test_land_title_transfer_pqc.py -q` from `REPO-188`.",
+    "Review actual suite output in `reports/evidence/REPO-188/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-188/tasks/OPMB-1872",
+  "reference_path": "benchmark/repositories/REPO-188/migrated_reference/land_title_transfer_pqc",
+  "original_test_evidence": "reports/evidence/REPO-188/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-188/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-188/test-results.json"
+}

@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-1034",
+  "repository_id": "REPO-104",
+  "repository_name": "pathology_result",
+  "application_domain": "healthcare_life_sciences",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "domain validation and authorization policy",
+  "source_files": [
+    "src/pathology_result/workflow.py",
+    "src/pathology_result/crypto.py"
+  ],
+  "function_names": [
+    "validate_pathology_result_record",
+    "canonicalize_pathology_result_record"
+  ],
+  "migration_family": "domain validation and authorization policy",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate PathologyResult's An authorized pathology result attestation operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for domain validation and authorization policy: Apply the application's required fields, validity window, and domain invariant before allowing the business record to be signed. Preserve its domain rule that requires purpose-scoped clinical records; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the PathologyResult workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_pathology_result.py::test_task_1034_domain_schema_and_policy_reject_invalid_records"
+  ],
+  "migration_tests": [
+    "tests/test_pathology_result_pqc.py::test_task_1034_domain_schema_and_policy_reject_invalid_records"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_pathology_result.py -q` from `REPO-104`.",
+    "Run `python -m pytest tests/test_pathology_result_pqc.py -q` from `REPO-104`.",
+    "Review actual suite output in `reports/evidence/REPO-104/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-104/tasks/OPMB-1034",
+  "reference_path": "benchmark/repositories/REPO-104/migrated_reference/pathology_result_pqc",
+  "original_test_evidence": "reports/evidence/REPO-104/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-104/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-104/test-results.json"
+}

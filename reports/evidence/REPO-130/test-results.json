@@ -1,0 +1,51 @@
+{
+  "repository_id": "REPO-130",
+  "application": "recovery_share",
+  "captured_at_utc": "2026-11-01T11:14:08.801199+00:00",
+  "environment": {
+    "python": "Python 3.11.9",
+    "pytest": "pytest 8.4.2"
+  },
+  "original_suite": {
+    "kind": "original",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_recovery_share.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-130",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 4.26s\n"
+  },
+  "pqc_reference_suite": {
+    "kind": "pqc_reference",
+    "command": [
+      "D:\\OPMB-600 — Original PQC Migration Benchmark\\repo\\.venv311\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "tests/test_recovery_share_pqc.py",
+      "-q",
+      "-p",
+      "no:cacheprovider"
+    ],
+    "cwd": "benchmark/repositories/REPO-130",
+    "exit_code": 0,
+    "result": "passed",
+    "passed": 10,
+    "failed": 0,
+    "skipped": 0,
+    "errors": 0,
+    "warnings": 0,
+    "output": "..........                                                               [100%]\n10 passed in 0.25s\n"
+  }
+}
