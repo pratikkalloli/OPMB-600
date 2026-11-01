@@ -4,10 +4,10 @@
     "python": "Python 3.11.9",
     "pytest": "pytest 8.4.2"
   },
-  "repositories_tested": 90,
+  "repositories_tested": 100,
   "repositories_planned": 180,
-  "original_passed": 900,
-  "pqc_passed": 900,
+  "original_passed": 1000,
+  "pqc_passed": 1000,
   "repositories": [
     {
       "repository_id": "REPO-061",
@@ -1988,6 +1988,226 @@
         "exit_code": 0
       },
       "evidence": "reports/evidence/REPO-150/test-results.json"
+    },
+    {
+      "repository_id": "REPO-151",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-151/test-results.json"
+    },
+    {
+      "repository_id": "REPO-152",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-152/test-results.json"
+    },
+    {
+      "repository_id": "REPO-153",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-153/test-results.json"
+    },
+    {
+      "repository_id": "REPO-154",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-154/test-results.json"
+    },
+    {
+      "repository_id": "REPO-155",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-155/test-results.json"
+    },
+    {
+      "repository_id": "REPO-156",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-156/test-results.json"
+    },
+    {
+      "repository_id": "REPO-157",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-157/test-results.json"
+    },
+    {
+      "repository_id": "REPO-158",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-158/test-results.json"
+    },
+    {
+      "repository_id": "REPO-159",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-159/test-results.json"
+    },
+    {
+      "repository_id": "REPO-160",
+      "original": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "pqc_reference": {
+        "result": "passed",
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "errors": 0,
+        "warnings": 0,
+        "exit_code": 0
+      },
+      "evidence": "reports/evidence/REPO-160/test-results.json"
     }
   ]
 }

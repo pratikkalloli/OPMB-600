@@ -1,0 +1,62 @@
+{
+  "task_id": "OPMB-1515",
+  "repository_id": "REPO-152",
+  "repository_name": "diploma_verify",
+  "application_domain": "education_research",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072-PSS-SHA-256; RSA-OAEP-SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "canonical record serialization",
+  "source_files": [
+    "src/diploma_verify/workflow.py",
+    "src/diploma_verify/crypto.py"
+  ],
+  "function_names": [
+    "canonicalize_diploma_verify_record"
+  ],
+  "migration_family": "canonical record serialization",
+  "migration_target": "FIPS 204 ML-DSA-65; FIPS 203 ML-KEM-768; HKDF-SHA-256; AES-256-GCM",
+  "migration_objective": "Migrate DiplomaVerify's An authorized digital diploma recipient verification operator validates a domain record, signs the canonical record, stores an append-only decision, and lets an independent party verify its scope and lifecycle state. workflow for canonical record serialization: Produce stable canonical bytes for equivalent records regardless of field insertion order. Preserve its domain rule that accepts only bounded academic-cycle identifiers; do not silently downgrade algorithms or relax validation.",
+  "preconditions": [
+    "The original application tests pass.",
+    "Records use synthetic data and satisfy the documented domain schema.",
+    "The pinned cryptography provider supports the stated FIPS algorithm APIs."
+  ],
+  "expected_behavior": [
+    "Preserve the DiplomaVerify workflow and its domain-specific policy.",
+    "Reject malformed, tampered, wrong-purpose, retired, revoked, and context-mismatched cryptographic inputs where relevant.",
+    "Keep signing and transport key purposes separate."
+  ],
+  "migration_requirements": [
+    "Use FIPS 204 ML-DSA-65 for signatures and FIPS 203 ML-KEM-768 for key establishment.",
+    "Use HKDF-SHA-256 to derive AES-256-GCM content keys; do not use ML-KEM as a direct encryption primitive.",
+    "Retain the application's field validation, persistence behavior, and lifecycle policy."
+  ],
+  "original_tests": [
+    "tests/test_diploma_verify.py::test_task_1515_canonical_record_encoding_is_stable"
+  ],
+  "migration_tests": [
+    "tests/test_diploma_verify_pqc.py::test_task_1515_canonical_record_encoding_is_stable"
+  ],
+  "verification_procedure": [
+    "Run `python -m pytest tests/test_diploma_verify.py -q` from `REPO-152`.",
+    "Run `python -m pytest tests/test_diploma_verify_pqc.py -q` from `REPO-152`.",
+    "Review actual suite output in `reports/evidence/REPO-152/test-results.json`."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic in-memory key registry; durable key custody is outside this benchmark.",
+    "Candidate task; independent acceptance is pending."
+  ],
+  "created_by": "OPMB-600-team-a-scale",
+  "task_path": "benchmark/repositories/REPO-152/tasks/OPMB-1515",
+  "reference_path": "benchmark/repositories/REPO-152/migrated_reference/diploma_verify_pqc",
+  "original_test_evidence": "reports/evidence/REPO-152/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-152/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-152/test-results.json"
+}
