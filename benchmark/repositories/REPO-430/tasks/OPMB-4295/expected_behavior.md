@@ -1,0 +1,3 @@
+# Expected behavior
+
+CloudChangeApproval: Reject malformed public-key encodings when loading change approval verification keys. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

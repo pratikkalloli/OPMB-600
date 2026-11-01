@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-4851",
+  "repository_id": "REPO-486",
+  "repository_name": "ExperimentNotebookSeal",
+  "application_domain": "machine_learning_experiment_notebook_seals",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "canonical message encoding for experimentnotebookseal",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/experimentnotebookseal/crypto.py",
+    "src/experimentnotebookseal/service.py"
+  ],
+  "function_names": [
+    "canonical_claims",
+    "validate_claims"
+  ],
+  "migration_family": "canonical message encoding",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "ExperimentNotebookSeal: Canonicalize experimentnotebookseal claims and bind the signed record to its notebook_id identifier.",
+  "preconditions": [
+    "ExperimentNotebookSeal baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate canonical message encoding to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve ExperimentNotebookSeal canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_experimentnotebookseal.py"
+  ],
+  "migration_tests": [
+    "tests/test_experimentnotebookseal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-486/tasks/OPMB-4851",
+  "reference_path": "benchmark/repositories/REPO-486/migrated_reference/experimentnotebookseal_pqc",
+  "original_test_evidence": "reports/evidence/REPO-486/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-486/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-486/post-migration-scan.json"
+}

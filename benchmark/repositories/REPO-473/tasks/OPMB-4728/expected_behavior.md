@@ -1,0 +1,3 @@
+# Expected behavior
+
+BuildFarmKeyRotation: Preserve the BuildFarmKeyRotation domain validation rule: claims do not match the rotation schema. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

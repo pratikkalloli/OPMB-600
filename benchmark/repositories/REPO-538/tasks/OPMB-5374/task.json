@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-5374",
+  "repository_id": "REPO-538",
+  "repository_name": "RightsWindowSchedule",
+  "application_domain": "digital_content_rights_window_schedules",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "public-key serialization for rightswindowschedule",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/rightswindowschedule/crypto.py",
+    "src/rightswindowschedule/service.py"
+  ],
+  "function_names": [
+    "export_public_key"
+  ],
+  "migration_family": "public-key serialization",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "RightsWindowSchedule: Replace DER public-key export with ML-DSA-65 serialization for rightswindowschedule verifiers.",
+  "preconditions": [
+    "RightsWindowSchedule baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate public-key serialization to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve RightsWindowSchedule canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_rightswindowschedule.py"
+  ],
+  "migration_tests": [
+    "tests/test_rightswindowschedule_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-538/tasks/OPMB-5374",
+  "reference_path": "benchmark/repositories/REPO-538/migrated_reference/rightswindowschedule_pqc",
+  "original_test_evidence": "reports/evidence/REPO-538/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-538/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-538/post-migration-scan.json"
+}

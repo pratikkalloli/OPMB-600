@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-5820",
+  "repository_id": "REPO-582",
+  "repository_name": "StorageScrubResult",
+  "application_domain": "storage_integrity_scrub_results",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "identifier binding and revocation for storagescrubresult",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/storagescrubresult/crypto.py",
+    "src/storagescrubresult/service.py"
+  ],
+  "function_names": [
+    "verify",
+    "deactivate"
+  ],
+  "migration_family": "identifier binding and revocation",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "StorageScrubResult: Bind storagescrubresult lookup identifiers to signed claims and preserve deactivation behavior.",
+  "preconditions": [
+    "StorageScrubResult baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate identifier binding and revocation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve StorageScrubResult canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_storagescrubresult.py"
+  ],
+  "migration_tests": [
+    "tests/test_storagescrubresult_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-582/tasks/OPMB-5820",
+  "reference_path": "benchmark/repositories/REPO-582/migrated_reference/storagescrubresult_pqc",
+  "original_test_evidence": "reports/evidence/REPO-582/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-582/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-582/post-migration-scan.json"
+}

@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-4344",
+  "repository_id": "REPO-435",
+  "repository_name": "NamespaceTransferReceipt",
+  "application_domain": "tenant_namespace_transfer_receipts",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "public-key serialization for namespace transfer receipt",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/namespacetransferreceipt/crypto.py",
+    "src/namespacetransferreceipt/service.py"
+  ],
+  "function_names": [
+    "export_public_key"
+  ],
+  "migration_family": "public-key serialization",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "NamespaceTransferReceipt: Replace DER public-key export with ML-DSA-65 serialization for namespace transfer receipt verifiers.",
+  "preconditions": [
+    "NamespaceTransferReceipt baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate public-key serialization to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve NamespaceTransferReceipt canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_namespacetransferreceipt.py"
+  ],
+  "migration_tests": [
+    "tests/test_namespacetransferreceipt_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-435/tasks/OPMB-4344",
+  "reference_path": "benchmark/repositories/REPO-435/migrated_reference/namespacetransferreceipt_pqc",
+  "original_test_evidence": "reports/evidence/REPO-435/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-435/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-435/post-migration-scan.json"
+}

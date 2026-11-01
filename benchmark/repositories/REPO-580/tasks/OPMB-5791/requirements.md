@@ -1,0 +1,3 @@
+# Migration requirements
+
+BackupKeyEpochRecord: Canonicalize backupkeyepochrecord claims and bind the signed record to its record_id identifier. Use ML-DSA-65 without classical fallback. Preserve canonical claims and application policy.

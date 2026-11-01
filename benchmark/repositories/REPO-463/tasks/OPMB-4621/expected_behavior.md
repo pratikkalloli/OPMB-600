@@ -1,0 +1,3 @@
+# Expected behavior
+
+PackageNamespaceTransfer: Canonicalize packagenamespacetransfer claims and bind the signed record to its transfer_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

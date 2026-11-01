@@ -1,0 +1,38 @@
+{
+  "repository_id": "REPO-474",
+  "application": "ReleaseRollbackPermit",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-474/tests/test_releaserollbackpermit.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-474\\original",
+      "started_at": "2026-11-01T16:44:16.372924+05:30",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ".....                                                                    [100%]\n============================== warnings summary ===============================\n.venv\\Lib\\site-packages\\_pytest\\cacheprovider.py:475\n  C:\\SEM 5\\OPMB\\.venv\\Lib\\site-packages\\_pytest\\cacheprovider.py:475: PytestCacheWarning: could not create cache path C:\\SEM 5\\OPMB\\benchmark\\repositories\\REPO-474\\.pytest_cache\\v\\cache\\nodeids: [WinError 5] Access is denied: 'C:\\\\SEM 5\\\\OPMB\\\\benchmark\\\\repositories\\\\REPO-474\\\\pytest-cache-files-v6hc2u2e' -> 'C:\\\\SEM 5\\\\OPMB\\\\benchmark\\\\repositories\\\\REPO-474\\\\.pytest_cache'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n5 passed, 1 warning in 0.14s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-474/tests/test_releaserollbackpermit_pqc.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-474\\pqc_reference",
+      "started_at": "2026-11-01T16:44:16.893203+05:30",
+      "exit_code": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "......                                                                   [100%]\n6 passed in 0.15s"
+    }
+  ],
+  "scanner": {
+    "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe pqc_agent/scanner/scan_python.py benchmark/repositories/REPO-474/migrated_reference",
+    "exit_code": 0,
+    "findings": 0,
+    "scope_limit": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+  }
+}

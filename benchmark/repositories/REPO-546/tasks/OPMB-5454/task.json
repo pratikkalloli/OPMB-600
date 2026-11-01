@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-5454",
+  "repository_id": "REPO-546",
+  "repository_name": "ProjectHandoffApproval",
+  "application_domain": "collaboration_project_handoff_approvals",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "public-key serialization for projecthandoffapproval",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/projecthandoffapproval/crypto.py",
+    "src/projecthandoffapproval/service.py"
+  ],
+  "function_names": [
+    "export_public_key"
+  ],
+  "migration_family": "public-key serialization",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "ProjectHandoffApproval: Replace DER public-key export with ML-DSA-65 serialization for projecthandoffapproval verifiers.",
+  "preconditions": [
+    "ProjectHandoffApproval baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate public-key serialization to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve ProjectHandoffApproval canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_projecthandoffapproval.py"
+  ],
+  "migration_tests": [
+    "tests/test_projecthandoffapproval_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-546/tasks/OPMB-5454",
+  "reference_path": "benchmark/repositories/REPO-546/migrated_reference/projecthandoffapproval_pqc",
+  "original_test_evidence": "reports/evidence/REPO-546/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-546/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-546/post-migration-scan.json"
+}

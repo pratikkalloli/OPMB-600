@@ -1,0 +1,3 @@
+# Expected behavior
+
+CollaborationRecoveryCode: Replace ECDSA-SHA256 signatures over canonical collaborationrecoverycode claims with ML-DSA-65. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

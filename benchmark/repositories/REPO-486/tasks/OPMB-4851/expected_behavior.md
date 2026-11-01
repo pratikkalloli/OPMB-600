@@ -1,0 +1,3 @@
+# Expected behavior
+
+ExperimentNotebookSeal: Canonicalize experimentnotebookseal claims and bind the signed record to its notebook_id identifier. Valid signed records remain verifiable; malformed, altered, wrong-key, or inactive records are rejected.

@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-4629",
+  "repository_id": "REPO-463",
+  "repository_name": "PackageNamespaceTransfer",
+  "application_domain": "software_package_namespace_transfers",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "signed record persistence for packagenamespacetransfer",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/packagenamespacetransfer/crypto.py",
+    "src/packagenamespacetransfer/service.py"
+  ],
+  "function_names": [
+    "issue"
+  ],
+  "migration_family": "signed record persistence",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "PackageNamespaceTransfer: Keep signed packagenamespacetransfer issuance in SQLite and reject duplicate transfer_id records.",
+  "preconditions": [
+    "PackageNamespaceTransfer baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate signed record persistence to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve PackageNamespaceTransfer canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_packagenamespacetransfer.py"
+  ],
+  "migration_tests": [
+    "tests/test_packagenamespacetransfer_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-463/tasks/OPMB-4629",
+  "reference_path": "benchmark/repositories/REPO-463/migrated_reference/packagenamespacetransfer_pqc",
+  "original_test_evidence": "reports/evidence/REPO-463/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-463/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-463/post-migration-scan.json"
+}

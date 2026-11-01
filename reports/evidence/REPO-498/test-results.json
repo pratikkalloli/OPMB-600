@@ -1,0 +1,38 @@
+{
+  "repository_id": "REPO-498",
+  "application": "TrainingRunApproval",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-498/tests/test_trainingrunapproval.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-498\\original",
+      "started_at": "2026-11-01T16:47:38.291328+05:30",
+      "exit_code": 0,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": ".....                                                                    [100%]\n5 passed in 0.27s"
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest benchmark/repositories/REPO-498/tests/test_trainingrunapproval_pqc.py -q --basetemp C:\\SEM 5\\OPMB\\.pytest-tmp\\REPO-498\\pqc_reference",
+      "started_at": "2026-11-01T16:47:38.998999+05:30",
+      "exit_code": 0,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "stdout": "......                                                                   [100%]\n6 passed in 0.21s"
+    }
+  ],
+  "scanner": {
+    "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe pqc_agent/scanner/scan_python.py benchmark/repositories/REPO-498/migrated_reference",
+    "exit_code": 0,
+    "findings": 0,
+    "scope_limit": "Lexical source scan only; it does not inspect dependencies, dynamic code, serialized data, or runtime behavior."
+  }
+}

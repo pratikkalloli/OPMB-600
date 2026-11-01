@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-5519",
+  "repository_id": "REPO-552",
+  "repository_name": "AvailabilityBlockSeal",
+  "application_domain": "collaboration_availability_block_seals",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "signed record persistence for availabilityblockseal",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/availabilityblockseal/crypto.py",
+    "src/availabilityblockseal/service.py"
+  ],
+  "function_names": [
+    "issue"
+  ],
+  "migration_family": "signed record persistence",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "AvailabilityBlockSeal: Keep signed availabilityblockseal issuance in SQLite and reject duplicate block_id records.",
+  "preconditions": [
+    "AvailabilityBlockSeal baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate signed record persistence to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve AvailabilityBlockSeal canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_availabilityblockseal.py"
+  ],
+  "migration_tests": [
+    "tests/test_availabilityblockseal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-552/tasks/OPMB-5519",
+  "reference_path": "benchmark/repositories/REPO-552/migrated_reference/availabilityblockseal_pqc",
+  "original_test_evidence": "reports/evidence/REPO-552/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-552/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-552/post-migration-scan.json"
+}

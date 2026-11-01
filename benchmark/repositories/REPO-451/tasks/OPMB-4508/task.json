@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-4508",
+  "repository_id": "REPO-451",
+  "repository_name": "BuildArtifactEnvelope",
+  "application_domain": "build_artifact_signing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "domain policy preservation for buildartifactenvelope",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/buildartifactenvelope/crypto.py",
+    "src/buildartifactenvelope/service.py"
+  ],
+  "function_names": [
+    "validate_claims"
+  ],
+  "migration_family": "domain policy preservation",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "BuildArtifactEnvelope: Preserve the BuildArtifactEnvelope domain validation rule: claims do not match the artifact schema.",
+  "preconditions": [
+    "BuildArtifactEnvelope baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate domain policy preservation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve BuildArtifactEnvelope canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_buildartifactenvelope.py"
+  ],
+  "migration_tests": [
+    "tests/test_buildartifactenvelope_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-451/tasks/OPMB-4508",
+  "reference_path": "benchmark/repositories/REPO-451/migrated_reference/buildartifactenvelope_pqc",
+  "original_test_evidence": "reports/evidence/REPO-451/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-451/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-451/post-migration-scan.json"
+}
