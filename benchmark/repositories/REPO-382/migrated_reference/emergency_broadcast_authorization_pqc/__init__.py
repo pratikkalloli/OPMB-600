@@ -1,0 +1,1 @@
+"""EmergencyBroadcastAuthorization separate PQC reference."""

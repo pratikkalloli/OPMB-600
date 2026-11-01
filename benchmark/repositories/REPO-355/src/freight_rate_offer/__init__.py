@@ -1,0 +1,1 @@
+"""FreightRateOffer original application."""

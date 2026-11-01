@@ -1,0 +1,1 @@
+"""BeehiveHealthObservation original application."""

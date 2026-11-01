@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2633",
+  "repository_id": "REPO-264",
+  "repository_name": "WorkOrderTraveler",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "generate_signer for work order traveler workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/work_order_traveler/domain.py",
+    "src/work_order_traveler/crypto.py",
+    "src/work_order_traveler/service.py"
+  ],
+  "function_names": [
+    "generate_signer"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate WorkOrderTraveler generate an application-specific signature key pair from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Carries a serialized work order through required operations and captures station-level signoff; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "WorkOrderTraveler original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve workcell_id and authorization_code semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind work_order_traveler version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_work_order_traveler.py"
+  ],
+  "migration_tests": [
+    "tests/test_work_order_traveler_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-264/tasks/OPMB-2633",
+  "reference_path": "benchmark/repositories/REPO-264/migrated_reference/work_order_traveler_pqc",
+  "original_test_evidence": "reports/evidence/REPO-264/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-264/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-264/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-264/post-migration-scan.json"
+}

@@ -1,0 +1,1 @@
+"""DeviceRecoveryTicket original application."""

@@ -1,0 +1,1 @@
+"""GatewayJoinApproval original application."""

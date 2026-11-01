@@ -1,0 +1,1 @@
+"""CPEFirmwareCampaign original application."""

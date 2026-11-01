@@ -1,0 +1,25 @@
+{
+  "repositories": 180,
+  "tasks": 1800,
+  "repository_ids_continuous": true,
+  "task_ids_continuous": true,
+  "schema_dialect": "Draft 2020-12",
+  "pytest_suites": 360,
+  "tests": 2280,
+  "passed": 2280,
+  "failed": 0,
+  "skipped": 0,
+  "exact_title_overlaps_with_existing": 0,
+  "unique_normalized_service_shapes": 31,
+  "domain_specificity_review": "partial",
+  "domain_specificity_apps_passed": 30,
+  "domain_specificity_apps_remaining": 150,
+  "secret_pattern_hits": 0,
+  "local_artifact_hits": 0,
+  "errors": [],
+  "warnings": [
+    "Only 31 normalized service-code shape(s) across 180 applications; domain-specific workflow behavior requires substantive independent review."
+  ],
+  "structural_status": "passed",
+  "status": "incomplete"
+}

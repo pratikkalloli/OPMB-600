@@ -1,0 +1,8 @@
+# OPMB-3763: Generate an application-specific signature key pair
+
+The migration must preserve the Records timing source health and synchronization error for a base station; intake, validate, approve, record transition, and preserve a verifiable audit artifact. business invariant and the network_element_id scope.
+
+- Keep cryptographic key roles separate.
+- Bind an explicit version and BaseStationClockAttestation context.
+- Reject malformed encodings and tampered input.
+- Never use a classical fallback.

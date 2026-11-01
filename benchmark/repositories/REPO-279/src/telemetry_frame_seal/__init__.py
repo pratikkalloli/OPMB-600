@@ -1,0 +1,1 @@
+"""TelemetryFrameSeal original application."""

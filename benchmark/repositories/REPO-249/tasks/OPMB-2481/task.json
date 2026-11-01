@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2481",
+  "repository_id": "REPO-249",
+  "repository_name": "MachineInterlockPermit",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "validate_record for interlock permit workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/machine_interlock_permit/domain.py",
+    "src/machine_interlock_permit/crypto.py",
+    "src/machine_interlock_permit/service.py"
+  ],
+  "function_names": [
+    "validate_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate MachineInterlockPermit validate the domain record and its lifecycle state from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Safety-case review, interlock epoch issuance, operator acknowledgment, and restart authorization. semantics.",
+  "preconditions": [
+    "MachineInterlockPermit original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve machine_id and interlock_epoch semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind interlock_permit version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_machine_interlock_permit.py"
+  ],
+  "migration_tests": [
+    "tests/test_machine_interlock_permit_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-249/tasks/OPMB-2481",
+  "reference_path": "benchmark/repositories/REPO-249/migrated_reference/machine_interlock_permit_pqc",
+  "original_test_evidence": "reports/evidence/REPO-249/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-249/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-249/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-249/post-migration-scan.json"
+}

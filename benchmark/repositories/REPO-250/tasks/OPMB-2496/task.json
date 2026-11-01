@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2496",
+  "repository_id": "REPO-250",
+  "repository_name": "ComponentTraceLot",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "export_public_key for component trace workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/component_trace_lot/domain.py",
+    "src/component_trace_lot/crypto.py",
+    "src/component_trace_lot/service.py"
+  ],
+  "function_names": [
+    "export_public_key"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate ComponentTraceLot serialize the verification key in the algorithm format from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Receiving inspection, source-lot binding, production consumption, and traceability export. semantics.",
+  "preconditions": [
+    "ComponentTraceLot original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve component_id and material_digest semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind component_trace version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_component_trace_lot.py"
+  ],
+  "migration_tests": [
+    "tests/test_component_trace_lot_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-250/tasks/OPMB-2496",
+  "reference_path": "benchmark/repositories/REPO-250/migrated_reference/component_trace_lot_pqc",
+  "original_test_evidence": "reports/evidence/REPO-250/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-250/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-250/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-250/post-migration-scan.json"
+}

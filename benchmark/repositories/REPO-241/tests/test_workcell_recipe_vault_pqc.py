@@ -1,0 +1,71 @@
+"""Application and crypto tests for WorkcellRecipeVault PQC reference."""
+import json, pytest
+from workcell_recipe_vault_pqc.domain import validate_record, canonical_record, transition_record
+from workcell_recipe_vault_pqc.crypto import generate_signer, sign_record, verify_record, export_public_key, load_public_key, generate_recipient, seal_artifact, open_artifact
+
+RECORD={"record_id": "recipe-241", "line_id": "line-press-4", "recipe_digest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "revision": 3, "approver_id": "qa-17", "state": "draft"}
+def test_domain_record_and_lifecycle():
+    assert validate_record(RECORD)==RECORD
+    assert canonical_record(RECORD)==canonical_record(dict(RECORD))
+    changed=transition_record(RECORD,'reviewed')
+    assert changed["state"]!='draft'
+    with pytest.raises(ValueError): transition_record(RECORD,"impossible")
+def test_domain_rule_rejects_invalid_value():
+    invalid=dict(RECORD); invalid.update({"recipe_digest": "not-a-digest"})
+    with pytest.raises(ValueError): validate_record(invalid)
+def test_signature_roundtrip_and_tamper_rejection():
+    private=generate_signer(); public=private.public_key(); signature=sign_record(RECORD,private)
+    assert verify_record(RECORD,signature,public)
+    altered=dict(RECORD); altered["record_id"]+="-changed"
+    assert not verify_record(altered,signature,public)
+    assert not verify_record(RECORD,signature,generate_signer().public_key())
+    assert load_public_key(export_public_key(public)).public_bytes_raw()==export_public_key(public).split(b":",1)[-1] if True else load_public_key(export_public_key(public)).public_numbers()==public.public_numbers()
+def test_artifact_envelope_integrity():
+    if True:
+        recipient=generate_recipient(); private=recipient; public=recipient.public_key()
+    else:
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        private=rsa.generate_private_key(public_exponent=65537,key_size=3072); public=private.public_key()
+    envelope=seal_artifact(b"WorkcellRecipeVault synthetic artifact",public)
+    assert open_artifact(envelope,private)==b"WorkcellRecipeVault synthetic artifact"
+    obj=json.loads(envelope); obj["ct"]=obj["ct"][:-4]+("AAAA" if obj["ct"][-4:]!="AAAA" else "BBBB")
+    with pytest.raises(ValueError): open_artifact(json.dumps(obj).encode(),private)
+    if True:
+        wrong=generate_recipient()
+    else:
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        wrong=rsa.generate_private_key(public_exponent=65537,key_size=3072)
+    with pytest.raises(ValueError): open_artifact(envelope,wrong)
+def test_unknown_envelope_version_rejected():
+    if True:
+        private=generate_recipient()
+    else:
+        from cryptography.hazmat.primitives.asymmetric import rsa
+        private=rsa.generate_private_key(public_exponent=65537,key_size=3072)
+    with pytest.raises(ValueError): open_artifact(b'{"v":2,"alg":"unknown"}',private)
+def test_persistent_application_approval_and_stale_record_rejection(tmp_path):
+    from migrated_reference.workcell_recipe_vault_pqc.service import WorkcellRecipeVaultPQC
+    app=WorkcellRecipeVaultPQC(tmp_path/"workflow.sqlite3")
+    app.register(RECORD)
+    signer=generate_signer()
+    app.approve(RECORD["record_id"],signer)
+    assert app.verify_approval(RECORD["record_id"],signer.public_key())
+    moved=app.advance(RECORD["record_id"],'reviewed')
+    assert moved["state"]!='draft'
+    assert not app.verify_approval(RECORD["record_id"],signer.public_key())
+
+def test_recipe_release_requires_signed_reviewed_revision(tmp_path):
+    from workcell_recipe_vault_pqc.service import WorkcellRecipeVaultPQC
+    record=dict(RECORD,state='reviewed'); app=WorkcellRecipeVaultPQC(tmp_path/'recipe.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    released=app.release_recipe(record['record_id'],record['revision'],signer.public_key())
+    assert released['state']=='released'
+    with __import__('sqlite3').connect(app.path) as db:
+        event=db.execute('SELECT event_type,previous_state,next_state,evidence FROM workflow_events').fetchone()
+    assert event[0:3]==('recipe_released','reviewed','released') and 'line_id' in event[3]
+def test_recipe_release_rejects_revision_mismatch_without_transition(tmp_path):
+    from workcell_recipe_vault_pqc.service import WorkcellRecipeVaultPQC
+    record=dict(RECORD,state='reviewed'); app=WorkcellRecipeVaultPQC(tmp_path/'recipe.db'); app.register(record)
+    signer=generate_signer(); app.approve(record['record_id'],signer)
+    with pytest.raises(ValueError): app.release_recipe(record['record_id'],record['revision']+1,signer.public_key())
+    assert app.retrieve(record['record_id'])['state']=='reviewed'

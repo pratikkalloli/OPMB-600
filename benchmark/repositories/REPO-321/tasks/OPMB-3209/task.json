@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3209",
+  "repository_id": "REPO-321",
+  "repository_name": "HeatNetworkMetering",
+  "application_domain": "B3 Energy and utilities",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "open_artifact for heat network metering workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/heat_network_metering/domain.py",
+    "src/heat_network_metering/crypto.py",
+    "src/heat_network_metering/service.py"
+  ],
+  "function_names": [
+    "open_artifact"
+  ],
+  "migration_family": "KEM confidentiality migration",
+  "migration_target": "ML-KEM-768 and AES-256-GCM",
+  "migration_objective": "Migrate HeatNetworkMetering recover an artifact and reject malformed or altered envelopes from RSA-3072 OAEP/SHA-256 with AES-256-GCM to ML-KEM-768 and AES-256-GCM, retaining Closes district heat meter intervals and captures correction approvals; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "HeatNetworkMetering original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve asset_id and review_class semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind heat_network_metering version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_heat_network_metering.py"
+  ],
+  "migration_tests": [
+    "tests/test_heat_network_metering_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-321/tasks/OPMB-3209",
+  "reference_path": "benchmark/repositories/REPO-321/migrated_reference/heat_network_metering_pqc",
+  "original_test_evidence": "reports/evidence/REPO-321/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-321/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-321/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-321/post-migration-scan.json"
+}

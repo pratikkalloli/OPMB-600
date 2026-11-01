@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-261",
+    "name": "MachineGuardInspection",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-261",
+    "purpose": "Records machine-guard inspection findings and prevents restart until safety-critical findings are closed.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2601",
+      "OPMB-2602",
+      "OPMB-2603",
+      "OPMB-2604",
+      "OPMB-2605",
+      "OPMB-2606",
+      "OPMB-2607",
+      "OPMB-2608",
+      "OPMB-2609",
+      "OPMB-2610"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/machine_guard_inspection/domain.py",
+      "src/machine_guard_inspection/crypto.py",
+      "src/machine_guard_inspection/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-262",
+    "name": "ConsumableShelfLifeCard",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-262",
+    "purpose": "Tracks lot expiry and opened-container life for process consumables used by a production cell.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2611",
+      "OPMB-2612",
+      "OPMB-2613",
+      "OPMB-2614",
+      "OPMB-2615",
+      "OPMB-2616",
+      "OPMB-2617",
+      "OPMB-2618",
+      "OPMB-2619",
+      "OPMB-2620"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/consumable_shelf_life_card/domain.py",
+      "src/consumable_shelf_life_card/crypto.py",
+      "src/consumable_shelf_life_card/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-263",
+    "name": "GaugeRAndRStudy",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-263",
+    "purpose": "Stores measurement-system study samples and approval for a specific gauge and characteristic.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2621",
+      "OPMB-2622",
+      "OPMB-2623",
+      "OPMB-2624",
+      "OPMB-2625",
+      "OPMB-2626",
+      "OPMB-2627",
+      "OPMB-2628",
+      "OPMB-2629",
+      "OPMB-2630"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/gauge_r_and_r_study/domain.py",
+      "src/gauge_r_and_r_study/crypto.py",
+      "src/gauge_r_and_r_study/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-264",
+    "name": "WorkOrderTraveler",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-264",
+    "purpose": "Carries a serialized work order through required operations and captures station-level signoff.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2631",
+      "OPMB-2632",
+      "OPMB-2633",
+      "OPMB-2634",
+      "OPMB-2635",
+      "OPMB-2636",
+      "OPMB-2637",
+      "OPMB-2638",
+      "OPMB-2639",
+      "OPMB-2640"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/work_order_traveler/domain.py",
+      "src/work_order_traveler/crypto.py",
+      "src/work_order_traveler/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-265",
+    "name": "QualityHoldRelease",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-265",
+    "purpose": "Records containment scope and the authorized release decision for material on quality hold.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2641",
+      "OPMB-2642",
+      "OPMB-2643",
+      "OPMB-2644",
+      "OPMB-2645",
+      "OPMB-2646",
+      "OPMB-2647",
+      "OPMB-2648",
+      "OPMB-2649",
+      "OPMB-2650"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/quality_hold_release/domain.py",
+      "src/quality_hold_release/crypto.py",
+      "src/quality_hold_release/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-266",
+    "name": "SparePartCompatibility",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-266",
+    "purpose": "Approves a replacement part against machine model, revision, and safety class before installation.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2651",
+      "OPMB-2652",
+      "OPMB-2653",
+      "OPMB-2654",
+      "OPMB-2655",
+      "OPMB-2656",
+      "OPMB-2657",
+      "OPMB-2658",
+      "OPMB-2659",
+      "OPMB-2660"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/spare_part_compatibility/domain.py",
+      "src/spare_part_compatibility/crypto.py",
+      "src/spare_part_compatibility/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-267",
+    "name": "CleanInPlaceRecord",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-267",
+    "purpose": "Binds a validated clean-in-place cycle to a processing vessel and the next production lot.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2661",
+      "OPMB-2662",
+      "OPMB-2663",
+      "OPMB-2664",
+      "OPMB-2665",
+      "OPMB-2666",
+      "OPMB-2667",
+      "OPMB-2668",
+      "OPMB-2669",
+      "OPMB-2670"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/clean_in_place_record/domain.py",
+      "src/clean_in_place_record/crypto.py",
+      "src/clean_in_place_record/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-268",
+    "name": "ReworkRoutingCard",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-268",
+    "purpose": "Defines permitted rework operations for a nonconforming unit and records each completed route step.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2671",
+      "OPMB-2672",
+      "OPMB-2673",
+      "OPMB-2674",
+      "OPMB-2675",
+      "OPMB-2676",
+      "OPMB-2677",
+      "OPMB-2678",
+      "OPMB-2679",
+      "OPMB-2680"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/rework_routing_card/domain.py",
+      "src/rework_routing_card/crypto.py",
+      "src/rework_routing_card/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-269",
+    "name": "OperatorQualificationGrant",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-269",
+    "purpose": "Tracks operator qualification scope and expiration for safety-sensitive production tasks.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2681",
+      "OPMB-2682",
+      "OPMB-2683",
+      "OPMB-2684",
+      "OPMB-2685",
+      "OPMB-2686",
+      "OPMB-2687",
+      "OPMB-2688",
+      "OPMB-2689",
+      "OPMB-2690"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/operator_qualification_grant/domain.py",
+      "src/operator_qualification_grant/crypto.py",
+      "src/operator_qualification_grant/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-270",
+    "name": "ProductionSampleCustody",
+    "application_domain": "B1 Industrial automation and manufacturing",
+    "path": "benchmark/repositories/REPO-270",
+    "purpose": "Maintains custody and disposition of retained production samples used for later quality investigation.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2691",
+      "OPMB-2692",
+      "OPMB-2693",
+      "OPMB-2694",
+      "OPMB-2695",
+      "OPMB-2696",
+      "OPMB-2697",
+      "OPMB-2698",
+      "OPMB-2699",
+      "OPMB-2700"
+    ],
+    "batch": 3,
+    "main_modules": [
+      "src/production_sample_custody/domain.py",
+      "src/production_sample_custody/crypto.py",
+      "src/production_sample_custody/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

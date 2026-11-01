@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-401",
+    "name": "FarmEquipmentOperatorGrant",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-401",
+    "purpose": "Assigns equipment operation privileges by machine class and qualification expiry.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4001",
+      "OPMB-4002",
+      "OPMB-4003",
+      "OPMB-4004",
+      "OPMB-4005",
+      "OPMB-4006",
+      "OPMB-4007",
+      "OPMB-4008",
+      "OPMB-4009",
+      "OPMB-4010"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/farm_equipment_operator_grant/domain.py",
+      "src/farm_equipment_operator_grant/crypto.py",
+      "src/farm_equipment_operator_grant/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-402",
+    "name": "PesticideApplicationLog",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-402",
+    "purpose": "Records treatment product, field boundary, dose, weather, and applicator for compliance review.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4011",
+      "OPMB-4012",
+      "OPMB-4013",
+      "OPMB-4014",
+      "OPMB-4015",
+      "OPMB-4016",
+      "OPMB-4017",
+      "OPMB-4018",
+      "OPMB-4019",
+      "OPMB-4020"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/pesticide_application_log/domain.py",
+      "src/pesticide_application_log/crypto.py",
+      "src/pesticide_application_log/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-403",
+    "name": "HarvestBinHandoff",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-403",
+    "purpose": "Tracks harvest bin custody from field collection through packing intake.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4021",
+      "OPMB-4022",
+      "OPMB-4023",
+      "OPMB-4024",
+      "OPMB-4025",
+      "OPMB-4026",
+      "OPMB-4027",
+      "OPMB-4028",
+      "OPMB-4029",
+      "OPMB-4030"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/harvest_bin_handoff/domain.py",
+      "src/harvest_bin_handoff/crypto.py",
+      "src/harvest_bin_handoff/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-404",
+    "name": "GrainMoistureCertificate",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-404",
+    "purpose": "Attests grain moisture measurements and storage acceptance for a harvest lot.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4031",
+      "OPMB-4032",
+      "OPMB-4033",
+      "OPMB-4034",
+      "OPMB-4035",
+      "OPMB-4036",
+      "OPMB-4037",
+      "OPMB-4038",
+      "OPMB-4039",
+      "OPMB-4040"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/grain_moisture_certificate/domain.py",
+      "src/grain_moisture_certificate/crypto.py",
+      "src/grain_moisture_certificate/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-405",
+    "name": "ColdRoomTemperatureRecord",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-405",
+    "purpose": "Seals produce cold-room temperature intervals and excursion disposition.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4041",
+      "OPMB-4042",
+      "OPMB-4043",
+      "OPMB-4044",
+      "OPMB-4045",
+      "OPMB-4046",
+      "OPMB-4047",
+      "OPMB-4048",
+      "OPMB-4049",
+      "OPMB-4050"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/cold_room_temperature_record/domain.py",
+      "src/cold_room_temperature_record/crypto.py",
+      "src/cold_room_temperature_record/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-406",
+    "name": "ForestPlotMeasurement",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-406",
+    "purpose": "Publishes a forest plot inventory with measurement protocol and plot revision.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4051",
+      "OPMB-4052",
+      "OPMB-4053",
+      "OPMB-4054",
+      "OPMB-4055",
+      "OPMB-4056",
+      "OPMB-4057",
+      "OPMB-4058",
+      "OPMB-4059",
+      "OPMB-4060"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/forest_plot_measurement/domain.py",
+      "src/forest_plot_measurement/crypto.py",
+      "src/forest_plot_measurement/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-407",
+    "name": "RiverGaugeObservation",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-407",
+    "purpose": "Validates ordered river gauge readings and flags threshold exceedances.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4061",
+      "OPMB-4062",
+      "OPMB-4063",
+      "OPMB-4064",
+      "OPMB-4065",
+      "OPMB-4066",
+      "OPMB-4067",
+      "OPMB-4068",
+      "OPMB-4069",
+      "OPMB-4070"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/river_gauge_observation/domain.py",
+      "src/river_gauge_observation/crypto.py",
+      "src/river_gauge_observation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-408",
+    "name": "AirQualitySensorEvidence",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-408",
+    "purpose": "Preserves air sensor calibration and pollutant interval evidence for an observation site.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4071",
+      "OPMB-4072",
+      "OPMB-4073",
+      "OPMB-4074",
+      "OPMB-4075",
+      "OPMB-4076",
+      "OPMB-4077",
+      "OPMB-4078",
+      "OPMB-4079",
+      "OPMB-4080"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/air_quality_sensor_evidence/domain.py",
+      "src/air_quality_sensor_evidence/crypto.py",
+      "src/air_quality_sensor_evidence/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-409",
+    "name": "FertilizerBlendTicket",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-409",
+    "purpose": "Records fertilizer blend proportions and field allocation against nutrient limits.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4081",
+      "OPMB-4082",
+      "OPMB-4083",
+      "OPMB-4084",
+      "OPMB-4085",
+      "OPMB-4086",
+      "OPMB-4087",
+      "OPMB-4088",
+      "OPMB-4089",
+      "OPMB-4090"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/fertilizer_blend_ticket/domain.py",
+      "src/fertilizer_blend_ticket/crypto.py",
+      "src/fertilizer_blend_ticket/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-410",
+    "name": "AquacultureFeedTrace",
+    "application_domain": "B6 Agriculture and environmental technology",
+    "path": "benchmark/repositories/REPO-410",
+    "purpose": "Tracks feed batch and ration events for a synthetic aquaculture enclosure.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-4091",
+      "OPMB-4092",
+      "OPMB-4093",
+      "OPMB-4094",
+      "OPMB-4095",
+      "OPMB-4096",
+      "OPMB-4097",
+      "OPMB-4098",
+      "OPMB-4099",
+      "OPMB-4100"
+    ],
+    "batch": 17,
+    "main_modules": [
+      "src/aquaculture_feed_trace/domain.py",
+      "src/aquaculture_feed_trace/crypto.py",
+      "src/aquaculture_feed_trace/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

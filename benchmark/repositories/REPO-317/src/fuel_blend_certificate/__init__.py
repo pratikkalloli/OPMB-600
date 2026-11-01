@@ -1,0 +1,1 @@
+"""FuelBlendCertificate original application."""

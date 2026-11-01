@@ -1,0 +1,1 @@
+"""RenewableOutputCertificate separate PQC reference."""

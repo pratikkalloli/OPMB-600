@@ -1,0 +1,1 @@
+"""PowerPurchaseAllocation original application."""

@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-311",
+    "name": "UtilityCrewPermit",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-311",
+    "purpose": "Issues a work-zone permit for a utility crew and records clearance before re-energization.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3101",
+      "OPMB-3102",
+      "OPMB-3103",
+      "OPMB-3104",
+      "OPMB-3105",
+      "OPMB-3106",
+      "OPMB-3107",
+      "OPMB-3108",
+      "OPMB-3109",
+      "OPMB-3110"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/utility_crew_permit/domain.py",
+      "src/utility_crew_permit/crypto.py",
+      "src/utility_crew_permit/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-312",
+    "name": "HydroReservoirRelease",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-312",
+    "purpose": "Authorizes a simulated reservoir release against downstream flow and environmental constraints.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3111",
+      "OPMB-3112",
+      "OPMB-3113",
+      "OPMB-3114",
+      "OPMB-3115",
+      "OPMB-3116",
+      "OPMB-3117",
+      "OPMB-3118",
+      "OPMB-3119",
+      "OPMB-3120"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/hydro_reservoir_release/domain.py",
+      "src/hydro_reservoir_release/crypto.py",
+      "src/hydro_reservoir_release/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-313",
+    "name": "SubstationRelaySetting",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-313",
+    "purpose": "Controls relay setting revisions, coordination review, and staged commissioning.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3121",
+      "OPMB-3122",
+      "OPMB-3123",
+      "OPMB-3124",
+      "OPMB-3125",
+      "OPMB-3126",
+      "OPMB-3127",
+      "OPMB-3128",
+      "OPMB-3129",
+      "OPMB-3130"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/substation_relay_setting/domain.py",
+      "src/substation_relay_setting/crypto.py",
+      "src/substation_relay_setting/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-314",
+    "name": "CarbonIntensityAttestation",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-314",
+    "purpose": "Publishes interval carbon intensity with source-meter lineage and calculation revision.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3131",
+      "OPMB-3132",
+      "OPMB-3133",
+      "OPMB-3134",
+      "OPMB-3135",
+      "OPMB-3136",
+      "OPMB-3137",
+      "OPMB-3138",
+      "OPMB-3139",
+      "OPMB-3140"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/carbon_intensity_attestation/domain.py",
+      "src/carbon_intensity_attestation/crypto.py",
+      "src/carbon_intensity_attestation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-315",
+    "name": "EVChargeSession",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-315",
+    "purpose": "Records a charging session's meter start/end, station identity, and settlement state.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3141",
+      "OPMB-3142",
+      "OPMB-3143",
+      "OPMB-3144",
+      "OPMB-3145",
+      "OPMB-3146",
+      "OPMB-3147",
+      "OPMB-3148",
+      "OPMB-3149",
+      "OPMB-3150"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/e_v_charge_session/domain.py",
+      "src/e_v_charge_session/crypto.py",
+      "src/e_v_charge_session/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-316",
+    "name": "UtilityInterconnectApplication",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-316",
+    "purpose": "Reviews distributed-generation interconnection evidence and grants a bounded operating mode.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3151",
+      "OPMB-3152",
+      "OPMB-3153",
+      "OPMB-3154",
+      "OPMB-3155",
+      "OPMB-3156",
+      "OPMB-3157",
+      "OPMB-3158",
+      "OPMB-3159",
+      "OPMB-3160"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/utility_interconnect_application/domain.py",
+      "src/utility_interconnect_application/crypto.py",
+      "src/utility_interconnect_application/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-317",
+    "name": "FuelBlendCertificate",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-317",
+    "purpose": "Attests a delivered fuel blend's composition range and supplier batch identity.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3161",
+      "OPMB-3162",
+      "OPMB-3163",
+      "OPMB-3164",
+      "OPMB-3165",
+      "OPMB-3166",
+      "OPMB-3167",
+      "OPMB-3168",
+      "OPMB-3169",
+      "OPMB-3170"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/fuel_blend_certificate/domain.py",
+      "src/fuel_blend_certificate/crypto.py",
+      "src/fuel_blend_certificate/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-318",
+    "name": "PowerPurchaseAllocation",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-318",
+    "purpose": "Allocates a synthetic power purchase quantity across buyers and settlement intervals.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3171",
+      "OPMB-3172",
+      "OPMB-3173",
+      "OPMB-3174",
+      "OPMB-3175",
+      "OPMB-3176",
+      "OPMB-3177",
+      "OPMB-3178",
+      "OPMB-3179",
+      "OPMB-3180"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/power_purchase_allocation/domain.py",
+      "src/power_purchase_allocation/crypto.py",
+      "src/power_purchase_allocation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-319",
+    "name": "OutageRestorationLog",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-319",
+    "purpose": "Tracks restoration milestones and switching approvals for a simulated outage zone.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3181",
+      "OPMB-3182",
+      "OPMB-3183",
+      "OPMB-3184",
+      "OPMB-3185",
+      "OPMB-3186",
+      "OPMB-3187",
+      "OPMB-3188",
+      "OPMB-3189",
+      "OPMB-3190"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/outage_restoration_log/domain.py",
+      "src/outage_restoration_log/crypto.py",
+      "src/outage_restoration_log/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-320",
+    "name": "WaterPumpEnergyLedger",
+    "application_domain": "B3 Energy and utilities",
+    "path": "benchmark/repositories/REPO-320",
+    "purpose": "Reconciles pump runtime and energy readings against a water delivery schedule.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3191",
+      "OPMB-3192",
+      "OPMB-3193",
+      "OPMB-3194",
+      "OPMB-3195",
+      "OPMB-3196",
+      "OPMB-3197",
+      "OPMB-3198",
+      "OPMB-3199",
+      "OPMB-3200"
+    ],
+    "batch": 8,
+    "main_modules": [
+      "src/water_pump_energy_ledger/domain.py",
+      "src/water_pump_energy_ledger/crypto.py",
+      "src/water_pump_energy_ledger/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

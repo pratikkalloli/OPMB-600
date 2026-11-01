@@ -1,0 +1,42 @@
+{
+  "repository_id": "REPO-314",
+  "application_name": "CarbonIntensityAttestation",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "dependencies": {
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "jsonschema": "4.25.1"
+  },
+  "suites": [
+    {
+      "suite": "original",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carbon_intensity_attestation.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-314/original-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-314",
+      "started_utc": "2026-11-01T12:06:56.558207+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-314/original-pytest.log",
+      "junit_xml": "reports/evidence/REPO-314/original-junit.xml"
+    },
+    {
+      "suite": "pqc",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_carbon_intensity_attestation_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-314/pqc-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-314",
+      "started_utc": "2026-11-01T12:06:58.842168+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-314/pqc-pytest.log",
+      "junit_xml": "reports/evidence/REPO-314/pqc-junit.xml"
+    }
+  ],
+  "total_tests": 12,
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0
+}

@@ -1,0 +1,1 @@
+"""DeviceOwnershipTransfer original application."""

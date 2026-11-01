@@ -1,0 +1,1 @@
+"""WearableAssetPairing original application."""

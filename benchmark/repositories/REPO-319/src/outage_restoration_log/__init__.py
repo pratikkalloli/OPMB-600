@@ -1,0 +1,1 @@
+"""OutageRestorationLog original application."""

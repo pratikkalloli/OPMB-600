@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-371",
+    "name": "DNSSECKeyCeremony",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-371",
+    "purpose": "Documents simulated dnssec key generation, dual-control approval, and rollover milestones.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3701",
+      "OPMB-3702",
+      "OPMB-3703",
+      "OPMB-3704",
+      "OPMB-3705",
+      "OPMB-3706",
+      "OPMB-3707",
+      "OPMB-3708",
+      "OPMB-3709",
+      "OPMB-3710"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/d_n_s_s_e_c_key_ceremony/domain.py",
+      "src/d_n_s_s_e_c_key_ceremony/crypto.py",
+      "src/d_n_s_s_e_c_key_ceremony/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-372",
+    "name": "ServiceChainActivation",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-372",
+    "purpose": "Activates a network service chain only after each virtual function is healthy and approved.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3711",
+      "OPMB-3712",
+      "OPMB-3713",
+      "OPMB-3714",
+      "OPMB-3715",
+      "OPMB-3716",
+      "OPMB-3717",
+      "OPMB-3718",
+      "OPMB-3719",
+      "OPMB-3720"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/service_chain_activation/domain.py",
+      "src/service_chain_activation/crypto.py",
+      "src/service_chain_activation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-373",
+    "name": "NetworkChangeWindow",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-373",
+    "purpose": "Reserves a network maintenance window and records precheck, execution, and rollback outcome.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3721",
+      "OPMB-3722",
+      "OPMB-3723",
+      "OPMB-3724",
+      "OPMB-3725",
+      "OPMB-3726",
+      "OPMB-3727",
+      "OPMB-3728",
+      "OPMB-3729",
+      "OPMB-3730"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/network_change_window/domain.py",
+      "src/network_change_window/crypto.py",
+      "src/network_change_window/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-374",
+    "name": "CarrierInterconnectReceipt",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-374",
+    "purpose": "Reconciles carrier interconnect traffic totals and signed settlement acknowledgements.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3731",
+      "OPMB-3732",
+      "OPMB-3733",
+      "OPMB-3734",
+      "OPMB-3735",
+      "OPMB-3736",
+      "OPMB-3737",
+      "OPMB-3738",
+      "OPMB-3739",
+      "OPMB-3740"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/carrier_interconnect_receipt/domain.py",
+      "src/carrier_interconnect_receipt/crypto.py",
+      "src/carrier_interconnect_receipt/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-375",
+    "name": "BGPCommunityApproval",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-375",
+    "purpose": "Approves permitted bgp community values for a customer route export policy.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3741",
+      "OPMB-3742",
+      "OPMB-3743",
+      "OPMB-3744",
+      "OPMB-3745",
+      "OPMB-3746",
+      "OPMB-3747",
+      "OPMB-3748",
+      "OPMB-3749",
+      "OPMB-3750"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/b_g_p_community_approval/domain.py",
+      "src/b_g_p_community_approval/crypto.py",
+      "src/b_g_p_community_approval/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-376",
+    "name": "OLTProfileRelease",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-376",
+    "purpose": "Releases optical line terminal profiles to a specific access network cohort.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3751",
+      "OPMB-3752",
+      "OPMB-3753",
+      "OPMB-3754",
+      "OPMB-3755",
+      "OPMB-3756",
+      "OPMB-3757",
+      "OPMB-3758",
+      "OPMB-3759",
+      "OPMB-3760"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/o_l_t_profile_release/domain.py",
+      "src/o_l_t_profile_release/crypto.py",
+      "src/o_l_t_profile_release/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-377",
+    "name": "BaseStationClockAttestation",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-377",
+    "purpose": "Records timing source health and synchronization error for a base station.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3761",
+      "OPMB-3762",
+      "OPMB-3763",
+      "OPMB-3764",
+      "OPMB-3765",
+      "OPMB-3766",
+      "OPMB-3767",
+      "OPMB-3768",
+      "OPMB-3769",
+      "OPMB-3770"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/base_station_clock_attestation/domain.py",
+      "src/base_station_clock_attestation/crypto.py",
+      "src/base_station_clock_attestation/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-378",
+    "name": "QoSContractRevision",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-378",
+    "purpose": "Versions a service quality contract with measurable latency and loss bounds.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3771",
+      "OPMB-3772",
+      "OPMB-3773",
+      "OPMB-3774",
+      "OPMB-3775",
+      "OPMB-3776",
+      "OPMB-3777",
+      "OPMB-3778",
+      "OPMB-3779",
+      "OPMB-3780"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/qo_s_contract_revision/domain.py",
+      "src/qo_s_contract_revision/crypto.py",
+      "src/qo_s_contract_revision/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-379",
+    "name": "RoamingPartnerProfile",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-379",
+    "purpose": "Provisions roaming partner identifiers, permitted services, and effective dates.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3781",
+      "OPMB-3782",
+      "OPMB-3783",
+      "OPMB-3784",
+      "OPMB-3785",
+      "OPMB-3786",
+      "OPMB-3787",
+      "OPMB-3788",
+      "OPMB-3789",
+      "OPMB-3790"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/roaming_partner_profile/domain.py",
+      "src/roaming_partner_profile/crypto.py",
+      "src/roaming_partner_profile/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-380",
+    "name": "SyntheticInterceptAudit",
+    "application_domain": "B5 Telecommunications, networks and edge",
+    "path": "benchmark/repositories/REPO-380",
+    "purpose": "Records access approvals and immutable audit references for a fictional lawful-process simulation.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-3791",
+      "OPMB-3792",
+      "OPMB-3793",
+      "OPMB-3794",
+      "OPMB-3795",
+      "OPMB-3796",
+      "OPMB-3797",
+      "OPMB-3798",
+      "OPMB-3799",
+      "OPMB-3800"
+    ],
+    "batch": 14,
+    "main_modules": [
+      "src/synthetic_intercept_audit/domain.py",
+      "src/synthetic_intercept_audit/crypto.py",
+      "src/synthetic_intercept_audit/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

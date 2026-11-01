@@ -1,0 +1,64 @@
+{
+  "task_id": "OPMB-2430",
+  "repository_id": "REPO-243",
+  "repository_name": "FixtureCalibrationDossier",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "Signed FixtureCalibrationDossier domain transition and append-only decision evidence",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/fixture_calibration_dossier/domain.py",
+    "src/fixture_calibration_dossier/crypto.py",
+    "src/fixture_calibration_dossier/service.py",
+    "migrated_reference/fixture_calibration_dossier_pqc/service.py"
+  ],
+  "function_names": [
+    "accept_fixture_calibration"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate FixtureCalibrationDossier accept fixture calibration authorization from RSA-PSS to ML-DSA-65 while preserving its application-specific business invariant.",
+  "preconditions": [
+    "FixtureCalibrationDossier original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Permit the FixtureCalibrationDossier workflow only when its domain preconditions and signed approval are valid.",
+    "Persist the state transition and decision evidence atomically.",
+    "Reject stale, unauthorized, malformed, or out-of-policy decisions without changing application state."
+  ],
+  "migration_requirements": [
+    "Bind fixture_calibration version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_fixture_calibration_dossier.py"
+  ],
+  "migration_tests": [
+    "tests/test_fixture_calibration_dossier_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test modules separately.",
+    "Exercise accept_fixture_calibration success, policy rejection, signature rejection, and persisted decision evidence."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-243/tasks/OPMB-2430",
+  "reference_path": "benchmark/repositories/REPO-243/migrated_reference/fixture_calibration_dossier_pqc",
+  "original_test_evidence": "reports/evidence/REPO-243/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-243/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-243/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-243/post-migration-scan.json"
+}

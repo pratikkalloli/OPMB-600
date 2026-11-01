@@ -1,0 +1,1 @@
+"""CleanInPlaceRecord original application."""

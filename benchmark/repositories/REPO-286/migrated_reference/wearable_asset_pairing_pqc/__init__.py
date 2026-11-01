@@ -1,0 +1,1 @@
+"""WearableAssetPairing separate PQC reference."""

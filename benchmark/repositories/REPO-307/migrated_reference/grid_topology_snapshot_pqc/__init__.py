@@ -1,0 +1,1 @@
+"""GridTopologySnapshot separate PQC reference."""

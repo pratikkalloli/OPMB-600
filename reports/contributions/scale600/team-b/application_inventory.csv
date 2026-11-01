@@ -1,0 +1,181 @@
+repository_id,name,domain,path,task_count,status,implementation_status,domain_workflow_status
+REPO-241,WorkcellRecipeVault,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-241,10,candidate,tested,passes_internal_evidence_check
+REPO-242,LineClearanceToken,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-242,10,candidate,tested,passes_internal_evidence_check
+REPO-243,FixtureCalibrationDossier,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-243,10,candidate,tested,passes_internal_evidence_check
+REPO-244,WeldProcedureRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-244,10,candidate,tested,passes_internal_evidence_check
+REPO-245,BatchYieldCertificate,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-245,10,candidate,tested,passes_internal_evidence_check
+REPO-246,ToolChangeAuthorization,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-246,10,candidate,tested,passes_internal_evidence_check
+REPO-247,CleanroomProcessTicket,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-247,10,candidate,tested,passes_internal_evidence_check
+REPO-248,ProductionDeviationCase,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-248,10,candidate,tested,passes_internal_evidence_check
+REPO-249,MachineInterlockPermit,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-249,10,candidate,tested,passes_internal_evidence_check
+REPO-250,ComponentTraceLot,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-250,10,candidate,tested,passes_internal_evidence_check
+REPO-251,SerializedMachinePassport,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-251,10,candidate,tested,passes_internal_evidence_check
+REPO-252,TorqueAuditLedger,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-252,10,candidate,tested,passes_internal_evidence_check
+REPO-253,ToolWearForecastCase,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-253,10,candidate,tested,passes_internal_evidence_check
+REPO-254,FurnaceCycleWitness,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-254,10,candidate,tested,passes_internal_evidence_check
+REPO-255,PackagingArtworkRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-255,10,candidate,tested,passes_internal_evidence_check
+REPO-256,FixtureInspectionSchedule,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-256,10,candidate,tested,passes_internal_evidence_check
+REPO-257,ShiftHandoverDocket,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-257,10,candidate,tested,passes_internal_evidence_check
+REPO-258,ProductionScrapVoucher,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-258,10,candidate,tested,passes_internal_evidence_check
+REPO-259,SurfaceTreatmentBatch,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-259,10,candidate,tested,passes_internal_evidence_check
+REPO-260,AssemblySequencePermit,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-260,10,candidate,tested,passes_internal_evidence_check
+REPO-261,MachineGuardInspection,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-261,10,candidate,tested,passes_internal_evidence_check
+REPO-262,ConsumableShelfLifeCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-262,10,candidate,tested,passes_internal_evidence_check
+REPO-263,GaugeRAndRStudy,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-263,10,candidate,tested,passes_internal_evidence_check
+REPO-264,WorkOrderTraveler,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-264,10,candidate,tested,passes_internal_evidence_check
+REPO-265,QualityHoldRelease,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-265,10,candidate,tested,passes_internal_evidence_check
+REPO-266,SparePartCompatibility,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-266,10,candidate,tested,passes_internal_evidence_check
+REPO-267,CleanInPlaceRecord,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-267,10,candidate,tested,passes_internal_evidence_check
+REPO-268,ReworkRoutingCard,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-268,10,candidate,tested,passes_internal_evidence_check
+REPO-269,OperatorQualificationGrant,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-269,10,candidate,tested,passes_internal_evidence_check
+REPO-270,ProductionSampleCustody,B1 Industrial automation and manufacturing,benchmark/repositories/REPO-270,10,candidate,tested,passes_internal_evidence_check
+REPO-271,RobotCellEnrollment,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-271,10,candidate,tested,requires_remediation
+REPO-272,SensorCalibrationChain,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-272,10,candidate,tested,requires_remediation
+REPO-273,FirmwareRolloutRing,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-273,10,candidate,tested,requires_remediation
+REPO-274,DroneFleetCommand,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-274,10,candidate,tested,requires_remediation
+REPO-275,GatewayJoinApproval,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-275,10,candidate,tested,requires_remediation
+REPO-276,DeviceOwnershipTransfer,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-276,10,candidate,tested,requires_remediation
+REPO-277,EdgeNodeAttestation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-277,10,candidate,tested,requires_remediation
+REPO-278,BatteryHealthLog,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-278,10,candidate,tested,requires_remediation
+REPO-279,TelemetryFrameSeal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-279,10,candidate,tested,requires_remediation
+REPO-280,EmbeddedConfigBundle,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-280,10,candidate,tested,requires_remediation
+REPO-281,SmartLockLease,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-281,10,candidate,tested,requires_remediation
+REPO-282,AutonomousCartRoute,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-282,10,candidate,tested,requires_remediation
+REPO-283,RemoteProbeRegistry,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-283,10,candidate,tested,requires_remediation
+REPO-284,DeviceRecoveryTicket,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-284,10,candidate,tested,requires_remediation
+REPO-285,RoboticsSafetyEnvelope,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-285,10,candidate,tested,requires_remediation
+REPO-286,WearableAssetPairing,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-286,10,candidate,tested,requires_remediation
+REPO-287,FieldGatewayBridge,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-287,10,candidate,tested,requires_remediation
+REPO-288,FirmwareRollbackPermit,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-288,10,candidate,tested,requires_remediation
+REPO-289,SensorBatchProvenance,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-289,10,candidate,tested,requires_remediation
+REPO-290,RobotToolingIdentity,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-290,10,candidate,tested,requires_remediation
+REPO-291,DeviceTrustRenewal,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-291,10,candidate,tested,requires_remediation
+REPO-292,MicrocontrollerBuildProof,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-292,10,candidate,tested,requires_remediation
+REPO-293,CameraPrivacyZone,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-293,10,candidate,tested,requires_remediation
+REPO-294,HomeEnergyDeviceCommission,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-294,10,candidate,tested,requires_remediation
+REPO-295,SecureBLEPairingBook,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-295,10,candidate,tested,requires_remediation
+REPO-296,FleetCertificateRotation,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-296,10,candidate,tested,requires_remediation
+REPO-297,RobotMissionReceipt,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-297,10,candidate,tested,requires_remediation
+REPO-298,IoTDataRetentionPolicy,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-298,10,candidate,tested,requires_remediation
+REPO-299,LowPowerNetworkJoin,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-299,10,candidate,tested,requires_remediation
+REPO-300,SensorAnomalyWitness,"B2 IoT, embedded devices and robotics",benchmark/repositories/REPO-300,10,candidate,tested,requires_remediation
+REPO-301,MeterReadCycle,B3 Energy and utilities,benchmark/repositories/REPO-301,10,candidate,tested,requires_remediation
+REPO-302,RenewableOutputCertificate,B3 Energy and utilities,benchmark/repositories/REPO-302,10,candidate,tested,requires_remediation
+REPO-303,FeederSwitchingOrder,B3 Energy and utilities,benchmark/repositories/REPO-303,10,candidate,tested,requires_remediation
+REPO-304,TransformerOilSample,B3 Energy and utilities,benchmark/repositories/REPO-304,10,candidate,tested,requires_remediation
+REPO-305,DemandResponseEnrollment,B3 Energy and utilities,benchmark/repositories/REPO-305,10,candidate,tested,requires_remediation
+REPO-306,MicrogridIslandEvent,B3 Energy and utilities,benchmark/repositories/REPO-306,10,candidate,tested,requires_remediation
+REPO-307,GridTopologySnapshot,B3 Energy and utilities,benchmark/repositories/REPO-307,10,candidate,tested,requires_remediation
+REPO-308,TurbineMaintenanceDossier,B3 Energy and utilities,benchmark/repositories/REPO-308,10,candidate,tested,requires_remediation
+REPO-309,SolarStringInspection,B3 Energy and utilities,benchmark/repositories/REPO-309,10,candidate,tested,requires_remediation
+REPO-310,BatteryDispatchReceipt,B3 Energy and utilities,benchmark/repositories/REPO-310,10,candidate,tested,requires_remediation
+REPO-311,UtilityCrewPermit,B3 Energy and utilities,benchmark/repositories/REPO-311,10,candidate,tested,requires_remediation
+REPO-312,HydroReservoirRelease,B3 Energy and utilities,benchmark/repositories/REPO-312,10,candidate,tested,requires_remediation
+REPO-313,SubstationRelaySetting,B3 Energy and utilities,benchmark/repositories/REPO-313,10,candidate,tested,requires_remediation
+REPO-314,CarbonIntensityAttestation,B3 Energy and utilities,benchmark/repositories/REPO-314,10,candidate,tested,requires_remediation
+REPO-315,EVChargeSession,B3 Energy and utilities,benchmark/repositories/REPO-315,10,candidate,tested,requires_remediation
+REPO-316,UtilityInterconnectApplication,B3 Energy and utilities,benchmark/repositories/REPO-316,10,candidate,tested,requires_remediation
+REPO-317,FuelBlendCertificate,B3 Energy and utilities,benchmark/repositories/REPO-317,10,candidate,tested,requires_remediation
+REPO-318,PowerPurchaseAllocation,B3 Energy and utilities,benchmark/repositories/REPO-318,10,candidate,tested,requires_remediation
+REPO-319,OutageRestorationLog,B3 Energy and utilities,benchmark/repositories/REPO-319,10,candidate,tested,requires_remediation
+REPO-320,WaterPumpEnergyLedger,B3 Energy and utilities,benchmark/repositories/REPO-320,10,candidate,tested,requires_remediation
+REPO-321,HeatNetworkMetering,B3 Energy and utilities,benchmark/repositories/REPO-321,10,candidate,tested,requires_remediation
+REPO-322,RenewableRECRegistry,B3 Energy and utilities,benchmark/repositories/REPO-322,10,candidate,tested,requires_remediation
+REPO-323,GridFirmwareRelease,B3 Energy and utilities,benchmark/repositories/REPO-323,10,candidate,tested,requires_remediation
+REPO-324,CustomerMeterExchange,B3 Energy and utilities,benchmark/repositories/REPO-324,10,candidate,tested,requires_remediation
+REPO-325,EnergyMarketBidEnvelope,B3 Energy and utilities,benchmark/repositories/REPO-325,10,candidate,tested,requires_remediation
+REPO-326,HydrogenBatchPassport,B3 Energy and utilities,benchmark/repositories/REPO-326,10,candidate,tested,requires_remediation
+REPO-327,DistributionLossStudy,B3 Energy and utilities,benchmark/repositories/REPO-327,10,candidate,tested,requires_remediation
+REPO-328,LoadForecastPublication,B3 Energy and utilities,benchmark/repositories/REPO-328,10,candidate,tested,requires_remediation
+REPO-329,InverterProtectionProfile,B3 Energy and utilities,benchmark/repositories/REPO-329,10,candidate,tested,requires_remediation
+REPO-330,CommunityEnergySettlement,B3 Energy and utilities,benchmark/repositories/REPO-330,10,candidate,tested,requires_remediation
+REPO-331,RailSignalAspectArchive,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-331,10,candidate,tested,requires_remediation
+REPO-332,ColdChainTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-332,10,candidate,tested,requires_remediation
+REPO-333,AircraftComponentLifeCard,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-333,10,candidate,tested,requires_remediation
+REPO-334,PortContainerSeal,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-334,10,candidate,tested,requires_remediation
+REPO-335,TransitOperatorCredential,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-335,10,candidate,tested,requires_remediation
+REPO-336,FleetRouteException,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-336,10,candidate,tested,requires_remediation
+REPO-337,BusDepotChargeDispatch,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-337,10,candidate,tested,requires_remediation
+REPO-338,MaritimeBillOfLading,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-338,10,candidate,tested,requires_remediation
+REPO-339,RailTrackWindowPermit,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-339,10,candidate,tested,requires_remediation
+REPO-340,ParcelSortationManifest,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-340,10,candidate,tested,requires_remediation
+REPO-341,VehicleTitleTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-341,10,candidate,tested,requires_remediation
+REPO-342,TaxiShiftSettlement,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-342,10,candidate,tested,requires_remediation
+REPO-343,AircraftGroundPowerLog,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-343,10,candidate,tested,requires_remediation
+REPO-344,WarehouseDockAppointment,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-344,10,candidate,tested,requires_remediation
+REPO-345,CustomsInspectionPacket,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-345,10,candidate,tested,requires_remediation
+REPO-346,BicycleShareBatterySwap,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-346,10,candidate,tested,requires_remediation
+REPO-347,RailCrewDutyRelease,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-347,10,candidate,tested,requires_remediation
+REPO-348,FerryPassengerManifest,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-348,10,candidate,tested,requires_remediation
+REPO-349,CargoTemperatureExcursion,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-349,10,candidate,tested,requires_remediation
+REPO-350,RoadsideAssistanceDispatch,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-350,10,candidate,tested,requires_remediation
+REPO-351,VehicleRecallNotice,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-351,10,candidate,tested,requires_remediation
+REPO-352,AutonomousConvoyJoin,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-352,10,candidate,tested,requires_remediation
+REPO-353,ShippingHazardDeclaration,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-353,10,candidate,tested,requires_remediation
+REPO-354,AirportBaggageCustody,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-354,10,candidate,tested,requires_remediation
+REPO-355,FreightRateOffer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-355,10,candidate,tested,requires_remediation
+REPO-356,TunnelVentilationCommand,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-356,10,candidate,tested,requires_remediation
+REPO-357,ContainerWeightTicket,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-357,10,candidate,tested,requires_remediation
+REPO-358,DeliveryProofOfHandoff,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-358,10,candidate,tested,requires_remediation
+REPO-359,TrainConsistRevision,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-359,10,candidate,tested,requires_remediation
+REPO-360,TrafficSignalPriorityPermit,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-360,10,candidate,tested,requires_remediation
+REPO-361,RANCellProvisioning,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-361,10,candidate,tested,requires_remediation
+REPO-362,RoutingPolicyBundle,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-362,10,candidate,tested,requires_remediation
+REPO-363,PeeringKeyAgreement,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-363,10,candidate,tested,requires_remediation
+REPO-364,FiberSpliceEvidence,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-364,10,candidate,tested,requires_remediation
+REPO-365,NetworkSliceLease,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-365,10,candidate,tested,requires_remediation
+REPO-366,SubscriberSIMReplacement,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-366,10,candidate,tested,requires_remediation
+REPO-367,EdgeCacheInvalidate,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-367,10,candidate,tested,requires_remediation
+REPO-368,TelecomEquipmentRMA,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-368,10,candidate,tested,requires_remediation
+REPO-369,TowerAccessPermit,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-369,10,candidate,tested,requires_remediation
+REPO-370,SpectrumGrantLedger,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-370,10,candidate,tested,requires_remediation
+REPO-371,DNSSECKeyCeremony,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-371,10,candidate,tested,requires_remediation
+REPO-372,ServiceChainActivation,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-372,10,candidate,tested,requires_remediation
+REPO-373,NetworkChangeWindow,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-373,10,candidate,tested,requires_remediation
+REPO-374,CarrierInterconnectReceipt,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-374,10,candidate,tested,requires_remediation
+REPO-375,BGPCommunityApproval,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-375,10,candidate,tested,requires_remediation
+REPO-376,OLTProfileRelease,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-376,10,candidate,tested,requires_remediation
+REPO-377,BaseStationClockAttestation,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-377,10,candidate,tested,requires_remediation
+REPO-378,QoSContractRevision,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-378,10,candidate,tested,requires_remediation
+REPO-379,RoamingPartnerProfile,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-379,10,candidate,tested,requires_remediation
+REPO-380,SyntheticInterceptAudit,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-380,10,candidate,tested,requires_remediation
+REPO-381,CircuitMigrationPlan,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-381,10,candidate,tested,requires_remediation
+REPO-382,EmergencyBroadcastAuthorization,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-382,10,candidate,tested,requires_remediation
+REPO-383,NetworkTelemetryCheckpoint,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-383,10,candidate,tested,requires_remediation
+REPO-384,PacketBrokerFilterUpdate,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-384,10,candidate,tested,requires_remediation
+REPO-385,CarrierNumberPorting,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-385,10,candidate,tested,requires_remediation
+REPO-386,WiFiControllerEnrollment,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-386,10,candidate,tested,requires_remediation
+REPO-387,CPEFirmwareCampaign,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-387,10,candidate,tested,requires_remediation
+REPO-388,InternetExchangeMembership,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-388,10,candidate,tested,requires_remediation
+REPO-389,MicrowaveLinkAlignment,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-389,10,candidate,tested,requires_remediation
+REPO-390,TelecomDataRetentionFreeze,"B5 Telecommunications, networks and edge",benchmark/repositories/REPO-390,10,candidate,tested,requires_remediation
+REPO-391,IrrigationZoneSchedule,B6 Agriculture and environmental technology,benchmark/repositories/REPO-391,10,candidate,tested,requires_remediation
+REPO-392,SoilProbeCalibration,B6 Agriculture and environmental technology,benchmark/repositories/REPO-392,10,candidate,tested,requires_remediation
+REPO-393,CropSprayPermit,B6 Agriculture and environmental technology,benchmark/repositories/REPO-393,10,candidate,tested,requires_remediation
+REPO-394,SeedLotProvenance,B6 Agriculture and environmental technology,benchmark/repositories/REPO-394,10,candidate,tested,requires_remediation
+REPO-395,GreenhouseClimatePolicy,B6 Agriculture and environmental technology,benchmark/repositories/REPO-395,10,candidate,tested,requires_remediation
+REPO-396,LivestockMovementCertificate,B6 Agriculture and environmental technology,benchmark/repositories/REPO-396,10,candidate,tested,requires_remediation
+REPO-397,WaterSampleCustody,B6 Agriculture and environmental technology,benchmark/repositories/REPO-397,10,candidate,tested,requires_remediation
+REPO-398,WatershedReleaseNotice,B6 Agriculture and environmental technology,benchmark/repositories/REPO-398,10,candidate,tested,requires_remediation
+REPO-399,WeatherStationCalibration,B6 Agriculture and environmental technology,benchmark/repositories/REPO-399,10,candidate,tested,requires_remediation
+REPO-400,BeehiveHealthObservation,B6 Agriculture and environmental technology,benchmark/repositories/REPO-400,10,candidate,tested,requires_remediation
+REPO-401,FarmEquipmentOperatorGrant,B6 Agriculture and environmental technology,benchmark/repositories/REPO-401,10,candidate,tested,requires_remediation
+REPO-402,PesticideApplicationLog,B6 Agriculture and environmental technology,benchmark/repositories/REPO-402,10,candidate,tested,requires_remediation
+REPO-403,HarvestBinHandoff,B6 Agriculture and environmental technology,benchmark/repositories/REPO-403,10,candidate,tested,requires_remediation
+REPO-404,GrainMoistureCertificate,B6 Agriculture and environmental technology,benchmark/repositories/REPO-404,10,candidate,tested,requires_remediation
+REPO-405,ColdRoomTemperatureRecord,B6 Agriculture and environmental technology,benchmark/repositories/REPO-405,10,candidate,tested,requires_remediation
+REPO-406,ForestPlotMeasurement,B6 Agriculture and environmental technology,benchmark/repositories/REPO-406,10,candidate,tested,requires_remediation
+REPO-407,RiverGaugeObservation,B6 Agriculture and environmental technology,benchmark/repositories/REPO-407,10,candidate,tested,requires_remediation
+REPO-408,AirQualitySensorEvidence,B6 Agriculture and environmental technology,benchmark/repositories/REPO-408,10,candidate,tested,requires_remediation
+REPO-409,FertilizerBlendTicket,B6 Agriculture and environmental technology,benchmark/repositories/REPO-409,10,candidate,tested,requires_remediation
+REPO-410,AquacultureFeedTrace,B6 Agriculture and environmental technology,benchmark/repositories/REPO-410,10,candidate,tested,requires_remediation
+REPO-411,CompostBatchMaturity,B6 Agriculture and environmental technology,benchmark/repositories/REPO-411,10,candidate,tested,requires_remediation
+REPO-412,DroneSurveyMission,B6 Agriculture and environmental technology,benchmark/repositories/REPO-412,10,candidate,tested,requires_remediation
+REPO-413,PollinatorCorridorInspection,B6 Agriculture and environmental technology,benchmark/repositories/REPO-413,10,candidate,tested,requires_remediation
+REPO-414,CropInsuranceEvidence,B6 Agriculture and environmental technology,benchmark/repositories/REPO-414,10,candidate,tested,requires_remediation
+REPO-415,FisheryCatchTrace,B6 Agriculture and environmental technology,benchmark/repositories/REPO-415,10,candidate,tested,requires_remediation
+REPO-416,CarbonSoilSample,B6 Agriculture and environmental technology,benchmark/repositories/REPO-416,10,candidate,tested,requires_remediation
+REPO-417,DroughtAllocationPermit,B6 Agriculture and environmental technology,benchmark/repositories/REPO-417,10,candidate,tested,requires_remediation
+REPO-418,WetlandRestorationMilestone,B6 Agriculture and environmental technology,benchmark/repositories/REPO-418,10,candidate,tested,requires_remediation
+REPO-419,ReservoirWaterQuality,B6 Agriculture and environmental technology,benchmark/repositories/REPO-419,10,candidate,tested,requires_remediation
+REPO-420,FarmProducePackingLot,B6 Agriculture and environmental technology,benchmark/repositories/REPO-420,10,candidate,tested,requires_remediation

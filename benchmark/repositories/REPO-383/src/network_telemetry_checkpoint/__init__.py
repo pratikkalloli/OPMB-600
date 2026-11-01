@@ -1,0 +1,1 @@
+"""NetworkTelemetryCheckpoint original application."""

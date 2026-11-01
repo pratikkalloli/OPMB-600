@@ -1,0 +1,1 @@
+"""ShippingHazardDeclaration original application."""

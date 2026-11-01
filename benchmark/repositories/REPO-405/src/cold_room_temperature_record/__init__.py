@@ -1,0 +1,1 @@
+"""ColdRoomTemperatureRecord original application."""

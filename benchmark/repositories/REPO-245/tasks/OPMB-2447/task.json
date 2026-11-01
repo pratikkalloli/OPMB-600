@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2447",
+  "repository_id": "REPO-245",
+  "repository_name": "BatchYieldCertificate",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "load_public_key for batch yield workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/batch_yield_certificate/domain.py",
+    "src/batch_yield_certificate/crypto.py",
+    "src/batch_yield_certificate/service.py"
+  ],
+  "function_names": [
+    "load_public_key"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate BatchYieldCertificate load and validate a serialized verification key from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Lot closeout, yield reconciliation, quality signoff, certificate publication, and correction through a new revision. semantics.",
+  "preconditions": [
+    "BatchYieldCertificate original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve batch_id and good_units semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind batch_yield version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_batch_yield_certificate.py"
+  ],
+  "migration_tests": [
+    "tests/test_batch_yield_certificate_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-245/tasks/OPMB-2447",
+  "reference_path": "benchmark/repositories/REPO-245/migrated_reference/batch_yield_certificate_pqc",
+  "original_test_evidence": "reports/evidence/REPO-245/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-245/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-245/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-245/post-migration-scan.json"
+}

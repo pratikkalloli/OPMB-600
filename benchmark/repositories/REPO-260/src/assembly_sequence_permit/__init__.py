@@ -1,0 +1,1 @@
+"""AssemblySequencePermit original application."""

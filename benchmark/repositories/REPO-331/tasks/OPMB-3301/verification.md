@@ -1,0 +1,3 @@
+# Verification
+
+From `benchmark/repositories/REPO-331`, run `python -m pytest tests/test_rail_signal_aspect_archive.py` and `python -m pytest tests/test_rail_signal_aspect_archive_pqc.py`. Exercise `validate_record`, successful behavior, tampering, wrong-key or malformed input rejection, and the named lifecycle constraints. Record exact output under `reports/evidence/REPO-331/`.

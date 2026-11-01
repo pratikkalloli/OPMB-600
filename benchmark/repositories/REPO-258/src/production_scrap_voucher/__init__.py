@@ -1,0 +1,1 @@
+"""ProductionScrapVoucher original application."""

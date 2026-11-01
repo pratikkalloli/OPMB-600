@@ -1,0 +1,1 @@
+"""TelecomEquipmentRMA original application."""

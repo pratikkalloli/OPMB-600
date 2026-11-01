@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2454",
+  "repository_id": "REPO-246",
+  "repository_name": "ToolChangeAuthorization",
+  "application_domain": "B1 Industrial automation and manufacturing",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256",
+  "cryptographic_operation": "sign_record for tool change workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/tool_change_authorization/domain.py",
+    "src/tool_change_authorization/crypto.py",
+    "src/tool_change_authorization/service.py"
+  ],
+  "function_names": [
+    "sign_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate ToolChangeAuthorization sign a scoped domain record with versioned context from ECDSA P-256/SHA-256 to ML-DSA-65, retaining Tool wear report, technician assignment, supervisor authorization, change confirmation, and return-to-service. semantics.",
+  "preconditions": [
+    "ToolChangeAuthorization original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve cell_id and tool_serial semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind tool_change version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_tool_change_authorization.py"
+  ],
+  "migration_tests": [
+    "tests/test_tool_change_authorization_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-246/tasks/OPMB-2454",
+  "reference_path": "benchmark/repositories/REPO-246/migrated_reference/tool_change_authorization_pqc",
+  "original_test_evidence": "reports/evidence/REPO-246/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-246/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-246/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-246/post-migration-scan.json"
+}

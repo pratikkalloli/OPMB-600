@@ -1,0 +1,1 @@
+"""IoTDataRetentionPolicy original application."""

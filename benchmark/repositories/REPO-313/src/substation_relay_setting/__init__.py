@@ -1,0 +1,1 @@
+"""SubstationRelaySetting original application."""

@@ -1,0 +1,48 @@
+{
+  "repository_id": "REPO-285",
+  "application_name": "RoboticsSafetyEnvelope",
+  "status": "passed",
+  "basis": "Functional checks from the recorded original and PQC pytest runs; not an independent security review.",
+  "checks": [
+    "Signature generation and verification",
+    "Modified-record rejection",
+    "Wrong verification-key rejection",
+    "Versioned public-key round trip",
+    "Classical envelope or ML-KEM/HKDF/AES-GCM seal/open round trip",
+    "Tampered ciphertext rejection",
+    "Wrong recipient-key rejection",
+    "Unsupported envelope version rejection",
+    "Persistent approval and stale-record rejection"
+  ],
+  "suite_results": [
+    {
+      "suite": "original",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_robotics_safety_envelope.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-285/original-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-285",
+      "started_utc": "2026-11-01T12:04:58.931505+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-285/original-pytest.log",
+      "junit_xml": "reports/evidence/REPO-285/original-junit.xml"
+    },
+    {
+      "suite": "pqc",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_robotics_safety_envelope_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-285/pqc-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-285",
+      "started_utc": "2026-11-01T12:05:01.986138+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-285/pqc-pytest.log",
+      "junit_xml": "reports/evidence/REPO-285/pqc-junit.xml"
+    }
+  ],
+  "limitations": [
+    "No formal verification, certification, independent audit, or production readiness claim."
+  ]
+}
