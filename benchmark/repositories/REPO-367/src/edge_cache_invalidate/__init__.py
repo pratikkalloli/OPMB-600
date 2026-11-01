@@ -1,0 +1,1 @@
+"""EdgeCacheInvalidate original application."""

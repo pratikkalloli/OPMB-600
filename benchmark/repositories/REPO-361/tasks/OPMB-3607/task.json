@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3607",
+  "repository_id": "REPO-361",
+  "repository_name": "RANCellProvisioning",
+  "application_domain": "B5 Telecommunications, networks and edge",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "load_public_key for r a n cell provisioning workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/r_a_n_cell_provisioning/domain.py",
+    "src/r_a_n_cell_provisioning/crypto.py",
+    "src/r_a_n_cell_provisioning/service.py"
+  ],
+  "function_names": [
+    "load_public_key"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate RANCellProvisioning load and validate a serialized verification key from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Provisions a radio cell with approved parameters and a controlled activation window; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "RANCellProvisioning original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve network_element_id and measured_value semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind r_a_n_cell_provisioning version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_r_a_n_cell_provisioning.py"
+  ],
+  "migration_tests": [
+    "tests/test_r_a_n_cell_provisioning_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-361/tasks/OPMB-3607",
+  "reference_path": "benchmark/repositories/REPO-361/migrated_reference/r_a_n_cell_provisioning_pqc",
+  "original_test_evidence": "reports/evidence/REPO-361/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-361/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-361/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-361/post-migration-scan.json"
+}
