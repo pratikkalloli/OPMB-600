@@ -1,8 +1,22 @@
 {
   "status": "BLOCKED",
-  "reason": "No Python runtime or pytest executable is installed. WSL access was denied and Docker is unavailable; no dependencies were installed.",
+  "reason": "No trustworthy Python runtime or pytest executable is available. WSL access was denied and Docker is unavailable. An attempted user-scoped Python 3.13.17 install was stopped because the downloaded installer SHA-256 did not match Python.org's published checksum and setup returned Windows error 1392; the installer was removed and no runtime or dependencies were installed.",
   "python_runtime": "not available",
   "pytest": "not available",
+  "python_setup_attempt": {
+    "scope": "user LocalAppData only",
+    "installer_source": "https://www.python.org/ftp/python/3.13.17/python-3.13.17-amd64.exe",
+    "installer_sha256_observed": "56cdc19faf0bba266a7b159948eabe4047760a76159a3b707255f94a572ecb55",
+    "installer_sha256_published": "5da012101ba2e17113a9a1cd901e9ce1441086f2b7ecb5de06ec94163899a190",
+    "installer_exit_code": 1392,
+    "result": "NOT INSTALLED; mismatched installer artifact removed"
+  },
+  "schema_validation": {
+    "status": "NOT RUN",
+    "schemas": ["benchmark/schemas/repository.schema.json", "benchmark/schemas/task.schema.json"],
+    "dialect": "Draft 2020-12",
+    "reason": "Python jsonschema==4.25.1 and a compatible Node schema validator are unavailable; no schema results are claimed."
+  },
   "structural_validation": {
     "status": "PASS",
     "command": "node reports/contributions/part4/team-b/validate_dataset.js",
@@ -33,5 +47,16 @@
   },
   "test_results": [],
   "evidence_files": [],
+  "commands_executed": [
+    {
+      "command": "node reports/contributions/part4/team-b/validate_dataset.js",
+      "exit_code": 0,
+      "result": "PASS: 15 repositories, 150 tasks; uniqueness, batch ranges, copied task consistency, source symbols, test paths, and current local ID collision checks passed."
+    },
+    {
+      "command": "python -m pytest tests/test_<slug>.py -q and python -m pytest tests/test_<slug>_pqc.py -q for each slug in applications.json",
+      "result": "NOT RUN: no Python runtime or pytest."
+    }
+  ],
   "note": "No test evidence or pass status has been fabricated."
 }
