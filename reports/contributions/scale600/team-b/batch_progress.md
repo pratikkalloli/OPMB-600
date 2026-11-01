@@ -19,6 +19,6 @@
 | 15 | REPO-381–390 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 | 16 | REPO-391–400 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 | 17 | REPO-401–410 | 100 | 20 | 120 | 0 | 0 | passed | tested |
-| 18 | REPO-411–420 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 18 | REPO-411–420 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 
-Overall: 170/180 applications; 1700/1,800 tasks; 2040 tests, 2040 passed, 0 failed, 0 skipped.
+Overall: 180/180 applications; 1800/1,800 tasks; 2160 tests, 2160 passed, 0 failed, 0 skipped.
