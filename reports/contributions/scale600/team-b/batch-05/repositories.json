@@ -1,0 +1,402 @@
+[
+  {
+    "repository_id": "REPO-281",
+    "name": "SmartLockLease",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-281",
+    "purpose": "Issues a time-bounded access lease to a synthetic smart lock and records revocation events.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2801",
+      "OPMB-2802",
+      "OPMB-2803",
+      "OPMB-2804",
+      "OPMB-2805",
+      "OPMB-2806",
+      "OPMB-2807",
+      "OPMB-2808",
+      "OPMB-2809",
+      "OPMB-2810"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/smart_lock_lease/domain.py",
+      "src/smart_lock_lease/crypto.py",
+      "src/smart_lock_lease/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-282",
+    "name": "AutonomousCartRoute",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-282",
+    "purpose": "Authorizes a warehouse robot route against aisle restrictions and current traffic-zone revision.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2811",
+      "OPMB-2812",
+      "OPMB-2813",
+      "OPMB-2814",
+      "OPMB-2815",
+      "OPMB-2816",
+      "OPMB-2817",
+      "OPMB-2818",
+      "OPMB-2819",
+      "OPMB-2820"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/autonomous_cart_route/domain.py",
+      "src/autonomous_cart_route/crypto.py",
+      "src/autonomous_cart_route/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-283",
+    "name": "RemoteProbeRegistry",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-283",
+    "purpose": "Registers diagnostic probes, their allowed command set, and the evidence collected from a device.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2821",
+      "OPMB-2822",
+      "OPMB-2823",
+      "OPMB-2824",
+      "OPMB-2825",
+      "OPMB-2826",
+      "OPMB-2827",
+      "OPMB-2828",
+      "OPMB-2829",
+      "OPMB-2830"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/remote_probe_registry/domain.py",
+      "src/remote_probe_registry/crypto.py",
+      "src/remote_probe_registry/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-284",
+    "name": "DeviceRecoveryTicket",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-284",
+    "purpose": "Coordinates recovery of a lost device identity and records invalidation of its previous credentials.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2831",
+      "OPMB-2832",
+      "OPMB-2833",
+      "OPMB-2834",
+      "OPMB-2835",
+      "OPMB-2836",
+      "OPMB-2837",
+      "OPMB-2838",
+      "OPMB-2839",
+      "OPMB-2840"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/device_recovery_ticket/domain.py",
+      "src/device_recovery_ticket/crypto.py",
+      "src/device_recovery_ticket/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-285",
+    "name": "RoboticsSafetyEnvelope",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-285",
+    "purpose": "Sets the approved motion limits and emergency-stop profile for a robot operating mode.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2841",
+      "OPMB-2842",
+      "OPMB-2843",
+      "OPMB-2844",
+      "OPMB-2845",
+      "OPMB-2846",
+      "OPMB-2847",
+      "OPMB-2848",
+      "OPMB-2849",
+      "OPMB-2850"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/robotics_safety_envelope/domain.py",
+      "src/robotics_safety_envelope/crypto.py",
+      "src/robotics_safety_envelope/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-286",
+    "name": "WearableAssetPairing",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-286",
+    "purpose": "Pairs a worker-worn safety sensor to a shift and verifies the assigned worker-device relationship.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2851",
+      "OPMB-2852",
+      "OPMB-2853",
+      "OPMB-2854",
+      "OPMB-2855",
+      "OPMB-2856",
+      "OPMB-2857",
+      "OPMB-2858",
+      "OPMB-2859",
+      "OPMB-2860"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/wearable_asset_pairing/domain.py",
+      "src/wearable_asset_pairing/crypto.py",
+      "src/wearable_asset_pairing/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-287",
+    "name": "FieldGatewayBridge",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-287",
+    "purpose": "Authorizes forwarding between sensor networks and a named field gateway under a scoped data policy.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2861",
+      "OPMB-2862",
+      "OPMB-2863",
+      "OPMB-2864",
+      "OPMB-2865",
+      "OPMB-2866",
+      "OPMB-2867",
+      "OPMB-2868",
+      "OPMB-2869",
+      "OPMB-2870"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/field_gateway_bridge/domain.py",
+      "src/field_gateway_bridge/crypto.py",
+      "src/field_gateway_bridge/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-288",
+    "name": "FirmwareRollbackPermit",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-288",
+    "purpose": "Approves a rollback to a previously signed firmware revision after a defined failure trigger.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2871",
+      "OPMB-2872",
+      "OPMB-2873",
+      "OPMB-2874",
+      "OPMB-2875",
+      "OPMB-2876",
+      "OPMB-2877",
+      "OPMB-2878",
+      "OPMB-2879",
+      "OPMB-2880"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/firmware_rollback_permit/domain.py",
+      "src/firmware_rollback_permit/crypto.py",
+      "src/firmware_rollback_permit/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-289",
+    "name": "SensorBatchProvenance",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-289",
+    "purpose": "Records production lot, calibration status, and destination for a batch of deployed sensors.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2881",
+      "OPMB-2882",
+      "OPMB-2883",
+      "OPMB-2884",
+      "OPMB-2885",
+      "OPMB-2886",
+      "OPMB-2887",
+      "OPMB-2888",
+      "OPMB-2889",
+      "OPMB-2890"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/sensor_batch_provenance/domain.py",
+      "src/sensor_batch_provenance/crypto.py",
+      "src/sensor_batch_provenance/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  },
+  {
+    "repository_id": "REPO-290",
+    "name": "RobotToolingIdentity",
+    "application_domain": "B2 IoT, embedded devices and robotics",
+    "path": "benchmark/repositories/REPO-290",
+    "purpose": "Binds an interchangeable robot end effector to a serial, safety rating, and approved robot model.",
+    "status": "candidate",
+    "tasks": [
+      "OPMB-2891",
+      "OPMB-2892",
+      "OPMB-2893",
+      "OPMB-2894",
+      "OPMB-2895",
+      "OPMB-2896",
+      "OPMB-2897",
+      "OPMB-2898",
+      "OPMB-2899",
+      "OPMB-2900"
+    ],
+    "batch": 5,
+    "main_modules": [
+      "src/robot_tooling_identity/domain.py",
+      "src/robot_tooling_identity/crypto.py",
+      "src/robot_tooling_identity/service.py"
+    ],
+    "classical_cryptography": [
+      "RSA-3072 PSS/SHA-256",
+      "RSA-3072 OAEP/SHA-256",
+      "AES-256-GCM"
+    ],
+    "pqc_cryptography": [
+      "ML-DSA-65",
+      "ML-KEM-768",
+      "HKDF-SHA-256",
+      "AES-256-GCM"
+    ],
+    "task_count": 10,
+    "test_status": "passed",
+    "validation_status": "candidate"
+  }
+]

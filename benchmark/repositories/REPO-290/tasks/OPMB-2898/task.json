@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-2898",
+  "repository_id": "REPO-290",
+  "repository_name": "RobotToolingIdentity",
+  "application_domain": "B2 IoT, embedded devices and robotics",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
+  "cryptographic_operation": "seal_artifact for robot tooling identity workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/robot_tooling_identity/domain.py",
+    "src/robot_tooling_identity/crypto.py",
+    "src/robot_tooling_identity/service.py"
+  ],
+  "function_names": [
+    "seal_artifact"
+  ],
+  "migration_family": "KEM confidentiality migration",
+  "migration_target": "ML-KEM-768 and AES-256-GCM",
+  "migration_objective": "Migrate RobotToolingIdentity protect a workflow artifact for an authorized recipient from RSA-3072 OAEP/SHA-256 with AES-256-GCM to ML-KEM-768 and AES-256-GCM, retaining Binds an interchangeable robot end effector to a serial, safety rating, and approved robot model; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "RobotToolingIdentity original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve device_id and event_count semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind robot_tooling_identity version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_robot_tooling_identity.py"
+  ],
+  "migration_tests": [
+    "tests/test_robot_tooling_identity_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-290/tasks/OPMB-2898",
+  "reference_path": "benchmark/repositories/REPO-290/migrated_reference/robot_tooling_identity_pqc",
+  "original_test_evidence": "reports/evidence/REPO-290/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-290/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-290/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-290/post-migration-scan.json"
+}

@@ -1,0 +1,1 @@
+"""FirmwareRollbackPermit separate PQC reference."""
