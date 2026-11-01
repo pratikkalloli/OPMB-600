@@ -69,7 +69,7 @@ def main() -> int:
               "tasks_planned": 1800, "tasks_with_definition": len(task_manifest),
               "tasks_by_repository": counts, "errors": errors}
     report["tasks_by_repository"] = dict(report["tasks_by_repository"])
-    (OUT / "quality_checks.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (OUT / "quality_checks.json").write_bytes((json.dumps(report, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
     print(f"{report['result']}: {len(task_manifest)} task definitions checked, {len(errors)} problems")
     for error in errors[:30]: print("- " + error)
     return 1 if errors else 0

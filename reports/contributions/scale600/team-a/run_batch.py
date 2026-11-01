@@ -8,6 +8,9 @@ ROOT = Path(__file__).resolve().parents[4]
 OUT = ROOT / "reports/contributions/scale600/team-a"
 PYTHON = ROOT / ".venv311/Scripts/python.exe"
 
+def write_lf(path: Path, text: str) -> None:
+    path.write_bytes(text.encode("utf-8"))
+
 def counts(output: str) -> dict:
     result = {"passed": 0, "failed": 0, "skipped": 0, "errors": 0, "warnings": 0}
     for label in ("passed", "failed", "skipped", "error", "warning"):
@@ -55,7 +58,7 @@ def main() -> int:
         evidence_dir = ROOT / "reports/evidence" / repo
         evidence_dir.mkdir(parents=True, exist_ok=True)
         evidence_file = evidence_dir / "test-results.json"
-        evidence_file.write_text(json.dumps(record, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        write_lf(evidence_file, json.dumps(record, indent=2, ensure_ascii=False) + "\n")
         for task in tasks:
             if task["repository_id"] != repo: continue
             task["original_build_status"] = "passed" if original["result"] == "passed" else "pending"
@@ -80,20 +83,20 @@ def main() -> int:
                "original_passed": sum(row["original"]["passed"] for row in results.values()),
                "pqc_passed": sum(row["pqc_reference"]["passed"] for row in results.values()),
                "repositories": [results[key] for key in sorted(results)]}
-    (OUT / "test_summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    tasks_manifest.write_text(json.dumps(tasks, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    (OUT / "repository_contribution_manifest.json").write_text(json.dumps(repositories, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    write_lf(OUT / "test_summary.json", json.dumps(summary, indent=2, ensure_ascii=False) + "\n")
+    write_lf(tasks_manifest, json.dumps(tasks, indent=2, ensure_ascii=False) + "\n")
+    write_lf(OUT / "repository_contribution_manifest.json", json.dumps(repositories, indent=2, ensure_ascii=False) + "\n")
     for task in tasks:
         if task["repository_id"] in [f"REPO-{n:03d}" for n in range(first, first + 10)]:
             task_path = ROOT / task["task_path"] / "task.json"
-            task_path.write_text(json.dumps(task, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            write_lf(task_path, json.dumps(task, indent=2, ensure_ascii=False) + "\n")
     for filename, suite_key in (("original_test_summary.json", "original"), ("pqc_reference_test_summary.json", "pqc_reference")):
-        (OUT / filename).write_text(json.dumps({"suite": suite_key, "repositories_tested": len(results),
+        write_lf(OUT / filename, json.dumps({"suite": suite_key, "repositories_tested": len(results),
              "tests_passed": sum(x[suite_key]["passed"] for x in results.values()),
              "failures": sum(x[suite_key]["failed"] for x in results.values()),
              "skips": sum(x[suite_key]["skipped"] for x in results.values()),
              "errors": sum(x[suite_key]["errors"] for x in results.values()),
-             "warnings": sum(x[suite_key]["warnings"] for x in results.values()), "repositories": summary["repositories"]}, indent=2) + "\n", encoding="utf-8")
+             "warnings": sum(x[suite_key]["warnings"] for x in results.values()), "repositories": summary["repositories"]}, indent=2) + "\n")
     progress = ["# Batch progress", "", "| Batch | Applications | Tasks | Original tests | PQC tests | Status |", "|---:|---|---:|---:|---:|---|"]
     for batch in range(1, 19):
         low = 61 + (batch - 1) * 10; high = low + 9
@@ -102,7 +105,7 @@ def main() -> int:
         orig = sum(results[r]["original"]["passed"] for r in ids if r in results)
         ref = sum(results[r]["pqc_reference"]["passed"] for r in ids if r in results)
         progress.append(f"| {batch:02d} | REPO-{low:03d}–REPO-{high:03d} | 100 | {orig} | {ref} | {'passed' if completed else 'pending'} |")
-    (OUT / "batch_progress.md").write_text("\n".join(progress) + "\n", encoding="utf-8")
+    write_lf(OUT / "batch_progress.md", "\n".join(progress) + "\n")
     return exit_status
 
 if __name__ == "__main__": raise SystemExit(main())

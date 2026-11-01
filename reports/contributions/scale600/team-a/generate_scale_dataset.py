@@ -150,7 +150,7 @@ def scan_existing_catalogue(rows: list[dict]) -> None:
               "high_overlap_pairs": close_matches,
               "note": "Screen used the current base's REPO-001..032 and fetched Team C REPO-048..060 catalogue. REPO-033..047 were absent from the checkout and fetched refs, so those scopes could not be compared.",
               "result": "review_required_missing_catalogue" if missing else "passed"}
-    (OUT / "duplicate_detection_report.json").write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    write(OUT / "duplicate_detection_report.json", json.dumps(report, indent=2, ensure_ascii=False))
     if name_clashes:
         raise SystemExit(f"candidate application name collisions: {name_clashes}")
 
