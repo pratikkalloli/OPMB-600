@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-4801",
+  "repository_id": "REPO-481",
+  "repository_name": "ModelArtifactSeal",
+  "application_domain": "machine_learning_model_artifact_seals",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "canonical message encoding for modelartifactseal",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/modelartifactseal/crypto.py",
+    "src/modelartifactseal/service.py"
+  ],
+  "function_names": [
+    "canonical_claims",
+    "validate_claims"
+  ],
+  "migration_family": "canonical message encoding",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "ModelArtifactSeal: Canonicalize modelartifactseal claims and bind the signed record to its artifact_id identifier.",
+  "preconditions": [
+    "ModelArtifactSeal baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate canonical message encoding to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve ModelArtifactSeal canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_modelartifactseal.py"
+  ],
+  "migration_tests": [
+    "tests/test_modelartifactseal_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-481/tasks/OPMB-4801",
+  "reference_path": "benchmark/repositories/REPO-481/migrated_reference/modelartifactseal_pqc",
+  "original_test_evidence": "reports/evidence/REPO-481/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-481/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-481/post-migration-scan.json"
+}

@@ -1,7 +1,7 @@
 {
   "assignment": "Team C REPO-421\u2013REPO-600",
   "planned_application_count": 180,
-  "implemented_application_count": 60,
+  "implemented_application_count": 70,
   "applications": [
     {
       "repository_id": "REPO-421",
@@ -722,6 +722,126 @@
       "test_status": "passed",
       "reference_test_status": "passed",
       "evidence": "reports/evidence/REPO-480/test-results.json"
+    },
+    {
+      "repository_id": "REPO-481",
+      "name": "ModelArtifactSeal",
+      "application_domain": "machine_learning_model_artifact_seals",
+      "path": "benchmark/repositories/REPO-481",
+      "purpose": "Manage model artifact seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-481/test-results.json"
+    },
+    {
+      "repository_id": "REPO-482",
+      "name": "TrainingSetLineage",
+      "application_domain": "training_dataset_lineage_records",
+      "path": "benchmark/repositories/REPO-482",
+      "purpose": "Manage training set lineage evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-482/test-results.json"
+    },
+    {
+      "repository_id": "REPO-483",
+      "name": "ModelDistributionTicket",
+      "application_domain": "model_distribution_tickets",
+      "path": "benchmark/repositories/REPO-483",
+      "purpose": "Manage model distribution ticket evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-483/test-results.json"
+    },
+    {
+      "repository_id": "REPO-484",
+      "name": "FeatureStoreMutationLog",
+      "application_domain": "feature_store_mutation_logs",
+      "path": "benchmark/repositories/REPO-484",
+      "purpose": "Manage feature store mutation log evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-484/test-results.json"
+    },
+    {
+      "repository_id": "REPO-485",
+      "name": "InferenceWorkloadPassport",
+      "application_domain": "model_inference_workload_passports",
+      "path": "benchmark/repositories/REPO-485",
+      "purpose": "Manage inference workload passport evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-485/test-results.json"
+    },
+    {
+      "repository_id": "REPO-486",
+      "name": "ExperimentNotebookSeal",
+      "application_domain": "machine_learning_experiment_notebook_seals",
+      "path": "benchmark/repositories/REPO-486",
+      "purpose": "Manage experiment notebook seal evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-486/test-results.json"
+    },
+    {
+      "repository_id": "REPO-487",
+      "name": "PipelineConnectorIdentity",
+      "application_domain": "data_pipeline_connector_identities",
+      "path": "benchmark/repositories/REPO-487",
+      "purpose": "Manage pipeline connector identity evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-487/test-results.json"
+    },
+    {
+      "repository_id": "REPO-488",
+      "name": "ModelRollbackPermit",
+      "application_domain": "machine_learning_model_rollback_permits",
+      "path": "benchmark/repositories/REPO-488",
+      "purpose": "Manage model rollback permit evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-488/test-results.json"
+    },
+    {
+      "repository_id": "REPO-489",
+      "name": "LabelingBatchProvenance",
+      "application_domain": "dataset_labeling_batch_provenance",
+      "path": "benchmark/repositories/REPO-489",
+      "purpose": "Manage labeling batch provenance evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-489/test-results.json"
+    },
+    {
+      "repository_id": "REPO-490",
+      "name": "FeatureSchemaApproval",
+      "application_domain": "feature_store_schema_approvals",
+      "path": "benchmark/repositories/REPO-490",
+      "purpose": "Manage feature schema approval evidence and authorization records for synthetic organizations.",
+      "status": "candidate",
+      "task_count": 10,
+      "test_status": "passed",
+      "reference_test_status": "passed",
+      "evidence": "reports/evidence/REPO-490/test-results.json"
     }
   ]
 }

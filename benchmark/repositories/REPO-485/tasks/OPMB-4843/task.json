@@ -1,0 +1,60 @@
+{
+  "task_id": "OPMB-4843",
+  "repository_id": "REPO-485",
+  "repository_name": "InferenceWorkloadPassport",
+  "application_domain": "model_inference_workload_passports",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "PQC key generation for inferenceworkloadpassport",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/inferenceworkloadpassport/crypto.py",
+    "src/inferenceworkloadpassport/service.py"
+  ],
+  "function_names": [
+    "generate_signer"
+  ],
+  "migration_family": "PQC key generation",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "InferenceWorkloadPassport: Replace P-256 signer generation for inferenceworkloadpassport issuers with ML-DSA-65 key generation.",
+  "preconditions": [
+    "InferenceWorkloadPassport baseline tests pass.",
+    "All tenant and workload records are synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve the application workflow and SQLite persistence.",
+    "Reject malformed claims, signature tampering, wrong issuer keys, and revoked records."
+  ],
+  "migration_requirements": [
+    "Migrate PQC key generation to ML-DSA-65 using cryptography==50.0.2.",
+    "Preserve InferenceWorkloadPassport canonical claims, tenant context, SQLite lifecycle, and fail-closed behavior.",
+    "Do not silently fall back to ECDSA."
+  ],
+  "original_tests": [
+    "tests/test_inferenceworkloadpassport.py"
+  ],
+  "migration_tests": [
+    "tests/test_inferenceworkloadpassport_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the baseline and PQC modules independently.",
+    "Exercise valid claims, invalid business constraints, wrong-key verification, and withdrawal behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic application; unit tests do not establish formal security."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-485/tasks/OPMB-4843",
+  "reference_path": "benchmark/repositories/REPO-485/migrated_reference/inferenceworkloadpassport_pqc",
+  "original_test_evidence": "reports/evidence/REPO-485/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-485/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-485/post-migration-scan.json"
+}
