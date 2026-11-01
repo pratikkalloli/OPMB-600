@@ -1,0 +1,329 @@
+{
+  "team": "B",
+  "part": "4",
+  "batch_plan": {
+    "B1": [
+      "REPO-033",
+      "REPO-034",
+      "REPO-035",
+      "REPO-036",
+      "REPO-037"
+    ],
+    "B2": [
+      "REPO-038",
+      "REPO-039",
+      "REPO-040",
+      "REPO-041",
+      "REPO-042"
+    ],
+    "B3": [
+      "REPO-043",
+      "REPO-044",
+      "REPO-045",
+      "REPO-046",
+      "REPO-047"
+    ]
+  },
+  "repositories": [
+    {
+      "repository_id": "REPO-033",
+      "name": "TenantPortal",
+      "application_domain": "tenant_portal",
+      "purpose": "Tenant invitations and role grants with expiry, revocation, and tenant-bound encrypted evidence.",
+      "path": "benchmark/repositories/REPO-033",
+      "status": "candidate",
+      "main_modules": [
+        "src/tenant_portal/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-034",
+      "name": "SecureClipboard",
+      "application_domain": "secure_clipboard",
+      "purpose": "Short-lived clipboard shares bound to owner, recipient, sensitivity label, and expiration.",
+      "path": "benchmark/repositories/REPO-034",
+      "status": "candidate",
+      "main_modules": [
+        "src/secure_clipboard/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-035",
+      "name": "RedactionProof",
+      "application_domain": "redaction_proof",
+      "purpose": "Redaction review cases linking document digests, redaction maps, reviewers, and disclosure approvals.",
+      "path": "benchmark/repositories/REPO-035",
+      "status": "candidate",
+      "main_modules": [
+        "src/redaction_proof/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-036",
+      "name": "LicenseLedger",
+      "application_domain": "license_ledger",
+      "purpose": "Product license records covering organization, seats, validity windows, suspension, and revocation.",
+      "path": "benchmark/repositories/REPO-036",
+      "status": "candidate",
+      "main_modules": [
+        "src/license_ledger/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-037",
+      "name": "EdgeCacheTrust",
+      "application_domain": "edge_cache_trust",
+      "purpose": "Edge cache leases binding object digests to origin validators, freshness deadlines, and trust states.",
+      "path": "benchmark/repositories/REPO-037",
+      "status": "candidate",
+      "main_modules": [
+        "src/edge_cache_trust/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-038",
+      "name": "ResearchRelease",
+      "application_domain": "research_release",
+      "purpose": "Research dataset release approvals covering dataset digest, curator, license, and embargo lifecycle.",
+      "path": "benchmark/repositories/REPO-038",
+      "status": "candidate",
+      "main_modules": [
+        "src/research_release/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-039",
+      "name": "SecureQueue",
+      "application_domain": "secure_queue",
+      "purpose": "Queue message delivery receipts with producer identity, lease expiry, acknowledgement, and dead-letter state.",
+      "path": "benchmark/repositories/REPO-039",
+      "status": "candidate",
+      "main_modules": [
+        "src/secure_queue/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-040",
+      "name": "VendorOrder",
+      "application_domain": "vendor_order",
+      "purpose": "Buyer and supplier purchase orders with currency, integer totals, and fulfillment transitions.",
+      "path": "benchmark/repositories/REPO-040",
+      "status": "candidate",
+      "main_modules": [
+        "src/vendor_order/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-041",
+      "name": "VehicleRecorder",
+      "application_domain": "vehicle_recorder",
+      "purpose": "Vehicle telemetry event records with monotonic trip sequence and capture, seal, and upload lifecycle.",
+      "path": "benchmark/repositories/REPO-041",
+      "status": "candidate",
+      "main_modules": [
+        "src/vehicle_recorder/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-042",
+      "name": "DigitalWarranty",
+      "application_domain": "digital_warranty",
+      "purpose": "Warranty claims linking product serial, claimant, evidence digest, review decision, and payment state.",
+      "path": "benchmark/repositories/REPO-042",
+      "status": "candidate",
+      "main_modules": [
+        "src/digital_warranty/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-043",
+      "name": "PhotoVault",
+      "application_domain": "photo_vault",
+      "purpose": "Photo object lifecycle with owner, content digest, classification, retention, and explicit sharing state.",
+      "path": "benchmark/repositories/REPO-043",
+      "status": "candidate",
+      "main_modules": [
+        "src/photo_vault/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-044",
+      "name": "KeyRecovery",
+      "application_domain": "key_recovery",
+      "purpose": "Threshold recovery cases tracking principal, key fingerprint, required approvals, and fulfillment decisions.",
+      "path": "benchmark/repositories/REPO-044",
+      "status": "candidate",
+      "main_modules": [
+        "src/key_recovery/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-045",
+      "name": "APIKeyBroker",
+      "application_domain": "api_key_broker",
+      "purpose": "API credential lifecycle with client binding, scopes, expiry, activation, and revocation.",
+      "path": "benchmark/repositories/REPO-045",
+      "status": "candidate",
+      "main_modules": [
+        "src/api_key_broker/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-046",
+      "name": "SBOMSign",
+      "application_domain": "sbom_sign",
+      "purpose": "Software bill-of-material release records with artifact digest, supplier identity, serial format, and signing state.",
+      "path": "benchmark/repositories/REPO-046",
+      "status": "candidate",
+      "main_modules": [
+        "src/sbom_sign/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    },
+    {
+      "repository_id": "REPO-047",
+      "name": "SecureForms",
+      "application_domain": "secure_forms",
+      "purpose": "Form submissions binding schema version, submitter reference, consent version, and processing lifecycle.",
+      "path": "benchmark/repositories/REPO-047",
+      "status": "candidate",
+      "main_modules": [
+        "src/secure_forms/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM",
+        "HKDF-SHA-256"
+      ],
+      "task_count": 10,
+      "test_status": "pending",
+      "reference_test_status": "pending"
+    }
+  ]
+}

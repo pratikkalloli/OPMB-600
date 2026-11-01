@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0439",
+  "repository_id": "REPO-044",
+  "repository_name": "KeyRecovery",
+  "application_domain": "key_recovery",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Recipient rotation and authenticated rewrapping",
+  "source_files": [
+    "src/key_recovery/service.py"
+  ],
+  "function_names": [
+    "rotate_recovery_case_attachment"
+  ],
+  "migration_family": "Cryptographic key management",
+  "migration_target": "ML-KEM-768 + HKDF-SHA-256 + AES-GCM",
+  "migration_objective": "Rewrap attachment data keys for a replacement ML-KEM recipient without changing the protected payload or entity context. KeyRecovery workflow: Threshold recovery cases tracking principal, key fingerprint, required approvals, and fulfillment decisions. Domain-specific invariants: Recovery requires a threshold between two and five distinct approvals. The task concerns fields recovery_id, principal_id, key_fingerprint, approvals_required, opened_at, recovery_state and legal transitions opened -> approved -> fulfilled -> denied.",
+  "preconditions": [
+    "The KeyRecovery baseline tests pass before migration.",
+    "All recovery_case records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve KeyRecovery domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_key_recovery.py"
+  ],
+  "migration_tests": [
+    "tests/test_key_recovery_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_key_recovery.py for the baseline suite.",
+    "Run tests/test_key_recovery_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "hard",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-044/tasks/OPMB-0439",
+  "reference_path": "benchmark/repositories/REPO-044/migrated_reference/key_recovery_pqc",
+  "task_title": "KeyRecovery: Rotate an attachment recipient",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B3"
+}

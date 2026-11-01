@@ -1,0 +1,46 @@
+{
+  "repository_id": "REPO-041",
+  "application": "VehicleRecorder",
+  "status": "PASS",
+  "timestamp_utc": "2026-11-01T11:05:04.220010+00:00",
+  "tested_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
+  "environment": {
+    "python": "3.12.14",
+    "cryptography": "50.0.2",
+    "jsonschema": "4.25.1",
+    "pytest": "8.4.2"
+  },
+  "suites": [
+    {
+      "suite": "classical",
+      "test_path": "tests/test_vehicle_recorder.py",
+      "working_directory": "C:/somegitrepos/OPMB-600-team-b/benchmark/repositories/REPO-041",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b\\.venv\\Scripts\\python.exe -m pytest tests/test_vehicle_recorder.py -q -p no:cacheprovider",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "recorded_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "result": "PASS"
+    },
+    {
+      "suite": "pqc",
+      "test_path": "tests/test_vehicle_recorder_pqc.py",
+      "working_directory": "C:/somegitrepos/OPMB-600-team-b/benchmark/repositories/REPO-041",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b\\.venv\\Scripts\\python.exe -m pytest tests/test_vehicle_recorder_pqc.py -q -p no:cacheprovider",
+      "environment": {
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "recorded_commit": "74583a37857d884452b28acf3e3d4a146f380cd2",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "result": "PASS"
+    }
+  ],
+  "note": "Post-merge official pytest invocations. Earlier direct-invocation evidence remains supplemental and is not substituted for these runs."
+}

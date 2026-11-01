@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0443",
+  "repository_id": "REPO-045",
+  "repository_name": "APIKeyBroker",
+  "application_domain": "api_key_broker",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Domain decision signing",
+  "source_files": [
+    "src/api_key_broker/service.py"
+  ],
+  "function_names": [
+    "sign_api_credential_decision"
+  ],
+  "migration_family": "RSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate domain decision signatures from RSA-PSS/SHA-256 to ML-DSA-65 while preserving canonical bytes and domain separation. APIKeyBroker workflow: API credential lifecycle with client binding, scopes, expiry, activation, and revocation. Domain-specific invariants: API credentials require unique nonempty scopes and expiry after creation. The task concerns fields credential_id, client_id, scopes, created_at, expires_at, status and legal transitions pending -> active -> revoked -> expired.",
+  "preconditions": [
+    "The APIKeyBroker baseline tests pass before migration.",
+    "All api_credential records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve APIKeyBroker domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_api_key_broker.py"
+  ],
+  "migration_tests": [
+    "tests/test_api_key_broker_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_api_key_broker.py for the baseline suite.",
+    "Run tests/test_api_key_broker_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-045/tasks/OPMB-0443",
+  "reference_path": "benchmark/repositories/REPO-045/migrated_reference/api_key_broker_pqc",
+  "task_title": "APIKeyBroker: Sign a domain decision",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B3"
+}

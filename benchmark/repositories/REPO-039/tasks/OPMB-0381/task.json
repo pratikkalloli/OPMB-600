@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0381",
+  "repository_id": "REPO-039",
+  "repository_name": "SecureQueue",
+  "application_domain": "secure_queue",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Domain record validation and canonicalization",
+  "source_files": [
+    "src/secure_queue/service.py"
+  ],
+  "function_names": [
+    "build_queue_message"
+  ],
+  "migration_family": "Cross-component cryptographic migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Preserve required fields, canonical encoding, identifier binding, and legal lifecycle states as signed domain records migrate. SecureQueue workflow: Queue message delivery receipts with producer identity, lease expiry, acknowledgement, and dead-letter state. Domain-specific invariants: A queue message must expire after creation to avoid immediately invalid leases. The task concerns fields message_id, queue_name, producer_id, created_at, expires_at, delivery_state and legal transitions pending -> leased -> acked -> dead_letter.",
+  "preconditions": [
+    "The SecureQueue baseline tests pass before migration.",
+    "All queue_message records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve SecureQueue domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_secure_queue.py"
+  ],
+  "migration_tests": [
+    "tests/test_secure_queue_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_secure_queue.py for the baseline suite.",
+    "Run tests/test_secure_queue_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-039/tasks/OPMB-0381",
+  "reference_path": "benchmark/repositories/REPO-039/migrated_reference/secure_queue_pqc",
+  "task_title": "SecureQueue: Validate and canonicalize the domain entity",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B2"
+}

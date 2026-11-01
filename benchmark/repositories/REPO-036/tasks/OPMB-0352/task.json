@@ -1,0 +1,65 @@
+{
+  "task_id": "OPMB-0352",
+  "repository_id": "REPO-036",
+  "repository_name": "LicenseLedger",
+  "application_domain": "license_ledger",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256; RSA-3072 OAEP/SHA-256; AES-256-GCM",
+  "cryptographic_library": "cryptography==50.0.2",
+  "cryptographic_operation": "Decision signing-key generation",
+  "source_files": [
+    "src/license_ledger/service.py"
+  ],
+  "function_names": [
+    "generate_license_record_signing_keypair"
+  ],
+  "migration_family": "RSA digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Replace RSA decision-signing keys with ML-DSA-65 keys and keep them separate from recipient key-establishment keys. LicenseLedger workflow: Product license records covering organization, seats, validity windows, suspension, and revocation. Domain-specific invariants: A license must grant a positive integer seat count and positive expiry. The task concerns fields license_id, product_id, organization_id, seat_count, expires_at, status and legal transitions trial -> active -> suspended -> revoked.",
+  "preconditions": [
+    "The LicenseLedger baseline tests pass before migration.",
+    "All license_record records and identities are synthetic fixtures."
+  ],
+  "expected_behavior": [
+    "Preserve LicenseLedger domain fields, lifecycle rules, and caller contracts.",
+    "Reject malformed, corrupted, wrong-context, or invalid-signature inputs safely.",
+    "Do not fall back to classical public-key operations after migration."
+  ],
+  "migration_requirements": [
+    "Use standardized algorithms through the cryptography==50.0.2 pinned APIs.",
+    "Keep ML-KEM for key establishment and ML-DSA for signatures; retain AES-GCM for payload protection.",
+    "Update dependent interfaces and serialization while preserving domain behavior."
+  ],
+  "original_tests": [
+    "tests/test_license_ledger.py"
+  ],
+  "migration_tests": [
+    "tests/test_license_ledger_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run tests/test_license_ledger.py for the baseline suite.",
+    "Run tests/test_license_ledger_pqc.py for PQC positive, negative, tamper, and context-binding checks.",
+    "Record interpreter/provider versions and actual command output before changing validation status."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "pending",
+  "reference_patch_status": "pending",
+  "cryptographic_verification_status": "pending",
+  "validation_status": "pending",
+  "known_limitations": [
+    "Tests and independent review are not run; no pass or acceptance is claimed.",
+    "This controlled in-memory fixture is not a production service or cryptographic certification.",
+    "Lexical scanning does not analyze runtime or dependencies."
+  ],
+  "created_by": "OPMB-600-Team-B",
+  "task_path": "benchmark/repositories/REPO-036/tasks/OPMB-0352",
+  "reference_path": "benchmark/repositories/REPO-036/migrated_reference/license_ledger_pqc",
+  "task_title": "LicenseLedger: Generate the decision signing key pair",
+  "dependencies": [
+    "cryptography==50.0.2",
+    "pytest==8.4.2"
+  ],
+  "task_batch": "B1"
+}
