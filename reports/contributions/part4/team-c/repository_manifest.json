@@ -167,6 +167,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-054/test-results.json"
+    },
+    {
+      "repository_id": "REPO-055",
+      "name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "path": "benchmark/repositories/REPO-055",
+      "purpose": "Sender-authenticated recipient-encrypted message delivery with mailbox status and uniqueness enforcement.",
+      "task_ids": [
+        "OPMB-0541",
+        "OPMB-0542",
+        "OPMB-0543",
+        "OPMB-0544",
+        "OPMB-0545",
+        "OPMB-0546",
+        "OPMB-0547",
+        "OPMB-0548",
+        "OPMB-0549",
+        "OPMB-0550"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-055/test-results.json"
     }
   ]
 }

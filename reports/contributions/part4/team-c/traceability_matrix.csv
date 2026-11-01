@@ -69,3 +69,13 @@ OPMB-0537,REPO-054,src/careconsent/service.py,grant,tests/test_careconsent.py,te
 OPMB-0538,REPO-054,src/careconsent/service.py,revoke,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
 OPMB-0539,REPO-054,src/careconsent/service.py,authorize,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
 OPMB-0540,REPO-054,src/careconsent/service.py,revision,tests/test_careconsent.py,tests/test_careconsent_pqc.py,reports/evidence/REPO-054/test-results.json,candidate
+OPMB-0541,REPO-055,src/securemailbox/crypto.py,canonical_message,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0542,REPO-055,src/securemailbox/crypto.py,generate_sender,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0543,REPO-055,src/securemailbox/crypto.py,sign_message,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0544,REPO-055,src/securemailbox/crypto.py,verify_message,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0545,REPO-055,src/securemailbox/crypto.py,generate_recipient,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0546,REPO-055,src/securemailbox/crypto.py,seal_message,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0547,REPO-055,src/securemailbox/crypto.py,load_recipient,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0548,REPO-055,src/securemailbox/crypto.py,export_sender,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0549,REPO-055,src/securemailbox/service.py,send,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate
+OPMB-0550,REPO-055,src/securemailbox/service.py,receive,tests/test_securemailbox.py,tests/test_securemailbox_pqc.py,reports/evidence/REPO-055/test-results.json,candidate

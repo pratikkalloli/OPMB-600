@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-055",
+  "application": "SecureMailbox",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_securemailbox.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_securemailbox_pqc.py -q -p no:cacheprovider",
+      "exit_code": 0,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "RSA-PSS and ML-DSA-65 sender signature paths",
+    "X25519 and ML-KEM-768 recipient key establishment",
+    "authenticated encrypted message send and receive",
+    "wrong recipient rejection",
+    "inactive recipient rejection",
+    "duplicate message ID rejection"
+  ],
+  "limitations": [
+    "Synthetic mailbox data only.",
+    "Tests are not formal cryptographic proofs."
+  ]
+}

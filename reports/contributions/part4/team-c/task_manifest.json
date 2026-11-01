@@ -4259,6 +4259,616 @@
       "reference_test_evidence": "reports/evidence/REPO-054/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-054/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-054/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0541",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Canonicalize signed mailbox message metadata",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "canonical_message"
+      ],
+      "migration_family": "Cryptographic protocol canonicalization",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve stable sender, recipient, creation time, and body digest binding for the selected public-key schemes.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0541",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0542",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Provision RSA message sender identities",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "generate_sender"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA signing keys with ML-DSA-65 sender identities.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0542",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0543",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Create RSA-PSS message authenticity signatures",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "sign_message"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Migrate message signatures to ML-DSA-65 using a mailbox-specific context.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0543",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0544",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Verify sender authenticity for delivered messages",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "verify_message"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA-65 verification and reject changed message metadata or wrong sender keys.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0544",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0545",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Provision X25519 recipient encryption identities",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "generate_recipient"
+      ],
+      "migration_family": "ECDH key establishment migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Replace X25519 recipients with ML-KEM-768 decapsulation key pairs.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0545",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0546",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Encrypt mailbox payloads to a recipient with X25519",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "seal_message"
+      ],
+      "migration_family": "ECDH key establishment migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Establish keys with ML-KEM-768 and protect payloads using HKDF and AES-GCM.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0546",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0547",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Load a stored X25519 recipient public key",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "load_recipient"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Decode ML-KEM-768 recipient public keys from the new serialized representation.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0547",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0548",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Serialize RSA sender verification identities",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/crypto.py"
+      ],
+      "function_names": [
+        "export_sender"
+      ],
+      "migration_family": "Key format and API compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace PEM RSA verification keys with standardized ML-DSA public-key bytes.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0548",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0549",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Store a sender-authenticated encrypted mailbox message",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/service.py"
+      ],
+      "function_names": [
+        "send"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-KEM-768 and ML-DSA-65",
+      "migration_objective": "Integrate ML-KEM recipient encapsulation and ML-DSA sender signatures while preserving active-user and uniqueness checks.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0549",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0550",
+      "repository_id": "REPO-055",
+      "repository_name": "SecureMailbox",
+      "application_domain": "synthetic_secure_message_delivery",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Retrieve and authenticate a message for its intended recipient",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/securemailbox/service.py"
+      ],
+      "function_names": [
+        "receive"
+      ],
+      "migration_family": "Cross-component protocol/API migration",
+      "migration_target": "ML-KEM-768 and ML-DSA-65",
+      "migration_objective": "Decapsulate with ML-KEM, authenticate ciphertext, verify sender ML-DSA identity, and enforce recipient status.",
+      "preconditions": [
+        "SecureMailbox baseline tests pass.",
+        "Mailbox users and messages are synthetic."
+      ],
+      "expected_behavior": [
+        "Only the intended active recipient can decrypt a stored message.",
+        "Sender identity and message metadata are authenticated and tampering fails closed.",
+        "Message identifiers remain unique and inactive users cannot send or receive."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+        "Update serialized key formats and integration callers without classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_securemailbox.py"
+      ],
+      "migration_tests": [
+        "tests/test_securemailbox_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run original and PQC test suites separately.",
+        "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic messaging only; not a production communications service."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0550",
+      "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+      "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
     }
   ]
 }

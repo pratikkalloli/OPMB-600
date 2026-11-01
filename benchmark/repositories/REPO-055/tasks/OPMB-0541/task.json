@@ -1,0 +1,61 @@
+{
+  "task_id": "OPMB-0541",
+  "repository_id": "REPO-055",
+  "repository_name": "SecureMailbox",
+  "application_domain": "synthetic_secure_message_delivery",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Canonicalize signed mailbox message metadata",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/securemailbox/crypto.py"
+  ],
+  "function_names": [
+    "canonical_message"
+  ],
+  "migration_family": "Cryptographic protocol canonicalization",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Preserve stable sender, recipient, creation time, and body digest binding for the selected public-key schemes.",
+  "preconditions": [
+    "SecureMailbox baseline tests pass.",
+    "Mailbox users and messages are synthetic."
+  ],
+  "expected_behavior": [
+    "Only the intended active recipient can decrypt a stored message.",
+    "Sender identity and message metadata are authenticated and tampering fails closed.",
+    "Message identifiers remain unique and inactive users cannot send or receive."
+  ],
+  "migration_requirements": [
+    "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
+    "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
+    "Update serialized key formats and integration callers without classical fallback."
+  ],
+  "original_tests": [
+    "tests/test_securemailbox.py"
+  ],
+  "migration_tests": [
+    "tests/test_securemailbox_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run original and PQC test suites separately.",
+    "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "pending",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Candidate pending independent review.",
+    "Synthetic messaging only; not a production communications service."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0541",
+  "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+  "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-055/post-migration-scan.json"
+}

@@ -6,3 +6,4 @@ REPO-051,DistributedCache,distributed_cache_snapshot_transfer,Synthetic node reg
 REPO-052,ClearingDesk,synthetic_payment_approval_and_clearing,Two-person payment approval and encrypted clearing transfer,10,candidate
 REPO-053,FirmwareFleet,synthetic_iot_firmware_rollout,Device enrollment and signed anti-rollback firmware releases,10,candidate
 REPO-054,CareConsent,synthetic_research_consent_registry,Purpose-limited study consent with expiry and withdrawal audit,10,candidate
+REPO-055,SecureMailbox,synthetic_secure_message_delivery,Authenticated encrypted inbox and recipient delivery,10,candidate
