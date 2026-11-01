@@ -79,16 +79,16 @@ REPO-317,FuelBlendCertificate,B3 Energy and utilities,benchmark/repositories/REP
 REPO-318,PowerPurchaseAllocation,B3 Energy and utilities,benchmark/repositories/REPO-318,10,candidate,tested
 REPO-319,OutageRestorationLog,B3 Energy and utilities,benchmark/repositories/REPO-319,10,candidate,tested
 REPO-320,WaterPumpEnergyLedger,B3 Energy and utilities,benchmark/repositories/REPO-320,10,candidate,tested
-REPO-321,HeatNetworkMetering,B3 Energy and utilities,benchmark/repositories/REPO-321,10,candidate,planned
-REPO-322,RenewableRECRegistry,B3 Energy and utilities,benchmark/repositories/REPO-322,10,candidate,planned
-REPO-323,GridFirmwareRelease,B3 Energy and utilities,benchmark/repositories/REPO-323,10,candidate,planned
-REPO-324,CustomerMeterExchange,B3 Energy and utilities,benchmark/repositories/REPO-324,10,candidate,planned
-REPO-325,EnergyMarketBidEnvelope,B3 Energy and utilities,benchmark/repositories/REPO-325,10,candidate,planned
-REPO-326,HydrogenBatchPassport,B3 Energy and utilities,benchmark/repositories/REPO-326,10,candidate,planned
-REPO-327,DistributionLossStudy,B3 Energy and utilities,benchmark/repositories/REPO-327,10,candidate,planned
-REPO-328,LoadForecastPublication,B3 Energy and utilities,benchmark/repositories/REPO-328,10,candidate,planned
-REPO-329,InverterProtectionProfile,B3 Energy and utilities,benchmark/repositories/REPO-329,10,candidate,planned
-REPO-330,CommunityEnergySettlement,B3 Energy and utilities,benchmark/repositories/REPO-330,10,candidate,planned
+REPO-321,HeatNetworkMetering,B3 Energy and utilities,benchmark/repositories/REPO-321,10,candidate,tested
+REPO-322,RenewableRECRegistry,B3 Energy and utilities,benchmark/repositories/REPO-322,10,candidate,tested
+REPO-323,GridFirmwareRelease,B3 Energy and utilities,benchmark/repositories/REPO-323,10,candidate,tested
+REPO-324,CustomerMeterExchange,B3 Energy and utilities,benchmark/repositories/REPO-324,10,candidate,tested
+REPO-325,EnergyMarketBidEnvelope,B3 Energy and utilities,benchmark/repositories/REPO-325,10,candidate,tested
+REPO-326,HydrogenBatchPassport,B3 Energy and utilities,benchmark/repositories/REPO-326,10,candidate,tested
+REPO-327,DistributionLossStudy,B3 Energy and utilities,benchmark/repositories/REPO-327,10,candidate,tested
+REPO-328,LoadForecastPublication,B3 Energy and utilities,benchmark/repositories/REPO-328,10,candidate,tested
+REPO-329,InverterProtectionProfile,B3 Energy and utilities,benchmark/repositories/REPO-329,10,candidate,tested
+REPO-330,CommunityEnergySettlement,B3 Energy and utilities,benchmark/repositories/REPO-330,10,candidate,tested
 REPO-331,RailSignalAspectArchive,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-331,10,candidate,planned
 REPO-332,ColdChainTransfer,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-332,10,candidate,planned
 REPO-333,AircraftComponentLifeCard,"B4 Transport, mobility and logistics",benchmark/repositories/REPO-333,10,candidate,planned

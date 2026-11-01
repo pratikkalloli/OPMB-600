@@ -1,0 +1,1 @@
+"""InverterProtectionProfile original application."""

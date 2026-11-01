@@ -10,7 +10,7 @@
 | 06 | REPO-291–300 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 | 07 | REPO-301–310 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 | 08 | REPO-311–320 | 100 | 20 | 120 | 0 | 0 | passed | tested |
-| 09 | REPO-321–330 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
+| 09 | REPO-321–330 | 100 | 20 | 120 | 0 | 0 | passed | tested |
 | 10 | REPO-331–340 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
 | 11 | REPO-341–350 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
 | 12 | REPO-351–360 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
@@ -21,4 +21,4 @@
 | 17 | REPO-401–410 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
 | 18 | REPO-411–420 | 100 | NOT RUN | — | — | — | NOT RUN | NOT IMPLEMENTED |
 
-Overall: 80/180 applications; 800/1,800 tasks; 960 tests, 960 passed, 0 failed, 0 skipped.
+Overall: 90/180 applications; 900/1,800 tasks; 1080 tests, 1080 passed, 0 failed, 0 skipped.

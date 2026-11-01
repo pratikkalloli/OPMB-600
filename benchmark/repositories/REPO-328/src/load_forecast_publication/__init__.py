@@ -1,0 +1,1 @@
+"""LoadForecastPublication original application."""

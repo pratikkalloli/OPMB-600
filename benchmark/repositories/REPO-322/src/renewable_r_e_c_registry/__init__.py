@@ -1,0 +1,1 @@
+"""RenewableRECRegistry original application."""

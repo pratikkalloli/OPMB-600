@@ -73,12 +73,21 @@
       "secret_pattern_scan": "passed",
       "errors": [],
       "status": "passed"
+    },
+    {
+      "batch": 9,
+      "repositories": 10,
+      "tasks": 100,
+      "schema_dialect": "Draft 2020-12",
+      "secret_pattern_scan": "passed",
+      "errors": [],
+      "status": "passed"
     }
   ],
-  "repositories_checked": 80,
-  "tasks_checked": 800,
-  "repositories_valid": 80,
-  "tasks_valid": 800,
+  "repositories_checked": 90,
+  "tasks_checked": 900,
+  "repositories_valid": 90,
+  "tasks_valid": 900,
   "errors": [],
   "status": "passed"
 }
