@@ -1,5 +1,5 @@
 # Migration requirements
 
-- Use ML-DSA-65 with a LicenseDesk-specific signature context.
-- Replace RSA public-key serialization and update all consumers without fallback.
-- Preserve offline verification and revocation snapshot formats and semantics.
+- Use the standardized PQC construction named by the task and the pinned cryptography library.
+- Migrate key and message serialization without silent classical fallback.
+- Retain application-specific authorization, version, expiry, or sequence checks.

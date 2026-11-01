@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0522",
   "repository_id": "REPO-053",
-  "repository_name": "FirmwareFleet",
-  "application_domain": "synthetic_iot_firmware_rollout",
+  "repository_name": "DataMarketplace",
+  "application_domain": "synthetic_data_asset_marketplace",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "RSA-PSS with SHA-256",
-  "cryptographic_operation": "Provision an RSA firmware release signing key",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Provision provider signing keys",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/firmwarefleet/crypto.py"
+    "src/datamarketplace/crypto.py"
   ],
   "function_names": [
-    "generate_release_signer"
+    "generate_provider_signer"
   ],
   "migration_family": "RSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Replace RSA signing identities with standardized ML-DSA-65 keys for firmware authority.",
+  "migration_objective": "Migrate RSA provider signatures to ML-DSA-65.",
   "preconditions": [
-    "FirmwareFleet baseline tests pass.",
-    "Device identities and firmware images are synthetic."
+    "DataMarketplace baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Install only authentic releases for the enrolled device family.",
-    "Reject rollback versions and releases requiring a newer bootloader.",
-    "Bind release ID, family, version, image digest, and bootloader floor to the authority signature."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use standardized ML-DSA-65 with a FirmwareFleet release context.",
-    "Update public-key serialization and all verification callers; do not fall back to RSA.",
-    "Preserve monotonic device rollout checks and fail closed."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_firmwarefleet.py"
+    "tests/test_datamarketplace.py"
   ],
   "migration_tests": [
-    "tests/test_firmwarefleet_pqc.py"
+    "tests/test_datamarketplace_pqc.py"
   ],
   "verification_procedure": [
-    "Run original and migrated test modules independently.",
-    "Verify install success, family mismatch, rollback rejection, wrong signer, invalid manifest, and key serialization."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic firmware process; tests are not secure boot certification or formal proofs."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-053/tasks/OPMB-0522",
-  "reference_path": "benchmark/repositories/REPO-053/migrated_reference/firmwarefleet_pqc",
+  "reference_path": "benchmark/repositories/REPO-053/migrated_reference/datamarketplace_pqc",
   "original_test_evidence": "reports/evidence/REPO-053/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-053/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-053/test-results.json",

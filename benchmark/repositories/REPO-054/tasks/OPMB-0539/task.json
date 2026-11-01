@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0539",
   "repository_id": "REPO-054",
-  "repository_name": "CareConsent",
-  "application_domain": "synthetic_research_consent_registry",
+  "repository_name": "EnergyMeter",
+  "application_domain": "synthetic_energy_meter_readings",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "RSA-PSS with SHA-256",
-  "cryptographic_operation": "Evaluate purpose-limited consent before access",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "Validate and append a signed reading",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/careconsent/service.py"
+    "src/energymeter/service.py"
   ],
   "function_names": [
-    "authorize"
+    "submit_reading"
   ],
   "migration_family": "Cross-component protocol/API migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Verify ML-DSA grant authenticity and enforce subject, study, scope, expiry, and revocation constraints.",
+  "migration_objective": "Enforce sequence/time rules and verify ML-DSA signature before persistence.",
   "preconditions": [
-    "CareConsent baseline tests pass.",
-    "Subjects, studies, and consent scopes are synthetic."
+    "EnergyMeter baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Authorization is allowed only for the matching subject, study, permitted scope, and unexpired active grant.",
-    "Revocation blocks subsequent access checks and retains its reason and timestamp.",
-    "Consent identity, revision, and expiry are protected by the authority signature."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with a CareConsent-specific context.",
-    "Update stored signatures and public-key encodings without fallback to RSA.",
-    "Preserve fail-closed authorization and revocation behavior."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_careconsent.py"
+    "tests/test_energymeter.py"
   ],
   "migration_tests": [
-    "tests/test_careconsent_pqc.py"
+    "tests/test_energymeter_pqc.py"
   ],
   "verification_procedure": [
-    "Run original and PQC test modules independently.",
-    "Exercise authorization positive/negative cases, expiry, revocation, invalid record, signature and serialization behavior."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic consent only; this is not a clinical consent system or legal compliance certification."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-054/tasks/OPMB-0539",
-  "reference_path": "benchmark/repositories/REPO-054/migrated_reference/careconsent_pqc",
+  "reference_path": "benchmark/repositories/REPO-054/migrated_reference/energymeter_pqc",
   "original_test_evidence": "reports/evidence/REPO-054/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-054/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-054/test-results.json",

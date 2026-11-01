@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-052\\migrated_reference\\clearingdesk_pqc",
+  "scope": "benchmark\\repositories\\REPO-052\\migrated_reference\\encryptednotebook_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

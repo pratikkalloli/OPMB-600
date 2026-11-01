@@ -1,5 +1,5 @@
 # Migration requirements
 
-- Use standardized ML-DSA-65 with a FirmwareFleet release context.
-- Update public-key serialization and all verification callers; do not fall back to RSA.
-- Preserve monotonic device rollout checks and fail closed.
+- Use the standardized PQC construction named by the task and the pinned cryptography library.
+- Migrate key and message serialization without silent classical fallback.
+- Retain application-specific authorization, version, expiry, or sequence checks.

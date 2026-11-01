@@ -1,5 +1,4 @@
 # Expected behavior
 
-- Authorization is allowed only for the matching subject, study, permitted scope, and unexpired active grant.
-- Revocation blocks subsequent access checks and retains its reason and timestamp.
-- Consent identity, revision, and expiry are protected by the authority signature.
+- Preserve domain workflow, persistence, and input validation across migration.
+- Reject tampering, invalid key material, and unauthorized application operations.

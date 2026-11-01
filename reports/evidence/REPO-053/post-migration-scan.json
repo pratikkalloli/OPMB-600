@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-053\\migrated_reference\\firmwarefleet_pqc",
+  "scope": "benchmark\\repositories\\REPO-053\\migrated_reference\\datamarketplace_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

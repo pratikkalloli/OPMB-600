@@ -1,4 +1,4 @@
 # Verification
 
-- Run baseline and PQC test modules independently.
-- Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization.
+- Run the original and PQC suites independently.
+- Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow.

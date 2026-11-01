@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-054\\migrated_reference\\careconsent_pqc",
+  "scope": "benchmark\\repositories\\REPO-054\\migrated_reference\\energymeter_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

@@ -1,5 +1,4 @@
 # Expected behavior
 
-- Only the matching active owner can restore a backup encrypted to that owner.
-- Backup generations increase monotonically and duplicate IDs fail.
-- The signed manifest authenticates owner, generation, and ciphertext digest.
+- Preserve domain workflow, persistence, and input validation across migration.
+- Reject tampering, invalid key material, and unauthorized application operations.

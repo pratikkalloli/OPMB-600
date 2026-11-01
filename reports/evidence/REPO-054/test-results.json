@@ -1,6 +1,6 @@
 {
   "repository_id": "REPO-054",
-  "application": "CareConsent",
+  "application": "EnergyMeter",
   "environment": {
     "python": "3.13.5",
     "cryptography": "50.0.2",
@@ -10,30 +10,37 @@
   "runs": [
     {
       "suite": "original",
-      "command": "python -m pytest tests/test_careconsent.py -q -p no:cacheprovider",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_energymeter.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:52+05:30",
       "exit_code": 0,
-      "passed": 3,
+      "total": 2,
+      "passed": 2,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.12s"
     },
     {
       "suite": "pqc_reference",
-      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_careconsent_pqc.py -q -p no:cacheprovider",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_energymeter_pqc.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:52+05:30",
       "exit_code": 0,
-      "passed": 3,
+      "total": 2,
+      "passed": 2,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.13s"
     }
   ],
-  "cryptographic_cases": [
-    "RSA-PSS baseline and ML-DSA-65 consent grant verification",
-    "subject, study, and scope enforcement",
-    "expiry boundary and revocation behavior",
-    "invalid consent record rejection",
-    "ML-DSA public-key serialization roundtrip"
-  ],
+  "compile": {
+    "exit_code": 0
+  },
+  "scanner": {
+    "exit_code": 0,
+    "path": "reports/evidence/REPO-054/post-migration-scan.json",
+    "scope_limit": "Lexical public-key API scan only."
+  },
   "limitations": [
-    "Synthetic consent records only; no real patient data.",
-    "Tests do not establish legal or clinical compliance."
+    "Synthetic application inputs only.",
+    "Tests and lexical scans are not formal cryptographic proofs."
   ]
 }

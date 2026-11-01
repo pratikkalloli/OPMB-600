@@ -1,5 +1,4 @@
 # Expected behavior
 
-- Only valid readings signed by an active enrolled sensor are accepted.
-- Accepted readings advance a strictly monotonic device sequence and reject replay.
-- Device identity and all reading fields are integrity bound.
+- Preserve domain workflow, persistence, and input validation across migration.
+- Reject tampering, invalid key material, and unauthorized application operations.

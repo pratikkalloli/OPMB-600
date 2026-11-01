@@ -1,4 +1,4 @@
 # Verification
 
 - Run the original and PQC suites independently.
-- Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields.
+- Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow.

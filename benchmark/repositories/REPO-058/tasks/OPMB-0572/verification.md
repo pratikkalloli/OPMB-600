@@ -1,4 +1,4 @@
 # Verification
 
-- Run baseline and PQC suites independently.
-- Test snapshot roundtrip, generation rollback, wrong owner, inactive owner, missing backup, duplicate ID, and serialization.
+- Run the original and PQC suites independently.
+- Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow.

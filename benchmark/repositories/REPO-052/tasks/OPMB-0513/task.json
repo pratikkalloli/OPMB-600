@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0513",
   "repository_id": "REPO-052",
-  "repository_name": "ClearingDesk",
-  "application_domain": "synthetic_payment_approval_and_clearing",
+  "repository_name": "EncryptedNotebook",
+  "application_domain": "encrypted_notebook_versioned_storage",
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
-  "cryptographic_operation": "Create an RSA-PSS treasury approval signature",
+  "cryptographic_operation": "Sign immutable note versions",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/clearingdesk/crypto.py"
+    "src/encryptednotebook/crypto.py"
   ],
   "function_names": [
-    "sign_approval"
+    "sign_note"
   ],
   "migration_family": "RSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Move payment approval attestation signing to ML-DSA-65 with a dedicated protocol context.",
+  "migration_objective": "Use ML-DSA-65 with a notebook version context and retain tamper detection.",
   "preconditions": [
-    "ClearingDesk original test suite passes.",
-    "Payment instructions and officer identities are synthetic."
+    "EncryptedNotebook baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Settlement requires valid signatures from two distinct registered public keys.",
-    "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
-    "Transfer payloads authenticate and reject tampering."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with an application-specific context for approval signatures.",
-    "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
-    "Update key serialization and integration callers without silent classical fallback."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_clearingdesk.py"
+    "tests/test_encryptednotebook.py"
   ],
   "migration_tests": [
-    "tests/test_clearingdesk_pqc.py"
+    "tests/test_encryptednotebook_pqc.py"
   ],
   "verification_procedure": [
-    "Run the baseline and PQC suites independently.",
-    "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0513",
-  "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+  "reference_path": "benchmark/repositories/REPO-052/migrated_reference/encryptednotebook_pqc",
   "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",

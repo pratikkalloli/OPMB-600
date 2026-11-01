@@ -1,5 +1,5 @@
 # Migration requirements
 
-- Use ML-DSA-65 with a BackupVault manifest context.
-- Use ML-KEM-768 with HKDF-SHA-256 and AES-256-GCM for recipient encryption.
-- Update serialized key formats and integrations without classical fallback.
+- Use the standardized PQC construction named by the task and the pinned cryptography library.
+- Migrate key and message serialization without silent classical fallback.
+- Retain application-specific authorization, version, expiry, or sequence checks.

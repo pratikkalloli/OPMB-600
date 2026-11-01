@@ -98,10 +98,10 @@
     },
     {
       "repository_id": "REPO-052",
-      "name": "ClearingDesk",
-      "application_domain": "synthetic_payment_approval_and_clearing",
+      "name": "EncryptedNotebook",
+      "application_domain": "encrypted_notebook_versioned_storage",
       "path": "benchmark/repositories/REPO-052",
-      "purpose": "Synthetic payment instruction lifecycle with two-person approval quorum and encrypted batch transfer between clearing desks.",
+      "purpose": "Encrypted owner notebooks with signed versions, restore, and recipient-key rotation.",
       "task_ids": [
         "OPMB-0511",
         "OPMB-0512",
@@ -122,10 +122,10 @@
     },
     {
       "repository_id": "REPO-053",
-      "name": "FirmwareFleet",
-      "application_domain": "synthetic_iot_firmware_rollout",
+      "name": "DataMarketplace",
+      "application_domain": "synthetic_data_asset_marketplace",
       "path": "benchmark/repositories/REPO-053",
-      "purpose": "Synthetic device enrollment and signed firmware release rollout with family, bootloader, and anti-rollback checks.",
+      "purpose": "Provider registration, signed versioned dataset manifests, protected exchange, verification, and access audit.",
       "task_ids": [
         "OPMB-0521",
         "OPMB-0522",
@@ -146,10 +146,10 @@
     },
     {
       "repository_id": "REPO-054",
-      "name": "CareConsent",
-      "application_domain": "synthetic_research_consent_registry",
+      "name": "EnergyMeter",
+      "application_domain": "synthetic_energy_meter_readings",
       "path": "benchmark/repositories/REPO-054",
-      "purpose": "Synthetic study consent grants with scoped authorization, expiry, and withdrawal audit records.",
+      "purpose": "Meter registration, signed sequenced energy readings, key rotation, tamper verification, and audit history.",
       "task_ids": [
         "OPMB-0531",
         "OPMB-0532",
@@ -170,10 +170,10 @@
     },
     {
       "repository_id": "REPO-055",
-      "name": "SecureMailbox",
-      "application_domain": "synthetic_secure_message_delivery",
+      "name": "DisasterRecovery",
+      "application_domain": "synthetic_disaster_recovery_snapshots",
       "path": "benchmark/repositories/REPO-055",
-      "purpose": "Sender-authenticated recipient-encrypted message delivery with mailbox status and uniqueness enforcement.",
+      "purpose": "Encrypted recovery snapshots, time-based restore planning, signed manifests, restore validation/history, and key rotation.",
       "task_ids": [
         "OPMB-0541",
         "OPMB-0542",
@@ -194,10 +194,10 @@
     },
     {
       "repository_id": "REPO-056",
-      "name": "SensorAttest",
-      "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+      "name": "CredentialRevocation",
+      "application_domain": "synthetic_credential_revocation_feeds",
       "path": "benchmark/repositories/REPO-056",
-      "purpose": "Synthetic sensor enrollment, signed telemetry acceptance, and monotonic replay protection.",
+      "purpose": "Credential revocation records, signed feeds, verifier feed updates, freshness checks, and key rotation.",
       "task_ids": [
         "OPMB-0551",
         "OPMB-0552",
@@ -218,10 +218,10 @@
     },
     {
       "repository_id": "REPO-057",
-      "name": "CapabilityGate",
-      "application_domain": "synthetic_api_capability_authorization",
+      "name": "SecureCalendar",
+      "application_domain": "synthetic_secure_calendar_invitations",
       "path": "benchmark/repositories/REPO-057",
-      "purpose": "Signed short-lived API capabilities with exact scope, expiry, unique IDs, and online revocation.",
+      "purpose": "Calendar and participant registration, signed invitations, encrypted event sharing, updates, and cancellations.",
       "task_ids": [
         "OPMB-0561",
         "OPMB-0562",
@@ -242,10 +242,10 @@
     },
     {
       "repository_id": "REPO-058",
-      "name": "BackupVault",
-      "application_domain": "synthetic_encrypted_backup_and_restore",
+      "name": "RemoteAttestation",
+      "application_domain": "simulated_workload_attestation_evidence",
       "path": "benchmark/repositories/REPO-058",
-      "purpose": "Synthetic owner-bound encrypted backups with signed manifests and monotonic generation enforcement.",
+      "purpose": "Fictional workload registration, simulated measurement evidence, policy evaluation, expiry, and verification history.",
       "task_ids": [
         "OPMB-0571",
         "OPMB-0572",
@@ -266,10 +266,10 @@
     },
     {
       "repository_id": "REPO-059",
-      "name": "LicenseDesk",
-      "application_domain": "synthetic_software_license_issuance",
+      "name": "InventoryHandoff",
+      "application_domain": "synthetic_inventory_custody_transfers",
       "path": "benchmark/repositories/REPO-059",
-      "purpose": "Installation-bound software license issuance with feature and validity checks plus offline revocation snapshots.",
+      "purpose": "Inventory and batch registration, signed item transfers, custody-chain verification, and transfer audit.",
       "task_ids": [
         "OPMB-0581",
         "OPMB-0582",
@@ -290,10 +290,10 @@
     },
     {
       "repository_id": "REPO-060",
-      "name": "ZoneSeal",
-      "application_domain": "synthetic_signed_dns_zone_registry",
+      "name": "TenderProof",
+      "application_domain": "synthetic_confidential_procurement_bids",
       "path": "benchmark/repositories/REPO-060",
-      "purpose": "Synthetic signed DNS-style zone publication and transfer with serial anti-rollback and revocation.",
+      "purpose": "Fictional tenders, bidder registration, signed deadline-bound bids, confidential evaluator packages, and audit history.",
       "task_ids": [
         "OPMB-0591",
         "OPMB-0592",

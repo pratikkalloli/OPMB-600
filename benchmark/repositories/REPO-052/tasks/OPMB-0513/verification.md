@@ -1,4 +1,4 @@
 # Verification
 
-- Run the baseline and PQC suites independently.
-- Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection.
+- Run the original and PQC suites independently.
+- Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow.

@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-055\\migrated_reference\\securemailbox_pqc",
+  "scope": "benchmark\\repositories\\REPO-055\\migrated_reference\\disasterrecovery_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

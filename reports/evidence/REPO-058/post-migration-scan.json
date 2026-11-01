@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-058\\migrated_reference\\backupvault_pqc",
+  "scope": "benchmark\\repositories\\REPO-058\\migrated_reference\\remoteattestation_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

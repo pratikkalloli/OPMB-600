@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0563",
   "repository_id": "REPO-057",
-  "repository_name": "CapabilityGate",
-  "application_domain": "synthetic_api_capability_authorization",
+  "repository_name": "SecureCalendar",
+  "application_domain": "synthetic_secure_calendar_invitations",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "RSA-PSS with SHA-256",
-  "cryptographic_operation": "Sign a capability with RSA-PSS",
+  "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+  "cryptographic_operation": "Sign event invitations and updates",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/capabilitygate/crypto.py"
+    "src/securecalendar/crypto.py"
   ],
   "function_names": [
-    "sign_capability"
+    "sign_invitation"
   ],
   "migration_family": "RSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Migrate API authorization token signing to ML-DSA-65 with a dedicated context.",
+  "migration_objective": "Use ML-DSA-65 with a SecureCalendar context.",
   "preconditions": [
-    "CapabilityGate baseline tests pass.",
-    "Principals and API resources are synthetic."
+    "SecureCalendar baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Only a valid unexpired non-revoked capability with exact principal, resource, and action scope authorizes.",
-    "Token identifiers are unique and signed fields are integrity bound.",
-    "Unknown issuers and altered signatures fail closed."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 under a CapabilityGate-specific context.",
-    "Migrate public-key storage and verifier interfaces; do not silently fall back to RSA.",
-    "Preserve online revocation and expiry behavior."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_capabilitygate.py"
+    "tests/test_securecalendar.py"
   ],
   "migration_tests": [
-    "tests/test_capabilitygate_pqc.py"
+    "tests/test_securecalendar_pqc.py"
   ],
   "verification_procedure": [
-    "Run original and reference suites independently.",
-    "Check valid authorization, expiry, revocation, scope mismatch, wrong issuer, duplicate token ID, and key encoding."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic authorization model only; no production identity federation or policy engine."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-057/tasks/OPMB-0563",
-  "reference_path": "benchmark/repositories/REPO-057/migrated_reference/capabilitygate_pqc",
+  "reference_path": "benchmark/repositories/REPO-057/migrated_reference/securecalendar_pqc",
   "original_test_evidence": "reports/evidence/REPO-057/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-057/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-057/test-results.json",

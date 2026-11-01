@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0544",
   "repository_id": "REPO-055",
-  "repository_name": "SecureMailbox",
-  "application_domain": "synthetic_secure_message_delivery",
+  "repository_name": "DisasterRecovery",
+  "application_domain": "synthetic_disaster_recovery_snapshots",
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
-  "cryptographic_operation": "Verify sender authenticity for delivered messages",
+  "cryptographic_operation": "Verify recovery manifest signatures",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/securemailbox/crypto.py"
+    "src/disasterrecovery/crypto.py"
   ],
   "function_names": [
-    "verify_message"
+    "verify_recovery_manifest"
   ],
   "migration_family": "RSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Use ML-DSA-65 verification and reject changed message metadata or wrong sender keys.",
+  "migration_objective": "Replace RSA verification and reject invalid manifest signatures.",
   "preconditions": [
-    "SecureMailbox baseline tests pass.",
-    "Mailbox users and messages are synthetic."
+    "DisasterRecovery baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Only the intended active recipient can decrypt a stored message.",
-    "Sender identity and message metadata are authenticated and tampering fails closed.",
-    "Message identifiers remain unique and inactive users cannot send or receive."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with a mailbox-specific context for sender signatures.",
-    "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for recipient encryption.",
-    "Update serialized key formats and integration callers without classical fallback."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_securemailbox.py"
+    "tests/test_disasterrecovery.py"
   ],
   "migration_tests": [
-    "tests/test_securemailbox_pqc.py"
+    "tests/test_disasterrecovery_pqc.py"
   ],
   "verification_procedure": [
-    "Run original and PQC test suites separately.",
-    "Exercise send/receive, wrong recipient, inactive account, message uniqueness, signature verification, serialization, and authenticated encryption."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic messaging only; not a production communications service."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-055/tasks/OPMB-0544",
-  "reference_path": "benchmark/repositories/REPO-055/migrated_reference/securemailbox_pqc",
+  "reference_path": "benchmark/repositories/REPO-055/migrated_reference/disasterrecovery_pqc",
   "original_test_evidence": "reports/evidence/REPO-055/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-055/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-055/test-results.json",

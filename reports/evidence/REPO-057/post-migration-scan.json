@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-057\\migrated_reference\\capabilitygate_pqc",
+  "scope": "benchmark\\repositories\\REPO-057\\migrated_reference\\securecalendar_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

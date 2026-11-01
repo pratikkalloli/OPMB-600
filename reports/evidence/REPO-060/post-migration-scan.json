@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-060\\migrated_reference\\zoneseal_pqc",
+  "scope": "benchmark\\repositories\\REPO-060\\migrated_reference\\tenderproof_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

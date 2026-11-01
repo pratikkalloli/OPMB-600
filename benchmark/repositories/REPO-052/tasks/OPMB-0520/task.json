@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0520",
   "repository_id": "REPO-052",
-  "repository_name": "ClearingDesk",
-  "application_domain": "synthetic_payment_approval_and_clearing",
+  "repository_name": "EncryptedNotebook",
+  "application_domain": "encrypted_notebook_versioned_storage",
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
-  "cryptographic_operation": "Enforce two-person payment settlement",
+  "cryptographic_operation": "Read and integrity-check a historical note version",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/clearingdesk/service.py"
+    "src/encryptednotebook/service.py"
   ],
   "function_names": [
-    "settle_instruction"
+    "read_version"
   ],
-  "migration_family": "Cross-component protocol and API migration",
-  "migration_target": "ML-DSA-65",
-  "migration_objective": "Verify two distinct approver keys under the migrated signature scheme before an atomic transition to settled.",
+  "migration_family": "Cross-component protocol/API migration",
+  "migration_target": "ML-DSA-65 and ML-KEM-768",
+  "migration_objective": "Verify ML-DSA signatures and authenticate decryption for the selected historical key version.",
   "preconditions": [
-    "ClearingDesk original test suite passes.",
-    "Payment instructions and officer identities are synthetic."
+    "EncryptedNotebook baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Settlement requires valid signatures from two distinct registered public keys.",
-    "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
-    "Transfer payloads authenticate and reject tampering."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with an application-specific context for approval signatures.",
-    "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
-    "Update key serialization and integration callers without silent classical fallback."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_clearingdesk.py"
+    "tests/test_encryptednotebook.py"
   ],
   "migration_tests": [
-    "tests/test_clearingdesk_pqc.py"
+    "tests/test_encryptednotebook_pqc.py"
   ],
   "verification_procedure": [
-    "Run the baseline and PQC suites independently.",
-    "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0520",
-  "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+  "reference_path": "benchmark/repositories/REPO-052/migrated_reference/encryptednotebook_pqc",
   "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",

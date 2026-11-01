@@ -1,4 +1,4 @@
 # Verification
 
-- Run original and PQC test modules independently.
-- Exercise authorization positive/negative cases, expiry, revocation, invalid record, signature and serialization behavior.
+- Run the original and PQC suites independently.
+- Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow.

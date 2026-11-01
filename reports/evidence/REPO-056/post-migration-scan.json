@@ -1,5 +1,5 @@
 {
-  "scope": "benchmark\\repositories\\REPO-056\\migrated_reference\\sensorattest_pqc",
+  "scope": "benchmark\\repositories\\REPO-056\\migrated_reference\\credentialrevocation_pqc",
   "classical_public_key_families_scanned": [
     "RSA",
     "ECDSA/ECDH",

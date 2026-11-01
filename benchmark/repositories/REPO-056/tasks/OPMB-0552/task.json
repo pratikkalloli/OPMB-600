@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0552",
   "repository_id": "REPO-056",
-  "repository_name": "SensorAttest",
-  "application_domain": "synthetic_iot_sensor_telemetry_attestation",
+  "repository_name": "CredentialRevocation",
+  "application_domain": "synthetic_credential_revocation_feeds",
   "repository_version": "1.0.0",
   "language": "Python",
   "classical_algorithm": "ECDSA P-256 with SHA-256",
-  "cryptographic_operation": "Provision ECDSA sensor signing keys",
+  "cryptographic_operation": "Provision ECDSA feed publisher identities",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/sensorattest/crypto.py"
+    "src/credentialrevocation/crypto.py"
   ],
   "function_names": [
-    "generate_device_signer"
+    "generate_publisher_keypair"
   ],
   "migration_family": "ECDSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Replace ECDSA device identities with ML-DSA-65 keys and update enrollment.",
+  "migration_objective": "Replace classical publisher signing identities with ML-DSA-65.",
   "preconditions": [
-    "SensorAttest baseline tests pass.",
-    "Device identities and sensor readings are synthetic."
+    "CredentialRevocation baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Only valid readings signed by an active enrolled sensor are accepted.",
-    "Accepted readings advance a strictly monotonic device sequence and reject replay.",
-    "Device identity and all reading fields are integrity bound."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with a SensorAttest-specific context.",
-    "Replace DER EC key serialization with ML-DSA public-key encodings throughout callers.",
-    "Preserve fail-closed signature validation, device deactivation, and replay checks."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_sensorattest.py"
+    "tests/test_credentialrevocation.py"
   ],
   "migration_tests": [
-    "tests/test_sensorattest_pqc.py"
+    "tests/test_credentialrevocation_pqc.py"
   ],
   "verification_procedure": [
     "Run the original and PQC suites independently.",
-    "Test valid telemetry, replay, wrong signer, deactivated device, key encoding, and invalid reading fields."
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic telemetry only; this is not a certified IoT ingestion service."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-056/tasks/OPMB-0552",
-  "reference_path": "benchmark/repositories/REPO-056/migrated_reference/sensorattest_pqc",
+  "reference_path": "benchmark/repositories/REPO-056/migrated_reference/credentialrevocation_pqc",
   "original_test_evidence": "reports/evidence/REPO-056/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-056/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-056/test-results.json",

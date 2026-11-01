@@ -1,5 +1,5 @@
 # Migration requirements
 
-- Use ML-DSA-65 under a CapabilityGate-specific context.
-- Migrate public-key storage and verifier interfaces; do not silently fall back to RSA.
-- Preserve online revocation and expiry behavior.
+- Use the standardized PQC construction named by the task and the pinned cryptography library.
+- Migrate key and message serialization without silent classical fallback.
+- Retain application-specific authorization, version, expiry, or sequence checks.

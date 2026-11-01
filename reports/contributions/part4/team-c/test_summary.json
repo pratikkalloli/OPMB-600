@@ -2,17 +2,17 @@
   "repository_count": 13,
   "task_count": 130,
   "original_tests": {
-    "passed": 6,
+    "passed": 36,
     "failed": 0,
     "skipped": 0
   },
   "reference_tests": {
-    "passed": 5,
+    "passed": 35,
     "failed": 0,
     "skipped": 0
   },
   "compile_checks": {
-    "passed": 1,
+    "passed": 13,
     "failed": 0
   },
   "environment": {
@@ -56,10 +56,10 @@
       "reference_skipped": 0
     },
     "REPO-052": {
-      "original_passed": 4,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 4,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     },
@@ -72,18 +72,18 @@
       "reference_skipped": 0
     },
     "REPO-054": {
-      "original_passed": 3,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 3,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     },
     "REPO-055": {
-      "original_passed": 3,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 3,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     },
@@ -96,10 +96,10 @@
       "reference_skipped": 0
     },
     "REPO-057": {
-      "original_passed": 3,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 3,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     },
@@ -112,27 +112,27 @@
       "reference_skipped": 0
     },
     "REPO-059": {
-      "original_passed": 3,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 3,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     },
     "REPO-060": {
-      "original_passed": 3,
+      "original_passed": 2,
       "original_failed": 0,
       "original_skipped": 0,
-      "reference_passed": 3,
+      "reference_passed": 2,
       "reference_failed": 0,
       "reference_skipped": 0
     }
   },
   "aggregate": {
-    "original_passed": 43,
+    "original_passed": 36,
     "original_failed": 0,
     "original_skipped": 0,
-    "reference_passed": 42,
+    "reference_passed": 35,
     "reference_failed": 0,
     "reference_skipped": 0
   }

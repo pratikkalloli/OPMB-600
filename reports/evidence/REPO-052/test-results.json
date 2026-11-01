@@ -1,6 +1,6 @@
 {
   "repository_id": "REPO-052",
-  "application": "ClearingDesk",
+  "application": "EncryptedNotebook",
   "environment": {
     "python": "3.13.5",
     "cryptography": "50.0.2",
@@ -10,31 +10,37 @@
   "runs": [
     {
       "suite": "original",
-      "command": "python -m pytest tests/test_clearingdesk.py -q --basetemp=../../.pytest-tmp",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_encryptednotebook.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:48+05:30",
       "exit_code": 0,
-      "passed": 4,
+      "total": 2,
+      "passed": 2,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.80s"
     },
     {
       "suite": "pqc_reference",
-      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_clearingdesk_pqc.py -q --basetemp=../../.pytest-tmp",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_encryptednotebook_pqc.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:49+05:30",
       "exit_code": 0,
-      "passed": 4,
+      "total": 2,
+      "passed": 2,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "..                                                                       [100%]\n2 passed in 0.14s"
     }
   ],
-  "cryptographic_cases": [
-    "RSA-PSS baseline and ML-DSA-65 approval signing/verification",
-    "one valid approver is insufficient to settle",
-    "two distinct public-key encodings satisfy quorum",
-    "same signing key alias under two names fails quorum",
-    "ML-KEM-768 recipient transfer roundtrip and AES-GCM authentication",
-    "approver key serialization roundtrip"
-  ],
+  "compile": {
+    "exit_code": 0
+  },
+  "scanner": {
+    "exit_code": 0,
+    "path": "reports/evidence/REPO-052/post-migration-scan.json",
+    "scope_limit": "Lexical public-key API scan only."
+  },
   "limitations": [
-    "Synthetic payment instructions only.",
-    "Tests are not formal cryptographic proofs."
+    "Synthetic application inputs only.",
+    "Tests and lexical scans are not formal cryptographic proofs."
   ]
 }

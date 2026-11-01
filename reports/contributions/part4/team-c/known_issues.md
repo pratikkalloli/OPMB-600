@@ -1,7 +1,8 @@
 # Team C known issues
 
-- EventPass offline revocation depends on verifier snapshot freshness.
-- ShipmentProof is a synthetic custody simulation, not legal chain-of-custody evidence.
-- DistributedCache, ClearingDesk, and FirmwareFleet model synthetic workflows only; they are not production distributed systems, payment processors, secure boot systems, clinical/legal consent services, production communications services, certified telemetry ingestion systems, production identity and policy services, enterprise backup/recovery guarantees, or tamper-resistant local license enforcement, or production DNSSEC service.
-- All tasks remain candidates pending integration and independent review.
-- The fetched base has 17 global applications / 170 tasks; this branch intentionally leaves shared manifests untouched.
+- All 130 tasks remain candidates pending integration and independent acceptance review.
+- EventPass offline revocation depends on the freshness of the verifier's revocation snapshot.
+- ShipmentProof, InventoryHandoff, EnergyMeter, TenderProof, and the other domain systems use synthetic records and are not production services.
+- RemoteAttestation is a software simulation only; it does not provide hardware-rooted attestation or trusted hardware support.
+- Scanner evidence is lexical and does not inspect dependencies, dynamic code, runtime behavior, or serialized artifacts.
+- Shared canonical manifests, global catalogue/statistics, schemas, validators, and root progress files are unchanged on this contribution branch.

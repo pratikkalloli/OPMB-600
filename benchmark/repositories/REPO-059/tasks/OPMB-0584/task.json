@@ -1,45 +1,44 @@
 {
   "task_id": "OPMB-0584",
   "repository_id": "REPO-059",
-  "repository_name": "LicenseDesk",
-  "application_domain": "synthetic_software_license_issuance",
+  "repository_name": "InventoryHandoff",
+  "application_domain": "synthetic_inventory_custody_transfers",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "RSA-PSS with SHA-256",
-  "cryptographic_operation": "Verify software license authority signatures",
+  "classical_algorithm": "ECDSA P-256 with SHA-256",
+  "cryptographic_operation": "Verify transfer record signatures",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [
-    "src/licensedesk/crypto.py"
+    "src/inventoryhandoff/crypto.py"
   ],
   "function_names": [
-    "verify_license"
+    "verify_transfer"
   ],
-  "migration_family": "RSA digital signature migration",
+  "migration_family": "ECDSA digital signature migration",
   "migration_target": "ML-DSA-65",
-  "migration_objective": "Use ML-DSA-65 verification and preserve rejection of tampered grants and wrong keys.",
+  "migration_objective": "Use ML-DSA to detect altered transfers and wrong actor keys.",
   "preconditions": [
-    "LicenseDesk baseline tests pass.",
-    "Products and installation identifiers are synthetic."
+    "InventoryHandoff baseline tests pass.",
+    "Application records and identities are synthetic."
   ],
   "expected_behavior": [
-    "Only authentic licenses matching product, installation, requested feature, and current time validate.",
-    "Revoked IDs in the offline snapshot invalidate licenses.",
-    "Expiry and issue boundaries are enforced consistently."
+    "Preserve domain workflow, persistence, and input validation across migration.",
+    "Reject tampering, invalid key material, and unauthorized application operations."
   ],
   "migration_requirements": [
-    "Use ML-DSA-65 with a LicenseDesk-specific signature context.",
-    "Replace RSA public-key serialization and update all consumers without fallback.",
-    "Preserve offline verification and revocation snapshot formats and semantics."
+    "Use the standardized PQC construction named by the task and the pinned cryptography library.",
+    "Migrate key and message serialization without silent classical fallback.",
+    "Retain application-specific authorization, version, expiry, or sequence checks."
   ],
   "original_tests": [
-    "tests/test_licensedesk.py"
+    "tests/test_inventoryhandoff.py"
   ],
   "migration_tests": [
-    "tests/test_licensedesk_pqc.py"
+    "tests/test_inventoryhandoff_pqc.py"
   ],
   "verification_procedure": [
-    "Run baseline and PQC test modules independently.",
-    "Verify issuance, valid and invalid installation/product/feature claims, expiry, revocation, malformed grants, and key serialization."
+    "Run the original and PQC suites independently.",
+    "Exercise success and failure paths for the operation, migration target, serialization, and relevant domain workflow."
   ],
   "difficulty": "medium",
   "original_build_status": "pending",
@@ -49,11 +48,11 @@
   "validation_status": "candidate",
   "known_limitations": [
     "Candidate pending independent review.",
-    "Synthetic software licensing only; no commercial licensing or tamper-resistant client enforcement."
+    "Synthetic workflow; test evidence is not a formal cryptographic proof."
   ],
   "created_by": "OPMB-600-team",
   "task_path": "benchmark/repositories/REPO-059/tasks/OPMB-0584",
-  "reference_path": "benchmark/repositories/REPO-059/migrated_reference/licensedesk_pqc",
+  "reference_path": "benchmark/repositories/REPO-059/migrated_reference/inventoryhandoff_pqc",
   "original_test_evidence": "reports/evidence/REPO-059/test-results.json",
   "reference_test_evidence": "reports/evidence/REPO-059/test-results.json",
   "cryptographic_verification_evidence": "reports/evidence/REPO-059/test-results.json",

@@ -1,14 +1,10 @@
 # Team C implementation report
 
-Status: IN PROGRESS.
+Status: IMPLEMENTED; ACCEPTANCE REVIEW PENDING.
 
-- Applications implemented: REPO-048 InvoiceSeal, REPO-049 EventPass, REPO-050 ShipmentProof, REPO-051 DistributedCache, REPO-052 ClearingDesk, REPO-053 FirmwareFleet, REPO-054 CareConsent, REPO-055 SecureMailbox, REPO-056 SensorAttest, REPO-057 CapabilityGate, REPO-058 BackupVault, REPO-059 LicenseDesk, REPO-060 ZoneSeal (13 of 13).
-- Candidate task IDs: OPMB-0471 through OPMB-0600 (130).
-- Original tests: 43 passed, 0 failed, 0 skipped.
-- PQC reference tests: 42 passed, 0 failed, 0 skipped.
-- Compilation passed for all thirteen applications.
-- Scanner reports no targeted classical public-key source findings in the references; lexical limitations apply.
-- Accepted tasks: 0; all remain candidates pending integration and independent review.
-- Remaining allocation: none.
-- ML-KEM wrong-context behavior is recorded as a changed derived key; AES-GCM authentication detects a mismatched key when the snapshot is opened.
-- No shared canonical manifests, catalogue, schemas, validators, root README, or progress files changed.
+- Applications implemented: REPO-048 InvoiceSeal, REPO-049 EventPass, REPO-050 ShipmentProof, REPO-051 DistributedCache, REPO-052 EncryptedNotebook, REPO-053 DataMarketplace, REPO-054 EnergyMeter, REPO-055 DisasterRecovery, REPO-056 CredentialRevocation, REPO-057 SecureCalendar, REPO-058 RemoteAttestation, REPO-059 InventoryHandoff, and REPO-060 TenderProof (13 of 13).
+- Candidate tasks: OPMB-0471 through OPMB-0600 (130).
+- Current recorded suite totals: 36 original tests passed, 0 failed, 0 skipped; 35 PQC reference tests passed, 0 failed, 0 skipped.
+- All ten task records per repository map to actual source functions, tests, reference implementations, and evidence.
+- Compilation checks and lexical classical-crypto scans are recorded per application.
+- Accepted tasks: 0; independent integration and acceptance review remain outstanding.

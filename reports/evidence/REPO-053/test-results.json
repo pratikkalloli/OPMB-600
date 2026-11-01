@@ -1,6 +1,6 @@
 {
   "repository_id": "REPO-053",
-  "application": "FirmwareFleet",
+  "application": "DataMarketplace",
   "environment": {
     "python": "3.13.5",
     "cryptography": "50.0.2",
@@ -10,31 +10,37 @@
   "runs": [
     {
       "suite": "original",
-      "command": "python -m pytest tests/test_firmwarefleet.py -q -p no:cacheprovider",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_datamarketplace.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:50+05:30",
       "exit_code": 0,
+      "total": 3,
       "passed": 3,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.39s"
     },
     {
       "suite": "pqc_reference",
-      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_firmwarefleet_pqc.py -q -p no:cacheprovider",
+      "command": "C:\\SEM 5\\OPMB\\.venv\\Scripts\\python.exe -m pytest tests/test_datamarketplace_pqc.py -q --basetemp ../../.pytest-tmp -p no:cacheprovider",
+      "started_at": "2026-11-01T16:23:51+05:30",
       "exit_code": 0,
+      "total": 3,
       "passed": 3,
       "failed": 0,
-      "skipped": 0
+      "skipped": 0,
+      "stdout": "...                                                                      [100%]\n3 passed in 0.17s"
     }
   ],
-  "cryptographic_cases": [
-    "RSA-PSS baseline and ML-DSA-65 release signatures",
-    "firmware family mismatch rejection",
-    "rollback version rejection",
-    "wrong signer rejection",
-    "release key serialization roundtrip",
-    "malformed manifest rejection"
-  ],
+  "compile": {
+    "exit_code": 0
+  },
+  "scanner": {
+    "exit_code": 0,
+    "path": "reports/evidence/REPO-053/post-migration-scan.json",
+    "scope_limit": "Lexical public-key API scan only."
+  },
   "limitations": [
-    "Synthetic firmware workflow only.",
-    "Tests do not constitute secure boot certification or formal cryptographic proofs."
+    "Synthetic application inputs only.",
+    "Tests and lexical scans are not formal cryptographic proofs."
   ]
 }
