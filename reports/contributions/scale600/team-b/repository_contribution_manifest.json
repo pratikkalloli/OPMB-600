@@ -181,6 +181,18 @@
       "REPO-388",
       "REPO-389",
       "REPO-390"
+    ],
+    "batch-16": [
+      "REPO-391",
+      "REPO-392",
+      "REPO-393",
+      "REPO-394",
+      "REPO-395",
+      "REPO-396",
+      "REPO-397",
+      "REPO-398",
+      "REPO-399",
+      "REPO-400"
     ]
   },
   "repositories": [
@@ -6168,6 +6180,406 @@
         "src/telecom_data_retention_freeze/domain.py",
         "src/telecom_data_retention_freeze/crypto.py",
         "src/telecom_data_retention_freeze/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-391",
+      "name": "IrrigationZoneSchedule",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-391",
+      "purpose": "Issues irrigation commands by field zone with water allocation and soil-moisture constraints.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3901",
+        "OPMB-3902",
+        "OPMB-3903",
+        "OPMB-3904",
+        "OPMB-3905",
+        "OPMB-3906",
+        "OPMB-3907",
+        "OPMB-3908",
+        "OPMB-3909",
+        "OPMB-3910"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/irrigation_zone_schedule/domain.py",
+        "src/irrigation_zone_schedule/crypto.py",
+        "src/irrigation_zone_schedule/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-392",
+      "name": "SoilProbeCalibration",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-392",
+      "purpose": "Tracks soil probe calibration factors and service interval for a named field location.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3911",
+        "OPMB-3912",
+        "OPMB-3913",
+        "OPMB-3914",
+        "OPMB-3915",
+        "OPMB-3916",
+        "OPMB-3917",
+        "OPMB-3918",
+        "OPMB-3919",
+        "OPMB-3920"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/soil_probe_calibration/domain.py",
+        "src/soil_probe_calibration/crypto.py",
+        "src/soil_probe_calibration/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-393",
+      "name": "CropSprayPermit",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-393",
+      "purpose": "Authorizes a synthetic crop treatment with crop stage, weather window, and applicator qualification.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3921",
+        "OPMB-3922",
+        "OPMB-3923",
+        "OPMB-3924",
+        "OPMB-3925",
+        "OPMB-3926",
+        "OPMB-3927",
+        "OPMB-3928",
+        "OPMB-3929",
+        "OPMB-3930"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/crop_spray_permit/domain.py",
+        "src/crop_spray_permit/crypto.py",
+        "src/crop_spray_permit/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-394",
+      "name": "SeedLotProvenance",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-394",
+      "purpose": "Records seed lot origin, treatment declarations, and destination planting blocks.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3931",
+        "OPMB-3932",
+        "OPMB-3933",
+        "OPMB-3934",
+        "OPMB-3935",
+        "OPMB-3936",
+        "OPMB-3937",
+        "OPMB-3938",
+        "OPMB-3939",
+        "OPMB-3940"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/seed_lot_provenance/domain.py",
+        "src/seed_lot_provenance/crypto.py",
+        "src/seed_lot_provenance/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-395",
+      "name": "GreenhouseClimatePolicy",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-395",
+      "purpose": "Versions greenhouse climate setpoints with crop-stage limits and override history.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3941",
+        "OPMB-3942",
+        "OPMB-3943",
+        "OPMB-3944",
+        "OPMB-3945",
+        "OPMB-3946",
+        "OPMB-3947",
+        "OPMB-3948",
+        "OPMB-3949",
+        "OPMB-3950"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/greenhouse_climate_policy/domain.py",
+        "src/greenhouse_climate_policy/crypto.py",
+        "src/greenhouse_climate_policy/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-396",
+      "name": "LivestockMovementCertificate",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-396",
+      "purpose": "Documents a synthetic livestock group movement with origin, destination, and health hold status.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3951",
+        "OPMB-3952",
+        "OPMB-3953",
+        "OPMB-3954",
+        "OPMB-3955",
+        "OPMB-3956",
+        "OPMB-3957",
+        "OPMB-3958",
+        "OPMB-3959",
+        "OPMB-3960"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/livestock_movement_certificate/domain.py",
+        "src/livestock_movement_certificate/crypto.py",
+        "src/livestock_movement_certificate/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-397",
+      "name": "WaterSampleCustody",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-397",
+      "purpose": "Preserves water sample custody, collection point, laboratory result, and quality disposition.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3961",
+        "OPMB-3962",
+        "OPMB-3963",
+        "OPMB-3964",
+        "OPMB-3965",
+        "OPMB-3966",
+        "OPMB-3967",
+        "OPMB-3968",
+        "OPMB-3969",
+        "OPMB-3970"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/water_sample_custody/domain.py",
+        "src/water_sample_custody/crypto.py",
+        "src/water_sample_custody/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-398",
+      "name": "WatershedReleaseNotice",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-398",
+      "purpose": "Publishes a managed watershed release with downstream threshold and stakeholder acknowledgement.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3971",
+        "OPMB-3972",
+        "OPMB-3973",
+        "OPMB-3974",
+        "OPMB-3975",
+        "OPMB-3976",
+        "OPMB-3977",
+        "OPMB-3978",
+        "OPMB-3979",
+        "OPMB-3980"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/watershed_release_notice/domain.py",
+        "src/watershed_release_notice/crypto.py",
+        "src/watershed_release_notice/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-399",
+      "name": "WeatherStationCalibration",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-399",
+      "purpose": "Records environmental station calibration checks and correction factors.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3981",
+        "OPMB-3982",
+        "OPMB-3983",
+        "OPMB-3984",
+        "OPMB-3985",
+        "OPMB-3986",
+        "OPMB-3987",
+        "OPMB-3988",
+        "OPMB-3989",
+        "OPMB-3990"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/weather_station_calibration/domain.py",
+        "src/weather_station_calibration/crypto.py",
+        "src/weather_station_calibration/service.py"
+      ],
+      "classical_cryptography": [
+        "RSA-3072 PSS/SHA-256",
+        "RSA-3072 OAEP/SHA-256",
+        "AES-256-GCM"
+      ],
+      "pqc_cryptography": [
+        "ML-DSA-65",
+        "ML-KEM-768",
+        "HKDF-SHA-256",
+        "AES-256-GCM"
+      ],
+      "task_count": 10,
+      "test_status": "passed",
+      "validation_status": "candidate"
+    },
+    {
+      "repository_id": "REPO-400",
+      "name": "BeehiveHealthObservation",
+      "application_domain": "B6 Agriculture and environmental technology",
+      "path": "benchmark/repositories/REPO-400",
+      "purpose": "Tracks synthetic hive health observations, inspection evidence, and intervention status.",
+      "status": "candidate",
+      "tasks": [
+        "OPMB-3991",
+        "OPMB-3992",
+        "OPMB-3993",
+        "OPMB-3994",
+        "OPMB-3995",
+        "OPMB-3996",
+        "OPMB-3997",
+        "OPMB-3998",
+        "OPMB-3999",
+        "OPMB-4000"
+      ],
+      "batch": 16,
+      "main_modules": [
+        "src/beehive_health_observation/domain.py",
+        "src/beehive_health_observation/crypto.py",
+        "src/beehive_health_observation/service.py"
       ],
       "classical_cryptography": [
         "RSA-3072 PSS/SHA-256",

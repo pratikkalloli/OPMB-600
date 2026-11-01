@@ -1,0 +1,63 @@
+{
+  "task_id": "OPMB-3962",
+  "repository_id": "REPO-397",
+  "repository_name": "WaterSampleCustody",
+  "application_domain": "B6 Agriculture and environmental technology",
+  "repository_version": "1.0.0",
+  "language": "Python",
+  "classical_algorithm": "RSA-3072 PSS/SHA-256",
+  "cryptographic_operation": "canonical_record for water sample custody workflow",
+  "cryptographic_library": "cryptography==50.0.2",
+  "source_files": [
+    "src/water_sample_custody/domain.py",
+    "src/water_sample_custody/crypto.py",
+    "src/water_sample_custody/service.py"
+  ],
+  "function_names": [
+    "canonical_record"
+  ],
+  "migration_family": "digital signature migration",
+  "migration_target": "ML-DSA-65",
+  "migration_objective": "Migrate WaterSampleCustody canonicalize the complete domain record for signing from RSA-3072 PSS/SHA-256 to ML-DSA-65, retaining Preserves water sample custody, collection point, laboratory result, and quality disposition; intake, validate, approve, record transition, and preserve a verifiable audit artifact. semantics.",
+  "preconditions": [
+    "WaterSampleCustody original tests pass.",
+    "All workflow data is synthetic."
+  ],
+  "expected_behavior": [
+    "Preserve site_id and measured_value semantics.",
+    "Reject malformed inputs, altered payloads and wrong keys.",
+    "Reject unsupported algorithm and envelope versions."
+  ],
+  "migration_requirements": [
+    "Bind water_sample_custody version and application context into cryptographic operations.",
+    "Use separate signing and encapsulation keys.",
+    "Do not silently fall back to classical cryptography."
+  ],
+  "original_tests": [
+    "tests/test_water_sample_custody.py"
+  ],
+  "migration_tests": [
+    "tests/test_water_sample_custody_pqc.py"
+  ],
+  "verification_procedure": [
+    "Run the original and PQC test files separately.",
+    "Check valid workflow, malformed record, tamper, wrong-key, key encoding and lifecycle transition behavior."
+  ],
+  "difficulty": "medium",
+  "original_build_status": "passed",
+  "original_test_status": "passed",
+  "reference_patch_status": "tested",
+  "cryptographic_verification_status": "passed",
+  "validation_status": "candidate",
+  "known_limitations": [
+    "Synthetic benchmark application; not production security guidance.",
+    "Candidate pending independent review."
+  ],
+  "created_by": "OPMB-600-team",
+  "task_path": "benchmark/repositories/REPO-397/tasks/OPMB-3962",
+  "reference_path": "benchmark/repositories/REPO-397/migrated_reference/water_sample_custody_pqc",
+  "original_test_evidence": "reports/evidence/REPO-397/test-results.json",
+  "reference_test_evidence": "reports/evidence/REPO-397/test-results.json",
+  "cryptographic_verification_evidence": "reports/evidence/REPO-397/crypto-verification.json",
+  "post_migration_scanner_evidence": "reports/evidence/REPO-397/post-migration-scan.json"
+}

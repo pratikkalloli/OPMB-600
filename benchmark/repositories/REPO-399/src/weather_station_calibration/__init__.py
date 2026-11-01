@@ -1,0 +1,1 @@
+"""WeatherStationCalibration original application."""

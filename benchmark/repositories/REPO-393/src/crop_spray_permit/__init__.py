@@ -1,0 +1,1 @@
+"""CropSprayPermit original application."""
