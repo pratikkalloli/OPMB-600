@@ -1,6 +1,6 @@
 {
-  "repository_count": 4,
-  "task_count": 40,
+  "repository_count": 5,
+  "task_count": 50,
   "original_tests": {
     "passed": 6,
     "failed": 0,
@@ -54,13 +54,21 @@
       "reference_passed": 3,
       "reference_failed": 0,
       "reference_skipped": 0
+    },
+    "REPO-052": {
+      "original_passed": 4,
+      "original_failed": 0,
+      "original_skipped": 0,
+      "reference_passed": 4,
+      "reference_failed": 0,
+      "reference_skipped": 0
     }
   },
   "aggregate": {
-    "original_passed": 15,
+    "original_passed": 19,
     "original_failed": 0,
     "original_skipped": 0,
-    "reference_passed": 14,
+    "reference_passed": 18,
     "reference_failed": 0,
     "reference_skipped": 0
   }

@@ -39,3 +39,13 @@ OPMB-0507,REPO-051,src/distributedcache/crypto.py,load_node_key,tests/test_distr
 OPMB-0508,REPO-051,src/distributedcache/service.py,register_node,tests/test_distributedcache.py,tests/test_distributedcache_pqc.py,reports/evidence/REPO-051/test-results.json,candidate
 OPMB-0509,REPO-051,src/distributedcache/service.py,store_snapshot,tests/test_distributedcache.py,tests/test_distributedcache_pqc.py,reports/evidence/REPO-051/test-results.json,candidate
 OPMB-0510,REPO-051,src/distributedcache/service.py,read_snapshot,tests/test_distributedcache.py,tests/test_distributedcache_pqc.py,reports/evidence/REPO-051/test-results.json,candidate
+OPMB-0511,REPO-052,src/clearingdesk/crypto.py,canonical_instruction,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0512,REPO-052,src/clearingdesk/crypto.py,generate_approver,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0513,REPO-052,src/clearingdesk/crypto.py,sign_approval,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0514,REPO-052,src/clearingdesk/crypto.py,verify_approval,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0515,REPO-052,src/clearingdesk/crypto.py,export_approver,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0516,REPO-052,src/clearingdesk/crypto.py,load_approver,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0517,REPO-052,src/clearingdesk/crypto.py,generate_desk_keypair,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0518,REPO-052,src/clearingdesk/crypto.py,seal_transfer,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0519,REPO-052,src/clearingdesk/service.py,approve_instruction,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate
+OPMB-0520,REPO-052,src/clearingdesk/service.py,settle_instruction,tests/test_clearingdesk.py,tests/test_clearingdesk_pqc.py,reports/evidence/REPO-052/test-results.json,candidate

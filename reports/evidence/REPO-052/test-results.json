@@ -1,0 +1,40 @@
+{
+  "repository_id": "REPO-052",
+  "application": "ClearingDesk",
+  "environment": {
+    "python": "3.13.5",
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "platform": "Windows"
+  },
+  "runs": [
+    {
+      "suite": "original",
+      "command": "python -m pytest tests/test_clearingdesk.py -q --basetemp=../../.pytest-tmp",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "pqc_reference",
+      "command": "PYTHONPATH=migrated_reference python -m pytest tests/test_clearingdesk_pqc.py -q --basetemp=../../.pytest-tmp",
+      "exit_code": 0,
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  ],
+  "cryptographic_cases": [
+    "RSA-PSS baseline and ML-DSA-65 approval signing/verification",
+    "one valid approver is insufficient to settle",
+    "two distinct public-key encodings satisfy quorum",
+    "same signing key alias under two names fails quorum",
+    "ML-KEM-768 recipient transfer roundtrip and AES-GCM authentication",
+    "approver key serialization roundtrip"
+  ],
+  "limitations": [
+    "Synthetic payment instructions only.",
+    "Tests are not formal cryptographic proofs."
+  ]
+}

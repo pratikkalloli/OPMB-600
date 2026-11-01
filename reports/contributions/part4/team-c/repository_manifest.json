@@ -95,6 +95,30 @@
       "original_test_status": "passed",
       "reference_test_status": "tested",
       "evidence": "reports/evidence/REPO-051/test-results.json"
+    },
+    {
+      "repository_id": "REPO-052",
+      "name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "path": "benchmark/repositories/REPO-052",
+      "purpose": "Synthetic payment instruction lifecycle with two-person approval quorum and encrypted batch transfer between clearing desks.",
+      "task_ids": [
+        "OPMB-0511",
+        "OPMB-0512",
+        "OPMB-0513",
+        "OPMB-0514",
+        "OPMB-0515",
+        "OPMB-0516",
+        "OPMB-0517",
+        "OPMB-0518",
+        "OPMB-0519",
+        "OPMB-0520"
+      ],
+      "task_count": 10,
+      "status": "candidate",
+      "original_test_status": "passed",
+      "reference_test_status": "tested",
+      "evidence": "reports/evidence/REPO-052/test-results.json"
     }
   ]
 }

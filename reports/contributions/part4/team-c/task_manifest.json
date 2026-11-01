@@ -2429,6 +2429,616 @@
       "reference_test_evidence": "reports/evidence/REPO-051/test-results.json",
       "cryptographic_verification_evidence": "reports/evidence/REPO-051/test-results.json",
       "post_migration_scanner_evidence": "reports/evidence/REPO-051/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0511",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Canonicalize a payment instruction before approval",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "canonical_instruction"
+      ],
+      "migration_family": "Cryptographic protocol and canonicalization migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Preserve deterministic field normalization and strict bounds when approval signatures move to the new public-key scheme.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0511",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0512",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Provision RSA payment approver keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "generate_approver"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace RSA key generation with context-capable ML-DSA-65 keys and update key ownership interfaces.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0512",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0513",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Create an RSA-PSS treasury approval signature",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "sign_approval"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Move payment approval attestation signing to ML-DSA-65 with a dedicated protocol context.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0513",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0514",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Verify treasury approval attestations",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "verify_approval"
+      ],
+      "migration_family": "RSA digital signature migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA-65 verification while preserving fail-closed behavior for altered approvals and wrong keys.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0514",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0515",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Export RSA approver public keys as PEM",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "export_approver"
+      ],
+      "migration_family": "API and key-format compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Replace PEM encoding with standardized raw ML-DSA public-key encoding for registry exchange.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0515",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0516",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Load serialized RSA approver keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "load_approver"
+      ],
+      "migration_family": "API and key-format compatibility migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Strictly parse ML-DSA public-key bytes and reject classical or malformed encodings.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0516",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0517",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Provision X25519 clearing-desk recipient keys",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "generate_desk_keypair"
+      ],
+      "migration_family": "ECDH key establishment migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Replace recipient X25519 keys with ML-KEM-768 encapsulation key pairs.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0517",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0518",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Seal a payment batch to a receiving desk with X25519",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/crypto.py"
+      ],
+      "function_names": [
+        "seal_transfer"
+      ],
+      "migration_family": "ECDH key establishment migration",
+      "migration_target": "ML-KEM-768",
+      "migration_objective": "Use ML-KEM-768 encapsulation and HKDF to derive the AES-GCM key for authenticated payment-batch transfer.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0518",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0519",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Persist a named officer approval for a payment",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/service.py"
+      ],
+      "function_names": [
+        "approve_instruction"
+      ],
+      "migration_family": "Cross-component protocol and API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Use ML-DSA signatures bound to the canonical instruction and approver identity while retaining duplicate-approval constraints.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0519",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
+    },
+    {
+      "task_id": "OPMB-0520",
+      "repository_id": "REPO-052",
+      "repository_name": "ClearingDesk",
+      "application_domain": "synthetic_payment_approval_and_clearing",
+      "repository_version": "1.0.0",
+      "language": "Python",
+      "classical_algorithm": "RSA-PSS with SHA-256 and X25519 ECDH",
+      "cryptographic_operation": "Enforce two-person payment settlement",
+      "cryptographic_library": "cryptography==50.0.2",
+      "source_files": [
+        "src/clearingdesk/service.py"
+      ],
+      "function_names": [
+        "settle_instruction"
+      ],
+      "migration_family": "Cross-component protocol and API migration",
+      "migration_target": "ML-DSA-65",
+      "migration_objective": "Verify two distinct approver keys under the migrated signature scheme before an atomic transition to settled.",
+      "preconditions": [
+        "ClearingDesk original test suite passes.",
+        "Payment instructions and officer identities are synthetic."
+      ],
+      "expected_behavior": [
+        "Settlement requires valid signatures from two distinct registered public keys.",
+        "Instruction amount, currency, beneficiary, approver identity, and lifecycle state remain integrity bound.",
+        "Transfer payloads authenticate and reject tampering."
+      ],
+      "migration_requirements": [
+        "Use ML-DSA-65 with an application-specific context for approval signatures.",
+        "Use ML-KEM-768, HKDF-SHA-256, and AES-256-GCM for receiving-desk transfer sealing.",
+        "Update key serialization and integration callers without silent classical fallback."
+      ],
+      "original_tests": [
+        "tests/test_clearingdesk.py"
+      ],
+      "migration_tests": [
+        "tests/test_clearingdesk_pqc.py"
+      ],
+      "verification_procedure": [
+        "Run the baseline and PQC suites independently.",
+        "Verify valid quorum, insufficient quorum, duplicate-key alias rejection, key format roundtrip, transfer roundtrip, and altered input rejection."
+      ],
+      "difficulty": "medium",
+      "original_build_status": "pending",
+      "original_test_status": "passed",
+      "reference_patch_status": "tested",
+      "cryptographic_verification_status": "passed",
+      "validation_status": "candidate",
+      "known_limitations": [
+        "Candidate pending independent review.",
+        "Synthetic payment workflow only; tests are not formal cryptographic proofs."
+      ],
+      "created_by": "OPMB-600-team",
+      "task_path": "benchmark/repositories/REPO-052/tasks/OPMB-0520",
+      "reference_path": "benchmark/repositories/REPO-052/migrated_reference/clearingdesk_pqc",
+      "original_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "reference_test_evidence": "reports/evidence/REPO-052/test-results.json",
+      "cryptographic_verification_evidence": "reports/evidence/REPO-052/test-results.json",
+      "post_migration_scanner_evidence": "reports/evidence/REPO-052/post-migration-scan.json"
     }
   ]
 }
