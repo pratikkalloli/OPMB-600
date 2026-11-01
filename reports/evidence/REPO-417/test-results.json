@@ -1,0 +1,42 @@
+{
+  "repository_id": "REPO-417",
+  "application_name": "DroughtAllocationPermit",
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "dependencies": {
+    "cryptography": "50.0.2",
+    "pytest": "8.4.2",
+    "jsonschema": "4.25.1"
+  },
+  "suites": [
+    {
+      "suite": "original",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_drought_allocation_permit.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-417/original-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-417",
+      "started_utc": "2026-11-01T12:13:43.444516+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-417/original-pytest.log",
+      "junit_xml": "reports/evidence/REPO-417/original-junit.xml"
+    },
+    {
+      "suite": "pqc",
+      "command": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\.venv\\Scripts\\python.exe -m pytest tests/test_drought_allocation_permit_pqc.py -q --junitxml=C:/somegitrepos/OPMB-600-team-b-repo241-420/reports/evidence/REPO-417/pqc-junit.xml",
+      "cwd": "C:\\somegitrepos\\OPMB-600-team-b-repo241-420\\benchmark\\repositories\\REPO-417",
+      "started_utc": "2026-11-01T12:13:45.793695+00:00",
+      "exit_code": 0,
+      "tests": 6,
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "log": "reports/evidence/REPO-417/pqc-pytest.log",
+      "junit_xml": "reports/evidence/REPO-417/pqc-junit.xml"
+    }
+  ],
+  "total_tests": 12,
+  "passed": 12,
+  "failed": 0,
+  "skipped": 0
+}

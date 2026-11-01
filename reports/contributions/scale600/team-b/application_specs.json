@@ -174,9 +174,9 @@
     "invalid": {
       "measured_error_microns": 9999
     },
-    "baseline_mode": "ec",
-    "classical_signature": "ECDSA P-256/SHA-256",
-    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "target": "ML-DSA-65 and ML-KEM-768",
     "differentiation": "Tolerance-bound calibration certificates for reusable tooling; no sensor fleet telemetry or equipment service order is represented."
   },
@@ -351,9 +351,9 @@
     "invalid": {
       "tool_serial": "bad serial!"
     },
-    "baseline_mode": "ec",
-    "classical_signature": "ECDSA P-256/SHA-256",
-    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "target": "ML-DSA-65 and ML-KEM-768",
     "differentiation": "A machine-cell change authorization binds the exact tool serial to technician and restart state, unlike a general maintenance work order."
   },
@@ -535,9 +535,9 @@
     "invalid": {
       "interlock_epoch": 0
     },
-    "baseline_mode": "ec",
-    "classical_signature": "ECDSA P-256/SHA-256",
-    "classical_key_establishment": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "baseline_mode": "rsa",
+    "classical_signature": "RSA-3072 PSS/SHA-256",
+    "classical_key_establishment": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "target": "ML-DSA-65 and ML-KEM-768",
     "differentiation": "Restart authority is bound to the machine interlock epoch and safety-case digest, not a software configuration rollout."
   },

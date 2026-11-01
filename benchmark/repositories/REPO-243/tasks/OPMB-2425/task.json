@@ -5,7 +5,7 @@
   "application_domain": "B1 Industrial automation and manufacturing",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "ECDSA P-256/SHA-256",
+  "classical_algorithm": "RSA-PSS with SHA-256",
   "cryptographic_operation": "verify_record for fixture calibration workflow",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [

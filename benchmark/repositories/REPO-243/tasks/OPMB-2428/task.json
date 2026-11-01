@@ -5,7 +5,7 @@
   "application_domain": "B1 Industrial automation and manufacturing",
   "repository_version": "1.0.0",
   "language": "Python",
-  "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+  "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
   "cryptographic_operation": "seal_artifact for fixture calibration workflow",
   "cryptographic_library": "cryptography==50.0.2",
   "source_files": [

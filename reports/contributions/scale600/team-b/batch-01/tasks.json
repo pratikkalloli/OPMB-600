@@ -1266,7 +1266,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "validate_record for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1329,7 +1329,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "canonical_record for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1392,7 +1392,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "generate_signer for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1455,7 +1455,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "sign_record for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1518,7 +1518,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "verify_record for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1581,7 +1581,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "export_public_key for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1644,7 +1644,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "load_public_key for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1707,7 +1707,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "seal_artifact for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1770,7 +1770,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "open_artifact for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -1833,7 +1833,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "transition_record for fixture calibration workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3156,7 +3156,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "validate_record for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3219,7 +3219,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "canonical_record for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3282,7 +3282,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "generate_signer for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3345,7 +3345,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "sign_record for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3408,7 +3408,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "verify_record for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3471,7 +3471,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "export_public_key for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3534,7 +3534,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "load_public_key for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3597,7 +3597,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "seal_artifact for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3660,7 +3660,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "open_artifact for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -3723,7 +3723,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "transition_record for tool change workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5046,7 +5046,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "validate_record for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5109,7 +5109,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "canonical_record for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5172,7 +5172,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "generate_signer for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5235,7 +5235,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "sign_record for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5298,7 +5298,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "verify_record for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5361,7 +5361,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "export_public_key for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5424,7 +5424,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "load_public_key for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5487,7 +5487,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "seal_artifact for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5550,7 +5550,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "X25519 ECDH with HKDF-SHA-256 and AES-256-GCM",
+    "classical_algorithm": "RSA-3072 OAEP/SHA-256 with AES-256-GCM",
     "cryptographic_operation": "open_artifact for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
@@ -5613,7 +5613,7 @@
     "application_domain": "B1 Industrial automation and manufacturing",
     "repository_version": "1.0.0",
     "language": "Python",
-    "classical_algorithm": "ECDSA P-256/SHA-256",
+    "classical_algorithm": "RSA-PSS with SHA-256",
     "cryptographic_operation": "transition_record for interlock permit workflow",
     "cryptographic_library": "cryptography==50.0.2",
     "source_files": [
